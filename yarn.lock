@@ -4325,6 +4325,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"enhanced-resolve@npm:^5.7.0":
+  version: 5.8.3
+  resolution: "enhanced-resolve@npm:5.8.3"
+  dependencies:
+    graceful-fs: ^4.2.4
+    tapable: ^2.2.0
+  checksum: d79fbe531106448b768bb0673fb623ec0202d7ee70373ab7d4f4745d5dfe0806f38c9db7e7da8c941288fe475ab3d538db3791fce522056eeea40ca398c9e287
+  languageName: node
+  linkType: hard
+
 "enquirer@npm:^2.3.5, enquirer@npm:^2.3.6":
   version: 2.3.6
   resolution: "enquirer@npm:2.3.6"
@@ -5618,7 +5628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
+"graceful-fs@npm:^4.1.2, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6":
   version: 4.2.8
   resolution: "graceful-fs@npm:4.2.8"
   checksum: 5d224c8969ad0581d551dfabdb06882706b31af2561bd5e2034b4097e67cc27d05232849b8643866585fd0a41c7af152950f8776f4dd5579e9853733f31461c6
@@ -6557,9 +6567,11 @@ __metadata:
     mdx-bundler: ^7.0.0
     next: 12.0.7
     next-auth: beta
+    next-compose-plugins: ^2.2.1
     next-remote-watch: ^1.0.0
     next-themes: ^0.0.15
     next-translate: ^1.2.0
+    next-transpile-modules: ^9.0.0
     postcss: ^8.3.11
     preact: ^10.6.4
     prettier: 2.4.1
@@ -8183,6 +8195,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-compose-plugins@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "next-compose-plugins@npm:2.2.1"
+  checksum: 771762fda2b12b81daf10431cbb494816cff96be02b44009692c6c0eefbacd62cbf51ddb93af8d3380ec00254c6a95d64d10f744d4b9ddadefc21efee7dc69fc
+  languageName: node
+  linkType: hard
+
 "next-remote-watch@npm:^1.0.0":
   version: 1.0.0
   resolution: "next-remote-watch@npm:1.0.0"
@@ -8216,6 +8235,16 @@ __metadata:
     next: ">= 10.0.0"
     react: ">= 16.8.0"
   checksum: ca2a932eb5587b8ae8ebb3e0befbb3d23d3a886c479d353829f0f6876d1f7c40a46f407726a4cd1f65b4de9367fa7a6715aa7ae59b3d5653fad9ecc421132853
+  languageName: node
+  linkType: hard
+
+"next-transpile-modules@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "next-transpile-modules@npm:9.0.0"
+  dependencies:
+    enhanced-resolve: ^5.7.0
+    escalade: ^3.1.1
+  checksum: 9a5d86d80cedc2404b2b1d5bd4994f2f7bf60e5e20f24e8cc5cfec34da1418b4a439916f37a95ca336bcf6d81094c3647354ac6a0c6737b3df59e62b6380507d
   languageName: node
   linkType: hard
 
@@ -9803,6 +9832,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"reset@workspace:packages/reset":
+  version: 0.0.0-use.local
+  resolution: "reset@workspace:packages/reset"
+  languageName: unknown
+  linkType: soft
+
 "resolve-alpn@npm:^1.0.0":
   version: 1.2.1
   resolution: "resolve-alpn@npm:1.2.1"
@@ -10031,6 +10066,12 @@ __metadata:
   checksum: 3cc4131705493b2955729b075dcf562359bba66183debb0332752dc9cad35616f6da7a23e42b6cab45cd2e4bb5cda113e9e84c8f05aee77adb6b0289a0229101
   languageName: node
   linkType: hard
+
+"selectors@workspace:packages/selectors":
+  version: 0.0.0-use.local
+  resolution: "selectors@workspace:packages/selectors"
+  languageName: unknown
+  linkType: soft
 
 "semver-compare@npm:^1.0.0":
   version: 1.0.0
@@ -10776,6 +10817,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwind@workspace:packages/tailwind":
+  version: 0.0.0-use.local
+  resolution: "tailwind@workspace:packages/tailwind"
+  languageName: unknown
+  linkType: soft
+
 "tailwindcss@npm:^2.2.19":
   version: 2.2.19
   resolution: "tailwindcss@npm:2.2.19"
@@ -10819,6 +10866,13 @@ __metadata:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
   checksum: 660e8086fa2758f273b7ec87067c041185454374c5c916c236f9691b1c60c48166b2556b6327b3d912f018f48712105fa979b7f717b2db3111ea0850059a2b62
+  languageName: node
+  linkType: hard
+
+"tapable@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "tapable@npm:2.2.1"
+  checksum: 3b7a1b4d86fa940aad46d9e73d1e8739335efd4c48322cb37d073eb6f80f5281889bf0320c6d8ffcfa1a0dd5bfdbd0f9d037e252ef972aca595330538aac4d51
   languageName: node
   linkType: hard
 
@@ -11354,6 +11408,12 @@ __metadata:
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
   languageName: node
   linkType: hard
+
+"utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "utils@workspace:packages/utils"
+  languageName: unknown
+  linkType: soft
 
 "uuid@npm:^8.3.2":
   version: 8.3.2
