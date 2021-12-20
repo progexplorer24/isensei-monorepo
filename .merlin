@@ -19,4 +19,10 @@ S /home/pat/isensei-monorepo/node_modules/rescript-nodejs/lib/ocaml
 B /home/pat/isensei-monorepo/node_modules/rescript-nodejs/lib/ocaml
 S /home/pat/isensei-monorepo/node_modules/bs-webapi/lib/ocaml
 B /home/pat/isensei-monorepo/node_modules/bs-webapi/lib/ocaml
+S packages/theme
+B lib/bs/packages/theme
+S packages/selectors
+B lib/bs/packages/selectors
+S packages/reset
+B lib/bs/packages/reset
 ####BSB GENERATED: NO EDIT}

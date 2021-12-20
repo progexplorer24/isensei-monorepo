@@ -9777,14 +9777,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rescript-config@workspace:packages/rescript-config":
-  version: 0.0.0-use.local
-  resolution: "rescript-config@workspace:packages/rescript-config"
-  dependencies:
-    rescript: ^9.1.4
-  languageName: unknown
-  linkType: soft
-
 "rescript-logger@npm:^2.0.2":
   version: 2.0.2
   resolution: "rescript-logger@npm:2.0.2"
@@ -10875,6 +10867,12 @@ __metadata:
   checksum: b6937a38c80c7f84d9c11dd75e49d5c44f71d95e810a3250bd1f1797fc7117c57698204adf676b71497acc205d769d65c16ae8fa10afad832ae1322630aef10a
   languageName: node
   linkType: hard
+
+"theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "theme@workspace:packages/theme"
+  languageName: unknown
+  linkType: soft
 
 "through@npm:^2.3.6, through@npm:^2.3.8":
   version: 2.3.8
