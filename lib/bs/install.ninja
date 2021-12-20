@@ -1,0 +1,9 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o IsenseiMonorepo.cmi : cp ../bs/IsenseiMonorepo.cmi
+o IsenseiMonorepo.cmj : cp ../bs/IsenseiMonorepo.cmj
+o IsenseiMonorepo.cmt : cp ../bs/IsenseiMonorepo.cmt
+build install.stamp : touch IsenseiMonorepo.cmi IsenseiMonorepo.cmj

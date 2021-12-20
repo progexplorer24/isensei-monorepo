@@ -1,0 +1,34 @@
+{
+  "name": "isensei-monorepo",
+  "namespace": true,
+  "refmt": 3,
+  "suffix": ".bs.js",
+  "bsc-flags": ["-bs-super-errors"],
+  "ppx-flags": [],
+  "sources": [
+    {
+      "dir": "apps", 
+      "subdirs": true
+    },
+    {
+      "dir": "packages", 
+      "subdirs": true
+    }
+  ],
+  "package-specs": [
+    {
+      "module": "es6",
+      "in-source": true
+    }
+  ],
+  "pinned-dependencies": [],
+  "bs-dependencies": [ "@rescript/react",
+    "@ryyppy/rescript-promise",
+    "bs-css",
+    "bs-css-emotion", "rescript-logger", "rescript-nodejs", "bs-webapi"
+  ],
+  "warnings": {
+    "number": "+a",
+    "error": "+101+8"
+  }
+}

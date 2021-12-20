@@ -6,6 +6,9 @@
     "dev": "turbo run dev --parallel --no-cache",
     "test": "turbo run test",
     "build": "turbo run build",
+    "res:build": "rescript build -with-deps",
+    "res:clean": "rescript clean",
+    "res:start": "rescript build -w -with-deps",
     "prepublish": "lerna run prepublish",
     "publish-canary": "lerna version prerelease --preid canary --force-publish",
     "publish-stable": "lerna version --force-publish && release && node ./scripts/release-notes.js"
@@ -19,13 +22,11 @@
         ],
         "outputs": [
           ".next/**"
-        ],
-        "options": {
-          "external": [
-             "react/jsx-runtime", 
-             "react/jsx-dev-runtime" 
-          ]
-        }
+        ]
+      },
+      "rescript": {
+        "dependsOn": "^build",
+        "outputs": []
       },
       "test": {
         "dependsOn": [
@@ -46,6 +47,15 @@
     "apps/*"
   ],
   "devDependencies": {
+    "@rescript/react": "^0.10.3",
+    "rescript": "^9.1.4",
     "turbo": "^1.0.19"
+  },
+  "dependencies": {
+    "@ryyppy/rescript-promise": "^2.1.0",
+    "bs-css-emotion": "^4.0.2",
+    "bs-webapi": "^0.19.1",
+    "rescript-logger": "^2.0.2",
+    "rescript-nodejs": "^14.2.0"
   }
 }

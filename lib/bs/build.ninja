@@ -1,0 +1,12 @@
+rescript = 1
+g_finger := /home/pat/isensei-monorepo/node_modules/@rescript/react/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/@ryyppy/rescript-promise/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/bs-css/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/bs-css-emotion/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/rescript-logger/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/rescript-nodejs/lib/ocaml/install.stamp
+g_finger := /home/pat/isensei-monorepo/node_modules/bs-webapi/lib/ocaml/install.stamp
+rule build_package
+  command = /home/pat/isensei-monorepo/node_modules/rescript/linux/bsc.exe -w -49 -color always -no-alias-deps  $i
+  restat = 1
+o IsenseiMonorepo.cmi : build_package IsenseiMonorepo.mlmap

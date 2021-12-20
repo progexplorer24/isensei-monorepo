@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "main": "index.js",
-  "files": [],
+  "files": [
+    "bsconfig.json"
+  ],
   "devDependencies": {
     "rescript": "^9.1.4"
   }
