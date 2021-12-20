@@ -24,10 +24,6 @@
           ".next/**"
         ]
       },
-      "rescript": {
-        "dependsOn": "^build",
-        "outputs": []
-      },
       "test": {
         "dependsOn": [
           "^build"
