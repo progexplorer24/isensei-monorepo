@@ -1,0 +1,10 @@
+{
+  "name": "rescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [],
+  "devDependencies": {
+    "rescript": "^9.1.4"
+  }
+}
