@@ -19,7 +19,13 @@
         ],
         "outputs": [
           ".next/**"
-        ]
+        ],
+        "options": {
+          "external": [
+             "react/jsx-runtime", 
+             "react/jsx-dev-runtime" 
+          ]
+        }
       },
       "test": {
         "dependsOn": [
