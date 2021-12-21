@@ -6591,6 +6591,7 @@ __metadata:
     socket.io: ^4.3.2
     socket.io-client: ^4.3.2
     tailwindcss: ^2.2.19
+    ui: "*"
     unist-util-visit: ^4.1.0
   languageName: unknown
   linkType: soft
@@ -11130,6 +11131,12 @@ __metadata:
   checksum: 2c8e47675d55f8b4e404bcf529abdf5036c537a04c2b20177bcf78c9e3c1da69da3942b1346e6edb09e823228c0ee656ef0e033765ec39a70d496ef601a0c657
   languageName: node
   linkType: hard
+
+"ui@*, ui@workspace:packages/ui":
+  version: 0.0.0-use.local
+  resolution: "ui@workspace:packages/ui"
+  languageName: unknown
+  linkType: soft
 
 "unbox-primitive@npm:^1.0.1":
   version: 1.0.1

@@ -1,8 +1,8 @@
 {
   "name": "isensei-monorepo",
   "namespace": true,
-  "refmt": 3,
   "suffix": ".bs.js",
+  "reason": {"react-jsx": 3},
   "bsc-flags": ["-bs-super-errors"],
   "ppx-flags": [],
   "sources": [

@@ -57,7 +57,7 @@ const config = {
 }
 const withNextTranslate = require('next-translate')(withBundleAnalyzer(config))
 
-const transpileModules = ['rescript'].concat(bsconfig['bs-dependencies'])
+const transpileModules = ['rescript', 'ui'].concat(bsconfig['bs-dependencies'])
 
 const withTM = require('next-transpile-modules')(transpileModules)
 
