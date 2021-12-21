@@ -9821,6 +9821,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rescript-tailwind@workspace:packages/tailwind":
+  version: 0.0.0-use.local
+  resolution: "rescript-tailwind@workspace:packages/tailwind"
+  dependencies:
+    selectors: "*"
+    theme: "*"
+  languageName: unknown
+  linkType: soft
+
 "rescript@npm:^9.1.4":
   version: 9.1.4
   resolution: "rescript@npm:9.1.4"
@@ -10068,7 +10077,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"selectors@workspace:packages/selectors":
+"selectors@*, selectors@workspace:packages/selectors":
   version: 0.0.0-use.local
   resolution: "selectors@workspace:packages/selectors"
   languageName: unknown
@@ -10818,12 +10827,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind@workspace:packages/tailwind":
-  version: 0.0.0-use.local
-  resolution: "tailwind@workspace:packages/tailwind"
-  languageName: unknown
-  linkType: soft
-
 "tailwindcss@npm:^2.2.19":
   version: 2.2.19
   resolution: "tailwindcss@npm:2.2.19"
@@ -10923,7 +10926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"theme@workspace:packages/theme":
+"theme@*, theme@workspace:packages/theme":
   version: 0.0.0-use.local
   resolution: "theme@workspace:packages/theme"
   languageName: unknown

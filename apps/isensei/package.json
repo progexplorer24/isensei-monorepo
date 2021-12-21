@@ -53,8 +53,8 @@
     "sharp": "^0.29.2",
     "smoothscroll-polyfill": "^0.4.4",
     "tailwindcss": "^2.2.19",
-    "unist-util-visit": "^4.1.0",
-    "ui": "*"
+    "ui": "*",
+    "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.3",

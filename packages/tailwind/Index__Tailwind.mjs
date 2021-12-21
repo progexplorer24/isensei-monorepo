@@ -5,7 +5,6 @@ import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_format from "rescript/lib/es6/caml_format.js";
 import * as Css_Js_Core from "bs-css/src/Css_Js_Core.mjs";
 import * as Css_AtomicTypes from "bs-css/src/Css_AtomicTypes.mjs";
-import * as Selectors$IsenseiMonorepo from "../selectors/Selectors.mjs";
 import * as Theme__Row$IsenseiMonorepo from "../theme/Theme__Row.mjs";
 import * as Theme__Order$IsenseiMonorepo from "../theme/Theme__Order.mjs";
 import * as Theme__Colors$IsenseiMonorepo from "../theme/Theme__Colors.mjs";
@@ -21,6 +20,7 @@ import * as Theme__FontSize$IsenseiMonorepo from "../theme/Theme__FontSize.mjs";
 import * as Theme__GridCols$IsenseiMonorepo from "../theme/Theme__GridCols.mjs";
 import * as Theme__GridRows$IsenseiMonorepo from "../theme/Theme__GridRows.mjs";
 import * as Theme__MaxWidth$IsenseiMonorepo from "../theme/Theme__MaxWidth.mjs";
+import * as Index__Selectors$IsenseiMonorepo from "../selectors/Index__Selectors.mjs";
 import * as Theme__BoxShadow$IsenseiMonorepo from "../theme/Theme__BoxShadow.mjs";
 import * as Theme__KeyFrames$IsenseiMonorepo from "../theme/Theme__KeyFrames.mjs";
 import * as Theme__FontWeight$IsenseiMonorepo from "../theme/Theme__FontWeight.mjs";
@@ -1900,7 +1900,7 @@ function selector(string, rules) {
 }
 
 function dividers(rules) {
-  return [CssJs.selector(Selectors$IsenseiMonorepo.ignoreFirstChild, Belt_Array.concatMany(rules))];
+  return [CssJs.selector(Index__Selectors$IsenseiMonorepo.ignoreFirstChild, Belt_Array.concatMany(rules))];
 }
 
 function dark(rules) {

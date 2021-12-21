@@ -9,64 +9,64 @@ let transitionNone = [transitionProperty("none")]
 let transitionAll = [
   transition(
     "all",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 let transition = [
   transition(
     "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 let transitionColors = [
   CssJs.transition(
     "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 let transitionOpacity = [
   CssJs.transition(
     "opacity",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 let transitionShadow = [
   CssJs.transition(
     "box-shadow",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 
 let transitionTransform = [
   CssJs.transition(
     "transform",
-    ~duration=Theme.Duration.toValue(#150),
-    ~timingFunction=Theme.TimingFunction.toValue(#easeInOut),
+    ~duration=Index__Theme.Duration.toValue(#150),
+    ~timingFunction=Index__Theme.TimingFunction.toValue(#easeInOut),
   ),
 ]
 
 // NOTE: Transition Duration - Utilities for controlling the duration of CSS transitions.
-let duration = miliseconds => [transitionDuration(Theme.Duration.toValue(miliseconds))]
+let duration = miliseconds => [transitionDuration(Index__Theme.Duration.toValue(miliseconds))]
 
 // NOTE: Transition Timing Function - Utilities for controlling the easing of CSS transitions.
-let easeLinear = [transitionTimingFunction(Theme.TimingFunction.toValue(#linear))]
-let easeIn = [transitionTimingFunction(Theme.TimingFunction.toValue(#easeIn))]
-let easeOut = [transitionTimingFunction(Theme.TimingFunction.toValue(#easeOut))]
-let easeInOut = [transitionTimingFunction(Theme.TimingFunction.toValue(#easeInOut))]
+let easeLinear = [transitionTimingFunction(Index__Theme.TimingFunction.toValue(#linear))]
+let easeIn = [transitionTimingFunction(Index__Theme.TimingFunction.toValue(#easeIn))]
+let easeOut = [transitionTimingFunction(Index__Theme.TimingFunction.toValue(#easeOut))]
+let easeInOut = [transitionTimingFunction(Index__Theme.TimingFunction.toValue(#easeInOut))]
 
 // NOTE: Transition Delay - Utilities for controlling the delay of CSS transitions.
-let delay = miliseconds => [transitionDelay(Theme.Duration.toValue(miliseconds))]
+let delay = miliseconds => [transitionDelay(Index__Theme.Duration.toValue(miliseconds))]
 
 // NOTE: Animation - Utilities for animating elements with CSS animations.
 let animateNone = [animationValue(#value("none"))]
 let animateSpin = [
   animation(
-    Theme.KeyFrames.spin,
+    Index__Theme.KeyFrames.spin,
     ~duration=1000,
     ~delay=0,
     ~timingFunction=#linear,
@@ -76,7 +76,7 @@ let animateSpin = [
 
 let animatePing = [
   animation(
-    Theme.KeyFrames.ping,
+    Index__Theme.KeyFrames.ping,
     ~duration=1000,
     ~timingFunction=#cubicBezier(0., 0., 0.2, 1.),
     ~delay=0,
@@ -86,7 +86,7 @@ let animatePing = [
 
 let animatePulse = [
   animation(
-    Theme.KeyFrames.pulse,
+    Index__Theme.KeyFrames.pulse,
     ~duration=2000,
     ~timingFunction=#cubicBezier(0.4, 0., 0.6, 1.),
     ~delay=0,
@@ -95,7 +95,7 @@ let animatePulse = [
 ]
 
 let animateBounce = [
-  animation(Theme.KeyFrames.bounce, ~duration=1000, ~delay=0, ~iterationCount=#infinite),
+  animation(Index__Theme.KeyFrames.bounce, ~duration=1000, ~delay=0, ~iterationCount=#infinite),
 ]
 
 // NOTE: Box Sizing - Utilities for controlling how the browser should calculate an element's total size.
@@ -189,141 +189,149 @@ let sticky = [position(#sticky)]
 
 // INFO: LAYOUT
 // NOTE: Top / Right / Bottom / Left - Utilities for controlling the placement of positioned elements.
-type spacing = Theme.Spacing.t
-type proportions = Theme.Proportions.t
+type spacing = Index__Theme.Spacing.t
+type proportions = Index__Theme.Proportions.t
 type inset = [spacing | proportions | #auto]
 
 let inset = value =>
   switch value {
   | #auto => [top(#auto), right(#auto), bottom(#auto), left(#auto)]
   | #...spacing as v => [
-      top(Theme.Spacing.toValue(v)),
-      right(Theme.Spacing.toValue(v)),
-      bottom(Theme.Spacing.toValue(v)),
-      left(Theme.Spacing.toValue(v)),
+      top(Index__Theme.Spacing.toValue(v)),
+      right(Index__Theme.Spacing.toValue(v)),
+      bottom(Index__Theme.Spacing.toValue(v)),
+      left(Index__Theme.Spacing.toValue(v)),
     ]
   | #...proportions as prop => [
-      top(Theme.Proportions.toValue(prop)),
-      right(Theme.Proportions.toValue(prop)),
-      bottom(Theme.Proportions.toValue(prop)),
-      left(Theme.Proportions.toValue(prop)),
+      top(Index__Theme.Proportions.toValue(prop)),
+      right(Index__Theme.Proportions.toValue(prop)),
+      bottom(Index__Theme.Proportions.toValue(prop)),
+      left(Index__Theme.Proportions.toValue(prop)),
     ]
   }
 
 let insetX = value =>
   switch value {
   | #auto => [right(#auto), left(#auto)]
-  | #...spacing as v => [right(Theme.Spacing.toValue(v)), left(Theme.Spacing.toValue(v))]
+  | #...spacing as v => [
+      right(Index__Theme.Spacing.toValue(v)),
+      left(Index__Theme.Spacing.toValue(v)),
+    ]
   | #...proportions as prop => [
-      right(Theme.Proportions.toValue(prop)),
-      left(Theme.Proportions.toValue(prop)),
+      right(Index__Theme.Proportions.toValue(prop)),
+      left(Index__Theme.Proportions.toValue(prop)),
     ]
   }
 
 let insetY = value =>
   switch value {
   | #auto => [top(#auto), bottom(#auto)]
-  | #...spacing as v => [top(Theme.Spacing.toValue(v)), bottom(Theme.Spacing.toValue(v))]
+  | #...spacing as v => [
+      top(Index__Theme.Spacing.toValue(v)),
+      bottom(Index__Theme.Spacing.toValue(v)),
+    ]
   | #...proportions as prop => [
-      top(Theme.Proportions.toValue(prop)),
-      bottom(Theme.Proportions.toValue(prop)),
+      top(Index__Theme.Proportions.toValue(prop)),
+      bottom(Index__Theme.Proportions.toValue(prop)),
     ]
   }
 
 let top = value =>
   switch value {
   | #auto => [top(#auto)]
-  | #...spacing as v => [top(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [top(Theme.Proportions.toValue(prop))]
+  | #...spacing as v => [top(Index__Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [top(Index__Theme.Proportions.toValue(prop))]
   }
 
 let bottom = value =>
   switch value {
   | #auto => [bottom(#auto)]
-  | #...spacing as v => [bottom(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [bottom(Theme.Proportions.toValue(prop))]
+  | #...spacing as v => [bottom(Index__Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [bottom(Index__Theme.Proportions.toValue(prop))]
   }
 
 let left = value =>
   switch value {
   | #auto => [left(#auto)]
-  | #...spacing as v => [left(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [left(Theme.Proportions.toValue(prop))]
+  | #...spacing as v => [left(Index__Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [left(Index__Theme.Proportions.toValue(prop))]
   }
 
 let right = value =>
   switch value {
   | #auto => [right(#auto)]
-  | #...spacing as v => [right(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [right(Theme.Proportions.toValue(prop))]
+  | #...spacing as v => [right(Index__Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [right(Index__Theme.Proportions.toValue(prop))]
   }
 
-type negativeSpace = Theme.SpacingNegative.t
-type negativeProportions = Theme.ProportionsNegative.t
+type negativeSpace = Index__Theme.SpacingNegative.t
+type negativeProportions = Index__Theme.ProportionsNegative.t
 type negativeSpacing = [negativeSpace | negativeProportions]
 
 let nInset = (value: negativeSpacing) =>
   switch value {
   | #...negativeSpace as sp => [
-      CssJs.top(Theme.SpacingNegative.toValue(sp)),
-      CssJs.right(Theme.SpacingNegative.toValue(sp)),
-      CssJs.bottom(Theme.SpacingNegative.toValue(sp)),
-      CssJs.left(Theme.SpacingNegative.toValue(sp)),
+      CssJs.top(Index__Theme.SpacingNegative.toValue(sp)),
+      CssJs.right(Index__Theme.SpacingNegative.toValue(sp)),
+      CssJs.bottom(Index__Theme.SpacingNegative.toValue(sp)),
+      CssJs.left(Index__Theme.SpacingNegative.toValue(sp)),
     ]
   | #...negativeProportions as prop => [
-      CssJs.top(Theme.ProportionsNegative.toValue(prop)),
-      CssJs.right(Theme.ProportionsNegative.toValue(prop)),
-      CssJs.bottom(Theme.ProportionsNegative.toValue(prop)),
-      CssJs.left(Theme.ProportionsNegative.toValue(prop)),
+      CssJs.top(Index__Theme.ProportionsNegative.toValue(prop)),
+      CssJs.right(Index__Theme.ProportionsNegative.toValue(prop)),
+      CssJs.bottom(Index__Theme.ProportionsNegative.toValue(prop)),
+      CssJs.left(Index__Theme.ProportionsNegative.toValue(prop)),
     ]
   }
 
 let nInsetX = (value: negativeSpacing) =>
   switch value {
   | #...negativeSpace as sp => [
-      CssJs.right(Theme.SpacingNegative.toValue(sp)),
-      CssJs.left(Theme.SpacingNegative.toValue(sp)),
+      CssJs.right(Index__Theme.SpacingNegative.toValue(sp)),
+      CssJs.left(Index__Theme.SpacingNegative.toValue(sp)),
     ]
   | #...negativeProportions as prop => [
-      CssJs.right(Theme.ProportionsNegative.toValue(prop)),
-      CssJs.left(Theme.ProportionsNegative.toValue(prop)),
+      CssJs.right(Index__Theme.ProportionsNegative.toValue(prop)),
+      CssJs.left(Index__Theme.ProportionsNegative.toValue(prop)),
     ]
   }
 
 let nInsetY = (value: negativeSpacing) =>
   switch value {
   | #...negativeSpace as sp => [
-      CssJs.top(Theme.SpacingNegative.toValue(sp)),
-      CssJs.bottom(Theme.SpacingNegative.toValue(sp)),
+      CssJs.top(Index__Theme.SpacingNegative.toValue(sp)),
+      CssJs.bottom(Index__Theme.SpacingNegative.toValue(sp)),
     ]
   | #...negativeProportions as prop => [
-      CssJs.top(Theme.ProportionsNegative.toValue(prop)),
-      CssJs.bottom(Theme.ProportionsNegative.toValue(prop)),
+      CssJs.top(Index__Theme.ProportionsNegative.toValue(prop)),
+      CssJs.bottom(Index__Theme.ProportionsNegative.toValue(prop)),
     ]
   }
 
 let nTop = (value: negativeSpacing) =>
   switch value {
-  | #...negativeSpace as sp => [CssJs.top(Theme.SpacingNegative.toValue(sp))]
-  | #...negativeProportions as prop => [CssJs.top(Theme.ProportionsNegative.toValue(prop))]
+  | #...negativeSpace as sp => [CssJs.top(Index__Theme.SpacingNegative.toValue(sp))]
+  | #...negativeProportions as prop => [CssJs.top(Index__Theme.ProportionsNegative.toValue(prop))]
   }
 
 let nBottom = (value: negativeSpacing) =>
   switch value {
-  | #...negativeSpace as sp => [CssJs.bottom(Theme.SpacingNegative.toValue(sp))]
-  | #...negativeProportions as prop => [CssJs.bottom(Theme.ProportionsNegative.toValue(prop))]
+  | #...negativeSpace as sp => [CssJs.bottom(Index__Theme.SpacingNegative.toValue(sp))]
+  | #...negativeProportions as prop => [
+      CssJs.bottom(Index__Theme.ProportionsNegative.toValue(prop)),
+    ]
   }
 
 let nLeft = (value: negativeSpacing) =>
   switch value {
-  | #...negativeSpace as sp => [CssJs.left(Theme.SpacingNegative.toValue(sp))]
-  | #...negativeProportions as prop => [CssJs.left(Theme.ProportionsNegative.toValue(prop))]
+  | #...negativeSpace as sp => [CssJs.left(Index__Theme.SpacingNegative.toValue(sp))]
+  | #...negativeProportions as prop => [CssJs.left(Index__Theme.ProportionsNegative.toValue(prop))]
   }
 
 let nRight = (value: negativeSpacing) =>
   switch value {
-  | #...negativeSpace as sp => [CssJs.right(Theme.SpacingNegative.toValue(sp))]
-  | #...negativeProportions as prop => [CssJs.right(Theme.ProportionsNegative.toValue(prop))]
+  | #...negativeSpace as sp => [CssJs.right(Index__Theme.SpacingNegative.toValue(sp))]
+  | #...negativeProportions as prop => [CssJs.right(Index__Theme.ProportionsNegative.toValue(prop))]
   }
 
 // NOTE: Visibility - Utilities for controlling the visibility of an element.
@@ -331,12 +339,12 @@ let visible = [visibility(#visible)]
 let invisible = [visibility(#hidden)]
 
 // NOTE: Z-Index - Utilities for controlling the stack order of an element.
-type zIndex = Theme.ZIndex.t
+type zIndex = Index__Theme.ZIndex.t
 type index = [zIndex | #auto]
 let z = (index: index) =>
   switch index {
   | #auto => [CssJs.unsafe("zIndex", "auto")]
-  | #...zIndex as z => [zIndex(Theme.ZIndex.toValue(z))]
+  | #...zIndex as z => [zIndex(Index__Theme.ZIndex.toValue(z))]
   }
 
 // INFO: FLEXBOX
@@ -366,69 +374,69 @@ let flexShrink0 = [CssJs.flexGrow(1.)]
 let flexShrink = [CssJs.flexGrow(0.)]
 
 // NOTE: Order - Utilities for controlling the order of flex items.
-type order = Theme.Order.t
-let order = order => [CssJs.order(Theme.Order.toValue(order))]
+type order = Index__Theme.Order.t
+let order = order => [CssJs.order(Index__Theme.Order.toValue(order))]
 
 // NOTE: Grid Template Columns - Utilities for specifying the columns in a grid layout.
-type gCols = Theme.GridCols.t
+type gCols = Index__Theme.GridCols.t
 type gridColumnType = [#none | gCols]
 
 let gridCols = columns =>
   switch columns {
   | #none => [CssJs.unsafe("gridTemplateColumns", "none")]
-  | #...gCols as cols => [gridTemplateColumns(Theme.GridCols.toValue(cols))]
+  | #...gCols as cols => [gridTemplateColumns(Index__Theme.GridCols.toValue(cols))]
   }
 
 // NOTE: Grid Column Start / End - Utilities for controlling how elements are sized and placed across grid columns.
-type spanType = Theme.ColSpan.t
-type colStartEnd = Theme.ColStart.t
+type spanType = Index__Theme.ColSpan.t
+type colStartEnd = Index__Theme.ColStart.t
 type colStartEndType = [#auto | colStartEnd]
 
-let col = column => [CssJs.unsafe("gridColumn", Theme.ColSpan.toValue(column))]
+let col = column => [CssJs.unsafe("gridColumn", Index__Theme.ColSpan.toValue(column))]
 let colStart = (cols: colStartEndType) =>
   switch cols {
   | #auto => [CssJs.unsafe("gridColumnStart", "auto")]
-  | #...colStartEnd as cs => [gridColumnStart(Theme.ColStart.toValue(cs))]
+  | #...colStartEnd as cs => [gridColumnStart(Index__Theme.ColStart.toValue(cs))]
   }
 let colEnd = (cols: colStartEndType) =>
   switch cols {
   | #auto => [CssJs.unsafe("gridColumnEnd", "auto")]
-  | #...colStartEnd as cs => [gridColumnEnd(Theme.ColStart.toValue(cs))]
+  | #...colStartEnd as cs => [gridColumnEnd(Index__Theme.ColStart.toValue(cs))]
   }
 
 // NOTE: Grid Template Rows - Utilities for specifying the rows in a grid layout.
-type gRows = Theme.GridRows.t
+type gRows = Index__Theme.GridRows.t
 type gridRowsType = [#none | gRows]
 
 let gridRows = (rows: gridRowsType) =>
   switch rows {
   | #none => [CssJs.unsafe("gridTemplateRows", "none")]
-  | #...gRows as r => [gridTemplateRows(Theme.GridRows.toValue(r))]
+  | #...gRows as r => [gridTemplateRows(Index__Theme.GridRows.toValue(r))]
   }
 
 // NOTE: Grid Row Start / End - Utilities for controlling how elements are sized and placed across grid rows.
-type rowSpan = Theme.RowSpan.t
+type rowSpan = Index__Theme.RowSpan.t
 type rowSpanType = [rowSpan | #auto | #full]
 let row = count =>
   switch count {
   | #auto => [CssJs.unsafe("gridRow", "auto")]
   | #full => [gridRow(1, -1)]
-  | #...rowSpan as rs => [CssJs.unsafe("gridRow", Theme.RowSpan.toValue(rs))]
+  | #...rowSpan as rs => [CssJs.unsafe("gridRow", Index__Theme.RowSpan.toValue(rs))]
   }
 
-type rowS = Theme.Row.t
+type rowS = Index__Theme.Row.t
 type rowStartEnd = [rowS | #auto]
 
 let rowStart = (rows: rowStartEnd) =>
   switch rows {
   | #auto => [CssJs.unsafe("gridRowStart", "auto")]
-  | #...rowS as r => [gridRowStart(Theme.Row.toValue(r))]
+  | #...rowS as r => [gridRowStart(Index__Theme.Row.toValue(r))]
   }
 
 let rowEnd = (rows: rowStartEnd) =>
   switch rows {
   | #auto => [CssJs.unsafe("gridRowEnd", "auto")]
-  | #...rowS as r => [gridRowEnd(Theme.Row.toValue(r))]
+  | #...rowS as r => [gridRowEnd(Index__Theme.Row.toValue(r))]
   }
 
 // NOTE: Grid Auto Flow - Utilities for controlling how elements in a grid are auto-placed.
@@ -451,9 +459,9 @@ let autoRowsFr = [gridAutoRows(#minmax(#zero, #fr(1.)))]
 
 // NOTE: Gap - Utilities for controlling gutters between grid rows and columns.
 
-let gap = value => [CssJs.gridGap(Theme.Spacing.toValue(value))]
-let gapX = value => [CssJs.gridColumnGap(Theme.Spacing.toValue(value))]
-let gapY = value => [CssJs.gridRowGap(Theme.Spacing.toValue(value))]
+let gap = value => [CssJs.gridGap(Index__Theme.Spacing.toValue(value))]
+let gapX = value => [CssJs.gridColumnGap(Index__Theme.Spacing.toValue(value))]
+let gapY = value => [CssJs.gridRowGap(Index__Theme.Spacing.toValue(value))]
 
 // INFO: BOX ALIGNMENT
 // NOTE: Justify Content - Utilities for controlling how flex and grid items are positioned along a container's main axis.
@@ -529,80 +537,80 @@ let placeSelfStretch = [CssJs.unsafe("placeSelf", "stretch")]
 // INFO: SPACING
 // NOTE: Padding - Utilities for controlling an element's padding.
 
-let p = (size: spacing) => [padding(Theme.Spacing.toValue(size))]
+let p = (size: spacing) => [padding(Index__Theme.Spacing.toValue(size))]
 let py = (size: spacing) => [
-  paddingTop(Theme.Spacing.toValue(size)),
-  paddingBottom(Theme.Spacing.toValue(size)),
+  paddingTop(Index__Theme.Spacing.toValue(size)),
+  paddingBottom(Index__Theme.Spacing.toValue(size)),
 ]
 let px = (size: spacing) => [
-  paddingLeft(Theme.Spacing.toValue(size)),
-  paddingRight(Theme.Spacing.toValue(size)),
+  paddingLeft(Index__Theme.Spacing.toValue(size)),
+  paddingRight(Index__Theme.Spacing.toValue(size)),
 ]
 
-let pt = (size: spacing) => [paddingTop(Theme.Spacing.toValue(size))]
-let pr = (size: spacing) => [paddingRight(Theme.Spacing.toValue(size))]
-let pb = (size: spacing) => [paddingBottom(Theme.Spacing.toValue(size))]
-let pl = (size: spacing) => [paddingLeft(Theme.Spacing.toValue(size))]
+let pt = (size: spacing) => [paddingTop(Index__Theme.Spacing.toValue(size))]
+let pr = (size: spacing) => [paddingRight(Index__Theme.Spacing.toValue(size))]
+let pb = (size: spacing) => [paddingBottom(Index__Theme.Spacing.toValue(size))]
+let pl = (size: spacing) => [paddingLeft(Index__Theme.Spacing.toValue(size))]
 
 // NOTE: Margin - Utilities for controlling an element's margin.
 type mx = [spacing | #auto]
-type negativeMargin = Theme.SpacingNegative.t
+type negativeMargin = Index__Theme.SpacingNegative.t
 
-let m = (size: spacing) => [margin(Theme.Spacing.toValue(size))]
+let m = (size: spacing) => [margin(Index__Theme.Spacing.toValue(size))]
 let my = (size: spacing) => [
-  marginTop(Theme.Spacing.toValue(size)),
-  marginBottom(Theme.Spacing.toValue(size)),
+  marginTop(Index__Theme.Spacing.toValue(size)),
+  marginBottom(Index__Theme.Spacing.toValue(size)),
 ]
 
 let mx = (size: mx) =>
   switch size {
   | #auto => [marginLeft(#auto), marginRight(#auto)]
   | #...spacing as sp => [
-      marginLeft(Theme.Spacing.toValue(sp)),
-      marginRight(Theme.Spacing.toValue(sp)),
+      marginLeft(Index__Theme.Spacing.toValue(sp)),
+      marginRight(Index__Theme.Spacing.toValue(sp)),
     ]
   }
-let mt = (size: spacing) => [marginTop(Theme.Spacing.toValue(size))]
-let mb = (size: spacing) => [marginBottom(Theme.Spacing.toValue(size))]
-let mr = (size: spacing) => [marginRight(Theme.Spacing.toValue(size))]
-let ml = (size: spacing) => [marginLeft(Theme.Spacing.toValue(size))]
+let mt = (size: spacing) => [marginTop(Index__Theme.Spacing.toValue(size))]
+let mb = (size: spacing) => [marginBottom(Index__Theme.Spacing.toValue(size))]
+let mr = (size: spacing) => [marginRight(Index__Theme.Spacing.toValue(size))]
+let ml = (size: spacing) => [marginLeft(Index__Theme.Spacing.toValue(size))]
 
-let nm = (size: negativeMargin) => [margin(Theme.SpacingNegative.toValue(size))]
+let nm = (size: negativeMargin) => [margin(Index__Theme.SpacingNegative.toValue(size))]
 let nmy = (size: negativeMargin) => [
-  marginTop(Theme.SpacingNegative.toValue(size)),
-  marginBottom(Theme.SpacingNegative.toValue(size)),
+  marginTop(Index__Theme.SpacingNegative.toValue(size)),
+  marginBottom(Index__Theme.SpacingNegative.toValue(size)),
 ]
 
 let nmx = (size: negativeMargin) => [
-  marginLeft(Theme.SpacingNegative.toValue(size)),
-  marginRight(Theme.SpacingNegative.toValue(size)),
+  marginLeft(Index__Theme.SpacingNegative.toValue(size)),
+  marginRight(Index__Theme.SpacingNegative.toValue(size)),
 ]
 
-let nmt = (size: negativeMargin) => [marginTop(Theme.SpacingNegative.toValue(size))]
-let nmb = (size: negativeMargin) => [marginBottom(Theme.SpacingNegative.toValue(size))]
-let nmr = (size: negativeMargin) => [marginRight(Theme.SpacingNegative.toValue(size))]
-let nml = (size: negativeMargin) => [marginLeft(Theme.SpacingNegative.toValue(size))]
+let nmt = (size: negativeMargin) => [marginTop(Index__Theme.SpacingNegative.toValue(size))]
+let nmb = (size: negativeMargin) => [marginBottom(Index__Theme.SpacingNegative.toValue(size))]
+let nmr = (size: negativeMargin) => [marginRight(Index__Theme.SpacingNegative.toValue(size))]
+let nml = (size: negativeMargin) => [marginLeft(Index__Theme.SpacingNegative.toValue(size))]
 
 // NOTE: Space Between - Utilities for controlling the space between child elements.
 
 let spaceY = (size: spacing) => [
-  marginTop(Theme.Spacing.toValue(size)),
-  marginBottom(Theme.Spacing.toValue(#0)),
+  marginTop(Index__Theme.Spacing.toValue(size)),
+  marginBottom(Index__Theme.Spacing.toValue(#0)),
 ]
 
 let nspaceY = (size: negativeMargin) => [
-  marginTop(Theme.SpacingNegative.toValue(size)),
-  marginBottom(Theme.Spacing.toValue(#0)),
+  marginTop(Index__Theme.SpacingNegative.toValue(size)),
+  marginBottom(Index__Theme.Spacing.toValue(#0)),
 ]
 
 let spaceX = (size: spacing) => [
-  marginLeft(Theme.Spacing.toValue(size)),
-  marginRight(Theme.Spacing.toValue(#0)),
+  marginLeft(Index__Theme.Spacing.toValue(size)),
+  marginRight(Index__Theme.Spacing.toValue(#0)),
 ]
 
 let nspaceX = (size: negativeMargin) => [
-  marginLeft(Theme.SpacingNegative.toValue(size)),
-  marginRight(Theme.Spacing.toValue(#0)),
+  marginLeft(Index__Theme.SpacingNegative.toValue(size)),
+  marginRight(Index__Theme.Spacing.toValue(#0)),
 ]
 
 // INFO: SIZING
@@ -617,8 +625,8 @@ let w = (width: spacingWidth) =>
   | #maxContent => [CssJs.unsafe("width", "max-content")]
   | #screen => [CssJs.width(#vw(100.))]
   | #auto => [CssJs.width(#auto)]
-  | #...spacing as sp => [CssJs.width(Theme.Spacing.toValue(sp))]
-  | #...proportions as prop => [CssJs.width(Theme.Proportions.toValue(prop))]
+  | #...spacing as sp => [CssJs.width(Index__Theme.Spacing.toValue(sp))]
+  | #...proportions as prop => [CssJs.width(Index__Theme.Proportions.toValue(prop))]
   }
 
 // NOTE:  Min-Width - Utilities for setting the minimum width of an element
@@ -628,16 +636,16 @@ let minWMin = [CssJs.unsafe("minWidth", "min-content")]
 let minWMax = [CssJs.unsafe("minWidth", "max-content")]
 
 // NOTE: Max-Width - Utilities for setting the maximum width of an element
-type widths = Theme.MaxWidth.t
-type screens = Theme.Screens.t
+type widths = Index__Theme.MaxWidth.t
+type screens = Index__Theme.Screens.t
 type maxWidth = [widths | screens | #minContent | #maxContent]
 
 let maxW = (max: maxWidth) =>
   switch max {
   | #minContent => [CssJs.unsafe("maxWidth", "min-content")]
   | #maxContent => [CssJs.unsafe("maxWidth", "max-content")]
-  | #...widths as wd => [maxWidth(Theme.MaxWidth.toValue(wd))]
-  | #...screens as sc => [maxWidth(Theme.Screens.toValue(sc))]
+  | #...widths as wd => [maxWidth(Index__Theme.MaxWidth.toValue(wd))]
+  | #...screens as sc => [maxWidth(Index__Theme.Screens.toValue(sc))]
   }
 
 let maxWPx = px => [CssJs.maxWidth(#px(px))]
@@ -647,8 +655,8 @@ let h = (height: spacingHeight) =>
   switch height {
   | #screen => [CssJs.height(#vw(100.))]
   | #auto => [CssJs.height(#auto)]
-  | #...spacing as sp => [CssJs.height(Theme.Spacing.toValue(sp))]
-  | #...proportions as prop => [CssJs.height(Theme.Proportions.toValue(prop))]
+  | #...spacing as sp => [CssJs.height(Index__Theme.Spacing.toValue(sp))]
+  | #...proportions as prop => [CssJs.height(Index__Theme.Proportions.toValue(prop))]
   }
 
 // NOTE: Min-Height - Utilities for setting the minimum height of an element
@@ -661,7 +669,7 @@ type maxHeightType = [spacing | #screen]
 let maxH = height =>
   switch height {
   | #screen => [CssJs.height(#vh(100.))]
-  | #...spacing as h => [CssJs.height(Theme.Spacing.toValue(h))]
+  | #...spacing as h => [CssJs.height(Index__Theme.Spacing.toValue(h))]
   }
 
 // INFO: TYPOGRAPHY
@@ -710,20 +718,44 @@ let fontMono = [
 ]
 
 // NOTE: Font Size - Utilities for controlling the font size of an element.
-type fontSize = Theme.FontSize.t
+type fontSize = Index__Theme.FontSize.t
 let text = size =>
   switch size {
-  | #xs => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#5))]
-  | #sm => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#5))]
-  | #base => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#6))]
-  | #lg => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#7))]
-  | #xl => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#7))]
-  | #xl2 => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#8))]
-  | #xl3 => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#9))]
-  | #xl4 => [fontSize(Theme.FontSize.toValue(size)), lineHeight(Theme.LineHeight.toValue(#10))]
+  | #xs => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#5)),
+    ]
+  | #sm => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#5)),
+    ]
+  | #base => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#6)),
+    ]
+  | #lg => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#7)),
+    ]
+  | #xl => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#7)),
+    ]
+  | #xl2 => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#8)),
+    ]
+  | #xl3 => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#9)),
+    ]
+  | #xl4 => [
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#10)),
+    ]
   | #xl5 | #xl6 | #xl7 | #xl8 | #xl9 => [
-      fontSize(Theme.FontSize.toValue(size)),
-      lineHeight(Theme.LineHeight.toValue(#none)),
+      fontSize(Index__Theme.FontSize.toValue(size)),
+      lineHeight(Index__Theme.LineHeight.toValue(#none)),
     ]
   }
 
@@ -732,7 +764,7 @@ let italic = [fontStyle(#italic)]
 let noItalic = [fontStyle(#normal)]
 
 // NOTE: Font Weight - Utilities for controlling the font weight of an element.
-let fontWeight = weight => [CssJs.fontWeight(Theme.FontWeight.toValue(weight))]
+let fontWeight = weight => [CssJs.fontWeight(Index__Theme.FontWeight.toValue(weight))]
 
 // NOTE: Font Variant Numeric - Utilities for controlling the variant of numbers.
 let normalNums = [CssJs.unsafe("fontVariantNumeric", "normal")]
@@ -746,10 +778,10 @@ let diagonalFractions = [CssJs.unsafe("fontVariantNumeric", "diagonal-fractions"
 let stackedFractions = [CssJs.unsafe("fontVariantNumeric", "stacked-fractions")]
 
 // NOTE: Letter Spacing - Utilities for controlling the tracking (letter spacing) of an element.
-let tracking = wide => [letterSpacing(Theme.LetterSpacing.toValue(wide))]
+let tracking = wide => [letterSpacing(Index__Theme.LetterSpacing.toValue(wide))]
 
 // NOTE: Line Height - Utilities for controlling the leading (line height) of an element.
-let leading = value => [lineHeight(Theme.LineHeight.toValue(value))]
+let leading = value => [lineHeight(Index__Theme.LineHeight.toValue(value))]
 let leadingFloat = float => [lineHeight(#abs(float))]
 
 // NOTE: List Style Type - Utilities for controlling the bullet/number style of a list.
@@ -763,10 +795,10 @@ let listOutside = [listStylePosition(#outside)]
 
 // NOTE: Placeholder Color - Utilities for controlling the color of placeholder text.
 // NOTE: Placeholder Color - Utilities for controlling the color of placeholder text.
-type colorType = Theme.Colors.t
+type colorType = Index__Theme.Colors.t
 
 let placeholder = (~opacity=1., color: colorType) => [
-  CssJs.placeholder([CssJs.color(Theme.Colors.toColor(color, ~opacity))]),
+  CssJs.placeholder([CssJs.color(Index__Theme.Colors.toColor(color, ~opacity))]),
 ]
 
 // NOTE: Text Alignment - Utilities for controlling the alignment of text.
@@ -777,7 +809,7 @@ let textJustify = [textAlign(#justify)]
 
 // NOTE: Text Color - Utilities for controlling the text color of an element.
 let textColor = (~opacity=1., color: colorType) => [
-  CssJs.color(Theme.Colors.toColor(color, ~opacity)),
+  CssJs.color(Index__Theme.Colors.toColor(color, ~opacity)),
 ]
 
 // NOTE: Text Decoration - Utilities for controlling the decoration of text.
@@ -829,7 +861,9 @@ let bgClipContent = [backgroundClip(#contentBox)]
 let bgClipText = [CssJs.unsafe("backgroundClip", "text")]
 
 // NOTE: Background Color - Utilities for controlling an element's background color.
-let bg = (~opacity=1., color: colorType) => [backgroundColor(Theme.Colors.toColor(color, ~opacity))]
+let bg = (~opacity=1., color: colorType) => [
+  backgroundColor(Index__Theme.Colors.toColor(color, ~opacity)),
+]
 
 // NOTE: Background Position - Utilities for controlling the position of an element's background image.
 let bgBottom = [backgroundPosition(#bottom)]
@@ -905,55 +939,59 @@ let bgGradientToTl = (colorList: array<colorTuple>) => [
 
 // INFO: BORDERS
 // NOTE: Border Radius - Utilities for controlling the border radius of an element.
-type borderRadius = Theme.BorderRadius.t
+type borderRadius = Index__Theme.BorderRadius.t
 
-let rounded = (radius: borderRadius) => [borderRadius(Theme.BorderRadius.toRadius(radius))]
+let rounded = (radius: borderRadius) => [borderRadius(Index__Theme.BorderRadius.toRadius(radius))]
 
 let roundedT = (radius: borderRadius) => [
-  borderTopLeftRadius(Theme.BorderRadius.toRadius(radius)),
-  borderTopRightRadius(Theme.BorderRadius.toRadius(radius)),
+  borderTopLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
+  borderTopRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 
 let roundedR = (radius: borderRadius) => [
-  borderTopRightRadius(Theme.BorderRadius.toRadius(radius)),
-  borderBottomRightRadius(Theme.BorderRadius.toRadius(radius)),
+  borderTopRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
+  borderBottomRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 
 let roundedB = (radius: borderRadius) => [
-  borderBottomRightRadius(Theme.BorderRadius.toRadius(radius)),
-  borderBottomLeftRadius(Theme.BorderRadius.toRadius(radius)),
+  borderBottomRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
+  borderBottomLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 
 let roundedL = (radius: borderRadius) => [
-  borderTopLeftRadius(Theme.BorderRadius.toRadius(radius)),
-  borderBottomLeftRadius(Theme.BorderRadius.toRadius(radius)),
+  borderTopLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
+  borderBottomLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 
-let roundedTl = (radius: borderRadius) => [borderTopLeftRadius(Theme.BorderRadius.toRadius(radius))]
+let roundedTl = (radius: borderRadius) => [
+  borderTopLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
+]
 let roundedTr = (radius: borderRadius) => [
-  borderTopRightRadius(Theme.BorderRadius.toRadius(radius)),
+  borderTopRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 let roundedBr = (radius: borderRadius) => [
-  borderBottomRightRadius(Theme.BorderRadius.toRadius(radius)),
+  borderBottomRightRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 let roundedBl = (radius: borderRadius) => [
-  borderBottomLeftRadius(Theme.BorderRadius.toRadius(radius)),
+  borderBottomLeftRadius(Index__Theme.BorderRadius.toRadius(radius)),
 ]
 
 // NOTE: Border Width - Utilities for controlling the width of an element's fborders
 
-type width = Theme.BorderWidth.t
+type width = Index__Theme.BorderWidth.t
 
-let border = width => [borderWidth(Theme.BorderWidth.toWidth(width))]
-let borderT = width => [borderTopWidth(Theme.BorderWidth.toWidth(width))]
-let borderB = width => [borderBottomWidth(Theme.BorderWidth.toWidth(width))]
-let borderL = width => [borderLeftWidth(Theme.BorderWidth.toWidth(width))]
-let borderR = width => [borderRightWidth(Theme.BorderWidth.toWidth(width))]
+let border = width => [borderWidth(Index__Theme.BorderWidth.toWidth(width))]
+let borderT = width => [borderTopWidth(Index__Theme.BorderWidth.toWidth(width))]
+let borderB = width => [borderBottomWidth(Index__Theme.BorderWidth.toWidth(width))]
+let borderL = width => [borderLeftWidth(Index__Theme.BorderWidth.toWidth(width))]
+let borderR = width => [borderRightWidth(Index__Theme.BorderWidth.toWidth(width))]
 
 // NOTE: Border Color - Utilities for controlling the color of an element's borders.
-type borderColor = Theme.Colors.t
+type borderColor = Index__Theme.Colors.t
 
-let borderColor = (~opacity=1., color) => [borderColor(Theme.Colors.toColor(~opacity, color))]
+let borderColor = (~opacity=1., color) => [
+  borderColor(Index__Theme.Colors.toColor(~opacity, color)),
+]
 
 // NOTE: Border Style - Utilities for controlling the style of an element's borders.
 let borderSolid = [borderStyle(#solid)]
@@ -966,27 +1004,27 @@ let borderNone = [borderStyle(#none)]
 let divideY = (~reverse=false, ~color=#gray400, width) =>
   reverse
     ? [
-        CssJs.borderColor(Theme.Colors.toColor(color)),
-        borderTopWidth(Theme.BorderWidth.toWidth(#0)),
-        borderBottomWidth(Theme.BorderWidth.toWidth(width)),
+        CssJs.borderColor(Index__Theme.Colors.toColor(color)),
+        borderTopWidth(Index__Theme.BorderWidth.toWidth(#0)),
+        borderBottomWidth(Index__Theme.BorderWidth.toWidth(width)),
       ]
     : [
-        CssJs.borderColor(Theme.Colors.toColor(color)),
-        borderTopWidth(Theme.BorderWidth.toWidth(width)),
-        borderBottomWidth(Theme.BorderWidth.toWidth(#0)),
+        CssJs.borderColor(Index__Theme.Colors.toColor(color)),
+        borderTopWidth(Index__Theme.BorderWidth.toWidth(width)),
+        borderBottomWidth(Index__Theme.BorderWidth.toWidth(#0)),
       ]
 
 let divideX = (~reverse=false, ~color=#gray400, width) =>
   reverse
     ? [
-        borderRightWidth(Theme.BorderWidth.toWidth(width)),
-        borderLeftWidth(Theme.BorderWidth.toWidth(#0)),
-        CssJs.borderColor(Theme.Colors.toColor(color)),
+        borderRightWidth(Index__Theme.BorderWidth.toWidth(width)),
+        borderLeftWidth(Index__Theme.BorderWidth.toWidth(#0)),
+        CssJs.borderColor(Index__Theme.Colors.toColor(color)),
       ]
     : [
-        borderLeftWidth(Theme.BorderWidth.toWidth(width)),
-        borderRightWidth(Theme.BorderWidth.toWidth(#0)),
-        CssJs.borderColor(Theme.Colors.toColor(color)),
+        borderLeftWidth(Index__Theme.BorderWidth.toWidth(width)),
+        borderRightWidth(Index__Theme.BorderWidth.toWidth(#0)),
+        CssJs.borderColor(Index__Theme.Colors.toColor(color)),
       ]
 
 // NOTE: Divide Style - Utilities for controlling the border style between elements.
@@ -1012,13 +1050,13 @@ let ringOffsetShadow = (~inset, ~offsetWidth, offsetColor) =>
 let ringShadow = (~inset, ~spread, color) =>
   CssJs.Shadow.box(~inset, ~x=#px(0), ~y=#px(0), ~blur=#px(0), ~spread=#px(spread), color)
 
-let whiteShadow = CssJs.Shadow.box(~x=#px(0), ~y=#px(0), Theme.Colors.toColor(#white))
+let whiteShadow = CssJs.Shadow.box(~x=#px(0), ~y=#px(0), Index__Theme.Colors.toColor(#white))
 
 // TODO: Ring utility issues on focus
 let ring = (
   ~inset=false,
   ~offsetWidth=0,
-  ~offsetColor=Theme.Colors.toColor(#white),
+  ~offsetColor=Index__Theme.Colors.toColor(#white),
   ~width=3,
   color: CssJs.Types.Color.t,
 ) => {
@@ -1033,17 +1071,17 @@ let ring = (
 
 // INFO: EFFECTS
 // NOTE: Box Shadow - Utilities for controlling the box shadow of an element.
-type themeShadows = Theme.BoxShadow.t
+type themeShadows = Index__Theme.BoxShadow.t
 type shadow = [themeShadows | #none]
 let shadow = (value: shadow) =>
   switch value {
   | #none => [boxShadow(#none)]
-  | #...themeShadows as ts => [boxShadows(Theme.BoxShadow.toShadow(ts))]
+  | #...themeShadows as ts => [boxShadows(Index__Theme.BoxShadow.toShadow(ts))]
   }
 
 // NOTE: Opacity - Utilities for controlling the opacity of an element.
-type opacity = Theme.Opacity.t
-let opacity = (value: opacity) => [opacity(Theme.Opacity.toValue(value))]
+type opacity = Index__Theme.Opacity.t
+let opacity = (value: opacity) => [opacity(Index__Theme.Opacity.toValue(value))]
 
 // INFO: TABELS
 // NOTE: Border Collapse - Utilities for controlling whether table borders should collapse or be separated.
@@ -1069,11 +1107,17 @@ let cursorNotAllowed = [cursor(#notAllowed)]
 
 // NOTE: Outline - Utilities for controlling an element's outline.
 let outlineNone = [
-  outline(#px(2), #solid, Theme.Colors.toColor(#transparent)),
+  outline(#px(2), #solid, Index__Theme.Colors.toColor(#transparent)),
   outlineOffset(#px(2)),
 ]
-let outlineWhite = [outline(#px(2), #dotted, Theme.Colors.toColor(#white)), outlineOffset(#px(2))]
-let outlineBlack = [outline(#px(2), #dotted, Theme.Colors.toColor(#black)), outlineOffset(#px(2))]
+let outlineWhite = [
+  outline(#px(2), #dotted, Index__Theme.Colors.toColor(#white)),
+  outlineOffset(#px(2)),
+]
+let outlineBlack = [
+  outline(#px(2), #dotted, Index__Theme.Colors.toColor(#black)),
+  outlineOffset(#px(2)),
+]
 
 // NOTE: Pointer Events - Utilities for controlling whether an element responds to pointer events.
 let pointerEventsNone = [pointerEvents(#none)]
@@ -1227,7 +1271,7 @@ let container = tw([
 // INFO: Selectors
 
 let selector = (string, rules) => [CssJs.selector(. string, tw(rules))]
-let dividers = rules => [CssJs.selector(. Selectors.ignoreFirstChild, tw(rules))]
+let dividers = rules => [CssJs.selector(. Index__Selectors.ignoreFirstChild, tw(rules))]
 let dark = rules => [CssJs.selector(. ".dark &", tw(rules))]
 let marker = rules => [CssJs.selector(. "&::marker", tw(rules))]
 let active = rules => [CssJs.active(tw(rules))]

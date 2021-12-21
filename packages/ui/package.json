@@ -6,5 +6,7 @@
   "sideEffects": false,
   "main": "./Index.mjs",
   "files": [],
-  "keywords": ["rescript"]
+  "keywords": [
+    "rescript"
+  ]
 }

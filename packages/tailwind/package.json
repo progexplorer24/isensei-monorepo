@@ -1,7 +1,16 @@
 {
-  "name": "tailwind",
+  "name": "rescript-tailwind",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js",
-  "files": []
+  "type": "module",
+  "sideEffects": false,
+  "main": "./Index__Tailwind.mjs",
+  "files": [],
+  "keywords": [
+    "rescript"
+  ],
+  "dependencies": {
+    "selectors": "*",
+    "theme": "*"
+  }
 }
