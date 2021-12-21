@@ -2,8 +2,9 @@
   "name": "ui",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "sideEffects": false,
-  "main": "./Index.bs.js",
+  "main": "./Index.mjs",
   "files": [],
   "keywords": ["rescript"]
 }
