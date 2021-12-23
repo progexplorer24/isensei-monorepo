@@ -24,7 +24,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.72",
     "@next-auth/prisma-adapter": "^1.0.1",
     "@prisma/client": "^3.7.0",
-    "esbuild": "^0.13.12",
+    "esbuild": "^0.14.8",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
     "image-size": "1.0.0",
