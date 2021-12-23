@@ -6994,6 +6994,7 @@ __metadata:
     gray-matter: ^4.0.3
     image-size: 1.0.0
     inquirer: ^8.2.0
+    isensei-eslint: "*"
     mdx-bundler: ^8.0.1
     next: 12.0.7
     next-auth: ^4.0.6
@@ -7025,6 +7026,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"isensei-eslint@*, isensei-eslint@workspace:packages/eslint":
+  version: 0.0.0-use.local
+  resolution: "isensei-eslint@workspace:packages/eslint"
+  dependencies:
+    eslint: ^8.5.0
+    eslint-config-next: ^12.0.7
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-prettier: ^4.0.0
+    prettier: ^2.5.1
+  languageName: unknown
+  linkType: soft
+
 "isensei-monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "isensei-monorepo@workspace:."
@@ -7033,14 +7047,8 @@ __metadata:
     "@ryyppy/rescript-promise": ^2.1.0
     bs-css-emotion: ^4.0.2
     bs-webapi: ^0.19.1
-    eslint: ^8.5.0
-    eslint-config-next: ^12.0.7
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-jsx-a11y: ^6.5.1
-    eslint-plugin-prettier: ^4.0.0
     husky: ^7.0.4
     lint-staged: ^12.1.3
-    prettier: ^2.5.1
     rescript: ^9.1.4
     rescript-logger: ^2.0.2
     rescript-nodejs: ^14.2.0

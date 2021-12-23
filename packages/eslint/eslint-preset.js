@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  rootDir: ['apps/*/', 'packages/*/'],
   env: {
     browser: true,
     amd: true,

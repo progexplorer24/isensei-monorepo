@@ -63,6 +63,7 @@
     "file-loader": "^6.2.0",
     "globby": "^11.0.4",
     "inquirer": "^8.2.0",
+    "isensei-eslint": "*",
     "next-remote-watch": "^1.0.0",
     "postcss": "^8.4.5",
     "prettier": "2.5.1",
