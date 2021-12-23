@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./Index__Tailwind.mjs",
+  "main": "./Tailwind.mjs",
   "files": [],
   "keywords": [
     "rescript"
   ],
   "dependencies": {
+    "@emotion/css": "^11.7.1",
     "selectors": "*",
     "theme": "*"
   }
