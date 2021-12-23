@@ -11,7 +11,9 @@
     "res:start": "rescript build -w -with-deps",
     "prepublish": "lerna run prepublish",
     "publish-canary": "lerna version prerelease --preid canary --force-publish",
-    "publish-stable": "lerna version --force-publish && release && node ./scripts/release-notes.js"
+    "publish-stable": "lerna version --force-publish && release && node ./scripts/release-notes.js",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "turbo": {
     "baseBranch": "origin/main",
@@ -42,10 +44,27 @@
     "packages/*",
     "apps/*"
   ],
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx|mjs)": [
+      "eslint --fix"
+    ],
+    "*.+(js|jsx|mjs|ts|tsx|json|css|md|mdx)": [
+      "prettier --write"
+    ],
+    "*.js": "eslint --cache --fix"
+  },
   "devDependencies": {
     "@rescript/react": "^0.10.3",
+    "eslint": "^8.5.0",
+    "eslint-config-next": "^12.0.7",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.3",
+    "prettier": "^2.5.1",
     "rescript": "^9.1.4",
-    "turbo": "^1.0.19"
+    "turbo": "^1.0.21"
   },
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
