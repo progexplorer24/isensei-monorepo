@@ -8,5 +8,8 @@
   "files": [],
   "keywords": [
     "rescript"
-  ]
+  ],
+  "dependencies": {
+    "tailwind": "*"
+  }
 }
