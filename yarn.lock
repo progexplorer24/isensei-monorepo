@@ -2112,7 +2112,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/aspect-ratio@npm:latest":
+"@tailwindcss/aspect-ratio@npm:^0.4.0":
   version: 0.4.0
   resolution: "@tailwindcss/aspect-ratio@npm:0.4.0"
   peerDependencies:
@@ -2121,7 +2121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:latest":
+"@tailwindcss/forms@npm:^0.4.0":
   version: 0.4.0
   resolution: "@tailwindcss/forms@npm:0.4.0"
   dependencies:
@@ -2132,7 +2132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/line-clamp@npm:latest":
+"@tailwindcss/line-clamp@npm:^0.3.0":
   version: 0.3.0
   resolution: "@tailwindcss/line-clamp@npm:0.3.0"
   peerDependencies:
@@ -2141,7 +2141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/typography@npm:latest":
+"@tailwindcss/typography@npm:^0.5.0":
   version: 0.5.0
   resolution: "@tailwindcss/typography@npm:0.5.0"
   dependencies:
@@ -2884,7 +2884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:latest":
+"autoprefixer@npm:^10.4.0":
   version: 10.4.0
   resolution: "autoprefixer@npm:10.4.0"
   dependencies:
@@ -7020,11 +7020,11 @@ __metadata:
     "@next/bundle-analyzer": 12.0.7
     "@prisma/client": ^3.7.0
     "@svgr/webpack": ^6.1.2
-    "@tailwindcss/aspect-ratio": latest
-    "@tailwindcss/forms": latest
-    "@tailwindcss/line-clamp": latest
-    "@tailwindcss/typography": latest
-    autoprefixer: latest
+    "@tailwindcss/aspect-ratio": ^0.4.0
+    "@tailwindcss/forms": ^0.4.0
+    "@tailwindcss/line-clamp": ^0.3.0
+    "@tailwindcss/typography": ^0.5.0
+    autoprefixer: ^10.4.0
     cross-env: ^7.0.3
     dedent: ^0.7.0
     esbuild: ^0.13.12
@@ -7066,7 +7066,7 @@ __metadata:
     smoothscroll-polyfill: ^0.4.4
     socket.io: ^4.4.0
     socket.io-client: ^4.4.0
-    tailwindcss: latest
+    tailwindcss: ^3.0.7
     ui: "*"
     unist-util-visit: ^4.1.0
   languageName: unknown
@@ -11578,7 +11578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:latest":
+"tailwindcss@npm:^3.0.7":
   version: 3.0.7
   resolution: "tailwindcss@npm:3.0.7"
   dependencies:
