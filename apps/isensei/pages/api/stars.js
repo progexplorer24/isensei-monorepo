@@ -1,4 +1,4 @@
-import { prisma } from '../../prisma'
+import { prisma } from '../../prisma/index'
 
 export default async function assetHandler(req, res) {
   const { method } = req
