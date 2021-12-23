@@ -7026,9 +7026,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"isensei-eslint@*, isensei-eslint@workspace:packages/eslint":
+"isensei-eslint@*, isensei-eslint@workspace:packages/isensei-eslint":
   version: 0.0.0-use.local
-  resolution: "isensei-eslint@workspace:packages/eslint"
+  resolution: "isensei-eslint@workspace:packages/isensei-eslint"
   dependencies:
     eslint: ^8.5.0
     eslint-config-next: ^12.0.7
