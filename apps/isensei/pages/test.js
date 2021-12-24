@@ -1,4 +1,4 @@
-import { btn, Button1, btn2 } from 'ui'
+import { btn, Button1, btn2 } from "ui";
 
 export default function Test() {
   return (
@@ -8,5 +8,5 @@ export default function Test() {
       <Button1.make />
       {btn2}
     </div>
-  )
+  );
 }

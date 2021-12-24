@@ -1,45 +1,47 @@
-import { useRef, useState } from 'react'
+import { useRef, useState } from "react";
 
-import siteMetadata from '@/data/siteMetadata'
-import useTranslation from 'next-translate/useTranslation'
+import siteMetadata from "@/data/siteMetadata";
+import useTranslation from "next-translate/useTranslation";
 
-const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
-  const inputEl = useRef(null)
-  const [error, setError] = useState(false)
-  const [subscribed, setSubscribed] = useState(false)
-  const { t } = useTranslation()
+const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
+  const inputEl = useRef(null);
+  const [error, setError] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const { t } = useTranslation();
 
   const subscribe = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
       body: JSON.stringify({
         email: inputEl.current.value,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      method: 'POST',
-    })
+      method: "POST",
+    });
 
-    const { error } = await res.json()
+    const { error } = await res.json();
     if (error) {
-      setError(true)
-      return
+      setError(true);
+      return;
     }
 
-    inputEl.current.value = ''
-    setError(false)
-    setSubscribed(true)
-  }
+    inputEl.current.value = "";
+    setError(false);
+    setSubscribed(true);
+  };
 
   return (
     <div>
-      <div className="pb-1 text-lg font-semibold text-gray-800 dark:text-gray-100">{title}</div>
+      <div className="pb-1 text-lg font-semibold text-gray-800 dark:text-gray-100">
+        {title}
+      </div>
       <form className="flex flex-col sm:flex-row" onSubmit={subscribe}>
         <div>
           <label className="sr-only" htmlFor="email-input">
-            {t('newsletter:mail')}
+            {t("newsletter:mail")}
           </label>
           <input
             autoComplete="email"
@@ -47,7 +49,9 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
             id="email-input"
             name="email"
             placeholder={
-              subscribed ? t('newsletter:placeholderSucces') : t('newsletter:placeholderDefault')
+              subscribed
+                ? t("newsletter:placeholderSucces")
+                : t("newsletter:placeholderDefault")
             }
             ref={inputEl}
             required
@@ -58,25 +62,29 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
         <div className="flex w-full mt-2 rounded-md shadow-sm sm:mt-0 sm:ml-3">
           <button
             className={`py-2 sm:py-0 w-full bg-primary-500 px-4 rounded-md font-medium text-white ${
-              subscribed ? 'cursor-default' : 'hover:bg-primary-700 dark:hover:bg-primary-400'
+              subscribed
+                ? "cursor-default"
+                : "hover:bg-primary-700 dark:hover:bg-primary-400"
             } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 dark:ring-offset-black`}
             type="submit"
             disabled={subscribed}
           >
-            {subscribed ? t('newsletter:buttonSuccess') : t('newsletter:buttonDefault')}
+            {subscribed
+              ? t("newsletter:buttonSuccess")
+              : t("newsletter:buttonDefault")}
           </button>
         </div>
       </form>
       {error && (
         <div className="pt-2 text-sm text-red-500 w-72 sm:w-96 dark:text-red-400">
-          {t('newsletter:messageError')}
+          {t("newsletter:messageError")}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default NewsletterForm
+export default NewsletterForm;
 
 export const BlogNewsletterForm = ({ title }) => (
   <div className="flex items-center justify-center">
@@ -84,4 +92,4 @@ export const BlogNewsletterForm = ({ title }) => (
       <NewsletterForm title={title} />
     </div>
   </div>
-)
+);

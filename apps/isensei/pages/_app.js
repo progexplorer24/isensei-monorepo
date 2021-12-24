@@ -1,18 +1,21 @@
-import '@/css/tailwind.css'
-import '@/css/prism.css'
+import "@/css/tailwind.css";
+import "@/css/prism.css";
 
-import { ThemeProvider } from 'next-themes'
-import Head from 'next/head'
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
 
-import Analytics from '@/components/analytics'
-import LayoutWrapper from '@/components/LayoutWrapper'
-import RSS from '@/components/Rss'
-import { ClientReload } from '@/components/ClientReload'
-import { SessionProvider } from 'next-auth/react'
+import Analytics from "@/components/analytics";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import RSS from "@/components/Rss";
+import { ClientReload } from "@/components/ClientReload";
+import { SessionProvider } from "next-auth/react";
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === "development";
 
-export default function App({ Component, pageProps: { session, ...pageProps } }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <SessionProvider session={session}>
       <ThemeProvider attribute="class">
@@ -27,5 +30,5 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
         <RSS />
       </ThemeProvider>
     </SessionProvider>
-  )
+  );
 }

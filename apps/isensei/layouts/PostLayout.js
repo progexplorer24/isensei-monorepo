@@ -1,23 +1,29 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
-import Image from '@/components/Image'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import Comments from '@/components/comments'
-import useTranslation from 'next-translate/useTranslation'
-import formatDate from '@/lib/utils/formatDate'
-import { useRouter } from 'next/router'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import Link from "@/components/Link";
+import PageTitle from "@/components/PageTitle";
+import SectionContainer from "@/components/SectionContainer";
+import { BlogSEO } from "@/components/SEO";
+import Image from "@/components/Image";
+import Tag from "@/components/Tag";
+import siteMetadata from "@/data/siteMetadata";
+import Comments from "@/components/comments";
+import useTranslation from "next-translate/useTranslation";
+import formatDate from "@/lib/utils/formatDate";
+import { useRouter } from "next/router";
+import ScrollTopAndComment from "@/components/ScrollTopAndComment";
 
-const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+const editUrl = (fileName) =>
+  `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `${siteMetadata.siteUrl}/blog/${slug}`
-  )}`
+  )}`;
 
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+const postDateTemplate = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
 
 export default function PostLayout({
   frontMatter,
@@ -27,9 +33,9 @@ export default function PostLayout({
   availableLocales,
   children,
 }) {
-  const { slug, fileName, date, title, tags } = frontMatter
-  const { t } = useTranslation()
-  const { locale } = useRouter()
+  const { slug, fileName, date, title, tags } = frontMatter;
+  const { t } = useTranslation();
+  const { locale } = useRouter();
 
   return (
     <SectionContainer>
@@ -46,9 +52,11 @@ export default function PostLayout({
             <div className="space-y-1 text-center">
               <dl className="space-y-10">
                 <div>
-                  <dt className="sr-only">{t('common:pub')}</dt>
+                  <dt className="sr-only">{t("common:pub")}</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(new Date(date), locale)}</time>
+                    <time dateTime={date}>
+                      {formatDate(new Date(date), locale)}
+                    </time>
                   </dd>
                 </div>
               </dl>
@@ -59,14 +67,17 @@ export default function PostLayout({
           </header>
           <div
             className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6"
-            style={{ gridTemplateRows: 'auto 1fr' }}
+            style={{ gridTemplateRows: "auto 1fr" }}
           >
             <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
-              <dt className="sr-only">{t('common:authors')}</dt>
+              <dt className="sr-only">{t("common:authors")}</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
+                    <li
+                      className="flex items-center space-x-2"
+                      key={author.name}
+                    >
                       {author.avatar && (
                         <Image
                           src={author.avatar}
@@ -77,8 +88,10 @@ export default function PostLayout({
                         />
                       )}
                       <dl className="text-sm font-medium leading-5 whitespace-nowrap">
-                        <dt className="sr-only">{t('common:name')}</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                        <dt className="sr-only">{t("common:name")}</dt>
+                        <dd className="text-gray-900 dark:text-gray-100">
+                          {author.name}
+                        </dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
                           {author.twitter && (
@@ -86,7 +99,10 @@ export default function PostLayout({
                               href={author.twitter}
                               className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                             >
-                              {author.twitter.replace('https://twitter.com/', '@')}
+                              {author.twitter.replace(
+                                "https://twitter.com/",
+                                "@"
+                              )}
                             </Link>
                           )}
                         </dd>
@@ -97,13 +113,15 @@ export default function PostLayout({
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
-              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
+              <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">
+                {children}
+              </div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(slug)} rel="nofollow">
-                  {t('common:twitter')}
+                  {t("common:twitter")}
                 </Link>
                 {` • `}
-                <Link href={editUrl(fileName)}>{t('common:github')}</Link>
+                <Link href={editUrl(fileName)}>{t("common:github")}</Link>
               </div>
               <Comments frontMatter={frontMatter} />
             </div>
@@ -126,7 +144,7 @@ export default function PostLayout({
                     {prev && (
                       <div>
                         <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          {t('common:preva')}
+                          {t("common:preva")}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
@@ -136,7 +154,7 @@ export default function PostLayout({
                     {next && (
                       <div>
                         <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          {t('common:nexta')}
+                          {t("common:nexta")}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${next.slug}`}>{next.title}</Link>
@@ -151,7 +169,7 @@ export default function PostLayout({
                   href="/blog"
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  &larr; {t('common:back')}
+                  &larr; {t("common:back")}
                 </Link>
               </div>
             </footer>
@@ -159,5 +177,5 @@ export default function PostLayout({
         </div>
       </article>
     </SectionContainer>
-  )
+  );
 }

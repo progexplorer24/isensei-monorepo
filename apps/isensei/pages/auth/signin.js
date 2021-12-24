@@ -1,18 +1,18 @@
-import LoginButton from '@/components/login-button/Button'
-import PageTitle from '@/components/PageTitle'
-import { getProviders, getSession } from 'next-auth/react'
-import { Fragment, useEffect, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { useRouter } from 'next/router'
+import LoginButton from "@/components/login-button/Button";
+import PageTitle from "@/components/PageTitle";
+import { getProviders, getSession } from "next-auth/react";
+import { Fragment, useEffect, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
 
 export default function SignIn({ providers }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     if (router.query.error) {
-      setIsOpen(true)
+      setIsOpen(true);
     }
-  }, [router])
+  }, [router]);
   return (
     <>
       <div className="pt-6 pb-4 space-y-2 md:space-y-5">
@@ -21,9 +21,11 @@ export default function SignIn({ providers }) {
       <div className="space-y-2 flex justify-items-center items-center flex-col xl:space-y-0">
         <div className="p-8 prose dark:prose-dark max-w-none">
           <div className="flex gap-4 flex-col justify-between items-center">
-            <p className=" text-center sm:text-left">Sign in with one of these providers:</p>
+            <p className=" text-center sm:text-left">
+              Sign in with one of these providers:
+            </p>
             {Object.values(providers).map((provider) => {
-              return <LoginButton key={provider.id} provider={provider} />
+              return <LoginButton key={provider.id} provider={provider} />;
             })}
           </div>
         </div>
@@ -48,7 +50,10 @@ export default function SignIn({ providers }) {
             </Transition.Child>
 
             {/* This element is to trick the browser into centering the modal contents. */}
-            <span className="inline-block h-screen align-middle" aria-hidden="true">
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
               &#8203;
             </span>
             <Transition.Child
@@ -61,13 +66,16 @@ export default function SignIn({ providers }) {
               leaveTo="opacity-0 scale-95"
             >
               <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900"
+                >
                   Problem signing in
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    An unexpected problem occurred while I'm trying to log you in. Please try with
-                    another providers.
+                    An unexpected problem occurred while I'm trying to log you
+                    in. Please try with another providers.
                   </p>
                 </div>
 
@@ -86,21 +94,21 @@ export default function SignIn({ providers }) {
         </Dialog>
       </Transition>
     </>
-  )
+  );
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context)
+  const session = await getSession(context);
   if (session) {
     return {
       redirect: {
         permanent: false,
-        destination: '/',
+        destination: "/",
       },
-    }
+    };
   }
-  const providers = await getProviders()
+  const providers = await getProviders();
   return {
     props: { providers },
-  }
+  };
 }

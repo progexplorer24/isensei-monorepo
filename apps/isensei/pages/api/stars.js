@@ -1,21 +1,21 @@
-import { prisma } from '../../prisma/index'
+import { prisma } from "../../prisma/index";
 
 export default async function assetHandler(req, res) {
-  const { method } = req
+  const { method } = req;
 
   switch (method) {
-    case 'GET':
+    case "GET":
       try {
-        const stars = await prisma.star.findMany()
-        res.status(200).json(stars)
+        const stars = await prisma.star.findMany();
+        res.status(200).json(stars);
       } catch (e) {
-        console.error('Request error', e)
-        res.status(500).json({ error: 'Error fetching posts' })
+        console.error("Request error", e);
+        res.status(500).json({ error: "Error fetching posts" });
       }
-      break
+      break;
     default:
-      res.setHeader('Allow', ['GET'])
-      res.status(405).end(`Method ${method} Not Allowed`)
-      break
+      res.setHeader("Allow", ["GET"]);
+      res.status(405).end(`Method ${method} Not Allowed`);
+      break;
   }
 }

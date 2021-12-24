@@ -1,27 +1,27 @@
-import Link from '@/components/Link'
-import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { getAllTags } from '@/lib/tags'
-import kebabCase from '@/lib/utils/kebabCase'
+import Link from "@/components/Link";
+import { PageSEO } from "@/components/SEO";
+import Tag from "@/components/Tag";
+import siteMetadata from "@/data/siteMetadata";
+import { getAllTags } from "@/lib/tags";
+import kebabCase from "@/lib/utils/kebabCase";
 
-import useTranslation from 'next-translate/useTranslation'
+import useTranslation from "next-translate/useTranslation";
 
 export async function getStaticProps({ defaultLocale, locale, locales }) {
-  const otherLocale = locale !== defaultLocale ? locale : ''
-  const tags = await getAllTags('blog', otherLocale)
+  const otherLocale = locale !== defaultLocale ? locale : "";
+  const tags = await getAllTags("blog", otherLocale);
 
-  return { props: { tags, locale, availableLocales: locales } }
+  return { props: { tags, locale, availableLocales: locales } };
 }
 
 export default function Tags({ tags, locale, availableLocales }) {
-  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
-  const { t } = useTranslation()
+  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
+  const { t } = useTranslation();
   return (
     <>
       <PageSEO
-        title={`${t('headerNavLinks:tags')} - ${siteMetadata.author}`}
-        description={t('SEO:tags')}
+        title={`${t("headerNavLinks:tags")} - ${siteMetadata.author}`}
+        description={t("SEO:tags")}
         availableLocales={availableLocales}
       />
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:divide-y-0 md:flex-row md:space-x-6 md:mt-24">
@@ -31,7 +31,7 @@ export default function Tags({ tags, locale, availableLocales }) {
           </h1>
         </div>
         <div className="flex flex-wrap max-w-lg">
-          {Object.keys(tags).length === 0 && 'No tags found.'}
+          {Object.keys(tags).length === 0 && "No tags found."}
           {sortedTags.map((t) => {
             return (
               <div key={t} className="mt-2 mb-2 mr-5">
@@ -43,10 +43,10 @@ export default function Tags({ tags, locale, availableLocales }) {
                   {` (${tags[t]})`}
                 </Link>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </>
-  )
+  );
 }
