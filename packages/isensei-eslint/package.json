@@ -2,14 +2,19 @@
   "name": "isensei-eslint",
   "version": "0.0.0",
   "private": true,
-  "main": "eslint-preset.js",
+  "sorceType": "module",
+  "main": "eslint-preset.cjs",
   "files": [
-    "prettier.config.js"
+    "prettier.config.js",
+    "eslint-next-preset.cjs"
   ],
-  "keywords": [
-    "rescript"
-  ],
-  "devDependencies": {
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "bin": {
+    "eslint": "../../node_modules/.bin/eslint"
+  },
+  "dependencies": {
     "eslint": "^8.5.0",
     "eslint-config-next": "^12.0.7",
     "eslint-config-prettier": "^8.3.0",
