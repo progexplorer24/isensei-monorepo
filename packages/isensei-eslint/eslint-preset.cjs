@@ -6,11 +6,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:jsx-a11y/recommended', 'plugin:prettier/recommended'],
   rules: {
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
@@ -25,8 +21,9 @@ module.exports = {
     'react/prop-types': 0,
     'no-unused-vars': 0,
     'react/no-unescaped-entities': 0,
+    'no-constant-condition': ['error', { checkLoops: false }],
   },
-  "parserOptions": {
-    "sourceType": "module"
-},
+  parserOptions: {
+    sourceType: 'module',
+  },
 }
