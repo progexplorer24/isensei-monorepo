@@ -10,7 +10,7 @@
     "rescript"
   ],
   "dependencies": {
-    "@emotion/css": "^11.7.1",
+    "isensei-css": "*",
     "selectors": "*",
     "theme": "*"
   }

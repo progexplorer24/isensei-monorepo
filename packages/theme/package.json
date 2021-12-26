@@ -10,7 +10,6 @@
     "rescript"
   ],
   "dependencies": {
-    "bs-css-emotion": "^4.0.2",
-    "emotion": "^11.0.0"
+    "isensei-css": "*"
   }
 }
