@@ -7055,6 +7055,7 @@ __metadata:
     prettier: ^2.5.1
   bin:
     eslint: ../../node_modules/.bin/eslint
+    prettier: ../../node_modules/prettier/bin-prettier
   languageName: unknown
   linkType: soft
 

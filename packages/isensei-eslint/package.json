@@ -12,7 +12,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "bin": {
-    "eslint": "../../node_modules/.bin/eslint"
+    "eslint": "../../node_modules/.bin/eslint",
+    "prettier": "../../node_modules/prettier/bin-prettier"
   },
   "dependencies": {
     "eslint": "^8.5.0",
