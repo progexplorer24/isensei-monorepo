@@ -11117,6 +11117,8 @@ __metadata:
 "reset@workspace:packages/reset":
   version: 0.0.0-use.local
   resolution: "reset@workspace:packages/reset"
+  dependencies:
+    isensei-css: "*"
   languageName: unknown
   linkType: soft
 
@@ -11340,6 +11342,8 @@ __metadata:
 "selectors@*, selectors@workspace:packages/selectors":
   version: 0.0.0-use.local
   resolution: "selectors@workspace:packages/selectors"
+  dependencies:
+    isensei-css: "*"
   languageName: unknown
   linkType: soft
 

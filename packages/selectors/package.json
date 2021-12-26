@@ -6,6 +6,9 @@
   "sideEffects": false,
   "main": "./Index__Selectors.mjs",
   "files": [],
+  "dependencies": {
+    "isensei-css": "*"
+  },
   "keywords": [
     "rescript"
   ]
