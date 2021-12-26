@@ -50,7 +50,7 @@
   ],
   "lint-staged": {
     "*.+(js|jsx|ts|tsx|mjs)": [
-      "turbo run lint"
+      "eslint --fix"
     ],
     "*.+(js|jsx|mjs|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
