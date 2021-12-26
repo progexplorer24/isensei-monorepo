@@ -57,6 +57,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@rescript/react": "^0.10.3",
     "husky": "^7.0.4",
     "isensei-eslint": "*",
