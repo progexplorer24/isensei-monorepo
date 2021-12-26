@@ -14,7 +14,7 @@
     "prepublish": "lerna run prepublish",
     "publish-canary": "lerna version prerelease --preid canary --force-publish",
     "publish-stable": "lerna version --force-publish && release && node ./scripts/release-notes.js",
-    "prepare": "husky install"
+    "postinstall": "husky install"
   },
   "turbo": {
     "baseBranch": "origin/main",
