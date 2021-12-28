@@ -3,7 +3,6 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  mode: "jit",
   content: [
     "./pages/**/*.js",
     "./components/**/*.js",
@@ -56,6 +55,9 @@ module.exports = {
             },
             "h4,h5,h6": {
               color: theme("colors.gray.900"),
+            },
+            pre: {
+              backgroundColor: theme("colors.gray.800"),
             },
             code: {
               color: theme("colors.pink.500"),
@@ -122,6 +124,9 @@ module.exports = {
             "h4,h5,h6": {
               color: theme("colors.gray.100"),
             },
+            pre: {
+              backgroundColor: theme("colors.gray.800"),
+            },
             code: {
               backgroundColor: theme("colors.gray.800"),
             },
@@ -153,9 +158,6 @@ module.exports = {
         },
       }),
     },
-  },
-  variants: {
-    typography: ["dark"],
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

@@ -5,6 +5,7 @@ const siteMetadata = {
   // description: 'A blog created with Next.js and Tailwind.css',
   description: { en: "en description", fr: "Description en fr" },
   language: "en-us",
+  theme: "system",
   siteUrl: "https://tailwind-nextjs-starter-blog.vercel.app",
   siteRepo: "https://github.com/timlrx/tailwind-nextjs-starter-blog",
   siteLogo: "/static/images/logo.png",

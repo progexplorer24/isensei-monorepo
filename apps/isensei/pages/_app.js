@@ -1,14 +1,14 @@
+import Head from "next/head";
+import { ThemeProvider } from "next-themes";
+import { SessionProvider } from "next-auth/react";
+
 import "@/css/tailwind.css";
 import "@/css/prism.css";
-
-import { ThemeProvider } from "next-themes";
-import Head from "next/head";
-
+import siteMetadata from "@/data/siteMetadata";
 import Analytics from "@/components/analytics";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import RSS from "@/components/Rss";
 import { ClientReload } from "@/components/ClientReload";
-import { SessionProvider } from "next-auth/react";
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
@@ -18,7 +18,7 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
