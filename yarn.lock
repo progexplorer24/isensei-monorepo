@@ -1430,6 +1430,123 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@citation-js/cli@npm:0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/cli@npm:0.5.4"
+  dependencies:
+    "@citation-js/core": ^0.5.4
+    "@citation-js/plugin-bibjson": ^0.5.4
+    "@citation-js/plugin-bibtex": ^0.5.4
+    "@citation-js/plugin-csl": ^0.5.4
+    "@citation-js/plugin-doi": ^0.5.4
+    "@citation-js/plugin-ris": ^0.5.4
+    "@citation-js/plugin-wikidata": ^0.5.4
+    commander: ^5.1.0
+  bin:
+    citation-js: lib/index.js
+  checksum: c4c0b8684672ad613561d83aac6f8c0450e8064cad08cdd4dc7848c9caf57f8e212d6309ecdfc2aa8d84f646b53b3aa19848eaf7bc1a96943b1cfac5a91fae47
+  languageName: node
+  linkType: hard
+
+"@citation-js/core@npm:0.5.4, @citation-js/core@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/core@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    "@citation-js/name": ^0.4.2
+    isomorphic-fetch: ^3.0.0
+    sync-fetch: ^0.3.0
+  checksum: fc0e74a0aa717d7e1ded4e132221e9972ab6a4ecc296e63e7f7b18b764b89395e13a54c36073b8f3051656b4e00ba0f0624e6ddcb5ae44c1d19f8b5a10c94555
+  languageName: node
+  linkType: hard
+
+"@citation-js/date@npm:0.5.1, @citation-js/date@npm:^0.5.0":
+  version: 0.5.1
+  resolution: "@citation-js/date@npm:0.5.1"
+  checksum: d3f71fd8cc933d7b51f3aec3a529729a13617680b310aba72c1adb3c0b9756c418219d30a85e9a495b1f8202fd6c751ade117b64e5a95ac95a3c94014448e56f
+  languageName: node
+  linkType: hard
+
+"@citation-js/name@npm:0.4.2, @citation-js/name@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@citation-js/name@npm:0.4.2"
+  checksum: 35556499a6a8a77189ee29b2ec15ee06366d0d0d79b5a896dfb617b94c1f4cf8423a0db022c294ee144a5a0f382fec6cce7b8064b71aaf001574095064b1586b
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-bibjson@npm:0.5.4, @citation-js/plugin-bibjson@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-bibjson@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    "@citation-js/name": ^0.4.2
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: 111c2081590bce8c49f3d95842ff854e190e5f1d9aa8ea00837153ad46d8a246d72f700825b0e072bfa1fe48879b932b45d1b8dfc1d2ccd7437ed6f8571e8493
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-bibtex@npm:0.5.4, @citation-js/plugin-bibtex@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-bibtex@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    "@citation-js/name": ^0.4.2
+    moo: ^0.5.1
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: abdadd4a6aeecad542162b1e505062528809cc2df30f65c1418f456aea87d5557ba0e100c6dccea1de90320b49b241c811a2e9e0ac5c1ed06500e61f8f3f578f
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-csl@npm:0.5.4, @citation-js/plugin-csl@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-csl@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    citeproc: ^2.4.6
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: 8de3bb3f8ed31163aa44a5f6bda4afbd7afa24bcfbf6c0b502dd926498000bbd43b3823c96b0cf0071588ce2346c95172777389898ee6cbf7d79419d344d1f5b
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-doi@npm:0.5.4, @citation-js/plugin-doi@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-doi@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: faf5906a570b0c9dfebd3277e1025d8524b89b25cc49da8cf8fb6e3b5c8ad9c9bc9bf6e348fb9c0b21b0db3a2a332ad35e571f8261a4b0e852551cf519ab52fa
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-ris@npm:0.5.4, @citation-js/plugin-ris@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-ris@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    "@citation-js/name": ^0.4.2
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: 47e45d4825c2e1b43ddf8ae49462f30819875d305390f76495b833802bc6df655f9e14be6c4249b4842014dde5e00ac2b5f91ca68c0b1fedf9573f170bcc0f56
+  languageName: node
+  linkType: hard
+
+"@citation-js/plugin-wikidata@npm:0.5.4, @citation-js/plugin-wikidata@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@citation-js/plugin-wikidata@npm:0.5.4"
+  dependencies:
+    "@citation-js/date": ^0.5.0
+    "@citation-js/name": ^0.4.2
+    wikidata-sdk: 7
+  peerDependencies:
+    "@citation-js/core": ^0.5.0-alpha.0
+  checksum: 19cd30e5ff613f89aa572a8745b80f5bac35e716aaeda16988f4d1ba6f5731b91a1ced39e5e6d0595b2fb07f2717d577c826177e71f5274beefc9b4e8f7ba606
+  languageName: node
+  linkType: hard
+
 "@commitlint/cli@npm:^16.0.0":
   version: 16.0.0
   resolution: "@commitlint/cli@npm:16.0.0"
@@ -3602,7 +3719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer@npm:^5.5.0":
+"buffer@npm:^5.5.0, buffer@npm:^5.7.0":
   version: 5.7.1
   resolution: "buffer@npm:5.7.1"
   dependencies:
@@ -3897,6 +4014,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"citation-js@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "citation-js@npm:0.5.4"
+  dependencies:
+    "@citation-js/cli": 0.5.4
+    "@citation-js/core": 0.5.4
+    "@citation-js/date": 0.5.1
+    "@citation-js/name": 0.4.2
+    "@citation-js/plugin-bibjson": 0.5.4
+    "@citation-js/plugin-bibtex": 0.5.4
+    "@citation-js/plugin-csl": 0.5.4
+    "@citation-js/plugin-doi": 0.5.4
+    "@citation-js/plugin-ris": 0.5.4
+    "@citation-js/plugin-wikidata": 0.5.4
+    citeproc: ^2.4.59
+  bin:
+    citation-js: bin/cmd.js
+  checksum: c715b4a386cd9f04b22f44618b3be436a2e4c53afb32ed031c67b714983128c3282959e6079ff271817cae36abbb97b2e1cac8545e08c3533b4fe9507c399dcb
+  languageName: node
+  linkType: hard
+
+"citeproc@npm:^2.4.59, citeproc@npm:^2.4.6":
+  version: 2.4.62
+  resolution: "citeproc@npm:2.4.62"
+  checksum: 9b92a18981643cb88ee4c4d16fdc5b43dee52577ed15b8f2a45cd7f686363216615904217275beee528154906f17082621380baecb38a823b579c8f47a0e7093
+  languageName: node
+  linkType: hard
+
 "classnames@npm:2.2.6":
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
@@ -4079,7 +4224,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^5.0.0":
+"commander@npm:^5.0.0, commander@npm:^5.1.0":
   version: 5.1.0
   resolution: "commander@npm:5.1.0"
   checksum: 0b7fec1712fbcc6230fcb161d8d73b4730fa91a21dc089515489402ad78810547683f058e2a9835929c212fead1d6a6ade70db28bbb03edbc2829a9ab7d69447
@@ -6656,7 +6801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-from-parse5@npm:^7.0.0":
+"hast-util-from-parse5@npm:^7.0.0, hast-util-from-parse5@npm:^7.1.0":
   version: 7.1.0
   resolution: "hast-util-from-parse5@npm:7.1.0"
   dependencies:
@@ -7533,6 +7678,7 @@ __metadata:
     react-dom: 17.0.2
     reading-time: 1.5.0
     rehype-autolink-headings: ^6.1.0
+    rehype-citation: ^0.1.2
     rehype-katex: ^6.0.2
     rehype-prism-plus: ^1.1.3
     rehype-slug: ^5.0.0
@@ -7599,6 +7745,16 @@ __metadata:
   version: 2.0.0
   resolution: "isexe@npm:2.0.0"
   checksum: 26bf6c5480dda5161c820c5b5c751ae1e766c587b1f951ea3fcfc973bafb7831ae5b54a31a69bd670220e42e99ec154475025a468eae58ea262f813fdc8d1c62
+  languageName: node
+  linkType: hard
+
+"isomorphic-fetch@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "isomorphic-fetch@npm:3.0.0"
+  dependencies:
+    node-fetch: ^2.6.1
+    whatwg-fetch: ^3.4.1
+  checksum: e5ab79a56ce5af6ddd21265f59312ad9a4bc5a72cebc98b54797b42cb30441d5c5f8d17c5cd84a99e18101c8af6f90c081ecb8d12fd79e332be1778d58486d75
   languageName: node
   linkType: hard
 
@@ -9250,6 +9406,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"moo@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "moo@npm:0.5.1"
+  checksum: 2d8c013f1f9aad8e5c7a9d4a03dbb4eecd91b9fe5e9446fbc7561fd38d4d161c742434acff385722542fe7b360fce9c586da62442379e62e4158ad49c7e1a6b7
+  languageName: node
+  linkType: hard
+
 "morgan@npm:1.9.1":
   version: 1.9.1
   resolution: "morgan@npm:1.9.1"
@@ -9556,6 +9719,15 @@ __metadata:
   version: 2.6.1
   resolution: "node-fetch@npm:2.6.1"
   checksum: 91075bedd57879117e310fbcc36983ad5d699e522edb1ebcdc4ee5294c982843982652925c3532729fdc86b2d64a8a827797a745f332040d91823c8752ee4d7c
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.1":
+  version: 2.6.6
+  resolution: "node-fetch@npm:2.6.6"
+  dependencies:
+    whatwg-url: ^5.0.0
+  checksum: ee8290626bdb73629c59722b75dcf4b9b6a67c1ed7eb9102e368479c4a13b56a48c2bb3ad71571e378e98c8b2c64c820e11f9cd39e4b8557dd138ad571ef9a42
   languageName: node
   linkType: hard
 
@@ -10089,7 +10261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^6.0.0":
+"parse5@npm:^6.0.0, parse5@npm:^6.0.1":
   version: 6.0.1
   resolution: "parse5@npm:6.0.1"
   checksum: 7d569a176c5460897f7c8f3377eff640d54132b9be51ae8a8fa4979af940830b2b0c296ce75e5bd8f4041520aadde13170dbdec44889975f906098ea0002f4bd
@@ -10926,6 +11098,19 @@ __metadata:
     unified: ^10.0.0
     unist-util-visit: ^4.0.0
   checksum: a3808fc96884aeaa8509b17fed6050795e3cc483e5bdbfb04f171d4028e58396d630e3558d2853c92530a01403828cd3ce9291cb1956c6298195e0ccdeb0f3d2
+  languageName: node
+  linkType: hard
+
+"rehype-citation@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "rehype-citation@npm:0.1.2"
+  dependencies:
+    citation-js: ^0.5.4
+    hast-util-from-parse5: ^7.1.0
+    parse5: ^6.0.1
+    unified: ^10.1.0
+    unist-util-visit: ^4.0.0
+  checksum: 6301eaab9c9f3c601f3e5bf197ba87efcc088385a792eabc86ff4639ceffd7abb1edec21d30a95487bb7990996eb053070711bbcea2f54b2abff62503fbd3749
   languageName: node
   linkType: hard
 
@@ -12249,6 +12434,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sync-fetch@npm:^0.3.0":
+  version: 0.3.1
+  resolution: "sync-fetch@npm:0.3.1"
+  dependencies:
+    buffer: ^5.7.0
+    node-fetch: ^2.6.1
+  checksum: f6afd3e18efd7ff0540c2c559fea66e42bc9ae1cc72f5cbd5e51def40062aa7915c06be7e02e10d23e0b844aa3865b3ec41b0ed951688e981acb12548299dff4
+  languageName: node
+  linkType: hard
+
 "tailwind@npm:*":
   version: 4.0.0
   resolution: "tailwind@npm:4.0.0"
@@ -12494,6 +12689,13 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 96d4ed46bc161db75dbf9247a236ea0bfcaf5758baae6749e92afab0bc5a09cb59af21788ede7e55080f2bf02dce3e4a8f2a484cc45164e29f4b5e68f7cbcc1a
+  languageName: node
+  linkType: hard
+
+"tr46@npm:~0.0.3":
+  version: 0.0.3
+  resolution: "tr46@npm:0.0.3"
+  checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
   languageName: node
   linkType: hard
 
@@ -13258,6 +13460,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"webidl-conversions@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "webidl-conversions@npm:3.0.1"
+  checksum: c92a0a6ab95314bde9c32e1d0a6dfac83b578f8fa5f21e675bc2706ed6981bc26b7eb7e6a1fab158e5ce4adf9caa4a0aee49a52505d4d13c7be545f15021b17c
+  languageName: node
+  linkType: hard
+
 "webidl-conversions@npm:^4.0.2":
   version: 4.0.2
   resolution: "webidl-conversions@npm:4.0.2"
@@ -13281,6 +13490,23 @@ __metadata:
   bin:
     webpack-bundle-analyzer: lib/bin/analyzer.js
   checksum: 00b7bf4ac9fca17062b66b6897145b94e87153d3ec8815f0e0c05a3b8a1ca75320262db01a5fa634f604ee3d41aecde1ee59838d05b6d03cd5be62eb1addbcf8
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:^3.4.1":
+  version: 3.6.2
+  resolution: "whatwg-fetch@npm:3.6.2"
+  checksum: ee976b7249e7791edb0d0a62cd806b29006ad7ec3a3d89145921ad8c00a3a67e4be8f3fb3ec6bc7b58498724fd568d11aeeeea1f7827e7e1e5eae6c8a275afed
+  languageName: node
+  linkType: hard
+
+"whatwg-url@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "whatwg-url@npm:5.0.0"
+  dependencies:
+    tr46: ~0.0.3
+    webidl-conversions: ^3.0.0
+  checksum: b8daed4ad3356cc4899048a15b2c143a9aed0dfae1f611ebd55073310c7b910f522ad75d727346ad64203d7e6c79ef25eafd465f4d12775ca44b90fa82ed9e2c
   languageName: node
   linkType: hard
 
@@ -13339,6 +13565,22 @@ __metadata:
   dependencies:
     string-width: ^1.0.2 || 2 || 3 || 4
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
+  languageName: node
+  linkType: hard
+
+"wikibase-sdk@npm:^7.14.2":
+  version: 7.14.2
+  resolution: "wikibase-sdk@npm:7.14.2"
+  checksum: a86820a912937eb2a1da3a0c9f38e37cfa1be9aad90c95712b5d24ccdbdd3427d0a05fb5dcf2760cb0957c07dd35f69ff53a64d5f9f2d72fce0b09d5a888eb4e
+  languageName: node
+  linkType: hard
+
+"wikidata-sdk@npm:7":
+  version: 7.14.2
+  resolution: "wikidata-sdk@npm:7.14.2"
+  dependencies:
+    wikibase-sdk: ^7.14.2
+  checksum: e49adc5f5c95dd7c5b4ebeeba1eb3b406ba87d1067b4ca8fac23793efe12b687f2d51e14037103be24ad86dc2f0c345bc9e23b4ca0030a2cb8a27b710cfae9e6
   languageName: node
   linkType: hard
 

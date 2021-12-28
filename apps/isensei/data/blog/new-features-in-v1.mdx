@@ -354,6 +354,37 @@ and is not compatible with a 100% static site export. Users should either self-h
 
 A static site compatible alternative is to substitute the route in the newsletter component with a form API endpoint provider.
 
+## Bibliography and Citations (v1.2.1)
+
+`rehype-citation` plugin is added to the xdm processing pipeline in v1.2.1. This allows you to easily format citations and insert bibliography from an existing bibtex or CSL-json file.
+
+For example, the following markdown code sample:
+
+```md
+Standard citation [@Nash1950]
+In-text citations e.g. @Nash1951
+Multiple citations [see @Nash1950; @Nash1951, page 50]
+
+**References:**
+
+[^ref]
+```
+
+is rendered to the following:
+
+Standard citation [@Nash1950]  
+In-text citations e.g. @Nash1951  
+Multiple citations [see @Nash1950; @Nash1951, page 50]
+
+**References:**
+
+[^ref]
+
+A bibliography will be inserted at the end of the document, but this can be overwritten by specifying a `[^Ref]` tag at the intended location.
+The plugin uses APA citation formation, but also supports the following CSLs, 'apa', 'vancouver', 'harvard1', 'chicago', 'mla', or a path to a user-specified CSL file.
+
+See [rehype-citation readme](https://github.com/timlrx/rehype-citation) for more information on the configuration options.
+
 ## Upgrade guide
 
 There are significant portions of the code that has been changed from v0 to v1 including support for layouts and a new mdx engine.
