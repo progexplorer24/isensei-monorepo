@@ -3,7 +3,7 @@
   "version": "1.1.2",
   "private": true,
   "scripts": {
-    "start": "node ./scripts/next-remote-watch.js ./data",
+    "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "yarn run clean && TAILWIND_MODE=watch next dev",
     "build": "prisma generate && prisma migrate deploy && next build && node ./scripts/generate-sitemap",
     "serve": "next start",

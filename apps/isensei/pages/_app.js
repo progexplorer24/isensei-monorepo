@@ -11,6 +11,7 @@ import RSS from "@/components/Rss";
 import { ClientReload } from "@/components/ClientReload";
 
 const isDevelopment = process.env.NODE_ENV === "development";
+const isSocket = process.env.SOCKET;
 
 export default function App({
   Component,
@@ -22,7 +23,7 @@ export default function App({
         <Head>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
-        {isDevelopment && <ClientReload />}
+        {isDevelopment && isSocket && <ClientReload />}
         <Analytics />
         <LayoutWrapper>
           <Component {...pageProps} />
