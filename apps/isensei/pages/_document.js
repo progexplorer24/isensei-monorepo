@@ -3,7 +3,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
+        <Head className="scroll-smooth">
           <link
             rel="apple-touch-icon"
             sizes="76x76"
