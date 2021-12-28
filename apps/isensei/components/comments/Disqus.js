@@ -19,7 +19,7 @@ const Disqus = ({ frontMatter }) => {
       const script = document.createElement("script");
       script.src =
         "https://" +
-        siteMetadata.comment.disqus.shortname +
+        siteMetadata.comment.disqusConfig.shortname +
         ".disqus.com/embed.js";
       script.setAttribute("data-timestamp", +new Date());
       script.setAttribute("crossorigin", "anonymous");
