@@ -7,7 +7,7 @@ export async function getStaticProps({ locale, defaultLocale, locales }) {
   const otherLocale = locale !== defaultLocale ? locale : "";
   const authorDetails = await getFileBySlug(
     "authors",
-    [`sparrowhawk`],
+    [`isensei`],
     otherLocale
   );
   return { props: { authorDetails, availableLocales: locales } };
