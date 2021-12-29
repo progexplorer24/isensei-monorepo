@@ -28,11 +28,8 @@ const LayoutWrapper = ({ children }) => {
           <div>
             <Link href="/" aria-label="Tailwind CSS Blog">
               <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
-                </div>
                 {typeof siteMetadata.headerTitle[locale] === "string" ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                  <div className="hidden h-6 text-lg font-bold sm:block">
                     {siteMetadata.headerTitle[locale]}
                   </div>
                 ) : (
@@ -57,7 +54,7 @@ const LayoutWrapper = ({ children }) => {
               onChange={changeLanguage}
               defaultValue={locale}
               style={{ textAlignLast: "center" }}
-              className="text-gray-900 dark:text-gray-100 text-shadow-sm text-sm bg-transparent tracking-wide"
+              className="text-gray-900 dark:text-gray-100 text-shadow-sm text-sm bg-white dark:bg-gray-900 tracking-wide"
             >
               {locales.map((e) => (
                 <option value={e} key={e}>
