@@ -1,5 +1,5 @@
 {
-  "name": "ui",
+  "name": "@isensei/ui",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -15,7 +15,7 @@
     "rescript"
   ],
   "dependencies": {
-    "isensei-tailwind": "*"
+    "@isensei/tailwind": "*"
   },
   "devDependencies": {
     "eslint-config-isensei": "*"

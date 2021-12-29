@@ -1,15 +1,18 @@
 {
-  "name": "reset",
+  "name": "@isensei/reset",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./Index__Reset.mjs",
+  "main": "./src/Reset.mjs",
   "files": [],
   "keywords": [
     "rescript"
   ],
   "dependencies": {
-    "isensei-css": "*"
+    "@isensei/css": "*"
+  },
+  "devDependencies": {
+    "eslint-config-isensei": "*"
   }
 }

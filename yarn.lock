@@ -1930,6 +1930,67 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isensei/css@*, @isensei/css@workspace:packages/css":
+  version: 0.0.0-use.local
+  resolution: "@isensei/css@workspace:packages/css"
+  dependencies:
+    "@emotion/cache": ^11.7.1
+    "@emotion/css": ^11.7.1
+    eslint-config-isensei: "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/reset@workspace:packages/reset":
+  version: 0.0.0-use.local
+  resolution: "@isensei/reset@workspace:packages/reset"
+  dependencies:
+    "@isensei/css": "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/selectors@*, @isensei/selectors@workspace:packages/selectors":
+  version: 0.0.0-use.local
+  resolution: "@isensei/selectors@workspace:packages/selectors"
+  dependencies:
+    "@isensei/css": "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/tailwind@*, @isensei/tailwind@workspace:packages/tailwind":
+  version: 0.0.0-use.local
+  resolution: "@isensei/tailwind@workspace:packages/tailwind"
+  dependencies:
+    "@isensei/css": "*"
+    "@isensei/selectors": "*"
+    "@isensei/theme": "*"
+    eslint-config-isensei: "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/theme@*, @isensei/theme@workspace:packages/theme":
+  version: 0.0.0-use.local
+  resolution: "@isensei/theme@workspace:packages/theme"
+  dependencies:
+    "@isensei/css": "*"
+    eslint-config-isensei: "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/ui@*, @isensei/ui@workspace:packages/ui":
+  version: 0.0.0-use.local
+  resolution: "@isensei/ui@workspace:packages/ui"
+  dependencies:
+    "@isensei/tailwind": "*"
+    eslint-config-isensei: "*"
+  languageName: unknown
+  linkType: soft
+
+"@isensei/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@isensei/utils@workspace:packages/utils"
+  languageName: unknown
+  linkType: soft
+
 "@mailchimp/mailchimp_marketing@npm:^3.0.72":
   version: 3.0.72
   resolution: "@mailchimp/mailchimp_marketing@npm:3.0.72"
@@ -7224,6 +7285,7 @@ __metadata:
   resolution: "isensei-blog@workspace:apps/isensei"
   dependencies:
     "@headlessui/react": ^1.4.2
+    "@isensei/ui": "*"
     "@mailchimp/mailchimp_marketing": ^3.0.72
     "@next-auth/prisma-adapter": ^1.0.1
     "@next/bundle-analyzer": 12.0.7
@@ -7271,18 +7333,7 @@ __metadata:
     socket.io: ^4.4.0
     socket.io-client: ^4.4.0
     tailwindcss: ^3.0.7
-    ui: "*"
     unist-util-visit: ^4.1.0
-  languageName: unknown
-  linkType: soft
-
-"isensei-css@*, isensei-css@workspace:packages/isensei-css":
-  version: 0.0.0-use.local
-  resolution: "isensei-css@workspace:packages/isensei-css"
-  dependencies:
-    "@emotion/cache": ^11.7.1
-    "@emotion/css": ^11.7.1
-    eslint-config-isensei: "*"
   languageName: unknown
   linkType: soft
 
@@ -7302,17 +7353,6 @@ __metadata:
     rescript-logger: ^2.0.2
     rescript-nodejs: ^14.2.0
     turbo: ^1.0.23
-  languageName: unknown
-  linkType: soft
-
-"isensei-tailwind@*, isensei-tailwind@workspace:packages/tailwind":
-  version: 0.0.0-use.local
-  resolution: "isensei-tailwind@workspace:packages/tailwind"
-  dependencies:
-    eslint-config-isensei: "*"
-    isensei-css: "*"
-    selectors: "*"
-    theme: "*"
   languageName: unknown
   linkType: soft
 
@@ -10610,14 +10650,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reset@workspace:packages/reset":
-  version: 0.0.0-use.local
-  resolution: "reset@workspace:packages/reset"
-  dependencies:
-    isensei-css: "*"
-  languageName: unknown
-  linkType: soft
-
 "resolve-alpn@npm:^1.0.0":
   version: 1.2.1
   resolution: "resolve-alpn@npm:1.2.1"
@@ -10834,14 +10866,6 @@ __metadata:
   checksum: 3cc4131705493b2955729b075dcf562359bba66183debb0332752dc9cad35616f6da7a23e42b6cab45cd2e4bb5cda113e9e84c8f05aee77adb6b0289a0229101
   languageName: node
   linkType: hard
-
-"selectors@*, selectors@workspace:packages/selectors":
-  version: 0.0.0-use.local
-  resolution: "selectors@workspace:packages/selectors"
-  dependencies:
-    isensei-css: "*"
-  languageName: unknown
-  linkType: soft
 
 "semver@npm:2 || 3 || 4 || 5":
   version: 5.7.1
@@ -11753,15 +11777,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"theme@*, theme@workspace:packages/theme":
-  version: 0.0.0-use.local
-  resolution: "theme@workspace:packages/theme"
-  dependencies:
-    eslint-config-isensei: "*"
-    isensei-css: "*"
-  languageName: unknown
-  linkType: soft
-
 "through2@npm:^4.0.0":
   version: 4.0.2
   resolution: "through2@npm:4.0.2"
@@ -12187,15 +12202,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ui@*, ui@workspace:packages/ui":
-  version: 0.0.0-use.local
-  resolution: "ui@workspace:packages/ui"
-  dependencies:
-    eslint-config-isensei: "*"
-    isensei-tailwind: "*"
-  languageName: unknown
-  linkType: soft
-
 "unbox-primitive@npm:^1.0.1":
   version: 1.0.1
   resolution: "unbox-primitive@npm:1.0.1"
@@ -12454,12 +12460,6 @@ __metadata:
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
   languageName: node
   linkType: hard
-
-"utils@workspace:packages/utils":
-  version: 0.0.0-use.local
-  resolution: "utils@workspace:packages/utils"
-  languageName: unknown
-  linkType: soft
 
 "uuid@npm:^8.3.2":
   version: 8.3.2

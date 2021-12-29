@@ -1,5 +1,5 @@
 {
-  "name": "theme",
+  "name": "@isensei/theme",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "isensei-css": "*"
+    "@isensei/css": "*"
   },
   "devDependencies": {
     "eslint-config-isensei": "*"

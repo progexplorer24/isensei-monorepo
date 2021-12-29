@@ -1,13 +1,16 @@
 {
-  "name": "selectors",
+  "name": "@isensei/selectors",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./Index__Selectors.mjs",
+  "main": "./src/Selectors.mjs",
   "files": [],
   "dependencies": {
-    "isensei-css": "*"
+    "@isensei/css": "*"
+  },
+  "devDependencies": {
+    "eslint-config-isensei": "*"
   },
   "keywords": [
     "rescript"

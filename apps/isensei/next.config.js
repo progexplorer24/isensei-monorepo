@@ -12,7 +12,7 @@ if (!process.env.NEXTAUTH_URL) {
     console.warn(
       "\x1b[33mwarn",
       "\x1b[0m",
-      `NEXTAUTH_URL environment variable is not set. Using Netlify URL ${process.env.URL}.`
+      `NEXTAUTH_URL environment variable is not set. Using Vercel URL ${process.env.URL}.`
     );
   }
 }
@@ -129,7 +129,9 @@ const config = {
 };
 const withNextTranslate = require("next-translate")(withBundleAnalyzer(config));
 
-const transpileModules = ["rescript", "ui"].concat(bsconfig["bs-dependencies"]);
+const transpileModules = ["rescript", "@isensei/ui"].concat(
+  bsconfig["bs-dependencies"]
+);
 
 const withTM = require("next-transpile-modules")(transpileModules);
 

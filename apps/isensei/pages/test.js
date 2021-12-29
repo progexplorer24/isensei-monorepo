@@ -1,4 +1,4 @@
-import { btn, Button1, btn2 } from "ui";
+import { btn, Button1, btn2 } from "@isensei/ui";
 
 export default function Test() {
   return (
