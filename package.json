@@ -61,10 +61,10 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@rescript/react": "^0.10.3",
     "husky": "^7.0.4",
-    "isensei-eslint": "*",
     "lint-staged": "^12.1.4",
     "rescript": "^9.1.4",
-    "turbo": "^1.0.23"
+    "turbo": "^1.0.23",
+    "eslint-config-isensei": "*"
   },
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",

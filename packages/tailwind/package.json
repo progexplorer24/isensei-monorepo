@@ -1,17 +1,24 @@
 {
-  "name": "rescript-tailwind",
+  "name": "isensei-tailwind",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./Tailwind.mjs",
+  "main": "./src/Tailwind.mjs",
   "files": [],
-  "keywords": [
-    "rescript"
-  ],
+  "scripts": {
+    "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix && prettier --write .",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
   "dependencies": {
     "isensei-css": "*",
     "selectors": "*",
     "theme": "*"
-  }
+  },
+  "devDependencies": {
+    "eslint-config-isensei": "*"
+  },
+  "keywords": [
+    "rescript"
+  ]
 }

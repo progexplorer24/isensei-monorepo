@@ -15,9 +15,9 @@
     "rescript"
   ],
   "dependencies": {
-    "tailwind": "*"
+    "isensei-tailwind": "*"
   },
   "devDependencies": {
-    "isensei-eslint": "*"
+    "eslint-config-isensei": "*"
   }
 }

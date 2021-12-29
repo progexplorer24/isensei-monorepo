@@ -14,11 +14,11 @@
   "keywords": [
     "rescript"
   ],
-  "devDependencies": {
-    "isensei-eslint": "*"
-  },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
     "@emotion/css": "^11.7.1"
+  },
+  "devDependencies": {
+    "eslint-config-isensei": "*"
   }
 }
