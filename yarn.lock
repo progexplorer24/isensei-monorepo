@@ -1945,6 +1945,7 @@ __metadata:
   resolution: "@isensei/reset@workspace:packages/reset"
   dependencies:
     "@isensei/css": "*"
+    eslint-config-isensei: "*"
   languageName: unknown
   linkType: soft
 
@@ -1953,6 +1954,7 @@ __metadata:
   resolution: "@isensei/selectors@workspace:packages/selectors"
   dependencies:
     "@isensei/css": "*"
+    eslint-config-isensei: "*"
   languageName: unknown
   linkType: soft
 

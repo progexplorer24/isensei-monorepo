@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./src/Index__Theme.mjs",
+  "main": "./src/Theme.mjs",
   "files": [],
   "scripts": {
     "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix && prettier --write .",
