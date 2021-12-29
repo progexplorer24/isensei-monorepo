@@ -3,12 +3,12 @@
 import * as React from "react";
 import * as Button__UI$IsenseiMonorepo from "./Button__UI.mjs";
 
-function Index$Button1(Props) {
+function UI$Button1(Props) {
   return React.createElement("div", undefined, "Component Button");
 }
 
 var Button1 = {
-  make: Index$Button1,
+  make: UI$Button1,
 };
 
 var btn = React.createElement("div", undefined, "Button");

@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./src/Index.mjs",
-  "source": "./src/Index.res",
+  "main": "./src/UI.mjs",
+  "source": "./src/UI.res",
   "scripts": {
     "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix && prettier --write .",
     "clean": "rm -rf .turbo && rm -rf node_modules"
