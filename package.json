@@ -63,8 +63,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.4",
     "rescript": "^9.1.4",
-    "turbo": "^1.0.23",
-    "eslint-config-isensei": "*"
+    "turbo": "^1.0.23"
   },
   "dependencies": {
     "@ryyppy/rescript-promise": "^2.1.0",
