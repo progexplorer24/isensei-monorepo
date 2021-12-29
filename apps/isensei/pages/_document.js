@@ -29,14 +29,13 @@ class MyDocument extends Document {
           />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
           <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
+            rel="preload"
+            href="/static/fonts/inter-pl-en.woff2"
+            as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet"
           />
           <link
             rel="stylesheet"
