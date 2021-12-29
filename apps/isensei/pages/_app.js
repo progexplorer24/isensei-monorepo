@@ -5,6 +5,7 @@ import { SessionProvider } from "next-auth/react";
 import "@/css/tailwind.css";
 import "@/css/prism.css";
 import "@/css/fonts.css";
+import "@/css/katex.min.css";
 import siteMetadata from "@/data/siteMetadata";
 import Analytics from "@/components/analytics";
 import LayoutWrapper from "@/components/LayoutWrapper";
