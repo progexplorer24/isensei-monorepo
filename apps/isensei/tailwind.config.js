@@ -25,7 +25,7 @@ module.exports = {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.teal,
+        primary: colors.sky,
         gray: colors.gray,
       },
       typography: (theme) => ({
@@ -33,9 +33,9 @@ module.exports = {
           css: {
             color: theme("colors.gray.700"),
             a: {
-              color: theme("colors.primary.500"),
+              color: theme("colors.primary.600"),
               "&:hover": {
-                color: theme("colors.primary.600"),
+                color: theme("colors.primary.800"),
               },
               code: { color: theme("colors.primary.400") },
             },
@@ -101,9 +101,9 @@ module.exports = {
           css: {
             color: theme("colors.gray.300"),
             a: {
-              color: theme("colors.primary.500"),
+              color: theme("colors.primary.400"),
               "&:hover": {
-                color: theme("colors.primary.400"),
+                color: theme("colors.primary.300"),
               },
               code: { color: theme("colors.primary.400") },
             },
