@@ -1,5 +1,8 @@
 const siteMetadata = {
-  title: { en: "Isensei Blog", pl: "Isensei Blog" },
+  title: {
+    en: "Isensei – Free spirit, philosopher, creator.",
+    pl: "Isensei - Wolny duch, filozof, twórca.",
+  },
   author: "Isensei",
   headerTitle: { en: "isensei", pl: "isensei" },
   // description: 'A blog created with Next.js and Tailwind.css',
