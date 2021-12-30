@@ -32,7 +32,7 @@ export default function Home({ posts, locale, availableLocales }) {
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <div className="flex flex-col-reverse sm:flex-row items-start">
             <div className="flex flex-col pr-8">
-              <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
+              <h1 className="font-bold text-5xl tracking-tight mb-1 text-black dark:text-white">
                 isensei
               </h1>
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
@@ -52,7 +52,7 @@ export default function Home({ posts, locale, availableLocales }) {
               />
             </div>
           </div>
-          <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10">
             {t("common:greeting")}
           </h2>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
@@ -76,7 +76,7 @@ export default function Home({ posts, locale, availableLocales }) {
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
                         <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                          <h2 className="text-xl font-bold leading-8 tracking-tight">
                             <Link
                               href={`/blog/${slug}`}
                               className="text-gray-900 dark:text-gray-100"

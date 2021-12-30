@@ -25,19 +25,6 @@ const LayoutWrapper = ({ children }) => {
     <SectionContainer>
       <div className="flex flex-col justify-between h-screen">
         <header className="flex items-center justify-between py-10">
-          <div>
-            <Link href="/" aria-label="Tailwind CSS Blog">
-              <div className="flex items-center justify-between">
-                {typeof siteMetadata.headerTitle[locale] === "string" ? (
-                  <div className="hidden h-6 text-lg font-bold sm:block">
-                    {siteMetadata.headerTitle[locale]}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle[locale]
-                )}
-              </div>
-            </Link>
-          </div>
           <div className="flex items-center text-base leading-5">
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
@@ -50,6 +37,10 @@ const LayoutWrapper = ({ children }) => {
                 </Link>
               ))}
             </div>
+
+            <MobileNav />
+          </div>
+          <div className="flex items-center">
             <select
               onChange={changeLanguage}
               defaultValue={locale}
@@ -63,7 +54,6 @@ const LayoutWrapper = ({ children }) => {
               ))}
             </select>
             <ThemeSwitch />
-            <MobileNav />
           </div>
         </header>
         <main className="mb-auto">{children}</main>
