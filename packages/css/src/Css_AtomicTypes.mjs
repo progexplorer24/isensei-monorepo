@@ -18,21 +18,24 @@ var Cascading = {
   initial: "initial",
   inherit_: "inherit_",
   unset: "unset",
-  toString: toString,
+  toString: toString
 };
 
 function $$var(x) {
   return {
-    NAME: "var",
-    VAL: x,
-  };
+          NAME: "var",
+          VAL: x
+        };
 }
 
 function varDefault(x, $$default) {
   return {
-    NAME: "varDefault",
-    VAL: [x, $$default],
-  };
+          NAME: "varDefault",
+          VAL: [
+            x,
+            $$default
+          ]
+        };
 }
 
 function prefix(x) {
@@ -53,16 +56,16 @@ function toString$1(x) {
 
 function s(x) {
   return {
-    NAME: "s",
-    VAL: x,
-  };
+          NAME: "s",
+          VAL: x
+        };
 }
 
 function ms(x) {
   return {
-    NAME: "ms",
-    VAL: x,
-  };
+          NAME: "ms",
+          VAL: x
+        };
 }
 
 function toString$2(x) {
@@ -76,14 +79,14 @@ function toString$2(x) {
 var Time = {
   s: s,
   ms: ms,
-  toString: toString$2,
+  toString: toString$2
 };
 
 function pct(x) {
   return {
-    NAME: "percent",
-    VAL: x,
-  };
+          NAME: "percent",
+          VAL: x
+        };
 }
 
 function toString$3(x) {
@@ -92,7 +95,7 @@ function toString$3(x) {
 
 var Percentage = {
   pct: pct,
-  toString: toString$3,
+  toString: toString$3
 };
 
 function toString$4(x) {
@@ -100,112 +103,112 @@ function toString$4(x) {
 }
 
 var Url = {
-  toString: toString$4,
+  toString: toString$4
 };
 
 function ch(x) {
   return {
-    NAME: "ch",
-    VAL: x,
-  };
+          NAME: "ch",
+          VAL: x
+        };
 }
 
 function em(x) {
   return {
-    NAME: "em",
-    VAL: x,
-  };
+          NAME: "em",
+          VAL: x
+        };
 }
 
 function ex(x) {
   return {
-    NAME: "ex",
-    VAL: x,
-  };
+          NAME: "ex",
+          VAL: x
+        };
 }
 
 function rem(x) {
   return {
-    NAME: "rem",
-    VAL: x,
-  };
+          NAME: "rem",
+          VAL: x
+        };
 }
 
 function vh(x) {
   return {
-    NAME: "vh",
-    VAL: x,
-  };
+          NAME: "vh",
+          VAL: x
+        };
 }
 
 function vw(x) {
   return {
-    NAME: "vw",
-    VAL: x,
-  };
+          NAME: "vw",
+          VAL: x
+        };
 }
 
 function vmin(x) {
   return {
-    NAME: "vmin",
-    VAL: x,
-  };
+          NAME: "vmin",
+          VAL: x
+        };
 }
 
 function vmax(x) {
   return {
-    NAME: "vmax",
-    VAL: x,
-  };
+          NAME: "vmax",
+          VAL: x
+        };
 }
 
 function px(x) {
   return {
-    NAME: "px",
-    VAL: x,
-  };
+          NAME: "px",
+          VAL: x
+        };
 }
 
 function pxFloat(x) {
   return {
-    NAME: "pxFloat",
-    VAL: x,
-  };
+          NAME: "pxFloat",
+          VAL: x
+        };
 }
 
 function cm(x) {
   return {
-    NAME: "cm",
-    VAL: x,
-  };
+          NAME: "cm",
+          VAL: x
+        };
 }
 
 function mm(x) {
   return {
-    NAME: "mm",
-    VAL: x,
-  };
+          NAME: "mm",
+          VAL: x
+        };
 }
 
 function inch(x) {
   return {
-    NAME: "inch",
-    VAL: x,
-  };
+          NAME: "inch",
+          VAL: x
+        };
 }
 
 function pc(x) {
   return {
-    NAME: "pc",
-    VAL: x,
-  };
+          NAME: "pc",
+          VAL: x
+        };
 }
 
 function pt(x) {
   return {
-    NAME: "pt",
-    VAL: x,
-  };
+          NAME: "pt",
+          VAL: x
+        };
 }
 
 function toString$5(x) {
@@ -263,13 +266,9 @@ function toString$5(x) {
   }
   var match = x.VAL;
   if (match[0] === "sub") {
-    return (
-      "calc(" + (toString$5(match[1]) + (" - " + (toString$5(match[2]) + ")")))
-    );
+    return "calc(" + (toString$5(match[1]) + (" - " + (toString$5(match[2]) + ")")));
   } else {
-    return (
-      "calc(" + (toString$5(match[1]) + (" + " + (toString$5(match[2]) + ")")))
-    );
+    return "calc(" + (toString$5(match[1]) + (" + " + (toString$5(match[2]) + ")")));
   }
 }
 
@@ -290,35 +289,35 @@ var Length = {
   pc: pc,
   pt: pt,
   zero: "zero",
-  toString: toString$5,
+  toString: toString$5
 };
 
 function deg(x) {
   return {
-    NAME: "deg",
-    VAL: x,
-  };
+          NAME: "deg",
+          VAL: x
+        };
 }
 
 function rad(x) {
   return {
-    NAME: "rad",
-    VAL: x,
-  };
+          NAME: "rad",
+          VAL: x
+        };
 }
 
 function grad(x) {
   return {
-    NAME: "grad",
-    VAL: x,
-  };
+          NAME: "grad",
+          VAL: x
+        };
 }
 
 function turn(x) {
   return {
-    NAME: "turn",
-    VAL: x,
-  };
+          NAME: "turn",
+          VAL: x
+        };
 }
 
 function toString$6(x) {
@@ -339,7 +338,7 @@ var Angle = {
   rad: rad,
   grad: grad,
   turn: turn,
-  toString: toString$6,
+  toString: toString$6
 };
 
 function toString$7(x) {
@@ -353,7 +352,7 @@ function toString$7(x) {
 var Direction = {
   ltr: "ltr",
   rtl: "rtl",
-  toString: toString$7,
+  toString: toString$7
 };
 
 function toString$8(x) {
@@ -376,7 +375,7 @@ var Position = {
   $$static: "static",
   fixed: "fixed",
   sticky: "sticky",
-  toString: toString$8,
+  toString: toString$8
 };
 
 function toString$9(x) {
@@ -402,7 +401,7 @@ var Resize = {
   vertical: "vertical",
   block: "block",
   inline: "inline",
-  toString: toString$9,
+  toString: toString$9
 };
 
 function toString$10(x) {
@@ -416,7 +415,7 @@ function toString$10(x) {
 var FontVariant = {
   normal: "normal",
   smallCaps: "smallCaps",
-  toString: toString$10,
+  toString: toString$10
 };
 
 function toString$11(x) {
@@ -433,7 +432,7 @@ var FontStyle = {
   normal: "normal",
   italic: "italic",
   oblique: "oblique",
-  toString: toString$11,
+  toString: toString$11
 };
 
 function toString$12(x) {
@@ -458,7 +457,7 @@ var FlexBasis = {
   maxContent: "maxContent",
   minContent: "minContent",
   fitContent: "fitContent",
-  toString: toString$12,
+  toString: toString$12
 };
 
 function toString$13(x) {
@@ -478,7 +477,7 @@ var Overflow = {
   visible: "visible",
   scroll: "scroll",
   auto: "auto",
-  toString: toString$13,
+  toString: toString$13
 };
 
 function toString$14(x) {
@@ -487,7 +486,7 @@ function toString$14(x) {
 
 var Margin = {
   auto: "auto",
-  toString: toString$14,
+  toString: toString$14
 };
 
 function toString$15(x) {
@@ -503,7 +502,7 @@ function toString$15(x) {
 }
 
 var GridAutoFlow = {
-  toString: toString$15,
+  toString: toString$15
 };
 
 function toString$16(x) {
@@ -511,7 +510,7 @@ function toString$16(x) {
 }
 
 var Gap = {
-  toString: toString$16,
+  toString: toString$16
 };
 
 function toString$17(x) {
@@ -523,7 +522,7 @@ function toString$17(x) {
 }
 
 var ScrollBehavior = {
-  toString: toString$17,
+  toString: toString$17
 };
 
 function toString$18(x) {
@@ -531,7 +530,7 @@ function toString$18(x) {
 }
 
 var ColumnWidth = {
-  toString: toString$18,
+  toString: toString$18
 };
 
 function toString$19(x) {
@@ -539,7 +538,7 @@ function toString$19(x) {
 }
 
 var CaretColor = {
-  toString: toString$19,
+  toString: toString$19
 };
 
 function toString$20(x) {
@@ -563,21 +562,29 @@ function toString$20(x) {
 }
 
 var VerticalAlign = {
-  toString: toString$20,
+  toString: toString$20
 };
 
 function steps(i, dir) {
   return {
-    NAME: "steps",
-    VAL: [i, dir],
-  };
+          NAME: "steps",
+          VAL: [
+            i,
+            dir
+          ]
+        };
 }
 
 function cubicBezier(a, b, c, d) {
   return {
-    NAME: "cubicBezier",
-    VAL: [a, b, c, d],
-  };
+          NAME: "cubicBezier",
+          VAL: [
+            a,
+            b,
+            c,
+            d
+          ]
+        };
 }
 
 function toString$21(x) {
@@ -608,14 +615,7 @@ function toString$21(x) {
     }
   }
   var match$1 = x.VAL;
-  return (
-    "cubic-bezier(" +
-    (match$1[0].toString() +
-      (", " +
-        (match$1[1].toString() +
-          (", " +
-            (match$1[2].toString() + (", " + (match$1[3].toString() + ")")))))))
-  );
+  return "cubic-bezier(" + (match$1[0].toString() + (", " + (match$1[1].toString() + (", " + (match$1[2].toString() + (", " + (match$1[3].toString() + ")")))))));
 }
 
 function toString$22(x) {
@@ -629,7 +629,7 @@ function toString$22(x) {
 }
 
 var RepeatValue = {
-  toString: toString$22,
+  toString: toString$22
 };
 
 function toString$23(x) {
@@ -661,7 +661,7 @@ function toString$23(x) {
 }
 
 var ListStyleType = {
-  toString: toString$23,
+  toString: toString$23
 };
 
 function toString$24(x) {
@@ -673,7 +673,7 @@ function toString$24(x) {
 }
 
 var ListStylePosition = {
-  toString: toString$24,
+  toString: toString$24
 };
 
 function toString$25(x) {
@@ -701,7 +701,7 @@ function toString$25(x) {
 }
 
 var OutlineStyle = {
-  toString: toString$25,
+  toString: toString$25
 };
 
 function toString$26(x) {
@@ -742,162 +742,173 @@ var FontWeight = {
   extraBold: "extraBold",
   lighter: "lighter",
   bolder: "bolder",
-  toString: toString$26,
+  toString: toString$26
 };
 
 function translate(x, y) {
   return {
-    NAME: "translate",
-    VAL: [x, y],
-  };
+          NAME: "translate",
+          VAL: [
+            x,
+            y
+          ]
+        };
 }
 
 function translate3d(x, y, z) {
   return {
-    NAME: "translate3d",
-    VAL: [x, y, z],
-  };
+          NAME: "translate3d",
+          VAL: [
+            x,
+            y,
+            z
+          ]
+        };
 }
 
 function translateX(x) {
   return {
-    NAME: "translateX",
-    VAL: x,
-  };
+          NAME: "translateX",
+          VAL: x
+        };
 }
 
 function translateY(y) {
   return {
-    NAME: "translateY",
-    VAL: y,
-  };
+          NAME: "translateY",
+          VAL: y
+        };
 }
 
 function translateZ(z) {
   return {
-    NAME: "translateZ",
-    VAL: z,
-  };
+          NAME: "translateZ",
+          VAL: z
+        };
 }
 
 function scale(x, y) {
   return {
-    NAME: "scale",
-    VAL: [x, y],
-  };
+          NAME: "scale",
+          VAL: [
+            x,
+            y
+          ]
+        };
 }
 
 function scale3d(x, y, z) {
   return {
-    NAME: "scale3d",
-    VAL: [x, y, z],
-  };
+          NAME: "scale3d",
+          VAL: [
+            x,
+            y,
+            z
+          ]
+        };
 }
 
 function scaleX(x) {
   return {
-    NAME: "scaleX",
-    VAL: x,
-  };
+          NAME: "scaleX",
+          VAL: x
+        };
 }
 
 function scaleY(x) {
   return {
-    NAME: "scaleY",
-    VAL: x,
-  };
+          NAME: "scaleY",
+          VAL: x
+        };
 }
 
 function scaleZ(x) {
   return {
-    NAME: "scaleZ",
-    VAL: x,
-  };
+          NAME: "scaleZ",
+          VAL: x
+        };
 }
 
 function rotate(a) {
   return {
-    NAME: "rotate",
-    VAL: a,
-  };
+          NAME: "rotate",
+          VAL: a
+        };
 }
 
 function rotate3d(x, y, z, a) {
   return {
-    NAME: "rotate3d",
-    VAL: [x, y, z, a],
-  };
+          NAME: "rotate3d",
+          VAL: [
+            x,
+            y,
+            z,
+            a
+          ]
+        };
 }
 
 function rotateX(a) {
   return {
-    NAME: "rotateX",
-    VAL: a,
-  };
+          NAME: "rotateX",
+          VAL: a
+        };
 }
 
 function rotateY(a) {
   return {
-    NAME: "rotateY",
-    VAL: a,
-  };
+          NAME: "rotateY",
+          VAL: a
+        };
 }
 
 function rotateZ(a) {
   return {
-    NAME: "rotateZ",
-    VAL: a,
-  };
+          NAME: "rotateZ",
+          VAL: a
+        };
 }
 
 function skew(a, a$p) {
   return {
-    NAME: "skew",
-    VAL: [a, a$p],
-  };
+          NAME: "skew",
+          VAL: [
+            a,
+            a$p
+          ]
+        };
 }
 
 function skewX(a) {
   return {
-    NAME: "skewX",
-    VAL: a,
-  };
+          NAME: "skewX",
+          VAL: a
+        };
 }
 
 function skewY(a) {
   return {
-    NAME: "skewY",
-    VAL: a,
-  };
+          NAME: "skewY",
+          VAL: a
+        };
 }
 
 function toString$27(x) {
   var variant = x.NAME;
   if (variant === "translate") {
     var match = x.VAL;
-    return (
-      "translate(" +
-      (toString$5(match[0]) + (", " + (toString$5(match[1]) + ")")))
-    );
+    return "translate(" + (toString$5(match[0]) + (", " + (toString$5(match[1]) + ")")));
   }
   if (variant === "rotate") {
     return "rotate(" + (toString$6(x.VAL) + ")");
   }
   if (variant === "skew") {
     var match$1 = x.VAL;
-    return (
-      "skew(" +
-      (toString$6(match$1[0]) + (", " + (toString$6(match$1[1]) + ")")))
-    );
+    return "skew(" + (toString$6(match$1[0]) + (", " + (toString$6(match$1[1]) + ")")));
   }
   if (variant === "scale3d") {
     var match$2 = x.VAL;
-    return (
-      "scale3d(" +
-      (match$2[0].toString() +
-        (", " +
-          (match$2[1].toString() + (", " + (match$2[2].toString() + ")")))))
-    );
+    return "scale3d(" + (match$2[0].toString() + (", " + (match$2[1].toString() + (", " + (match$2[2].toString() + ")")))));
   }
   if (variant === "rotateX") {
     return "rotateX(" + (toString$6(x.VAL) + ")");
@@ -931,15 +942,7 @@ function toString$27(x) {
   }
   if (variant === "rotate3d") {
     var match$4 = x.VAL;
-    return (
-      "rotate3d(" +
-      (match$4[0].toString() +
-        (", " +
-          (match$4[1].toString() +
-            (", " +
-              (match$4[2].toString() +
-                (", " + (toString$6(match$4[3]) + ")")))))))
-    );
+    return "rotate3d(" + (match$4[0].toString() + (", " + (match$4[1].toString() + (", " + (match$4[2].toString() + (", " + (toString$6(match$4[3]) + ")")))))));
   }
   if (variant !== "translate3d") {
     if (variant === "scaleX") {
@@ -956,11 +959,7 @@ function toString$27(x) {
   var x$2 = match$5[0];
   var y$1 = match$5[1];
   var z = match$5[2];
-  return (
-    "translate3d(" +
-    (toString$5(x$2) +
-      (", " + (toString$5(y$1) + (", " + (toString$5(z) + ")")))))
-  );
+  return "translate3d(" + (toString$5(x$2) + (", " + (toString$5(y$1) + (", " + (toString$5(z) + ")")))));
 }
 
 function toString$28(x) {
@@ -976,7 +975,7 @@ function toString$28(x) {
 }
 
 var AnimationDirection = {
-  toString: toString$28,
+  toString: toString$28
 };
 
 function toString$29(x) {
@@ -992,7 +991,7 @@ function toString$29(x) {
 }
 
 var AnimationFillMode = {
-  toString: toString$29,
+  toString: toString$29
 };
 
 function toString$30(x) {
@@ -1004,7 +1003,7 @@ function toString$30(x) {
 }
 
 var AnimationIterationCount = {
-  toString: toString$30,
+  toString: toString$30
 };
 
 function toString$31(x) {
@@ -1016,7 +1015,7 @@ function toString$31(x) {
 }
 
 var AnimationPlayState = {
-  toString: toString$31,
+  toString: toString$31
 };
 
 function toString$32(x) {
@@ -1132,42 +1131,60 @@ var Cursor = {
   nwseResize: "nwseResize",
   zoomIn: "zoomIn",
   zoomOut: "zoomOut",
-  toString: toString$32,
+  toString: toString$32
 };
 
 function rgb(r, g, b) {
   return {
-    NAME: "rgb",
-    VAL: [r, g, b],
-  };
+          NAME: "rgb",
+          VAL: [
+            r,
+            g,
+            b
+          ]
+        };
 }
 
 function rgba(r, g, b, a) {
   return {
-    NAME: "rgba",
-    VAL: [r, g, b, a],
-  };
+          NAME: "rgba",
+          VAL: [
+            r,
+            g,
+            b,
+            a
+          ]
+        };
 }
 
 function hsl(h, s, l) {
   return {
-    NAME: "hsl",
-    VAL: [h, s, l],
-  };
+          NAME: "hsl",
+          VAL: [
+            h,
+            s,
+            l
+          ]
+        };
 }
 
 function hsla(h, s, l, a) {
   return {
-    NAME: "hsla",
-    VAL: [h, s, l, a],
-  };
+          NAME: "hsla",
+          VAL: [
+            h,
+            s,
+            l,
+            a
+          ]
+        };
 }
 
 function hex(x) {
   return {
-    NAME: "hex",
-    VAL: x,
-  };
+          NAME: "hex",
+          VAL: x
+        };
 }
 
 function string_of_alpha(x) {
@@ -1189,47 +1206,21 @@ function toString$33(x) {
   var variant = x.NAME;
   if (variant === "rgba") {
     var match = x.VAL;
-    return (
-      "rgba(" +
-      (match[0].toString() +
-        (", " +
-          (match[1].toString() +
-            (", " +
-              (match[2].toString() +
-                (", " + (string_of_alpha(match[3]) + ")")))))))
-    );
+    return "rgba(" + (match[0].toString() + (", " + (match[1].toString() + (", " + (match[2].toString() + (", " + (string_of_alpha(match[3]) + ")")))))));
   }
   if (variant === "hex") {
     return "#" + x.VAL;
   }
   if (variant === "hsl") {
     var match$1 = x.VAL;
-    return (
-      "hsl(" +
-      (toString$6(match$1[0]) +
-        (", " +
-          (toString$3(match$1[1]) + (", " + (toString$3(match$1[2]) + ")")))))
-    );
+    return "hsl(" + (toString$6(match$1[0]) + (", " + (toString$3(match$1[1]) + (", " + (toString$3(match$1[2]) + ")")))));
   }
   if (variant === "rgb") {
     var match$2 = x.VAL;
-    return (
-      "rgb(" +
-      (match$2[0].toString() +
-        (", " +
-          (match$2[1].toString() + (", " + (match$2[2].toString() + ")")))))
-    );
+    return "rgb(" + (match$2[0].toString() + (", " + (match$2[1].toString() + (", " + (match$2[2].toString() + ")")))));
   }
   var match$3 = x.VAL;
-  return (
-    "hsla(" +
-    (toString$6(match$3[0]) +
-      (", " +
-        (toString$3(match$3[1]) +
-          (", " +
-            (toString$3(match$3[2]) +
-              (", " + (string_of_alpha(match$3[3]) + ")")))))))
-  );
+  return "hsla(" + (toString$6(match$3[0]) + (", " + (toString$3(match$3[1]) + (", " + (toString$3(match$3[2]) + (", " + (string_of_alpha(match$3[3]) + ")")))))));
 }
 
 function toString$34(x) {
@@ -1257,7 +1248,7 @@ function toString$34(x) {
 }
 
 var BorderStyle = {
-  toString: toString$34,
+  toString: toString$34
 };
 
 function toString$35(x) {
@@ -1269,7 +1260,7 @@ function toString$35(x) {
 }
 
 var PointerEvents = {
-  toString: toString$35,
+  toString: toString$35
 };
 
 function toString$36(x) {
@@ -1277,7 +1268,7 @@ function toString$36(x) {
 }
 
 var Perspective = {
-  toString: toString$36,
+  toString: toString$36
 };
 
 function toString$37(x) {
@@ -1286,7 +1277,7 @@ function toString$37(x) {
 
 var LetterSpacing = {
   normal: "normal",
-  toString: toString$37,
+  toString: toString$37
 };
 
 function toString$38(x) {
@@ -1298,7 +1289,7 @@ function toString$38(x) {
 }
 
 var LineHeight = {
-  toString: toString$38,
+  toString: toString$38
 };
 
 function toString$39(x) {
@@ -1306,7 +1297,7 @@ function toString$39(x) {
 }
 
 var WordSpacing = {
-  toString: toString$39,
+  toString: toString$39
 };
 
 function toString$40(x) {
@@ -1320,7 +1311,7 @@ function toString$40(x) {
 }
 
 var DisplayOutside = {
-  toString: toString$40,
+  toString: toString$40
 };
 
 function toString$41(x) {
@@ -1334,7 +1325,7 @@ function toString$41(x) {
 }
 
 var DisplayInside = {
-  toString: toString$41,
+  toString: toString$41
 };
 
 function toString$42(x) {
@@ -1342,7 +1333,7 @@ function toString$42(x) {
 }
 
 var DisplayListItem = {
-  toString: toString$42,
+  toString: toString$42
 };
 
 function toString$43(x) {
@@ -1366,7 +1357,7 @@ function toString$43(x) {
 }
 
 var DisplayInternal = {
-  toString: toString$43,
+  toString: toString$43
 };
 
 function toString$44(x) {
@@ -1378,7 +1369,7 @@ function toString$44(x) {
 }
 
 var DisplayBox = {
-  toString: toString$44,
+  toString: toString$44
 };
 
 function toString$45(x) {
@@ -1394,7 +1385,7 @@ function toString$45(x) {
 }
 
 var DisplayLegacy = {
-  toString: toString$45,
+  toString: toString$45
 };
 
 function toString$46(x) {
@@ -1408,7 +1399,7 @@ function toString$46(x) {
 }
 
 var JustifySelf = {
-  toString: toString$46,
+  toString: toString$46
 };
 
 function toString$47(x) {
@@ -1434,7 +1425,7 @@ function toString$47(x) {
 }
 
 var PositionalAlignment = {
-  toString: toString$47,
+  toString: toString$47
 };
 
 function toString$48(x) {
@@ -1446,7 +1437,7 @@ function toString$48(x) {
 }
 
 var OverflowAlignment = {
-  toString: toString$48,
+  toString: toString$48
 };
 
 function toString$49(x) {
@@ -1460,7 +1451,7 @@ function toString$49(x) {
 }
 
 var BaselineAlignment = {
-  toString: toString$49,
+  toString: toString$49
 };
 
 function toString$50(x) {
@@ -1468,7 +1459,7 @@ function toString$50(x) {
 }
 
 var NormalAlignment = {
-  toString: toString$50,
+  toString: toString$50
 };
 
 function toString$51(x) {
@@ -1484,7 +1475,7 @@ function toString$51(x) {
 }
 
 var DistributedAlignment = {
-  toString: toString$51,
+  toString: toString$51
 };
 
 function toString$52(x) {
@@ -1500,7 +1491,7 @@ function toString$52(x) {
 }
 
 var LegacyAlignment = {
-  toString: toString$52,
+  toString: toString$52
 };
 
 function toString$53(x) {
@@ -1518,7 +1509,7 @@ function toString$53(x) {
 }
 
 var TextAlign = {
-  toString: toString$53,
+  toString: toString$53
 };
 
 function toString$54(x) {
@@ -1532,7 +1523,7 @@ function toString$54(x) {
 }
 
 var WordBreak = {
-  toString: toString$54,
+  toString: toString$54
 };
 
 function toString$55(x) {
@@ -1552,7 +1543,7 @@ function toString$55(x) {
 }
 
 var WhiteSpace = {
-  toString: toString$55,
+  toString: toString$55
 };
 
 function toString$56(x) {
@@ -1564,7 +1555,7 @@ function toString$56(x) {
 }
 
 var AlignItems = {
-  toString: toString$56,
+  toString: toString$56
 };
 
 function toString$57(x) {
@@ -1578,7 +1569,7 @@ function toString$57(x) {
 }
 
 var AlignSelf = {
-  toString: toString$57,
+  toString: toString$57
 };
 
 function toString$58(x) {
@@ -1596,7 +1587,7 @@ function toString$58(x) {
 }
 
 var AlignContent = {
-  toString: toString$58,
+  toString: toString$58
 };
 
 function toString$59(x) {
@@ -1614,7 +1605,7 @@ function toString$59(x) {
 }
 
 var ObjectFit = {
-  toString: toString$59,
+  toString: toString$59
 };
 
 function toString$60(x) {
@@ -1634,7 +1625,7 @@ function toString$60(x) {
 }
 
 var Clear = {
-  toString: toString$60,
+  toString: toString$60
 };
 
 function toString$61(x) {
@@ -1652,7 +1643,7 @@ function toString$61(x) {
 }
 
 var Float = {
-  toString: toString$61,
+  toString: toString$61
 };
 
 function toString$62(x) {
@@ -1666,7 +1657,7 @@ function toString$62(x) {
 }
 
 var Visibility = {
-  toString: toString$62,
+  toString: toString$62
 };
 
 function toString$63(x) {
@@ -1678,7 +1669,7 @@ function toString$63(x) {
 }
 
 var TableLayout = {
-  toString: toString$63,
+  toString: toString$63
 };
 
 function toString$64(x) {
@@ -1690,7 +1681,7 @@ function toString$64(x) {
 }
 
 var BorderCollapse = {
-  toString: toString$64,
+  toString: toString$64
 };
 
 function toString$65(x) {
@@ -1704,7 +1695,7 @@ function toString$65(x) {
 }
 
 var FlexWrap = {
-  toString: toString$65,
+  toString: toString$65
 };
 
 function toString$66(x) {
@@ -1720,7 +1711,7 @@ function toString$66(x) {
 }
 
 var FlexDirection = {
-  toString: toString$66,
+  toString: toString$66
 };
 
 function toString$67(x) {
@@ -1732,7 +1723,7 @@ function toString$67(x) {
 }
 
 var BoxSizing = {
-  toString: toString$67,
+  toString: toString$67
 };
 
 function toString$68(x) {
@@ -1744,7 +1735,7 @@ function toString$68(x) {
 }
 
 var ColumnCount = {
-  toString: toString$68,
+  toString: toString$68
 };
 
 function toString$69(x) {
@@ -1762,7 +1753,7 @@ function toString$69(x) {
 }
 
 var UserSelect = {
-  toString: toString$69,
+  toString: toString$69
 };
 
 function toString$70(x) {
@@ -1778,27 +1769,21 @@ function toString$70(x) {
 }
 
 var TextTransform = {
-  toString: toString$70,
+  toString: toString$70
 };
 
 function areas(x) {
   return {
-    NAME: "areas",
-    VAL: x,
-  };
+          NAME: "areas",
+          VAL: x
+        };
 }
 
 function toString$71(x) {
   if (typeof x === "object") {
-    return $$String.trim(
-      List.fold_left(
-        function (carry, elem) {
-          return carry + ("'" + (elem + "' "));
-        },
-        "",
-        x.VAL
-      )
-    );
+    return $$String.trim(List.fold_left((function (carry, elem) {
+                      return carry + ("'" + (elem + "' "));
+                    }), "", x.VAL));
   } else {
     return "none";
   }
@@ -1806,35 +1791,38 @@ function toString$71(x) {
 
 var GridTemplateAreas = {
   areas: areas,
-  toString: toString$71,
+  toString: toString$71
 };
 
 function ident(x) {
   return {
-    NAME: "ident",
-    VAL: x,
-  };
+          NAME: "ident",
+          VAL: x
+        };
 }
 
 function num(x) {
   return {
-    NAME: "num",
-    VAL: x,
-  };
+          NAME: "num",
+          VAL: x
+        };
 }
 
 function numIdent(x, y) {
   return {
-    NAME: "numIdent",
-    VAL: [x, y],
-  };
+          NAME: "numIdent",
+          VAL: [
+            x,
+            y
+          ]
+        };
 }
 
 function span(x) {
   return {
-    NAME: "span",
-    VAL: x,
-  };
+          NAME: "span",
+          VAL: x
+        };
 }
 
 function toString$72(t) {
@@ -1853,7 +1841,9 @@ function toString$72(t) {
     return t.VAL;
   }
   var e = t.VAL;
-  return "span " + (e.NAME === "ident" ? e.VAL : String(e.VAL));
+  return "span " + (
+          e.NAME === "ident" ? e.VAL : String(e.VAL)
+        );
 }
 
 var GridArea = {
@@ -1862,7 +1852,7 @@ var GridArea = {
   num: num,
   numIdent: numIdent,
   span: span,
-  toString: toString$72,
+  toString: toString$72
 };
 
 function toString$73(x) {
@@ -1956,7 +1946,7 @@ function toString$74(x) {
 }
 
 var BackgroundAttachment = {
-  toString: toString$74,
+  toString: toString$74
 };
 
 function toString$75(x) {
@@ -1970,7 +1960,7 @@ function toString$75(x) {
 }
 
 var BackgroundClip = {
-  toString: toString$75,
+  toString: toString$75
 };
 
 function toString$76(x) {
@@ -1984,7 +1974,7 @@ function toString$76(x) {
 }
 
 var BackgroundOrigin = {
-  toString: toString$76,
+  toString: toString$76
 };
 
 function toString$77(x) {
@@ -1998,7 +1988,7 @@ function toString$77(x) {
 }
 
 var X = {
-  toString: toString$77,
+  toString: toString$77
 };
 
 function toString$78(x) {
@@ -2012,7 +2002,7 @@ function toString$78(x) {
 }
 
 var Y = {
-  toString: toString$78,
+  toString: toString$78
 };
 
 function toString$79(x) {
@@ -2032,7 +2022,7 @@ function toString$79(x) {
 var BackgroundPosition = {
   X: X,
   Y: Y,
-  toString: toString$79,
+  toString: toString$79
 };
 
 function toString$80(x) {
@@ -2052,7 +2042,7 @@ function toString$80(x) {
 }
 
 var BackgroundRepeat = {
-  toString: toString$80,
+  toString: toString$80
 };
 
 function toString$81(x) {
@@ -2066,7 +2056,7 @@ function toString$81(x) {
 }
 
 var TextOverflow = {
-  toString: toString$81,
+  toString: toString$81
 };
 
 function toString$82(x) {
@@ -2084,7 +2074,7 @@ function toString$82(x) {
 }
 
 var TextDecorationLine = {
-  toString: toString$82,
+  toString: toString$82
 };
 
 function toString$83(x) {
@@ -2102,7 +2092,7 @@ function toString$83(x) {
 }
 
 var TextDecorationStyle = {
-  toString: toString$83,
+  toString: toString$83
 };
 
 function toString$84(x) {
@@ -2114,7 +2104,7 @@ function toString$84(x) {
 }
 
 var Width = {
-  toString: toString$84,
+  toString: toString$84
 };
 
 function toString$85(x) {
@@ -2122,7 +2112,7 @@ function toString$85(x) {
 }
 
 var MaxWidth = {
-  toString: toString$85,
+  toString: toString$85
 };
 
 function toString$86(x) {
@@ -2130,7 +2120,7 @@ function toString$86(x) {
 }
 
 var Height = {
-  toString: toString$86,
+  toString: toString$86
 };
 
 function toString$87(x) {
@@ -2138,7 +2128,7 @@ function toString$87(x) {
 }
 
 var MaxHeight = {
-  toString: toString$87,
+  toString: toString$87
 };
 
 function toString$88(x) {
@@ -2152,35 +2142,41 @@ function toString$88(x) {
 }
 
 var OverflowWrap = {
-  toString: toString$88,
+  toString: toString$88
 };
 
 function linearGradient(angle, stops) {
   return {
-    NAME: "linearGradient",
-    VAL: [angle, stops],
-  };
+          NAME: "linearGradient",
+          VAL: [
+            angle,
+            stops
+          ]
+        };
 }
 
 function repeatingLinearGradient(angle, stops) {
   return {
-    NAME: "repeatingLinearGradient",
-    VAL: [angle, stops],
-  };
+          NAME: "repeatingLinearGradient",
+          VAL: [
+            angle,
+            stops
+          ]
+        };
 }
 
 function radialGradient(stops) {
   return {
-    NAME: "radialGradient",
-    VAL: stops,
-  };
+          NAME: "radialGradient",
+          VAL: stops
+        };
 }
 
 function repeatingRadialGradient(stops) {
   return {
-    NAME: "repeatingRadialGradient",
-    VAL: stops,
-  };
+          NAME: "repeatingRadialGradient",
+          VAL: stops
+        };
 }
 
 function string_of_color(x) {
@@ -2196,19 +2192,16 @@ function string_of_color(x) {
 }
 
 function string_of_stops(stops) {
-  return Belt_Array.map(stops, function (param) {
-    return string_of_color(param[1]) + (" " + toString$5(param[0]));
-  }).join(", ");
+  return Belt_Array.map(stops, (function (param) {
+                  return string_of_color(param[1]) + (" " + toString$5(param[0]));
+                })).join(", ");
 }
 
 function toString$89(x) {
   var variant = x.NAME;
   if (variant === "repeatingLinearGradient") {
     var match = x.VAL;
-    return (
-      "repeating-linear-gradient(" +
-      (toString$6(match[0]) + (", " + (string_of_stops(match[1]) + ")")))
-    );
+    return "repeating-linear-gradient(" + (toString$6(match[0]) + (", " + (string_of_stops(match[1]) + ")")));
   }
   if (variant === "radialGradient") {
     return "radial-gradient(" + (string_of_stops(x.VAL) + ")");
@@ -2217,10 +2210,7 @@ function toString$89(x) {
     return "repeating-radial-gradient(" + (string_of_stops(x.VAL) + ")");
   }
   var match$1 = x.VAL;
-  return (
-    "linear-gradient(" +
-    (toString$6(match$1[0]) + (", " + (string_of_stops(match$1[1]) + ")")))
-  );
+  return "linear-gradient(" + (toString$6(match$1[0]) + (", " + (string_of_stops(match$1[1]) + ")")));
 }
 
 function toString$90(x) {
@@ -2228,7 +2218,7 @@ function toString$90(x) {
 }
 
 var BackgroundImage = {
-  toString: toString$90,
+  toString: toString$90
 };
 
 function toString$91(x) {
@@ -2257,7 +2247,7 @@ var GeometyBox = {
   fillBox: "fillBox",
   strokeBox: "strokeBox",
   viewBox: "viewBox",
-  toString: toString$91,
+  toString: toString$91
 };
 
 function toString$92(x) {
@@ -2265,7 +2255,7 @@ function toString$92(x) {
 }
 
 var ClipPath = {
-  toString: toString$92,
+  toString: toString$92
 };
 
 function toString$93(x) {
@@ -2277,7 +2267,7 @@ function toString$93(x) {
 }
 
 var BackfaceVisibility = {
-  toString: toString$93,
+  toString: toString$93
 };
 
 function toString$94(x) {
@@ -2291,7 +2281,7 @@ function toString$94(x) {
 }
 
 var Flex = {
-  toString: toString$94,
+  toString: toString$94
 };
 
 function toString$95(x) {
@@ -2303,7 +2293,7 @@ function toString$95(x) {
 }
 
 var TransformStyle = {
-  toString: toString$95,
+  toString: toString$95
 };
 
 function toString$96(x) {
@@ -2311,7 +2301,7 @@ function toString$96(x) {
 }
 
 var ListStyleImage = {
-  toString: toString$96,
+  toString: toString$96
 };
 
 function toString$97(x) {
@@ -2355,15 +2345,18 @@ function toString$98(x) {
 var toString$99 = toString$23;
 
 var CounterStyleType = {
-  toString: toString$99,
+  toString: toString$99
 };
 
 function counter(styleOpt, name) {
   var style = styleOpt !== undefined ? styleOpt : "unset";
   return {
-    NAME: "counter",
-    VAL: [name, style],
-  };
+          NAME: "counter",
+          VAL: [
+            name,
+            style
+          ]
+        };
 }
 
 function toString$100(x) {
@@ -2379,16 +2372,20 @@ function toString$100(x) {
 
 var Counter = {
   counter: counter,
-  toString: toString$100,
+  toString: toString$100
 };
 
 function counters(styleOpt, separatorOpt, name) {
   var style = styleOpt !== undefined ? styleOpt : "unset";
   var separator = separatorOpt !== undefined ? separatorOpt : "";
   return {
-    NAME: "counters",
-    VAL: [name, separator, style],
-  };
+          NAME: "counters",
+          VAL: [
+            name,
+            separator,
+            style
+          ]
+        };
 }
 
 function toString$101(x) {
@@ -2397,26 +2394,26 @@ function toString$101(x) {
   var separator = match[1];
   var name = match[0];
   if (style === "unset") {
-    return "counters(" + (name + (',"' + (separator + '")')));
+    return "counters(" + (name + (",\"" + (separator + "\")")));
   } else {
-    return (
-      "counters(" +
-      (name + (',"' + (separator + ('",' + (toString$23(style) + ")")))))
-    );
+    return "counters(" + (name + (",\"" + (separator + ("\"," + (toString$23(style) + ")")))));
   }
 }
 
 var Counters = {
   counters: counters,
-  toString: toString$101,
+  toString: toString$101
 };
 
 function increment(valueOpt, name) {
   var value = valueOpt !== undefined ? valueOpt : 1;
   return {
-    NAME: "increment",
-    VAL: [name, value],
-  };
+          NAME: "increment",
+          VAL: [
+            name,
+            value
+          ]
+        };
 }
 
 function toString$102(x) {
@@ -2429,15 +2426,18 @@ function toString$102(x) {
 
 var CounterIncrement = {
   increment: increment,
-  toString: toString$102,
+  toString: toString$102
 };
 
 function reset(valueOpt, name) {
   var value = valueOpt !== undefined ? valueOpt : 0;
   return {
-    NAME: "reset",
-    VAL: [name, value],
-  };
+          NAME: "reset",
+          VAL: [
+            name,
+            value
+          ]
+        };
 }
 
 function toString$103(x) {
@@ -2450,15 +2450,18 @@ function toString$103(x) {
 
 var CounterReset = {
   reset: reset,
-  toString: toString$103,
+  toString: toString$103
 };
 
 function set(valueOpt, name) {
   var value = valueOpt !== undefined ? valueOpt : 0;
   return {
-    NAME: "set",
-    VAL: [name, value],
-  };
+          NAME: "set",
+          VAL: [
+            name,
+            value
+          ]
+        };
 }
 
 function toString$104(x) {
@@ -2471,13 +2474,13 @@ function toString$104(x) {
 
 var CounterSet = {
   set: set,
-  toString: toString$104,
+  toString: toString$104
 };
 
 function toString$105(x) {
   if (typeof x === "object") {
     if (x.NAME === "text") {
-      return '"' + x.VAL + '"';
+      return "\"" + x.VAL + "\"";
     } else {
       return "attr(" + (x.VAL + ")");
     }
@@ -2497,7 +2500,7 @@ function toString$105(x) {
 }
 
 var Content = {
-  toString: toString$105,
+  toString: toString$105
 };
 
 function toString$106(x) {
@@ -2513,17 +2516,17 @@ function toString$106(x) {
 var Fill = {
   contextFill: "contextFill",
   contextStroke: "contextStroke",
-  toString: toString$106,
+  toString: toString$106
 };
 
 var SVG = {
-  Fill: Fill,
+  Fill: Fill
 };
 
 var Var = {
   $$var: $$var,
   varDefault: varDefault,
-  toString: toString$1,
+  toString: toString$1
 };
 
 var RowGap;
@@ -2540,7 +2543,7 @@ var TimingFunction = {
   stepEnd: "stepEnd",
   steps: steps,
   cubicBezier: cubicBezier,
-  toString: toString$21,
+  toString: toString$21
 };
 
 var Transform = {
@@ -2562,7 +2565,7 @@ var Transform = {
   skew: skew,
   skewX: skewX,
   skewY: skewY,
-  toString: toString$27,
+  toString: toString$27
 };
 
 var Color = {
@@ -2573,11 +2576,11 @@ var Color = {
   hex: hex,
   transparent: "transparent",
   currentColor: "currentColor",
-  toString: toString$33,
+  toString: toString$33
 };
 
 var BackdropFilter = {
-  toString: toString$73,
+  toString: toString$73
 };
 
 var Gradient = {
@@ -2585,124 +2588,125 @@ var Gradient = {
   radialGradient: radialGradient,
   repeatingLinearGradient: repeatingLinearGradient,
   repeatingRadialGradient: repeatingRadialGradient,
-  toString: toString$89,
+  toString: toString$89
 };
 
 var FontFamilyName = {
-  toString: toString$97,
+  toString: toString$97
 };
 
 var FontDisplay = {
-  toString: toString$98,
+  toString: toString$98
 };
 
 export {
-  Cascading,
-  Var,
-  Time,
-  Percentage,
-  Url,
-  Length,
-  Angle,
-  Direction,
-  Position,
-  Resize,
-  FontVariant,
-  FontStyle,
-  FlexBasis,
-  Overflow,
-  Margin,
-  GridAutoFlow,
-  Gap,
-  RowGap,
-  ColumnGap,
-  ScrollBehavior,
-  ColumnWidth,
-  CaretColor,
-  VerticalAlign,
-  TimingFunction,
-  RepeatValue,
-  ListStyleType,
-  ListStylePosition,
-  OutlineStyle,
-  FontWeight,
-  Transform,
-  AnimationDirection,
-  AnimationFillMode,
-  AnimationIterationCount,
-  AnimationPlayState,
-  Cursor,
-  Color,
-  BorderStyle,
-  PointerEvents,
-  Perspective,
-  LetterSpacing,
-  LineHeight,
-  WordSpacing,
-  DisplayOutside,
-  DisplayInside,
-  DisplayListItem,
-  DisplayInternal,
-  DisplayBox,
-  DisplayLegacy,
-  JustifySelf,
-  PositionalAlignment,
-  OverflowAlignment,
-  BaselineAlignment,
-  NormalAlignment,
-  DistributedAlignment,
-  LegacyAlignment,
-  TextAlign,
-  WordBreak,
-  WhiteSpace,
-  AlignItems,
-  AlignSelf,
-  AlignContent,
-  ObjectFit,
-  Clear,
-  Float,
-  Visibility,
-  TableLayout,
-  BorderCollapse,
-  FlexWrap,
-  FlexDirection,
-  BoxSizing,
-  ColumnCount,
-  UserSelect,
-  TextTransform,
-  GridTemplateAreas,
-  GridArea,
-  BackdropFilter,
-  BackgroundAttachment,
-  BackgroundClip,
-  BackgroundOrigin,
-  BackgroundPosition,
-  BackgroundRepeat,
-  TextOverflow,
-  TextDecorationLine,
-  TextDecorationStyle,
-  Width,
-  MaxWidth,
-  Height,
-  MaxHeight,
-  OverflowWrap,
-  Gradient,
-  BackgroundImage,
-  GeometyBox,
-  ClipPath,
-  BackfaceVisibility,
-  Flex,
-  TransformStyle,
-  ListStyleImage,
-  FontFamilyName,
-  FontDisplay,
-  CounterStyleType,
-  Counter,
-  Counters,
-  CounterIncrement,
-  CounterReset,
-  CounterSet,
-  Content,
-  SVG,
-};
+  Cascading ,
+  Var ,
+  Time ,
+  Percentage ,
+  Url ,
+  Length ,
+  Angle ,
+  Direction ,
+  Position ,
+  Resize ,
+  FontVariant ,
+  FontStyle ,
+  FlexBasis ,
+  Overflow ,
+  Margin ,
+  GridAutoFlow ,
+  Gap ,
+  RowGap ,
+  ColumnGap ,
+  ScrollBehavior ,
+  ColumnWidth ,
+  CaretColor ,
+  VerticalAlign ,
+  TimingFunction ,
+  RepeatValue ,
+  ListStyleType ,
+  ListStylePosition ,
+  OutlineStyle ,
+  FontWeight ,
+  Transform ,
+  AnimationDirection ,
+  AnimationFillMode ,
+  AnimationIterationCount ,
+  AnimationPlayState ,
+  Cursor ,
+  Color ,
+  BorderStyle ,
+  PointerEvents ,
+  Perspective ,
+  LetterSpacing ,
+  LineHeight ,
+  WordSpacing ,
+  DisplayOutside ,
+  DisplayInside ,
+  DisplayListItem ,
+  DisplayInternal ,
+  DisplayBox ,
+  DisplayLegacy ,
+  JustifySelf ,
+  PositionalAlignment ,
+  OverflowAlignment ,
+  BaselineAlignment ,
+  NormalAlignment ,
+  DistributedAlignment ,
+  LegacyAlignment ,
+  TextAlign ,
+  WordBreak ,
+  WhiteSpace ,
+  AlignItems ,
+  AlignSelf ,
+  AlignContent ,
+  ObjectFit ,
+  Clear ,
+  Float ,
+  Visibility ,
+  TableLayout ,
+  BorderCollapse ,
+  FlexWrap ,
+  FlexDirection ,
+  BoxSizing ,
+  ColumnCount ,
+  UserSelect ,
+  TextTransform ,
+  GridTemplateAreas ,
+  GridArea ,
+  BackdropFilter ,
+  BackgroundAttachment ,
+  BackgroundClip ,
+  BackgroundOrigin ,
+  BackgroundPosition ,
+  BackgroundRepeat ,
+  TextOverflow ,
+  TextDecorationLine ,
+  TextDecorationStyle ,
+  Width ,
+  MaxWidth ,
+  Height ,
+  MaxHeight ,
+  OverflowWrap ,
+  Gradient ,
+  BackgroundImage ,
+  GeometyBox ,
+  ClipPath ,
+  BackfaceVisibility ,
+  Flex ,
+  TransformStyle ,
+  ListStyleImage ,
+  FontFamilyName ,
+  FontDisplay ,
+  CounterStyleType ,
+  Counter ,
+  Counters ,
+  CounterIncrement ,
+  CounterReset ,
+  CounterSet ,
+  Content ,
+  SVG ,
+  
+}
 /* No side effect */

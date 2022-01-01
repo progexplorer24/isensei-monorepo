@@ -3,25 +3,23 @@
 import * as React from "react";
 import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
 
-var red = Tailwind$IsenseiMonorepo.twStyle([
-  Tailwind$IsenseiMonorepo.bg(undefined, "red400"),
-]);
+var red = Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.bg(undefined, "red400")]);
 
 var Styles = {
-  red: red,
+  red: red
 };
 
 function Button__UI(Props) {
-  return React.createElement(
-    "div",
-    {
-      className: Tailwind$IsenseiMonorepo.merge([red]),
-    },
-    "Component Button"
-  );
+  return React.createElement("div", {
+              className: Tailwind$IsenseiMonorepo.merge([red])
+            }, "Component Button");
 }
 
 var make = Button__UI;
 
-export { Styles, make };
+export {
+  Styles ,
+  make ,
+  
+}
 /* red Not a pure module */

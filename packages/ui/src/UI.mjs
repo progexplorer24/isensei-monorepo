@@ -8,12 +8,17 @@ function UI$Button1(Props) {
 }
 
 var Button1 = {
-  make: UI$Button1,
+  make: UI$Button1
 };
 
 var btn = React.createElement("div", undefined, "Button");
 
 var btn2 = React.createElement(Button__UI$IsenseiMonorepo.make, {});
 
-export { Button1, btn, btn2 };
+export {
+  Button1 ,
+  btn ,
+  btn2 ,
+  
+}
 /* btn Not a pure module */

@@ -11,24 +11,25 @@ import * as Css_AtomicTypes$IsenseiMonorepo from "./Css_AtomicTypes.mjs";
 
 function ruleToDict(dict, rule) {
   switch (rule.TAG | 0) {
-    case /* D */ 0:
-      var value = rule._1;
-      var name = rule._0;
-      if (name === "content") {
-        dict[name] = value === "" ? '""' : value;
-      } else {
-        dict[name] = value;
-      }
-      break;
-    case /* S */ 1:
-      dict[rule._0] = toJson(rule._1);
-      break;
-    case /* PseudoClass */ 2:
-      dict[":" + rule._0] = toJson(rule._1);
-      break;
-    case /* PseudoClassParam */ 3:
-      dict[":" + (rule._0 + ("(" + (rule._1 + ")")))] = toJson(rule._2);
-      break;
+    case /* D */0 :
+        var value = rule._1;
+        var name = rule._0;
+        if (name === "content") {
+          dict[name] = value === "" ? "\"\"" : value;
+        } else {
+          dict[name] = value;
+        }
+        break;
+    case /* S */1 :
+        dict[rule._0] = toJson(rule._1);
+        break;
+    case /* PseudoClass */2 :
+        dict[":" + rule._0] = toJson(rule._1);
+        break;
+    case /* PseudoClassParam */3 :
+        dict[":" + (rule._0 + ("(" + (rule._1 + ")")))] = toJson(rule._2);
+        break;
+    
   }
   return dict;
 }
@@ -62,75 +63,66 @@ function Make(CssImpl) {
     return CssImpl.mergeStyles($$Array.of_list(styles));
   };
   var merge2 = function (s, s2) {
-    return CssImpl.mergeStyles(
-      $$Array.of_list({
-        hd: s,
-        tl: {
-          hd: s2,
-          tl: /* [] */ 0,
-        },
-      })
-    );
+    return CssImpl.mergeStyles($$Array.of_list({
+                    hd: s,
+                    tl: {
+                      hd: s2,
+                      tl: /* [] */0
+                    }
+                  }));
   };
   var merge3 = function (s, s2, s3) {
-    return CssImpl.mergeStyles(
-      $$Array.of_list({
-        hd: s,
-        tl: {
-          hd: s2,
-          tl: {
-            hd: s3,
-            tl: /* [] */ 0,
-          },
-        },
-      })
-    );
+    return CssImpl.mergeStyles($$Array.of_list({
+                    hd: s,
+                    tl: {
+                      hd: s2,
+                      tl: {
+                        hd: s3,
+                        tl: /* [] */0
+                      }
+                    }
+                  }));
   };
   var merge4 = function (s, s2, s3, s4) {
-    return CssImpl.mergeStyles(
-      $$Array.of_list({
-        hd: s,
-        tl: {
-          hd: s2,
-          tl: {
-            hd: s3,
-            tl: {
-              hd: s4,
-              tl: /* [] */ 0,
-            },
-          },
-        },
-      })
-    );
+    return CssImpl.mergeStyles($$Array.of_list({
+                    hd: s,
+                    tl: {
+                      hd: s2,
+                      tl: {
+                        hd: s3,
+                        tl: {
+                          hd: s4,
+                          tl: /* [] */0
+                        }
+                      }
+                    }
+                  }));
   };
   var keyframes = function (frames) {
     return CssImpl.makeKeyframes(List.fold_left(addStop, {}, frames));
   };
   var renderKeyframes = function (renderer, frames) {
-    return CssImpl.renderKeyframes(
-      renderer,
-      List.fold_left(addStop, {}, frames)
-    );
+    return CssImpl.renderKeyframes(renderer, List.fold_left(addStop, {}, frames));
   };
   return {
-    insertRule: insertRule,
-    renderRule: renderRule,
-    $$global: $$global,
-    renderGlobal: renderGlobal,
-    style: style,
-    merge: merge,
-    merge2: merge2,
-    merge3: merge3,
-    merge4: merge4,
-    keyframes: keyframes,
-    renderKeyframes: renderKeyframes,
-  };
+          insertRule: insertRule,
+          renderRule: renderRule,
+          $$global: $$global,
+          renderGlobal: renderGlobal,
+          style: style,
+          merge: merge,
+          merge2: merge2,
+          merge3: merge3,
+          merge4: merge4,
+          keyframes: keyframes,
+          renderKeyframes: renderKeyframes
+        };
 }
 
 function join(strings, separator) {
   var _strings = strings;
   var _acc = "";
-  while (true) {
+  while(true) {
     var acc = _acc;
     var strings$1 = _strings;
     if (!strings$1) {
@@ -143,8 +135,8 @@ function join(strings, separator) {
     }
     _acc = acc + (x + separator);
     _strings = xs;
-    continue;
-  }
+    continue ;
+  };
 }
 
 function string_of_content(x) {
@@ -156,12 +148,7 @@ function string_of_content(x) {
     }
   }
   var variant = x.NAME;
-  if (
-    variant === "linearGradient" ||
-    variant === "radialGradient" ||
-    variant === "repeatingLinearGradient" ||
-    variant === "repeatingRadialGradient"
-  ) {
+  if (variant === "linearGradient" || variant === "radialGradient" || variant === "repeatingLinearGradient" || variant === "repeatingRadialGradient") {
     return Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(x);
   } else if (variant === "var" || variant === "varDefault") {
     return Css_AtomicTypes$IsenseiMonorepo.Var.toString(x);
@@ -319,12 +306,12 @@ function string_of_dasharray(x) {
 }
 
 function important(v) {
-  if (v.TAG === /* D */ 0) {
+  if (v.TAG === /* D */0) {
     return {
-      TAG: /* D */ 0,
-      _0: v._0,
-      _1: v._1 + " !important",
-    };
+            TAG: /* D */0,
+            _0: v._0,
+            _1: v._1 + " !important"
+          };
   } else {
     return v;
   }
@@ -332,214 +319,176 @@ function important(v) {
 
 function label(label$1) {
   return {
-    TAG: /* D */ 0,
-    _0: "label",
-    _1: label$1,
-  };
+          TAG: /* D */0,
+          _0: "label",
+          _1: label$1
+        };
 }
 
 function alignContent(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "alignContent",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "spaceBetween" ||
-          x === "stretch" ||
-          x === "spaceAround" ||
-          x === "spaceEvenly"
-        ? Css_AtomicTypes$IsenseiMonorepo.DistributedAlignment.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "baseline" || x === "firstBaseline" || x === "lastBaseline"
-        ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.AlignContent.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "alignContent",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "spaceBetween" || x === "stretch" || x === "spaceAround" || x === "spaceEvenly" ? Css_AtomicTypes$IsenseiMonorepo.DistributedAlignment.toString(x) : (
+                  x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                      x === "baseline" || x === "firstBaseline" || x === "lastBaseline" ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x) : (
+                          x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x) : Css_AtomicTypes$IsenseiMonorepo.AlignContent.toString(x)
+                        )
+                    )
+                )
+            )
+        };
 }
 
 function alignItems(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "alignItems",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "baseline" || x === "firstBaseline" || x === "lastBaseline"
-        ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x)
-        : x === "normal" || x === "stretch"
-        ? Css_AtomicTypes$IsenseiMonorepo.AlignItems.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "alignItems",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                  x === "baseline" || x === "firstBaseline" || x === "lastBaseline" ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x) : (
+                      x === "normal" || x === "stretch" ? Css_AtomicTypes$IsenseiMonorepo.AlignItems.toString(x) : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x)
+                    )
+                )
+            )
+        };
 }
 
 function alignSelf(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "alignSelf",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "selfStart" ||
-          x === "flexEnd" ||
-          x === "flexStart" ||
-          x === "center" ||
-          x === "start" ||
-          x === "selfEnd" ||
-          x === "right" ||
-          x === "left" ||
-          x === "end_"
-        ? Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "baseline" || x === "firstBaseline" || x === "lastBaseline"
-        ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.AlignSelf.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "alignSelf",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "selfStart" || x === "flexEnd" || x === "flexStart" || x === "center" || x === "start" || x === "selfEnd" || x === "right" || x === "left" || x === "end_" ? Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x) : (
+                  x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                      x === "baseline" || x === "firstBaseline" || x === "lastBaseline" ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x) : Css_AtomicTypes$IsenseiMonorepo.AlignSelf.toString(x)
+                    )
+                )
+            )
+        };
 }
 
 function animationDelay(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationDelay",
-    _1: x.toString() + "ms",
-  };
+          TAG: /* D */0,
+          _0: "animationDelay",
+          _1: x.toString() + "ms"
+        };
 }
 
 function animationDirection(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationDirection",
-    _1: Css_AtomicTypes$IsenseiMonorepo.AnimationDirection.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "animationDirection",
+          _1: Css_AtomicTypes$IsenseiMonorepo.AnimationDirection.toString(x)
+        };
 }
 
 function animationDuration(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationDuration",
-    _1: x.toString() + "ms",
-  };
+          TAG: /* D */0,
+          _0: "animationDuration",
+          _1: x.toString() + "ms"
+        };
 }
 
 function animationFillMode(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationFillMode",
-    _1: Css_AtomicTypes$IsenseiMonorepo.AnimationFillMode.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "animationFillMode",
+          _1: Css_AtomicTypes$IsenseiMonorepo.AnimationFillMode.toString(x)
+        };
 }
 
 function animationIterationCount(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationIterationCount",
-    _1: Css_AtomicTypes$IsenseiMonorepo.AnimationIterationCount.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "animationIterationCount",
+          _1: Css_AtomicTypes$IsenseiMonorepo.AnimationIterationCount.toString(x)
+        };
 }
 
 function animationPlayState(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationPlayState",
-    _1: Css_AtomicTypes$IsenseiMonorepo.AnimationPlayState.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "animationPlayState",
+          _1: Css_AtomicTypes$IsenseiMonorepo.AnimationPlayState.toString(x)
+        };
 }
 
 function animationTimingFunction(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationTimingFunction",
-    _1: Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "animationTimingFunction",
+          _1: Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(x)
+        };
 }
 
 function backfaceVisibility(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backfaceVisibility",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "visible" || x === "hidden"
-        ? Css_AtomicTypes$IsenseiMonorepo.BackfaceVisibility.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "backfaceVisibility",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "visible" || x === "hidden" ? Css_AtomicTypes$IsenseiMonorepo.BackfaceVisibility.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function backdropFilter(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backdropFilter",
-    _1: join(
-      Belt_List.map(x, Css_AtomicTypes$IsenseiMonorepo.BackdropFilter.toString),
-      ", "
-    ),
-  };
+          TAG: /* D */0,
+          _0: "backdropFilter",
+          _1: join(Belt_List.map(x, Css_AtomicTypes$IsenseiMonorepo.BackdropFilter.toString), ", ")
+        };
 }
 
 function backgroundAttachment(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundAttachment",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BackgroundAttachment.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundAttachment",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.BackgroundAttachment.toString(x)
+            )
+        };
 }
 
 function backgroundColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundColor",
+          _1: string_of_color(x)
+        };
 }
 
 function backgroundClip(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundClip",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BackgroundClip.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundClip",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.BackgroundClip.toString(x)
+            )
+        };
 }
 
 function backgroundImage(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundImage",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "url"
-          ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BackgroundImage.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundImage",
+          _1: typeof x === "object" ? (
+              x.NAME === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(x)
+            ) : Css_AtomicTypes$IsenseiMonorepo.BackgroundImage.toString(x)
+        };
 }
 
 function backgroundOrigin(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundOrigin",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BackgroundOrigin.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundOrigin",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.BackgroundOrigin.toString(x)
+            )
+        };
 }
 
 function string_of_backgroundposition(x) {
@@ -563,58 +512,34 @@ function string_of_backgroundposition(x) {
   var v = match[1];
   var h = match[0];
   return (
-    (typeof h === "object" || h === "zero"
-      ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(h)
-      : Curry._1(
-          Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.X.toString,
-          h
-        )) +
-    (" " +
-      (typeof v === "object" ||
-      !(v === "center" || v === "top" || v === "bottom")
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(v)
-        : Curry._1(
-            Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.Y.toString,
-            v
-          )))
-  );
+          typeof h === "object" || h === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(h) : Curry._1(Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.X.toString, h)
+        ) + (" " + (
+            typeof v === "object" || !(v === "center" || v === "top" || v === "bottom") ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(v) : Curry._1(Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.Y.toString, v)
+          ));
 }
 
 function backgroundPosition(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundPosition",
-    _1: string_of_backgroundposition(x),
-  };
+          TAG: /* D */0,
+          _0: "backgroundPosition",
+          _1: string_of_backgroundposition(x)
+        };
 }
 
 function backgroundPositions(bp) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundPosition",
-    _1: join(Belt_List.map(bp, string_of_backgroundposition), ", "),
-  };
+          TAG: /* D */0,
+          _0: "backgroundPosition",
+          _1: join(Belt_List.map(bp, string_of_backgroundposition), ", ")
+        };
 }
 
 function backgroundPosition4(x, offsetX, y, offsetY) {
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundPosition",
-    _1:
-      Curry._1(
-        Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.X.toString,
-        x
-      ) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(offsetX) +
-          (" " +
-            (Curry._1(
-              Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.Y.toString,
-              y
-            ) +
-              (" " +
-                Css_AtomicTypes$IsenseiMonorepo.Length.toString(offsetY)))))),
-  };
+          TAG: /* D */0,
+          _0: "backgroundPosition",
+          _1: Curry._1(Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.X.toString, x) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(offsetX) + (" " + (Curry._1(Css_AtomicTypes$IsenseiMonorepo.BackgroundPosition.Y.toString, y) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(offsetY))))))
+        };
 }
 
 function backgroundRepeat(x) {
@@ -622,839 +547,707 @@ function backgroundRepeat(x) {
   if (typeof x === "object") {
     if (x.NAME === "hv") {
       var match = x.VAL;
-      tmp =
-        Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(match[0]) +
-        (" " +
-          Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(match[1]));
+      tmp = Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(match[0]) + (" " + Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(match[1]));
     } else {
       tmp = Css_AtomicTypes$IsenseiMonorepo.Var.toString(x);
     }
   } else {
-    tmp =
-      x === "repeatY" ||
-      x === "repeatX" ||
-      x === "repeat" ||
-      x === "space" ||
-      x === "round" ||
-      x === "noRepeat"
-        ? Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "repeatY" || x === "repeatX" || x === "repeat" || x === "space" || x === "round" || x === "noRepeat" ? Css_AtomicTypes$IsenseiMonorepo.BackgroundRepeat.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundRepeat",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "backgroundRepeat",
+          _1: tmp
+        };
 }
 
 function borderBottomColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottomColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "borderBottomColor",
+          _1: string_of_color(x)
+        };
 }
 
 function borderBottomLeftRadius(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottomLeftRadius",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderBottomLeftRadius",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderBottomRightRadius(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottomRightRadius",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderBottomRightRadius",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderBottomWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottomWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderBottomWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderCollapse(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderCollapse",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BorderCollapse.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderCollapse",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.BorderCollapse.toString(x)
+            )
+        };
 }
 
 function borderColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "borderColor",
+          _1: string_of_color(x)
+        };
 }
 
 function borderLeftColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderLeftColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "borderLeftColor",
+          _1: string_of_color(x)
+        };
 }
 
 function borderLeftWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderLeftWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderLeftWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderSpacing(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderSpacing",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderSpacing",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderRadius(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderRadius",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderRadius",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderRightColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderRightColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "borderRightColor",
+          _1: string_of_color(x)
+        };
 }
 
 function borderRightWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderRightWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderRightWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderTopColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTopColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "borderTopColor",
+          _1: string_of_color(x)
+        };
 }
 
 function borderTopLeftRadius(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTopLeftRadius",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderTopLeftRadius",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderTopRightRadius(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTopRightRadius",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderTopRightRadius",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderTopWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTopWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderTopWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function borderWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "borderWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function bottom(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "bottom",
-    _1: string_of_position(x),
-  };
+          TAG: /* D */0,
+          _0: "bottom",
+          _1: string_of_position(x)
+        };
 }
 
 function boxSizing(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "boxSizing",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.BoxSizing.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "boxSizing",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.BoxSizing.toString(x)
+            )
+        };
 }
 
 function clear(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "clear",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Clear.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "clear",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Clear.toString(x)
+            )
+        };
 }
 
 function clipPath(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "clipPath",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "url"
-          ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "none"
-        ? Css_AtomicTypes$IsenseiMonorepo.ClipPath.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.GeometyBox.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "clipPath",
+          _1: typeof x === "object" ? (
+              x.NAME === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "none" ? Css_AtomicTypes$IsenseiMonorepo.ClipPath.toString(x) : (
+                  x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.GeometyBox.toString(x)
+                )
+            )
+        };
 }
 
 function color(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "color",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "color",
+          _1: string_of_color(x)
+        };
 }
 
 function columnCount(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ColumnCount.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ColumnCount.toString(x);
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ColumnCount.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ColumnCount.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "columnCount",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "columnCount",
+          _1: tmp
+        };
 }
 
 function columnGap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "columnGap",
-    _1: string_of_column_gap(x),
-  };
+          TAG: /* D */0,
+          _0: "columnGap",
+          _1: string_of_column_gap(x)
+        };
 }
 
 function rowGap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "rowGap",
-    _1: string_of_row_gap(x),
-  };
+          TAG: /* D */0,
+          _0: "rowGap",
+          _1: string_of_row_gap(x)
+        };
 }
 
 function contentRule(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "content",
-    _1: string_of_content(x),
-  };
+          TAG: /* D */0,
+          _0: "content",
+          _1: string_of_content(x)
+        };
 }
 
 function contentRules(xs) {
   return {
-    TAG: /* D */ 0,
-    _0: "content",
-    _1: join(Belt_List.map(xs, string_of_content), " "),
-  };
+          TAG: /* D */0,
+          _0: "content",
+          _1: join(Belt_List.map(xs, string_of_content), " ")
+        };
 }
 
 function counterIncrement(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterIncrement",
-    _1: string_of_counter_increment(x),
-  };
+          TAG: /* D */0,
+          _0: "counterIncrement",
+          _1: string_of_counter_increment(x)
+        };
 }
 
 function countersIncrement(xs) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterIncrement",
-    _1: join(Belt_List.map(xs, string_of_counter_increment), " "),
-  };
+          TAG: /* D */0,
+          _0: "counterIncrement",
+          _1: join(Belt_List.map(xs, string_of_counter_increment), " ")
+        };
 }
 
 function counterReset(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterReset",
-    _1: string_of_counter_reset(x),
-  };
+          TAG: /* D */0,
+          _0: "counterReset",
+          _1: string_of_counter_reset(x)
+        };
 }
 
 function countersReset(xs) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterReset",
-    _1: join(Belt_List.map(xs, string_of_counter_reset), " "),
-  };
+          TAG: /* D */0,
+          _0: "counterReset",
+          _1: join(Belt_List.map(xs, string_of_counter_reset), " ")
+        };
 }
 
 function counterSet(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterSet",
-    _1: string_of_counter_set(x),
-  };
+          TAG: /* D */0,
+          _0: "counterSet",
+          _1: string_of_counter_set(x)
+        };
 }
 
 function countersSet(xs) {
   return {
-    TAG: /* D */ 0,
-    _0: "counterSet",
-    _1: join(Belt_List.map(xs, string_of_counter_set), " "),
-  };
+          TAG: /* D */0,
+          _0: "counterSet",
+          _1: join(Belt_List.map(xs, string_of_counter_set), " ")
+        };
 }
 
 function cursor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "cursor",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Cursor.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "cursor",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Cursor.toString(x)
+        };
 }
 
 function direction(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "direction",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "rtl" || x === "ltr"
-        ? Css_AtomicTypes$IsenseiMonorepo.Direction.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "direction",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "rtl" || x === "ltr" ? Css_AtomicTypes$IsenseiMonorepo.Direction.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function display(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "display",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "table" || x === "grid" || x === "flex"
-        ? Css_AtomicTypes$IsenseiMonorepo.DisplayInside.toString(x)
-        : x === "contents" || x === "none"
-        ? Css_AtomicTypes$IsenseiMonorepo.DisplayBox.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "inlineGrid" ||
-          x === "inlineFlex" ||
-          x === "inlineBlock" ||
-          x === "inlineTable"
-        ? Css_AtomicTypes$IsenseiMonorepo.DisplayLegacy.toString(x)
-        : x === "block" || x === "inline" || x === "runIn"
-        ? Css_AtomicTypes$IsenseiMonorepo.DisplayOutside.toString(x)
-        : x === "listItem"
-        ? Css_AtomicTypes$IsenseiMonorepo.DisplayListItem.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.DisplayInternal.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "display",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "table" || x === "grid" || x === "flex" ? Css_AtomicTypes$IsenseiMonorepo.DisplayInside.toString(x) : (
+                  x === "contents" || x === "none" ? Css_AtomicTypes$IsenseiMonorepo.DisplayBox.toString(x) : (
+                      x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                          x === "inlineGrid" || x === "inlineFlex" || x === "inlineBlock" || x === "inlineTable" ? Css_AtomicTypes$IsenseiMonorepo.DisplayLegacy.toString(x) : (
+                              x === "block" || x === "inline" || x === "runIn" ? Css_AtomicTypes$IsenseiMonorepo.DisplayOutside.toString(x) : (
+                                  x === "listItem" ? Css_AtomicTypes$IsenseiMonorepo.DisplayListItem.toString(x) : Css_AtomicTypes$IsenseiMonorepo.DisplayInternal.toString(x)
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        };
 }
 
 function flex(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flex",
-    _1:
-      typeof x === "object"
-        ? x.VAL.toString()
-        : Css_AtomicTypes$IsenseiMonorepo.Flex.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "flex",
+          _1: typeof x === "object" ? x.VAL.toString() : Css_AtomicTypes$IsenseiMonorepo.Flex.toString(x)
+        };
 }
 
 function flexDirection(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flexDirection",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.FlexDirection.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "flexDirection",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.FlexDirection.toString(x)
+            )
+        };
 }
 
 function flexGrow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flexGrow",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "flexGrow",
+          _1: x.toString()
+        };
 }
 
 function flexShrink(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flexShrink",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "flexShrink",
+          _1: x.toString()
+        };
 }
 
 function flexWrap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flexWrap",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "nowrap" || x === "wrapReverse" || x === "wrap"
-        ? Css_AtomicTypes$IsenseiMonorepo.FlexWrap.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "flexWrap",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "nowrap" || x === "wrapReverse" || x === "wrap" ? Css_AtomicTypes$IsenseiMonorepo.FlexWrap.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function $$float(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "float",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Float.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "float",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Float.toString(x)
+            )
+        };
 }
 
 function fontFamily(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "fontFamily",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "custom"
-          ? Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "fontFamily",
+          _1: typeof x === "object" ? (
+              x.NAME === "custom" ? Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString(x)
+            )
+        };
 }
 
 function fontFamilies(xs) {
   return {
-    TAG: /* D */ 0,
-    _0: "fontFamily",
-    _1: join(
-      Belt_List.map(
-        xs,
-        Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString
-      ),
-      ", "
-    ),
-  };
+          TAG: /* D */0,
+          _0: "fontFamily",
+          _1: join(Belt_List.map(xs, Css_AtomicTypes$IsenseiMonorepo.FontFamilyName.toString), ", ")
+        };
 }
 
 function fontSize(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "fontSize",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "fontSize",
+          _1: tmp
+        };
 }
 
 function fontStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "fontStyle",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "normal" || x === "oblique" || x === "italic"
-        ? Css_AtomicTypes$IsenseiMonorepo.FontStyle.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "fontStyle",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "normal" || x === "oblique" || x === "italic" ? Css_AtomicTypes$IsenseiMonorepo.FontStyle.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function fontVariant(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "fontVariant",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "normal" || x === "smallCaps"
-        ? Css_AtomicTypes$IsenseiMonorepo.FontVariant.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "fontVariant",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "normal" || x === "smallCaps" ? Css_AtomicTypes$IsenseiMonorepo.FontVariant.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function fontWeight(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "fontWeight",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "num"
-          ? Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "fontWeight",
+          _1: typeof x === "object" ? (
+              x.NAME === "num" ? Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(x)
+            )
+        };
 }
 
 function gridAutoFlow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridAutoFlow",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.GridAutoFlow.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "gridAutoFlow",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.GridAutoFlow.toString(x)
+            )
+        };
 }
 
 function gridColumn(start, end$p) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridColumn",
-    _1: start.toString() + (" / " + end$p.toString()),
-  };
+          TAG: /* D */0,
+          _0: "gridColumn",
+          _1: start.toString() + (" / " + end$p.toString())
+        };
 }
 
 function gridColumnGap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridColumnGap",
-    _1: string_of_column_gap(x),
-  };
+          TAG: /* D */0,
+          _0: "gridColumnGap",
+          _1: string_of_column_gap(x)
+        };
 }
 
 function gridColumnStart(n) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridColumnStart",
-    _1: n.toString(),
-  };
+          TAG: /* D */0,
+          _0: "gridColumnStart",
+          _1: n.toString()
+        };
 }
 
 function gridColumnEnd(n) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridColumnEnd",
-    _1: n.toString(),
-  };
+          TAG: /* D */0,
+          _0: "gridColumnEnd",
+          _1: n.toString()
+        };
 }
 
 function gridRow(start, end$p) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridRow",
-    _1: start.toString() + (" / " + end$p.toString()),
-  };
+          TAG: /* D */0,
+          _0: "gridRow",
+          _1: start.toString() + (" / " + end$p.toString())
+        };
 }
 
 function gap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "gap",
-    _1: string_of_gap(x),
-  };
+          TAG: /* D */0,
+          _0: "gap",
+          _1: string_of_gap(x)
+        };
 }
 
 function gridGap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridGap",
-    _1: string_of_gap(x),
-  };
+          TAG: /* D */0,
+          _0: "gridGap",
+          _1: string_of_gap(x)
+        };
 }
 
 function gap2(rowGap, columnGap) {
   return {
-    TAG: /* D */ 0,
-    _0: "gap",
-    _1: string_of_gap(rowGap) + (" " + string_of_gap(columnGap)),
-  };
+          TAG: /* D */0,
+          _0: "gap",
+          _1: string_of_gap(rowGap) + (" " + string_of_gap(columnGap))
+        };
 }
 
 function gridRowGap(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "gridRowGap",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "gridRowGap",
+          _1: tmp
+        };
 }
 
 function gridRowEnd(n) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridRowEnd",
-    _1: n.toString(),
-  };
+          TAG: /* D */0,
+          _0: "gridRowEnd",
+          _1: n.toString()
+        };
 }
 
 function gridRowStart(n) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridRowStart",
-    _1: n.toString(),
-  };
+          TAG: /* D */0,
+          _0: "gridRowStart",
+          _1: n.toString()
+        };
 }
 
 function height(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Height.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Height.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "height",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "height",
+          _1: tmp
+        };
 }
 
 function justifyContent(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "justifyContent",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "spaceBetween" ||
-          x === "stretch" ||
-          x === "spaceAround" ||
-          x === "spaceEvenly"
-        ? Css_AtomicTypes$IsenseiMonorepo.DistributedAlignment.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "justifyContent",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "spaceBetween" || x === "stretch" || x === "spaceAround" || x === "spaceEvenly" ? Css_AtomicTypes$IsenseiMonorepo.DistributedAlignment.toString(x) : (
+                  x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                      x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x) : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x)
+                    )
+                )
+            )
+        };
 }
 
 function justifyItems(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.OverflowAlignment.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.OverflowAlignment.toString(x);
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "legacyRight" ||
-          x === "legacy" ||
-          x === "legacyLeft" ||
-          x === "legacyCenter"
-        ? Css_AtomicTypes$IsenseiMonorepo.LegacyAlignment.toString(x)
-        : x === "baseline" || x === "firstBaseline" || x === "lastBaseline"
-        ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "legacyRight" || x === "legacy" || x === "legacyLeft" || x === "legacyCenter" ? Css_AtomicTypes$IsenseiMonorepo.LegacyAlignment.toString(x) : (
+            x === "baseline" || x === "firstBaseline" || x === "lastBaseline" ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x) : (
+                x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.NormalAlignment.toString(x) : Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x)
+              )
+          )
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "justifyItems",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "justifyItems",
+          _1: tmp
+        };
 }
 
 function left(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "left",
-    _1: string_of_position(x),
-  };
+          TAG: /* D */0,
+          _0: "left",
+          _1: string_of_position(x)
+        };
 }
 
 function letterSpacing(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.LetterSpacing.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : (
+        x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.LetterSpacing.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "letterSpacing",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "letterSpacing",
+          _1: tmp
+        };
 }
 
 function lineHeight(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "abs"
-        ? Css_AtomicTypes$IsenseiMonorepo.LineHeight.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "abs" ? Css_AtomicTypes$IsenseiMonorepo.LineHeight.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.LineHeight.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : (
+        x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.LineHeight.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "lineHeight",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "lineHeight",
+          _1: tmp
+        };
 }
 
 function listStyle(style, position, image) {
   return {
-    TAG: /* D */ 0,
-    _0: "listStyle",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.ListStyleType.toString(style) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.ListStylePosition.toString(position) +
-          (" " +
-            (typeof image === "object"
-              ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(image)
-              : Css_AtomicTypes$IsenseiMonorepo.ListStyleImage.toString(
-                  image
-                ))))),
-  };
+          TAG: /* D */0,
+          _0: "listStyle",
+          _1: Css_AtomicTypes$IsenseiMonorepo.ListStyleType.toString(style) + (" " + (Css_AtomicTypes$IsenseiMonorepo.ListStylePosition.toString(position) + (" " + (
+                  typeof image === "object" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(image) : Css_AtomicTypes$IsenseiMonorepo.ListStyleImage.toString(image)
+                ))))
+        };
 }
 
 function listStyleImage(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "listStyleImage",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "url"
-          ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ListStyleImage.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "listStyleImage",
+          _1: typeof x === "object" ? (
+              x.NAME === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ListStyleImage.toString(x)
+            )
+        };
 }
 
 function listStyleType(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "listStyleType",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ListStyleType.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "listStyleType",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ListStyleType.toString(x)
+            )
+        };
 }
 
 function listStylePosition(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "listStylePosition",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "inside" || x === "outside"
-        ? Css_AtomicTypes$IsenseiMonorepo.ListStylePosition.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "listStylePosition",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "inside" || x === "outside" ? Css_AtomicTypes$IsenseiMonorepo.ListStylePosition.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function marginToString(x) {
@@ -1477,1071 +1270,887 @@ function marginToString(x) {
 
 function margin(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "margin",
-    _1: marginToString(x),
-  };
+          TAG: /* D */0,
+          _0: "margin",
+          _1: marginToString(x)
+        };
 }
 
 function margin2(v, h) {
   return {
-    TAG: /* D */ 0,
-    _0: "margin",
-    _1: marginToString(v) + (" " + marginToString(h)),
-  };
+          TAG: /* D */0,
+          _0: "margin",
+          _1: marginToString(v) + (" " + marginToString(h))
+        };
 }
 
 function margin3(top, h, bottom) {
   return {
-    TAG: /* D */ 0,
-    _0: "margin",
-    _1:
-      marginToString(top) +
-      (" " + (marginToString(h) + (" " + marginToString(bottom)))),
-  };
+          TAG: /* D */0,
+          _0: "margin",
+          _1: marginToString(top) + (" " + (marginToString(h) + (" " + marginToString(bottom))))
+        };
 }
 
 function margin4(top, right, bottom, left) {
   return {
-    TAG: /* D */ 0,
-    _0: "margin",
-    _1:
-      marginToString(top) +
-      (" " +
-        (marginToString(right) +
-          (" " + (marginToString(bottom) + (" " + marginToString(left)))))),
-  };
+          TAG: /* D */0,
+          _0: "margin",
+          _1: marginToString(top) + (" " + (marginToString(right) + (" " + (marginToString(bottom) + (" " + marginToString(left))))))
+        };
 }
 
 function marginLeft(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "marginLeft",
-    _1: marginToString(x),
-  };
+          TAG: /* D */0,
+          _0: "marginLeft",
+          _1: marginToString(x)
+        };
 }
 
 function marginRight(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "marginRight",
-    _1: marginToString(x),
-  };
+          TAG: /* D */0,
+          _0: "marginRight",
+          _1: marginToString(x)
+        };
 }
 
 function marginTop(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "marginTop",
-    _1: marginToString(x),
-  };
+          TAG: /* D */0,
+          _0: "marginTop",
+          _1: marginToString(x)
+        };
 }
 
 function marginBottom(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "marginBottom",
-    _1: marginToString(x),
-  };
+          TAG: /* D */0,
+          _0: "marginBottom",
+          _1: marginToString(x)
+        };
 }
 
 function maxHeight(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.MaxHeight.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.MaxHeight.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "maxHeight",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "maxHeight",
+          _1: tmp
+        };
 }
 
 function maxWidth(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.MaxWidth.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.MaxWidth.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "maxWidth",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "maxWidth",
+          _1: tmp
+        };
 }
 
 function minHeight(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Height.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Height.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "minHeight",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "minHeight",
+          _1: tmp
+        };
 }
 
 function minWidth(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Width.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Width.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "minWidth",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "minWidth",
+          _1: tmp
+        };
 }
 
 function objectFit(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "objectFit",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ObjectFit.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "objectFit",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ObjectFit.toString(x)
+            )
+        };
 }
 
 function objectPosition(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "objectPosition",
-    _1: string_of_backgroundposition(x),
-  };
+          TAG: /* D */0,
+          _0: "objectPosition",
+          _1: string_of_backgroundposition(x)
+        };
 }
 
 function opacity(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "opacity",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "opacity",
+          _1: x.toString()
+        };
 }
 
 function outline(size, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "outline",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(size) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.OutlineStyle.toString(style) +
-          (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "outline",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(size) + (" " + (Css_AtomicTypes$IsenseiMonorepo.OutlineStyle.toString(style) + (" " + string_of_color(color))))
+        };
 }
 
 function outlineColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "outlineColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "outlineColor",
+          _1: string_of_color(x)
+        };
 }
 
 function outlineOffset(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "outlineOffset",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "outlineOffset",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function outlineStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "outlineStyle",
-    _1: Css_AtomicTypes$IsenseiMonorepo.OutlineStyle.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "outlineStyle",
+          _1: Css_AtomicTypes$IsenseiMonorepo.OutlineStyle.toString(x)
+        };
 }
 
 function outlineWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "outlineWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "outlineWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function overflow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "overflow",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "overflow",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x)
+        };
 }
 
 function overflowX(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "overflowX",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "overflowX",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x)
+        };
 }
 
 function overflowY(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "overflowY",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "overflowY",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Overflow.toString(x)
+        };
 }
 
 function overflowWrap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "overflowWrap",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "breakWord" || x === "anywhere" || x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.OverflowWrap.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "overflowWrap",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "breakWord" || x === "anywhere" || x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.OverflowWrap.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function padding(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "padding",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "padding",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function padding2(v, h) {
   return {
-    TAG: /* D */ 0,
-    _0: "padding",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(v) +
-      (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(h)),
-  };
+          TAG: /* D */0,
+          _0: "padding",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(v) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(h))
+        };
 }
 
 function padding3(top, h, bottom) {
   return {
-    TAG: /* D */ 0,
-    _0: "padding",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(top) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(h) +
-          (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(bottom)))),
-  };
+          TAG: /* D */0,
+          _0: "padding",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(top) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(h) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(bottom))))
+        };
 }
 
 function padding4(top, right, bottom, left) {
   return {
-    TAG: /* D */ 0,
-    _0: "padding",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(top) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(right) +
-          (" " +
-            (Css_AtomicTypes$IsenseiMonorepo.Length.toString(bottom) +
-              (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(left)))))),
-  };
+          TAG: /* D */0,
+          _0: "padding",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(top) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(right) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(bottom) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(left))))))
+        };
 }
 
 function paddingBottom(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "paddingBottom",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "paddingBottom",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function paddingLeft(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "paddingLeft",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "paddingLeft",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function paddingRight(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "paddingRight",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "paddingRight",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function paddingTop(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "paddingTop",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "paddingTop",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function perspective(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "perspective",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "perspective",
+          _1: tmp
+        };
 }
 
 function perspectiveOrigin(x, y) {
   return {
-    TAG: /* D */ 0,
-    _0: "perspectiveOrigin",
-    _1:
-      (typeof x === "object" || x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(x)) +
-      (" " +
-        (typeof y === "object" || y === "zero"
-          ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(y)
-          : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(y))),
-  };
+          TAG: /* D */0,
+          _0: "perspectiveOrigin",
+          _1: (
+            typeof x === "object" || x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(x)
+          ) + (" " + (
+              typeof y === "object" || y === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) : Css_AtomicTypes$IsenseiMonorepo.Perspective.toString(y)
+            ))
+        };
 }
 
 function pointerEvents(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "pointerEvents",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.PointerEvents.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "pointerEvents",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.PointerEvents.toString(x)
+            )
+        };
 }
 
 function position(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "position",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Position.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "position",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Position.toString(x)
+            )
+        };
 }
 
 function justifySelf(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "justifySelf",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "selfStart" ||
-          x === "flexEnd" ||
-          x === "flexStart" ||
-          x === "center" ||
-          x === "start" ||
-          x === "selfEnd" ||
-          x === "right" ||
-          x === "left" ||
-          x === "end_"
-        ? Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "baseline" || x === "firstBaseline" || x === "lastBaseline"
-        ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.JustifySelf.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "justifySelf",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "selfStart" || x === "flexEnd" || x === "flexStart" || x === "center" || x === "start" || x === "selfEnd" || x === "right" || x === "left" || x === "end_" ? Css_AtomicTypes$IsenseiMonorepo.PositionalAlignment.toString(x) : (
+                  x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+                      x === "baseline" || x === "firstBaseline" || x === "lastBaseline" ? Css_AtomicTypes$IsenseiMonorepo.BaselineAlignment.toString(x) : Css_AtomicTypes$IsenseiMonorepo.JustifySelf.toString(x)
+                    )
+                )
+            )
+        };
 }
 
 function resize(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "resize",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Resize.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "resize",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Resize.toString(x)
+            )
+        };
 }
 
 function right(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "right",
-    _1: string_of_position(x),
-  };
+          TAG: /* D */0,
+          _0: "right",
+          _1: string_of_position(x)
+        };
 }
 
 function tableLayout(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "tableLayout",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TableLayout.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "tableLayout",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TableLayout.toString(x)
+            )
+        };
 }
 
 function textAlign(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textAlign",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TextAlign.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "textAlign",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TextAlign.toString(x)
+            )
+        };
 }
 
 function textDecorationColor(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
   } else {
-    tmp =
-      x === "transparent" || x === "currentColor"
-        ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "textDecorationColor",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "textDecorationColor",
+          _1: tmp
+        };
 }
 
 function textDecorationLine(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textDecorationLine",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TextDecorationLine.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "textDecorationLine",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TextDecorationLine.toString(x)
+            )
+        };
 }
 
 function textDecorationStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textDecorationStyle",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "double" ||
-          x === "dotted" ||
-          x === "dashed" ||
-          x === "solid" ||
-          x === "wavy"
-        ? Css_AtomicTypes$IsenseiMonorepo.TextDecorationStyle.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "textDecorationStyle",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "double" || x === "dotted" || x === "dashed" || x === "solid" || x === "wavy" ? Css_AtomicTypes$IsenseiMonorepo.TextDecorationStyle.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function textIndent(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "textIndent",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "textIndent",
+          _1: tmp
+        };
 }
 
 function textOverflow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textOverflow",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "string"
-          ? Css_AtomicTypes$IsenseiMonorepo.TextOverflow.toString(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TextOverflow.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "textOverflow",
+          _1: typeof x === "object" ? (
+              x.NAME === "string" ? Css_AtomicTypes$IsenseiMonorepo.TextOverflow.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TextOverflow.toString(x)
+            )
+        };
 }
 
 function textTransform(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textTransform",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TextTransform.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "textTransform",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TextTransform.toString(x)
+            )
+        };
 }
 
 function top(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "top",
-    _1: string_of_position(x),
-  };
+          TAG: /* D */0,
+          _0: "top",
+          _1: string_of_position(x)
+        };
 }
 
 function transform(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transform",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Transform.toString(x)
-        : "none",
-  };
+          TAG: /* D */0,
+          _0: "transform",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Transform.toString(x) : "none"
+        };
 }
 
 function transforms(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transform",
-    _1: join(
-      Belt_List.map(x, Css_AtomicTypes$IsenseiMonorepo.Transform.toString),
-      " "
-    ),
-  };
+          TAG: /* D */0,
+          _0: "transform",
+          _1: join(Belt_List.map(x, Css_AtomicTypes$IsenseiMonorepo.Transform.toString), " ")
+        };
 }
 
 function transformOrigin(x, y) {
   return {
-    TAG: /* D */ 0,
-    _0: "transformOrigin",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) +
-      (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(y)),
-  };
+          TAG: /* D */0,
+          _0: "transformOrigin",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(y))
+        };
 }
 
 function transformOrigin3d(x, y, z) {
   return {
-    TAG: /* D */ 0,
-    _0: "transformOrigin",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) +
-          (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(z) + " ")))),
-  };
+          TAG: /* D */0,
+          _0: "transformOrigin",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(z) + " "))))
+        };
 }
 
 function unsafe(property, value) {
   return {
-    TAG: /* D */ 0,
-    _0: property,
-    _1: value,
-  };
+          TAG: /* D */0,
+          _0: property,
+          _1: value
+        };
 }
 
 function userSelect(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "userSelect",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.UserSelect.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "userSelect",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.UserSelect.toString(x)
+            )
+        };
 }
 
 function verticalAlign(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
   } else {
-    tmp =
-      x === "textTop" ||
-      x === "textBottom" ||
-      x === "baseline" ||
-      x === "super" ||
-      x === "top" ||
-      x === "sub" ||
-      x === "bottom" ||
-      x === "middle"
-        ? Css_AtomicTypes$IsenseiMonorepo.VerticalAlign.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "textTop" || x === "textBottom" || x === "baseline" || x === "super" || x === "top" || x === "sub" || x === "bottom" || x === "middle" ? Css_AtomicTypes$IsenseiMonorepo.VerticalAlign.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "verticalAlign",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "verticalAlign",
+          _1: tmp
+        };
 }
 
 function visibility(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "visibility",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Visibility.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "visibility",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Visibility.toString(x)
+            )
+        };
 }
 
 function scrollBehavior(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "scrollBehavior",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ScrollBehavior.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "scrollBehavior",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ScrollBehavior.toString(x)
+            )
+        };
 }
 
 function columnWidth(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.ColumnWidth.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.ColumnWidth.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "columnWidth",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "columnWidth",
+          _1: tmp
+        };
 }
 
 function caretColor(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "transparent" || x === "currentColor"
-        ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.CaretColor.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.CaretColor.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "caretColor",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "caretColor",
+          _1: tmp
+        };
 }
 
 function width(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Width.toString(x);
+    tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
+        x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Width.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "width",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "width",
+          _1: tmp
+        };
 }
 
 function whiteSpace(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "whiteSpace",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "nowrap" ||
-          x === "normal" ||
-          x === "breakSpaces" ||
-          x === "preWrap" ||
-          x === "preLine" ||
-          x === "pre"
-        ? Css_AtomicTypes$IsenseiMonorepo.WhiteSpace.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "whiteSpace",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "nowrap" || x === "normal" || x === "breakSpaces" || x === "preWrap" || x === "preLine" || x === "pre" ? Css_AtomicTypes$IsenseiMonorepo.WhiteSpace.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function wordBreak(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "wordBreak",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "keepAll" || x === "normal" || x === "breakAll"
-        ? Css_AtomicTypes$IsenseiMonorepo.WordBreak.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "wordBreak",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "keepAll" || x === "normal" || x === "breakAll" ? Css_AtomicTypes$IsenseiMonorepo.WordBreak.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+            )
+        };
 }
 
 function wordSpacing(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "percent"
-        ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "percent" ? Css_AtomicTypes$IsenseiMonorepo.Percentage.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+      );
   } else {
-    tmp =
-      x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : x === "normal"
-        ? Css_AtomicTypes$IsenseiMonorepo.WordSpacing.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : (
+        x === "normal" ? Css_AtomicTypes$IsenseiMonorepo.WordSpacing.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "wordSpacing",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "wordSpacing",
+          _1: tmp
+        };
 }
 
 function zIndex(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "zIndex",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "zIndex",
+          _1: x.toString()
+        };
 }
 
 function media(query, rules) {
   return {
-    TAG: /* S */ 1,
-    _0: "@media " + query,
-    _1: rules,
-  };
+          TAG: /* S */1,
+          _0: "@media " + query,
+          _1: rules
+        };
 }
 
 function selector(selector$1, rules) {
   return {
-    TAG: /* S */ 1,
-    _0: selector$1,
-    _1: rules,
-  };
+          TAG: /* S */1,
+          _0: selector$1,
+          _1: rules
+        };
 }
 
 function active(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "active",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "active",
+          _1: param
+        };
 }
 
 function checked(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "checked",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "checked",
+          _1: param
+        };
 }
 
 function $$default(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "default",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "default",
+          _1: param
+        };
 }
 
 function defined(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "defined",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "defined",
+          _1: param
+        };
 }
 
 function disabled(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "disabled",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "disabled",
+          _1: param
+        };
 }
 
 function empty(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "empty",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "empty",
+          _1: param
+        };
 }
 
 function enabled(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "enabled",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "enabled",
+          _1: param
+        };
 }
 
 function first(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "first",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "first",
+          _1: param
+        };
 }
 
 function firstChild(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "first-child",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "first-child",
+          _1: param
+        };
 }
 
 function firstOfType(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "first-of-type",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "first-of-type",
+          _1: param
+        };
 }
 
 function focus(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "focus",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "focus",
+          _1: param
+        };
 }
 
 function focusVisible(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "focus-visible",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "focus-visible",
+          _1: param
+        };
 }
 
 function focusWithin(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "focus-within",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "focus-within",
+          _1: param
+        };
 }
 
 function host(selector, rules) {
   if (selector !== undefined) {
     return {
-      TAG: /* PseudoClassParam */ 3,
-      _0: "host",
-      _1: selector,
-      _2: rules,
-    };
+            TAG: /* PseudoClassParam */3,
+            _0: "host",
+            _1: selector,
+            _2: rules
+          };
   } else {
     return {
-      TAG: /* PseudoClass */ 2,
-      _0: "host",
-      _1: rules,
-    };
+            TAG: /* PseudoClass */2,
+            _0: "host",
+            _1: rules
+          };
   }
 }
 
 function hover(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "hover",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "hover",
+          _1: param
+        };
 }
 
 function indeterminate(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "indeterminate",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "indeterminate",
+          _1: param
+        };
 }
 
 function inRange(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "in-range",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "in-range",
+          _1: param
+        };
 }
 
 function invalid(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "invalid",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "invalid",
+          _1: param
+        };
 }
 
 function lang(code, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "lang",
-    _1: code,
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "lang",
+          _1: code,
+          _2: rules
+        };
 }
 
 function lastChild(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "last-child",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "last-child",
+          _1: param
+        };
 }
 
 function lastOfType(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "last-of-type",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "last-of-type",
+          _1: param
+        };
 }
 
 function link(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "link",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "link",
+          _1: param
+        };
 }
 
 function not__(selector, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "not",
-    _1: selector,
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "not",
+          _1: selector,
+          _2: rules
+        };
 }
 
 function toString(x) {
@@ -2560,230 +2169,230 @@ function toString(x) {
 }
 
 var Nth = {
-  toString: toString,
+  toString: toString
 };
 
 function nthChild(x, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "nth-child",
-    _1: toString(x),
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "nth-child",
+          _1: toString(x),
+          _2: rules
+        };
 }
 
 function nthLastChild(x, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "nth-last-child",
-    _1: toString(x),
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "nth-last-child",
+          _1: toString(x),
+          _2: rules
+        };
 }
 
 function nthLastOfType(x, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "nth-last-of-type",
-    _1: toString(x),
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "nth-last-of-type",
+          _1: toString(x),
+          _2: rules
+        };
 }
 
 function nthOfType(x, rules) {
   return {
-    TAG: /* PseudoClassParam */ 3,
-    _0: "nth-of-type",
-    _1: toString(x),
-    _2: rules,
-  };
+          TAG: /* PseudoClassParam */3,
+          _0: "nth-of-type",
+          _1: toString(x),
+          _2: rules
+        };
 }
 
 function onlyChild(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "only-child",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "only-child",
+          _1: param
+        };
 }
 
 function onlyOfType(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "only-of-type",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "only-of-type",
+          _1: param
+        };
 }
 
 function optional(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "optional",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "optional",
+          _1: param
+        };
 }
 
 function outOfRange(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "out-of-range",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "out-of-range",
+          _1: param
+        };
 }
 
 function readOnly(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "read-only",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "read-only",
+          _1: param
+        };
 }
 
 function readWrite(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "read-write",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "read-write",
+          _1: param
+        };
 }
 
 function required(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "required",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "required",
+          _1: param
+        };
 }
 
 function root(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "root",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "root",
+          _1: param
+        };
 }
 
 function scope(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "scope",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "scope",
+          _1: param
+        };
 }
 
 function target(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "target",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "target",
+          _1: param
+        };
 }
 
 function valid(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "valid",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "valid",
+          _1: param
+        };
 }
 
 function visited(param) {
   return {
-    TAG: /* PseudoClass */ 2,
-    _0: "visited",
-    _1: param,
-  };
+          TAG: /* PseudoClass */2,
+          _0: "visited",
+          _1: param
+        };
 }
 
 function after(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::after",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::after",
+          _1: param
+        };
 }
 
 function before(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::before",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::before",
+          _1: param
+        };
 }
 
 function firstLetter(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::first-letter",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::first-letter",
+          _1: param
+        };
 }
 
 function firstLine(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::first-line",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::first-line",
+          _1: param
+        };
 }
 
 function selection(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::selection",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::selection",
+          _1: param
+        };
 }
 
 function child(x) {
   var partial_arg = " > " + x;
   return function (param) {
     return {
-      TAG: /* S */ 1,
-      _0: partial_arg,
-      _1: param,
-    };
+            TAG: /* S */1,
+            _0: partial_arg,
+            _1: param
+          };
   };
 }
 
 function children(param) {
   return {
-    TAG: /* S */ 1,
-    _0: " > *",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: " > *",
+          _1: param
+        };
 }
 
 function directSibling(param) {
   return {
-    TAG: /* S */ 1,
-    _0: " + ",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: " + ",
+          _1: param
+        };
 }
 
 function placeholder(param) {
   return {
-    TAG: /* S */ 1,
-    _0: "::placeholder",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: "::placeholder",
+          _1: param
+        };
 }
 
 function siblings(param) {
   return {
-    TAG: /* S */ 1,
-    _0: " ~ ",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: " ~ ",
+          _1: param
+        };
 }
 
 function anyLink(param) {
   return {
-    TAG: /* S */ 1,
-    _0: ":any-link",
-    _1: param,
-  };
+          TAG: /* S */1,
+          _0: ":any-link",
+          _1: param
+        };
 }
 
 var initial = Css_AtomicTypes$IsenseiMonorepo.Cascading.initial;
@@ -2946,13 +2555,11 @@ var bolder = Css_AtomicTypes$IsenseiMonorepo.FontWeight.bolder;
 
 var linearGradient = Css_AtomicTypes$IsenseiMonorepo.Gradient.linearGradient;
 
-var repeatingLinearGradient =
-  Css_AtomicTypes$IsenseiMonorepo.Gradient.repeatingLinearGradient;
+var repeatingLinearGradient = Css_AtomicTypes$IsenseiMonorepo.Gradient.repeatingLinearGradient;
 
 var radialGradient = Css_AtomicTypes$IsenseiMonorepo.Gradient.radialGradient;
 
-var repeatingRadialGradient =
-  Css_AtomicTypes$IsenseiMonorepo.Gradient.repeatingRadialGradient;
+var repeatingRadialGradient = Css_AtomicTypes$IsenseiMonorepo.Gradient.repeatingRadialGradient;
 
 var areas = Css_AtomicTypes$IsenseiMonorepo.GridTemplateAreas.areas;
 
@@ -3026,111 +2633,119 @@ var zoomOut = Css_AtomicTypes$IsenseiMonorepo.Cursor.zoomOut;
 
 function vw(x) {
   return {
-    NAME: "vw",
-    VAL: x,
-  };
+          NAME: "vw",
+          VAL: x
+        };
 }
 
 function fr(x) {
   return {
-    NAME: "fr",
-    VAL: x,
-  };
+          NAME: "fr",
+          VAL: x
+        };
 }
 
 function $neg(a, b) {
   return {
-    NAME: "calc",
-    VAL: ["sub", a, b],
-  };
+          NAME: "calc",
+          VAL: [
+            "sub",
+            a,
+            b
+          ]
+        };
 }
 
 function $plus(a, b) {
   return {
-    NAME: "calc",
-    VAL: ["add", a, b],
-  };
+          NAME: "calc",
+          VAL: [
+            "add",
+            a,
+            b
+          ]
+        };
 }
 
 var Calc = {
   $neg: $neg,
-  $plus: $plus,
+  $plus: $plus
 };
 
 function size(x, y) {
   return {
-    NAME: "size",
-    VAL: [x, y],
-  };
+          NAME: "size",
+          VAL: [
+            x,
+            y
+          ]
+        };
 }
 
 function count(x) {
   return {
-    NAME: "count",
-    VAL: x,
-  };
+          NAME: "count",
+          VAL: x
+        };
 }
 
 function localUrl(x) {
   return {
-    NAME: "localUrl",
-    VAL: x,
-  };
+          NAME: "localUrl",
+          VAL: x
+        };
 }
 
 function rotate(a) {
   return {
-    NAME: "rotate",
-    VAL: a,
-  };
+          NAME: "rotate",
+          VAL: a
+        };
 }
 
 function rotate3d(x, y, z, a) {
   return {
-    NAME: "rotate3d",
-    VAL: [x, y, z, a],
-  };
+          NAME: "rotate3d",
+          VAL: [
+            x,
+            y,
+            z,
+            a
+          ]
+        };
 }
 
 function url(x) {
   return {
-    NAME: "url",
-    VAL: x,
-  };
+          NAME: "url",
+          VAL: x
+        };
 }
 
 function flex3(grow, shrink, basis) {
   return {
-    TAG: /* D */ 0,
-    _0: "flex",
-    _1:
-      grow.toString() +
-      (" " +
-        (shrink.toString() +
-          (" " +
-            (typeof basis === "object" || basis === "zero"
-              ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(basis)
-              : Css_AtomicTypes$IsenseiMonorepo.FlexBasis.toString(basis))))),
-  };
+          TAG: /* D */0,
+          _0: "flex",
+          _1: grow.toString() + (" " + (shrink.toString() + (" " + (
+                  typeof basis === "object" || basis === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(basis) : Css_AtomicTypes$IsenseiMonorepo.FlexBasis.toString(basis)
+                ))))
+        };
 }
 
 function flexBasis(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "flexBasis",
-    _1:
-      typeof x === "object" || x === "zero"
-        ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.FlexBasis.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "flexBasis",
+          _1: typeof x === "object" || x === "zero" ? Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) : Css_AtomicTypes$IsenseiMonorepo.FlexBasis.toString(x)
+        };
 }
 
 function order(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "order",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "order",
+          _1: x.toString()
+        };
 }
 
 function string_of_minmax(x) {
@@ -3199,19 +2814,9 @@ function string_of_minmax(x) {
   }
   var match = x.VAL;
   if (match[0] === "sub") {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) +
-        (" - " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) + (" - " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) + ")")));
   } else {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) +
-        (" + " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) + (" + " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) + ")")));
   }
 }
 
@@ -3246,10 +2851,7 @@ function string_of_dimension(x) {
   }
   if (variant === "minmax") {
     var match = x.VAL;
-    return (
-      "minmax(" +
-      (string_of_minmax(match[0]) + ("," + (string_of_minmax(match[1]) + ")")))
-    );
+    return "minmax(" + (string_of_minmax(match[0]) + ("," + (string_of_minmax(match[1]) + ")")));
   }
   if (variant === "percent") {
     return x.VAL.toString() + "%";
@@ -3292,19 +2894,9 @@ function string_of_dimension(x) {
   }
   var match$1 = x.VAL;
   if (match$1[0] === "sub") {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[1]) +
-        (" - " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[1]) + (" - " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[2]) + ")")));
   } else {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[1]) +
-        (" + " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[1]) + (" + " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$1[2]) + ")")));
   }
 }
 
@@ -3335,10 +2927,7 @@ function gridLengthToJs(x) {
   }
   if (variant === "minmax") {
     var match = x.VAL;
-    return (
-      "minmax(" +
-      (string_of_minmax(match[0]) + ("," + (string_of_minmax(match[1]) + ")")))
-    );
+    return "minmax(" + (string_of_minmax(match[0]) + ("," + (string_of_minmax(match[1]) + ")")));
   }
   if (variant === "percent") {
     return x.VAL.toString() + "%";
@@ -3381,27 +2970,13 @@ function gridLengthToJs(x) {
   }
   if (variant === "repeat") {
     var match$1 = x.VAL;
-    return (
-      "repeat(" +
-      (Css_AtomicTypes$IsenseiMonorepo.RepeatValue.toString(match$1[0]) +
-        (", " + (string_of_dimension(match$1[1]) + ")")))
-    );
+    return "repeat(" + (Css_AtomicTypes$IsenseiMonorepo.RepeatValue.toString(match$1[0]) + (", " + (string_of_dimension(match$1[1]) + ")")));
   }
   var match$2 = x.VAL;
   if (match$2[0] === "sub") {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[1]) +
-        (" - " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[1]) + (" - " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[2]) + ")")));
   } else {
-    return (
-      "calc(" +
-      (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[1]) +
-        (" + " +
-          (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[2]) + ")")))
-    );
+    return "calc(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[1]) + (" + " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match$2[2]) + ")")));
   }
 }
 
@@ -3411,107 +2986,85 @@ function string_of_dimensions(dimensions) {
 
 function gridTemplateColumns(dimensions) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridTemplateColumns",
-    _1: string_of_dimensions(dimensions),
-  };
+          TAG: /* D */0,
+          _0: "gridTemplateColumns",
+          _1: string_of_dimensions(dimensions)
+        };
 }
 
 function gridTemplateRows(dimensions) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridTemplateRows",
-    _1: string_of_dimensions(dimensions),
-  };
+          TAG: /* D */0,
+          _0: "gridTemplateRows",
+          _1: string_of_dimensions(dimensions)
+        };
 }
 
 function gridAutoColumns(dimensions) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridAutoColumns",
-    _1: string_of_dimension(dimensions),
-  };
+          TAG: /* D */0,
+          _0: "gridAutoColumns",
+          _1: string_of_dimension(dimensions)
+        };
 }
 
 function gridAutoRows(dimensions) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridAutoRows",
-    _1: string_of_dimension(dimensions),
-  };
+          TAG: /* D */0,
+          _0: "gridAutoRows",
+          _1: string_of_dimension(dimensions)
+        };
 }
 
 function gridArea(s) {
   var tmp;
   if (typeof s === "object") {
     var variant = s.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(s)
-        : Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(s) : Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s);
   } else {
-    tmp =
-      s === "unset" || s === "inherit_" || s === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(s)
-        : Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s);
+    tmp = s === "unset" || s === "inherit_" || s === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(s) : Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "gridArea",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "gridArea",
+          _1: tmp
+        };
 }
 
 function gridArea2(s, s2) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridArea",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) +
-      (" / " + Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2)),
-  };
+          TAG: /* D */0,
+          _0: "gridArea",
+          _1: Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) + (" / " + Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2))
+        };
 }
 
 function gridArea3(s, s2, s3) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridArea",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) +
-      (" / " +
-        (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2) +
-          (" / " + Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s3)))),
-  };
+          TAG: /* D */0,
+          _0: "gridArea",
+          _1: Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) + (" / " + (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2) + (" / " + Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s3))))
+        };
 }
 
 function gridArea4(s, s2, s3, s4) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridArea",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) +
-      (" / " +
-        (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2) +
-          (" / " +
-            (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s3) +
-              (" / " +
-                Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s4)))))),
-  };
+          TAG: /* D */0,
+          _0: "gridArea",
+          _1: Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s) + (" / " + (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s2) + (" / " + (Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s3) + (" / " + Css_AtomicTypes$IsenseiMonorepo.GridArea.toString(s4))))))
+        };
 }
 
 function gridTemplateAreas(l) {
   return {
-    TAG: /* D */ 0,
-    _0: "gridTemplateAreas",
-    _1:
-      typeof l === "object"
-        ? l.NAME === "areas"
-          ? Css_AtomicTypes$IsenseiMonorepo.GridTemplateAreas.toString(l)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(l)
-        : l === "unset" || l === "inherit_" || l === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(l)
-        : Css_AtomicTypes$IsenseiMonorepo.GridTemplateAreas.toString(l),
-  };
+          TAG: /* D */0,
+          _0: "gridTemplateAreas",
+          _1: typeof l === "object" ? (
+              l.NAME === "areas" ? Css_AtomicTypes$IsenseiMonorepo.GridTemplateAreas.toString(l) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(l)
+            ) : (
+              l === "unset" || l === "inherit_" || l === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(l) : Css_AtomicTypes$IsenseiMonorepo.GridTemplateAreas.toString(l)
+            )
+        };
 }
 
 function string_of_filter(x) {
@@ -3543,36 +3096,21 @@ function string_of_filter(x) {
     } else if (variant === "contrast") {
       return "contrast(" + (x.VAL.toString() + "%)");
     } else if (variant === "hueRotate") {
-      return (
-        "hue-rotate(" +
-        (Css_AtomicTypes$IsenseiMonorepo.Angle.toString(x.VAL) + ")")
-      );
+      return "hue-rotate(" + (Css_AtomicTypes$IsenseiMonorepo.Angle.toString(x.VAL) + ")");
     } else {
-      return (
-        "blur(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(x.VAL) + ")")
-      );
+      return "blur(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(x.VAL) + ")");
     }
   }
   var match = x.VAL;
-  return (
-    "drop-shadow(" +
-    (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[0]) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) +
-          (" " +
-            (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) +
-              (" " +
-                (Css_AtomicTypes$IsenseiMonorepo.Color.toString(match[3]) +
-                  ")")))))))
-  );
+  return "drop-shadow(" + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[0]) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[2]) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Color.toString(match[3]) + ")")))))));
 }
 
 function filter(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "filter",
-    _1: join(Belt_List.map(x, string_of_filter), " "),
-  };
+          TAG: /* D */0,
+          _0: "filter",
+          _1: join(Belt_List.map(x, string_of_filter), " ")
+        };
 }
 
 function box(xOpt, yOpt, blurOpt, spreadOpt, insetOpt, color) {
@@ -3582,18 +3120,11 @@ function box(xOpt, yOpt, blurOpt, spreadOpt, insetOpt, color) {
   var spread = spreadOpt !== undefined ? spreadOpt : zero;
   var inset = insetOpt !== undefined ? insetOpt : false;
   return {
-    NAME: "shadow",
-    VAL:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) +
-          (" " +
-            (Css_AtomicTypes$IsenseiMonorepo.Length.toString(blur) +
-              (" " +
-                (Css_AtomicTypes$IsenseiMonorepo.Length.toString(spread) +
-                  (" " +
-                    (string_of_color(color) + (inset ? " inset" : ""))))))))),
-  };
+          NAME: "shadow",
+          VAL: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(blur) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(spread) + (" " + (string_of_color(color) + (
+                            inset ? " inset" : ""
+                          )))))))))
+        };
 }
 
 function text(xOpt, yOpt, blurOpt, color) {
@@ -3601,15 +3132,9 @@ function text(xOpt, yOpt, blurOpt, color) {
   var y = yOpt !== undefined ? yOpt : zero;
   var blur = blurOpt !== undefined ? blurOpt : zero;
   return {
-    NAME: "shadow",
-    VAL:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) +
-      (" " +
-        (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) +
-          (" " +
-            (Css_AtomicTypes$IsenseiMonorepo.Length.toString(blur) +
-              (" " + string_of_color(color)))))),
-  };
+          NAME: "shadow",
+          VAL: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(y) + (" " + (Css_AtomicTypes$IsenseiMonorepo.Length.toString(blur) + (" " + string_of_color(color))))))
+        };
 }
 
 function toString$1(x) {
@@ -3623,30 +3148,27 @@ function toString$1(x) {
 var Shadow = {
   box: box,
   text: text,
-  toString: toString$1,
+  toString: toString$1
 };
 
 function boxShadow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "boxShadow",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "shadow"
-          ? toString$1(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : toString$1(x),
-  };
+          TAG: /* D */0,
+          _0: "boxShadow",
+          _1: typeof x === "object" ? (
+              x.NAME === "shadow" ? toString$1(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : toString$1(x)
+            )
+        };
 }
 
 function boxShadows(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "boxShadow",
-    _1: join(Belt_List.map(x, toString$1), ", "),
-  };
+          TAG: /* D */0,
+          _0: "boxShadow",
+          _1: join(Belt_List.map(x, toString$1), ", ")
+        };
 }
 
 function string_of_borderstyle(x) {
@@ -3661,292 +3183,229 @@ function string_of_borderstyle(x) {
 
 function border(px, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "border",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) +
-      (" " + (string_of_borderstyle(style) + (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "border",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) + (" " + (string_of_borderstyle(style) + (" " + string_of_color(color))))
+        };
 }
 
 function borderStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderStyle",
-    _1: string_of_borderstyle(x),
-  };
+          TAG: /* D */0,
+          _0: "borderStyle",
+          _1: string_of_borderstyle(x)
+        };
 }
 
 function borderLeft(px, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderLeft",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) +
-      (" " + (string_of_borderstyle(style) + (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "borderLeft",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) + (" " + (string_of_borderstyle(style) + (" " + string_of_color(color))))
+        };
 }
 
 function borderLeftStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderLeftStyle",
-    _1: string_of_borderstyle(x),
-  };
+          TAG: /* D */0,
+          _0: "borderLeftStyle",
+          _1: string_of_borderstyle(x)
+        };
 }
 
 function borderRight(px, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderRight",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) +
-      (" " + (string_of_borderstyle(style) + (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "borderRight",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) + (" " + (string_of_borderstyle(style) + (" " + string_of_color(color))))
+        };
 }
 
 function borderRightStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderRightStyle",
-    _1: string_of_borderstyle(x),
-  };
+          TAG: /* D */0,
+          _0: "borderRightStyle",
+          _1: string_of_borderstyle(x)
+        };
 }
 
 function borderTop(px, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTop",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) +
-      (" " + (string_of_borderstyle(style) + (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "borderTop",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) + (" " + (string_of_borderstyle(style) + (" " + string_of_color(color))))
+        };
 }
 
 function borderTopStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderTopStyle",
-    _1: string_of_borderstyle(x),
-  };
+          TAG: /* D */0,
+          _0: "borderTopStyle",
+          _1: string_of_borderstyle(x)
+        };
 }
 
 function borderBottom(px, style, color) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottom",
-    _1:
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) +
-      (" " + (string_of_borderstyle(style) + (" " + string_of_color(color)))),
-  };
+          TAG: /* D */0,
+          _0: "borderBottom",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(px) + (" " + (string_of_borderstyle(style) + (" " + string_of_color(color))))
+        };
 }
 
 function borderBottomStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "borderBottomStyle",
-    _1: string_of_borderstyle(x),
-  };
+          TAG: /* D */0,
+          _0: "borderBottomStyle",
+          _1: string_of_borderstyle(x)
+        };
 }
 
 function background(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "linearGradient" ||
-      variant === "radialGradient" ||
-      variant === "repeatingLinearGradient" ||
-      variant === "repeatingRadialGradient"
-        ? Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(x)
-        : variant === "url"
-        ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
+    tmp = variant === "linearGradient" || variant === "radialGradient" || variant === "repeatingLinearGradient" || variant === "repeatingRadialGradient" ? Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(x) : (
+        variant === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
+      );
   } else {
-    tmp =
-      x === "transparent" || x === "currentColor"
-        ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
-        : "none";
+    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : "none";
   }
   return {
-    TAG: /* D */ 0,
-    _0: "background",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "background",
+          _1: tmp
+        };
 }
 
 function backgrounds(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "background",
-    _1: join(
-      Belt_List.map(x, function (item) {
-        if (typeof item !== "object") {
-          if (item === "transparent" || item === "currentColor") {
-            return Css_AtomicTypes$IsenseiMonorepo.Color.toString(item);
-          } else {
-            return "none";
-          }
-        }
-        var variant = item.NAME;
-        if (
-          variant === "linearGradient" ||
-          variant === "radialGradient" ||
-          variant === "repeatingLinearGradient" ||
-          variant === "repeatingRadialGradient"
-        ) {
-          return Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(item);
-        } else if (variant === "url") {
-          return Css_AtomicTypes$IsenseiMonorepo.Url.toString(item);
-        } else {
-          return Css_AtomicTypes$IsenseiMonorepo.Color.toString(item);
-        }
-      }),
-      ", "
-    ),
-  };
+          TAG: /* D */0,
+          _0: "background",
+          _1: join(Belt_List.map(x, (function (item) {
+                      if (typeof item !== "object") {
+                        if (item === "transparent" || item === "currentColor") {
+                          return Css_AtomicTypes$IsenseiMonorepo.Color.toString(item);
+                        } else {
+                          return "none";
+                        }
+                      }
+                      var variant = item.NAME;
+                      if (variant === "linearGradient" || variant === "radialGradient" || variant === "repeatingLinearGradient" || variant === "repeatingRadialGradient") {
+                        return Css_AtomicTypes$IsenseiMonorepo.Gradient.toString(item);
+                      } else if (variant === "url") {
+                        return Css_AtomicTypes$IsenseiMonorepo.Url.toString(item);
+                      } else {
+                        return Css_AtomicTypes$IsenseiMonorepo.Color.toString(item);
+                      }
+                    })), ", ")
+        };
 }
 
 function backgroundSize(x) {
   var tmp;
   if (typeof x === "object") {
     var match = x.VAL;
-    tmp =
-      Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[0]) +
-      (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]));
+    tmp = Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[0]) + (" " + Css_AtomicTypes$IsenseiMonorepo.Length.toString(match[1]));
   } else {
-    tmp = x === "cover" ? "cover" : x === "contain" ? "contain" : "auto";
+    tmp = x === "cover" ? "cover" : (
+        x === "contain" ? "contain" : "auto"
+      );
   }
   return {
-    TAG: /* D */ 0,
-    _0: "backgroundSize",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "backgroundSize",
+          _1: tmp
+        };
 }
 
 function fontFace(fontFamily, src, fontStyle, fontWeight, fontDisplay, param) {
-  var fontStyle$1 = Js_option.map(function (value) {
-    return Css_AtomicTypes$IsenseiMonorepo.FontStyle.toString(value);
-  }, fontStyle);
-  var src$1 = $$String.concat(
-    ", ",
-    List.map(function (x) {
-      if (x.NAME === "url") {
-        return 'url("' + x.VAL + '")';
-      } else {
-        return 'local("' + x.VAL + '")';
-      }
-    }, src)
-  );
-  var fontStyle$2 = Belt_Option.mapWithDefault(fontStyle$1, "", function (s) {
-    return "font-style: " + (s + ";");
-  });
-  var fontWeight$1 = Belt_Option.mapWithDefault(fontWeight, "", function (w) {
-    return (
-      "font-weight: " +
-      ((typeof w === "object"
-        ? w.NAME === "num"
-          ? Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(w)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(w)
-        : w === "unset" || w === "inherit_" || w === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(w)
-        : Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(w)) +
-        ";")
-    );
-  });
-  var fontDisplay$1 = Belt_Option.mapWithDefault(fontDisplay, "", function (f) {
-    return (
-      "font-display: " +
-      (Css_AtomicTypes$IsenseiMonorepo.FontDisplay.toString(f) + ";")
-    );
-  });
-  return (
-    "@font-face {\n     font-family: " +
-    fontFamily +
-    ";\n     src: " +
-    src$1 +
-    ";\n     " +
-    fontStyle$2 +
-    "\n     " +
-    fontWeight$1 +
-    "\n     " +
-    fontDisplay$1 +
-    "\n   }"
-  );
+  var fontStyle$1 = Js_option.map((function (value) {
+          return Css_AtomicTypes$IsenseiMonorepo.FontStyle.toString(value);
+        }), fontStyle);
+  var src$1 = $$String.concat(", ", List.map((function (x) {
+              if (x.NAME === "url") {
+                return "url(\"" + x.VAL + "\")";
+              } else {
+                return "local(\"" + x.VAL + "\")";
+              }
+            }), src));
+  var fontStyle$2 = Belt_Option.mapWithDefault(fontStyle$1, "", (function (s) {
+          return "font-style: " + (s + ";");
+        }));
+  var fontWeight$1 = Belt_Option.mapWithDefault(fontWeight, "", (function (w) {
+          return "font-weight: " + ((
+                    typeof w === "object" ? (
+                        w.NAME === "num" ? Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(w) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(w)
+                      ) : (
+                        w === "unset" || w === "inherit_" || w === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(w) : Css_AtomicTypes$IsenseiMonorepo.FontWeight.toString(w)
+                      )
+                  ) + ";");
+        }));
+  var fontDisplay$1 = Belt_Option.mapWithDefault(fontDisplay, "", (function (f) {
+          return "font-display: " + (Css_AtomicTypes$IsenseiMonorepo.FontDisplay.toString(f) + ";");
+        }));
+  return "@font-face {\n     font-family: " + fontFamily + ";\n     src: " + src$1 + ";\n     " + fontStyle$2 + "\n     " + fontWeight$1 + "\n     " + fontDisplay$1 + "\n   }";
 }
 
 function textDecoration(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textDecoration",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "none"
-        ? "none"
-        : x === "initial"
-        ? "initial"
-        : x === "inherit_"
-        ? "inherit"
-        : x === "underline"
-        ? "underline"
-        : x === "lineThrough"
-        ? "line-through"
-        : x === "unset"
-        ? "unset"
-        : "overline",
-  };
+          TAG: /* D */0,
+          _0: "textDecoration",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "none" ? "none" : (
+                  x === "initial" ? "initial" : (
+                      x === "inherit_" ? "inherit" : (
+                          x === "underline" ? "underline" : (
+                              x === "lineThrough" ? "line-through" : (
+                                  x === "unset" ? "unset" : "overline"
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        };
 }
 
 function textShadow(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textShadow",
-    _1:
-      typeof x === "object"
-        ? x.NAME === "shadow"
-          ? toString$1(x)
-          : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : toString$1(x),
-  };
+          TAG: /* D */0,
+          _0: "textShadow",
+          _1: typeof x === "object" ? (
+              x.NAME === "shadow" ? toString$1(x) : Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
+            ) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : toString$1(x)
+            )
+        };
 }
 
 function textShadows(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "textShadow",
-    _1: join(Belt_List.map(x, toString$1), ", "),
-  };
+          TAG: /* D */0,
+          _0: "textShadow",
+          _1: join(Belt_List.map(x, toString$1), ", ")
+        };
 }
 
 function transformStyle(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transformStyle",
-    _1:
-      typeof x === "object"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : x === "unset" || x === "inherit_" || x === "initial"
-        ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.TransformStyle.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "transformStyle",
+          _1: typeof x === "object" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+              x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : Css_AtomicTypes$IsenseiMonorepo.TransformStyle.toString(x)
+            )
+        };
 }
 
 function shorthand(durationOpt, delayOpt, timingFunctionOpt, property) {
   var duration = durationOpt !== undefined ? durationOpt : 0;
   var delay = delayOpt !== undefined ? delayOpt : 0;
-  var timingFunction =
-    timingFunctionOpt !== undefined ? timingFunctionOpt : "ease";
+  var timingFunction = timingFunctionOpt !== undefined ? timingFunctionOpt : "ease";
   return {
-    NAME: "value",
-    VAL:
-      duration.toString() +
-      "ms " +
-      (Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(timingFunction) +
-        (" " + (delay.toString() + "ms " + property))),
-  };
+          NAME: "value",
+          VAL: duration.toString() + "ms " + (Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(timingFunction) + (" " + (delay.toString() + "ms " + property)))
+        };
 }
 
 function toString$2(x) {
@@ -3955,119 +3414,81 @@ function toString$2(x) {
 
 var Transition = {
   shorthand: shorthand,
-  toString: toString$2,
+  toString: toString$2
 };
 
 function transitionValue(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transition",
-    _1: x.VAL,
-  };
+          TAG: /* D */0,
+          _0: "transition",
+          _1: x.VAL
+        };
 }
 
 function transitionList(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transition",
-    _1: join(Belt_List.map(x, toString$2), ", "),
-  };
+          TAG: /* D */0,
+          _0: "transition",
+          _1: join(Belt_List.map(x, toString$2), ", ")
+        };
 }
 
 function transition(duration, delay, timingFunction, property) {
   var x = shorthand(duration, delay, timingFunction, property);
   return {
-    TAG: /* D */ 0,
-    _0: "transition",
-    _1: x.VAL,
-  };
+          TAG: /* D */0,
+          _0: "transition",
+          _1: x.VAL
+        };
 }
 
 function transitionDelay(i) {
   return {
-    TAG: /* D */ 0,
-    _0: "transitionDelay",
-    _1: i.toString() + "ms",
-  };
+          TAG: /* D */0,
+          _0: "transitionDelay",
+          _1: i.toString() + "ms"
+        };
 }
 
 function transitionDuration(i) {
   return {
-    TAG: /* D */ 0,
-    _0: "transitionDuration",
-    _1: i.toString() + "ms",
-  };
+          TAG: /* D */0,
+          _0: "transitionDuration",
+          _1: i.toString() + "ms"
+        };
 }
 
 function transitionTimingFunction(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transitionTimingFunction",
-    _1: Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "transitionTimingFunction",
+          _1: Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(x)
+        };
 }
 
 function transitionProperty(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "transitionProperty",
-    _1: x,
-  };
+          TAG: /* D */0,
+          _0: "transitionProperty",
+          _1: x
+        };
 }
 
-function shorthand$1(
-  durationOpt,
-  delayOpt,
-  directionOpt,
-  timingFunctionOpt,
-  fillModeOpt,
-  playStateOpt,
-  iterationCountOpt,
-  name
-) {
+function shorthand$1(durationOpt, delayOpt, directionOpt, timingFunctionOpt, fillModeOpt, playStateOpt, iterationCountOpt, name) {
   var duration = durationOpt !== undefined ? durationOpt : 0;
   var delay = delayOpt !== undefined ? delayOpt : 0;
   var direction = directionOpt !== undefined ? directionOpt : "normal";
-  var timingFunction =
-    timingFunctionOpt !== undefined ? timingFunctionOpt : "ease";
+  var timingFunction = timingFunctionOpt !== undefined ? timingFunctionOpt : "ease";
   var fillMode = fillModeOpt !== undefined ? fillModeOpt : "none";
   var playState = playStateOpt !== undefined ? playStateOpt : "running";
-  var iterationCount =
-    iterationCountOpt !== undefined
-      ? iterationCountOpt
-      : {
-          NAME: "count",
-          VAL: 1,
-        };
+  var iterationCount = iterationCountOpt !== undefined ? iterationCountOpt : ({
+        NAME: "count",
+        VAL: 1
+      });
   return {
-    NAME: "value",
-    VAL:
-      name +
-      (" " +
-        (duration.toString() +
-          "ms " +
-          (Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(
-            timingFunction
-          ) +
-            (" " +
-              (delay.toString() +
-                "ms " +
-                (Css_AtomicTypes$IsenseiMonorepo.AnimationIterationCount.toString(
-                  iterationCount
-                ) +
-                  (" " +
-                    (Css_AtomicTypes$IsenseiMonorepo.AnimationDirection.toString(
-                      direction
-                    ) +
-                      (" " +
-                        (Css_AtomicTypes$IsenseiMonorepo.AnimationFillMode.toString(
-                          fillMode
-                        ) +
-                          (" " +
-                            Css_AtomicTypes$IsenseiMonorepo.AnimationPlayState.toString(
-                              playState
-                            )))))))))))),
-  };
+          NAME: "value",
+          VAL: name + (" " + (duration.toString() + "ms " + (Css_AtomicTypes$IsenseiMonorepo.TimingFunction.toString(timingFunction) + (" " + (delay.toString() + "ms " + (Css_AtomicTypes$IsenseiMonorepo.AnimationIterationCount.toString(iterationCount) + (" " + (Css_AtomicTypes$IsenseiMonorepo.AnimationDirection.toString(direction) + (" " + (Css_AtomicTypes$IsenseiMonorepo.AnimationFillMode.toString(fillMode) + (" " + Css_AtomicTypes$IsenseiMonorepo.AnimationPlayState.toString(playState))))))))))))
+        };
 }
 
 function toString$3(x) {
@@ -4076,172 +3497,149 @@ function toString$3(x) {
 
 var Animation = {
   shorthand: shorthand$1,
-  toString: toString$3,
+  toString: toString$3
 };
 
 function animationValue(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animation",
-    _1: x.VAL,
-  };
+          TAG: /* D */0,
+          _0: "animation",
+          _1: x.VAL
+        };
 }
 
-function animation(
-  duration,
-  delay,
-  direction,
-  timingFunction,
-  fillMode,
-  playState,
-  iterationCount,
-  name
-) {
-  var x = shorthand$1(
-    duration,
-    delay,
-    direction,
-    timingFunction,
-    fillMode,
-    playState,
-    iterationCount,
-    name
-  );
+function animation(duration, delay, direction, timingFunction, fillMode, playState, iterationCount, name) {
+  var x = shorthand$1(duration, delay, direction, timingFunction, fillMode, playState, iterationCount, name);
   return {
-    TAG: /* D */ 0,
-    _0: "animation",
-    _1: x.VAL,
-  };
+          TAG: /* D */0,
+          _0: "animation",
+          _1: x.VAL
+        };
 }
 
 function animations(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animation",
-    _1: join(Belt_List.map(x, toString$3), ", "),
-  };
+          TAG: /* D */0,
+          _0: "animation",
+          _1: join(Belt_List.map(x, toString$3), ", ")
+        };
 }
 
 function animationName(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "animationName",
-    _1: x,
-  };
+          TAG: /* D */0,
+          _0: "animationName",
+          _1: x
+        };
 }
 
 function fill(x) {
   var tmp;
   if (typeof x === "object") {
     var variant = x.NAME;
-    tmp =
-      variant === "var" || variant === "varDefault"
-        ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x)
-        : variant === "url"
-        ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x)
-        : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
+    tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : (
+        variant === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
+      );
   } else {
-    tmp =
-      x === "transparent" || x === "currentColor"
-        ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
-        : Curry._1(Css_AtomicTypes$IsenseiMonorepo.SVG.Fill.toString, x);
+    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Curry._1(Css_AtomicTypes$IsenseiMonorepo.SVG.Fill.toString, x);
   }
   return {
-    TAG: /* D */ 0,
-    _0: "fill",
-    _1: tmp,
-  };
+          TAG: /* D */0,
+          _0: "fill",
+          _1: tmp
+        };
 }
 
 function fillOpacity(opacity) {
   return {
-    TAG: /* D */ 0,
-    _0: "fillOpacity",
-    _1: opacity.toString(),
-  };
+          TAG: /* D */0,
+          _0: "fillOpacity",
+          _1: opacity.toString()
+        };
 }
 
 function fillRule(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "fillRule",
-    _1: x === "evenodd" ? "evenodd" : "nonzero",
-  };
+          TAG: /* D */0,
+          _0: "fillRule",
+          _1: x === "evenodd" ? "evenodd" : "nonzero"
+        };
 }
 
 function stroke(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "stroke",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "stroke",
+          _1: string_of_color(x)
+        };
 }
 
 function strokeDasharray(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeDasharray",
-    _1:
-      typeof x === "object"
-        ? join(Belt_List.map(x.VAL, string_of_dasharray), " ")
-        : "none",
-  };
+          TAG: /* D */0,
+          _0: "strokeDasharray",
+          _1: typeof x === "object" ? join(Belt_List.map(x.VAL, string_of_dasharray), " ") : "none"
+        };
 }
 
 function strokeWidth(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeWidth",
-    _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x),
-  };
+          TAG: /* D */0,
+          _0: "strokeWidth",
+          _1: Css_AtomicTypes$IsenseiMonorepo.Length.toString(x)
+        };
 }
 
 function strokeOpacity(opacity) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeOpacity",
-    _1: opacity.toString(),
-  };
+          TAG: /* D */0,
+          _0: "strokeOpacity",
+          _1: opacity.toString()
+        };
 }
 
 function strokeMiterlimit(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeMiterlimit",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "strokeMiterlimit",
+          _1: x.toString()
+        };
 }
 
 function strokeLinecap(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeLinecap",
-    _1: x === "square" ? "square" : x === "round" ? "round" : "butt",
-  };
+          TAG: /* D */0,
+          _0: "strokeLinecap",
+          _1: x === "square" ? "square" : (
+              x === "round" ? "round" : "butt"
+            )
+        };
 }
 
 function strokeLinejoin(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "strokeLinejoin",
-    _1: x === "miter" ? "miter" : x === "bevel" ? "bevel" : "round",
-  };
+          TAG: /* D */0,
+          _0: "strokeLinejoin",
+          _1: x === "miter" ? "miter" : (
+              x === "bevel" ? "bevel" : "round"
+            )
+        };
 }
 
 function stopColor(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "stopColor",
-    _1: string_of_color(x),
-  };
+          TAG: /* D */0,
+          _0: "stopColor",
+          _1: string_of_color(x)
+        };
 }
 
 function stopOpacity(x) {
   return {
-    TAG: /* D */ 0,
-    _0: "stopOpacity",
-    _1: x.toString(),
-  };
+          TAG: /* D */0,
+          _0: "stopOpacity",
+          _1: x.toString()
+        };
 }
 
 var Types;
@@ -4458,498 +3856,499 @@ var SVG = {
   strokeWidth: strokeWidth,
   strokeOpacity: strokeOpacity,
   stopColor: stopColor,
-  stopOpacity: stopOpacity,
+  stopOpacity: stopOpacity
 };
 
 export {
-  Types,
-  Make,
-  toJson,
-  important,
-  label,
-  Shadow,
-  unsafe,
-  alignContent,
-  alignItems,
-  alignSelf,
-  animationDelay,
-  animationDirection,
-  animationDuration,
-  animationFillMode,
-  animationIterationCount,
-  animationPlayState,
-  animationTimingFunction,
-  backdropFilter,
-  backfaceVisibility,
-  backgroundAttachment,
-  backgroundColor,
-  backgroundClip,
-  backgroundImage,
-  backgroundOrigin,
-  backgroundPosition,
-  backgroundPositions,
-  backgroundPosition4,
-  backgroundRepeat,
-  borderBottom,
-  borderBottomColor,
-  borderBottomLeftRadius,
-  borderBottomRightRadius,
-  borderBottomStyle,
-  borderBottomWidth,
-  borderCollapse,
-  borderColor,
-  borderLeft,
-  borderLeftColor,
-  borderLeftStyle,
-  borderLeftWidth,
-  borderRight,
-  borderRightColor,
-  borderRightStyle,
-  borderRightWidth,
-  borderRadius,
-  borderSpacing,
-  borderStyle,
-  borderTopColor,
-  borderTopLeftRadius,
-  borderTopRightRadius,
-  borderTopStyle,
-  borderTopWidth,
-  borderWidth,
-  bottom,
-  boxSizing,
-  boxShadow,
-  boxShadows,
-  clear,
-  clipPath,
-  color,
-  columnCount,
-  contentRule,
-  contentRules,
-  counterIncrement,
-  countersIncrement,
-  counterReset,
-  countersReset,
-  counterSet,
-  countersSet,
-  cursor,
-  direction,
-  display,
-  flex,
-  flexBasis,
-  flexDirection,
-  flexGrow,
-  flexShrink,
-  flexWrap,
-  $$float,
-  fontFamily,
-  fontFamilies,
-  fontSize,
-  fontStyle,
-  fontVariant,
-  fontWeight,
-  gridArea,
-  gridArea2,
-  gridArea3,
-  gridArea4,
-  gridAutoFlow,
-  gridColumn,
-  gridColumnEnd,
-  columnGap,
-  scrollBehavior,
-  columnWidth,
-  caretColor,
-  rowGap,
-  gridColumnGap,
-  gridColumnStart,
-  gap,
-  gap2,
-  gridGap,
-  gridRow,
-  gridRowEnd,
-  gridRowGap,
-  gridRowStart,
-  gridTemplateAreas,
-  height,
-  justifyContent,
-  justifyItems,
-  justifySelf,
-  left,
-  letterSpacing,
-  lineHeight,
-  listStyle,
-  listStyleImage,
-  listStyleType,
-  listStylePosition,
-  margin,
-  margin2,
-  margin3,
-  margin4,
-  marginLeft,
-  marginRight,
-  marginTop,
-  marginBottom,
-  maxHeight,
-  maxWidth,
-  minHeight,
-  minWidth,
-  objectFit,
-  objectPosition,
-  opacity,
-  order,
-  outline,
-  outlineColor,
-  outlineOffset,
-  outlineStyle,
-  outlineWidth,
-  overflow,
-  overflowX,
-  overflowY,
-  overflowWrap,
-  padding,
-  padding2,
-  padding3,
-  padding4,
-  paddingLeft,
-  paddingRight,
-  paddingTop,
-  paddingBottom,
-  perspective,
-  perspectiveOrigin,
-  pointerEvents,
-  position,
-  resize,
-  right,
-  tableLayout,
-  textAlign,
-  textDecorationColor,
-  textDecorationLine,
-  textDecorationStyle,
-  textIndent,
-  textOverflow,
-  textShadow,
-  textShadows,
-  textTransform,
-  top,
-  transform,
-  transforms,
-  transformOrigin,
-  transformOrigin3d,
-  transitionDelay,
-  transitionDuration,
-  transitionProperty,
-  transformStyle,
-  transitionTimingFunction,
-  userSelect,
-  verticalAlign,
-  visibility,
-  width,
-  whiteSpace,
-  wordBreak,
-  wordSpacing,
-  wordWrap,
-  zIndex,
-  selector,
-  media,
-  active,
-  checked,
-  $$default,
+  Types ,
+  Make ,
+  toJson ,
+  important ,
+  label ,
+  Shadow ,
+  unsafe ,
+  alignContent ,
+  alignItems ,
+  alignSelf ,
+  animationDelay ,
+  animationDirection ,
+  animationDuration ,
+  animationFillMode ,
+  animationIterationCount ,
+  animationPlayState ,
+  animationTimingFunction ,
+  backdropFilter ,
+  backfaceVisibility ,
+  backgroundAttachment ,
+  backgroundColor ,
+  backgroundClip ,
+  backgroundImage ,
+  backgroundOrigin ,
+  backgroundPosition ,
+  backgroundPositions ,
+  backgroundPosition4 ,
+  backgroundRepeat ,
+  borderBottom ,
+  borderBottomColor ,
+  borderBottomLeftRadius ,
+  borderBottomRightRadius ,
+  borderBottomStyle ,
+  borderBottomWidth ,
+  borderCollapse ,
+  borderColor ,
+  borderLeft ,
+  borderLeftColor ,
+  borderLeftStyle ,
+  borderLeftWidth ,
+  borderRight ,
+  borderRightColor ,
+  borderRightStyle ,
+  borderRightWidth ,
+  borderRadius ,
+  borderSpacing ,
+  borderStyle ,
+  borderTopColor ,
+  borderTopLeftRadius ,
+  borderTopRightRadius ,
+  borderTopStyle ,
+  borderTopWidth ,
+  borderWidth ,
+  bottom ,
+  boxSizing ,
+  boxShadow ,
+  boxShadows ,
+  clear ,
+  clipPath ,
+  color ,
+  columnCount ,
+  contentRule ,
+  contentRules ,
+  counterIncrement ,
+  countersIncrement ,
+  counterReset ,
+  countersReset ,
+  counterSet ,
+  countersSet ,
+  cursor ,
+  direction ,
+  display ,
+  flex ,
+  flexBasis ,
+  flexDirection ,
+  flexGrow ,
+  flexShrink ,
+  flexWrap ,
+  $$float ,
+  fontFamily ,
+  fontFamilies ,
+  fontSize ,
+  fontStyle ,
+  fontVariant ,
+  fontWeight ,
+  gridArea ,
+  gridArea2 ,
+  gridArea3 ,
+  gridArea4 ,
+  gridAutoFlow ,
+  gridColumn ,
+  gridColumnEnd ,
+  columnGap ,
+  scrollBehavior ,
+  columnWidth ,
+  caretColor ,
+  rowGap ,
+  gridColumnGap ,
+  gridColumnStart ,
+  gap ,
+  gap2 ,
+  gridGap ,
+  gridRow ,
+  gridRowEnd ,
+  gridRowGap ,
+  gridRowStart ,
+  gridTemplateAreas ,
+  height ,
+  justifyContent ,
+  justifyItems ,
+  justifySelf ,
+  left ,
+  letterSpacing ,
+  lineHeight ,
+  listStyle ,
+  listStyleImage ,
+  listStyleType ,
+  listStylePosition ,
+  margin ,
+  margin2 ,
+  margin3 ,
+  margin4 ,
+  marginLeft ,
+  marginRight ,
+  marginTop ,
+  marginBottom ,
+  maxHeight ,
+  maxWidth ,
+  minHeight ,
+  minWidth ,
+  objectFit ,
+  objectPosition ,
+  opacity ,
+  order ,
+  outline ,
+  outlineColor ,
+  outlineOffset ,
+  outlineStyle ,
+  outlineWidth ,
+  overflow ,
+  overflowX ,
+  overflowY ,
+  overflowWrap ,
+  padding ,
+  padding2 ,
+  padding3 ,
+  padding4 ,
+  paddingLeft ,
+  paddingRight ,
+  paddingTop ,
+  paddingBottom ,
+  perspective ,
+  perspectiveOrigin ,
+  pointerEvents ,
+  position ,
+  resize ,
+  right ,
+  tableLayout ,
+  textAlign ,
+  textDecorationColor ,
+  textDecorationLine ,
+  textDecorationStyle ,
+  textIndent ,
+  textOverflow ,
+  textShadow ,
+  textShadows ,
+  textTransform ,
+  top ,
+  transform ,
+  transforms ,
+  transformOrigin ,
+  transformOrigin3d ,
+  transitionDelay ,
+  transitionDuration ,
+  transitionProperty ,
+  transformStyle ,
+  transitionTimingFunction ,
+  userSelect ,
+  verticalAlign ,
+  visibility ,
+  width ,
+  whiteSpace ,
+  wordBreak ,
+  wordSpacing ,
+  wordWrap ,
+  zIndex ,
+  selector ,
+  media ,
+  active ,
+  checked ,
+  $$default ,
   $$default as default,
-  defined,
-  disabled,
-  empty,
-  enabled,
-  first,
-  firstChild,
-  firstOfType,
-  focus,
-  focusVisible,
-  focusWithin,
-  host,
-  hover,
-  indeterminate,
-  inRange,
-  invalid,
-  lang,
-  lastChild,
-  lastOfType,
-  link,
-  not__,
-  Nth,
-  nthChild,
-  nthLastChild,
-  nthLastOfType,
-  nthOfType,
-  onlyChild,
-  onlyOfType,
-  optional,
-  outOfRange,
-  readOnly,
-  readWrite,
-  required,
-  root,
-  scope,
-  target,
-  valid,
-  visited,
-  after,
-  before,
-  firstLetter,
-  firstLine,
-  placeholder,
-  selection,
-  child,
-  children,
-  directSibling,
-  siblings,
-  anyLink,
-  initial,
-  inherit_,
-  unset,
-  $$var,
-  varDefault,
-  auto,
-  none,
+  defined ,
+  disabled ,
+  empty ,
+  enabled ,
+  first ,
+  firstChild ,
+  firstOfType ,
+  focus ,
+  focusVisible ,
+  focusWithin ,
+  host ,
+  hover ,
+  indeterminate ,
+  inRange ,
+  invalid ,
+  lang ,
+  lastChild ,
+  lastOfType ,
+  link ,
+  not__ ,
+  Nth ,
+  nthChild ,
+  nthLastChild ,
+  nthLastOfType ,
+  nthOfType ,
+  onlyChild ,
+  onlyOfType ,
+  optional ,
+  outOfRange ,
+  readOnly ,
+  readWrite ,
+  required ,
+  root ,
+  scope ,
+  target ,
+  valid ,
+  visited ,
+  after ,
+  before ,
+  firstLetter ,
+  firstLine ,
+  placeholder ,
+  selection ,
+  child ,
+  children ,
+  directSibling ,
+  siblings ,
+  anyLink ,
+  initial ,
+  inherit_ ,
+  unset ,
+  $$var ,
+  varDefault ,
+  auto ,
+  none ,
   text$1 as text,
-  pct,
-  ch,
-  cm,
-  em,
-  ex,
-  mm,
-  pt,
-  px,
-  pxFloat,
-  rem,
-  vh,
-  vmin,
-  vmax,
-  zero,
-  deg,
-  rad,
-  grad,
-  turn,
-  ltr,
-  rtl,
-  absolute,
-  relative,
-  $$static,
-  fixed,
-  sticky,
-  horizontal,
-  vertical,
-  smallCaps,
-  italic,
-  oblique,
-  hidden,
-  visible,
-  scroll,
-  rgb,
-  rgba,
-  hsl,
-  hsla,
-  hex,
-  transparent,
-  currentColor,
-  local,
-  paddingBox,
-  borderBox,
-  contentBox,
-  noRepeat,
-  space,
-  repeat,
-  minmax,
-  repeatX,
-  repeatY,
-  contain,
-  cover,
-  row,
-  rowReverse,
-  column,
-  columnReverse,
-  wrap,
-  nowrap,
-  wrapReverse,
-  inline,
-  block,
-  contents,
-  flexBox,
-  grid,
-  inlineBlock,
-  inlineFlex,
-  inlineGrid,
-  inlineTable,
-  listItem,
-  runIn,
-  table,
-  tableCaption,
-  tableColumnGroup,
-  tableHeaderGroup,
-  tableFooterGroup,
-  tableRowGroup,
-  tableCell,
-  tableColumn,
-  tableRow,
-  flexStart,
-  flexEnd,
-  center,
-  stretch,
-  spaceBetween,
-  spaceAround,
-  spaceEvenly,
-  baseline,
-  forwards,
-  backwards,
-  both,
-  infinite,
-  count,
-  paused,
-  running,
-  inside,
-  outside,
-  solid,
-  dotted,
-  dashed,
-  underline,
-  overline,
-  lineThrough,
-  clip,
-  ellipsis,
-  wavy,
-  $$double,
-  uppercase,
-  lowercase,
-  capitalize,
-  sub,
-  $$super,
-  textTop,
-  textBottom,
-  middle,
-  normal,
-  breakAll,
-  keepAll,
-  breakWord,
-  reverse,
-  alternate,
-  alternateReverse,
+  pct ,
+  ch ,
+  cm ,
+  em ,
+  ex ,
+  mm ,
+  pt ,
+  px ,
+  pxFloat ,
+  rem ,
+  vh ,
+  vmin ,
+  vmax ,
+  zero ,
+  deg ,
+  rad ,
+  grad ,
+  turn ,
+  ltr ,
+  rtl ,
+  absolute ,
+  relative ,
+  $$static ,
+  fixed ,
+  sticky ,
+  horizontal ,
+  vertical ,
+  smallCaps ,
+  italic ,
+  oblique ,
+  hidden ,
+  visible ,
+  scroll ,
+  rgb ,
+  rgba ,
+  hsl ,
+  hsla ,
+  hex ,
+  transparent ,
+  currentColor ,
+  local ,
+  paddingBox ,
+  borderBox ,
+  contentBox ,
+  noRepeat ,
+  space ,
+  repeat ,
+  minmax ,
+  repeatX ,
+  repeatY ,
+  contain ,
+  cover ,
+  row ,
+  rowReverse ,
+  column ,
+  columnReverse ,
+  wrap ,
+  nowrap ,
+  wrapReverse ,
+  inline ,
+  block ,
+  contents ,
+  flexBox ,
+  grid ,
+  inlineBlock ,
+  inlineFlex ,
+  inlineGrid ,
+  inlineTable ,
+  listItem ,
+  runIn ,
+  table ,
+  tableCaption ,
+  tableColumnGroup ,
+  tableHeaderGroup ,
+  tableFooterGroup ,
+  tableRowGroup ,
+  tableCell ,
+  tableColumn ,
+  tableRow ,
+  flexStart ,
+  flexEnd ,
+  center ,
+  stretch ,
+  spaceBetween ,
+  spaceAround ,
+  spaceEvenly ,
+  baseline ,
+  forwards ,
+  backwards ,
+  both ,
+  infinite ,
+  count ,
+  paused ,
+  running ,
+  inside ,
+  outside ,
+  solid ,
+  dotted ,
+  dashed ,
+  underline ,
+  overline ,
+  lineThrough ,
+  clip ,
+  ellipsis ,
+  wavy ,
+  $$double ,
+  uppercase ,
+  lowercase ,
+  capitalize ,
+  sub ,
+  $$super ,
+  textTop ,
+  textBottom ,
+  middle ,
+  normal ,
+  breakAll ,
+  keepAll ,
+  breakWord ,
+  reverse ,
+  alternate ,
+  alternateReverse ,
   fill$1 as fill,
-  content,
-  maxContent,
-  minContent,
-  fitContent,
-  all,
-  round,
-  miter,
-  bevel,
-  butt,
-  square,
-  thin,
-  extraLight,
-  light,
-  medium,
-  semiBold,
-  bold,
-  extraBold,
-  lighter,
-  bolder,
-  fr,
-  vw,
-  localUrl,
-  url,
-  linear,
-  ease,
-  easeIn,
-  easeOut,
-  easeInOut,
-  stepStart,
-  stepEnd,
-  steps,
-  cubicBezier,
-  marginBox,
-  fillBox,
-  strokeBox,
-  viewBox,
-  translate,
-  translate3d,
-  translateX,
-  translateY,
-  translateZ,
-  scale,
-  scale3d,
-  scaleX,
-  scaleY,
-  scaleZ,
-  rotate,
-  rotate3d,
-  rotateX,
-  rotateY,
-  rotateZ,
-  skew,
-  skewX,
-  skewY,
-  linearGradient,
-  repeatingLinearGradient,
-  radialGradient,
-  repeatingRadialGradient,
-  areas,
-  ident,
-  numIdent,
-  contextMenu,
-  help,
-  pointer,
-  progress,
-  wait,
-  cell,
-  crosshair,
-  verticalText,
-  alias,
-  copy,
-  move,
-  noDrop,
-  notAllowed,
-  grab,
-  grabbing,
-  allScroll,
-  colResize,
-  rowResize,
-  nResize,
-  eResize,
-  sResize,
-  wResize,
-  neResize,
-  nwResize,
-  seResize,
-  swResize,
-  ewResize,
-  nsResize,
-  neswResize,
-  nwseResize,
-  zoomIn,
-  zoomOut,
-  flex3,
-  border,
-  borderTop,
-  backgroundSize,
-  textDecoration,
-  background,
-  backgrounds,
-  gridAutoColumns,
-  gridAutoRows,
-  gridTemplateColumns,
-  gridTemplateRows,
-  Calc,
-  size,
-  filter,
-  fontFace,
-  Transition,
-  transitionValue,
-  transitionList,
-  transition,
-  transitions,
-  Animation,
-  animationValue,
-  animation,
-  animations,
-  animationName,
-  SVG,
-};
+  content ,
+  maxContent ,
+  minContent ,
+  fitContent ,
+  all ,
+  round ,
+  miter ,
+  bevel ,
+  butt ,
+  square ,
+  thin ,
+  extraLight ,
+  light ,
+  medium ,
+  semiBold ,
+  bold ,
+  extraBold ,
+  lighter ,
+  bolder ,
+  fr ,
+  vw ,
+  localUrl ,
+  url ,
+  linear ,
+  ease ,
+  easeIn ,
+  easeOut ,
+  easeInOut ,
+  stepStart ,
+  stepEnd ,
+  steps ,
+  cubicBezier ,
+  marginBox ,
+  fillBox ,
+  strokeBox ,
+  viewBox ,
+  translate ,
+  translate3d ,
+  translateX ,
+  translateY ,
+  translateZ ,
+  scale ,
+  scale3d ,
+  scaleX ,
+  scaleY ,
+  scaleZ ,
+  rotate ,
+  rotate3d ,
+  rotateX ,
+  rotateY ,
+  rotateZ ,
+  skew ,
+  skewX ,
+  skewY ,
+  linearGradient ,
+  repeatingLinearGradient ,
+  radialGradient ,
+  repeatingRadialGradient ,
+  areas ,
+  ident ,
+  numIdent ,
+  contextMenu ,
+  help ,
+  pointer ,
+  progress ,
+  wait ,
+  cell ,
+  crosshair ,
+  verticalText ,
+  alias ,
+  copy ,
+  move ,
+  noDrop ,
+  notAllowed ,
+  grab ,
+  grabbing ,
+  allScroll ,
+  colResize ,
+  rowResize ,
+  nResize ,
+  eResize ,
+  sResize ,
+  wResize ,
+  neResize ,
+  nwResize ,
+  seResize ,
+  swResize ,
+  ewResize ,
+  nsResize ,
+  neswResize ,
+  nwseResize ,
+  zoomIn ,
+  zoomOut ,
+  flex3 ,
+  border ,
+  borderTop ,
+  backgroundSize ,
+  textDecoration ,
+  background ,
+  backgrounds ,
+  gridAutoColumns ,
+  gridAutoRows ,
+  gridTemplateColumns ,
+  gridTemplateRows ,
+  Calc ,
+  size ,
+  filter ,
+  fontFace ,
+  Transition ,
+  transitionValue ,
+  transitionList ,
+  transition ,
+  transitions ,
+  Animation ,
+  animationValue ,
+  animation ,
+  animations ,
+  animationName ,
+  SVG ,
+  
+}
 /* No side effect */

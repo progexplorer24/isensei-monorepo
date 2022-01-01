@@ -3,121 +3,150 @@
 import * as CssJs$IsenseiMonorepo from "../../css/src/CssJs.mjs";
 
 var spin = CssJs$IsenseiMonorepo.keyframes([
-  [
-    0,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "rotate",
-        VAL: {
-          NAME: "deg",
-          VAL: 0,
-        },
-      }),
-    ],
-  ],
-  [
-    100,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "rotate",
-        VAL: {
-          NAME: "deg",
-          VAL: 360,
-        },
-      }),
-    ],
-  ],
-]);
+      [
+        0,
+        [CssJs$IsenseiMonorepo.transform({
+                NAME: "rotate",
+                VAL: {
+                  NAME: "deg",
+                  VAL: 0
+                }
+              })]
+      ],
+      [
+        100,
+        [CssJs$IsenseiMonorepo.transform({
+                NAME: "rotate",
+                VAL: {
+                  NAME: "deg",
+                  VAL: 360
+                }
+              })]
+      ]
+    ]);
 
 var ping = CssJs$IsenseiMonorepo.keyframes([
-  [
-    0,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "scale",
-        VAL: [1, 1],
-      }),
-      CssJs$IsenseiMonorepo.opacity(1),
-    ],
-  ],
-  [
-    75,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "scale",
-        VAL: [2, 2],
-      }),
-      CssJs$IsenseiMonorepo.opacity(0),
-    ],
-  ],
-  [
-    100,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "scale",
-        VAL: [2, 2],
-      }),
-      CssJs$IsenseiMonorepo.opacity(0),
-    ],
-  ],
-]);
+      [
+        0,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "scale",
+                VAL: [
+                  1,
+                  1
+                ]
+              }),
+          CssJs$IsenseiMonorepo.opacity(1)
+        ]
+      ],
+      [
+        75,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "scale",
+                VAL: [
+                  2,
+                  2
+                ]
+              }),
+          CssJs$IsenseiMonorepo.opacity(0)
+        ]
+      ],
+      [
+        100,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "scale",
+                VAL: [
+                  2,
+                  2
+                ]
+              }),
+          CssJs$IsenseiMonorepo.opacity(0)
+        ]
+      ]
+    ]);
 
 var pulse = CssJs$IsenseiMonorepo.keyframes([
-  [0, [CssJs$IsenseiMonorepo.opacity(1)]],
-  [50, [CssJs$IsenseiMonorepo.opacity(0.5)]],
-  [100, [CssJs$IsenseiMonorepo.opacity(1)]],
-]);
+      [
+        0,
+        [CssJs$IsenseiMonorepo.opacity(1)]
+      ],
+      [
+        50,
+        [CssJs$IsenseiMonorepo.opacity(0.5)]
+      ],
+      [
+        100,
+        [CssJs$IsenseiMonorepo.opacity(1)]
+      ]
+    ]);
 
 var bounce = CssJs$IsenseiMonorepo.keyframes([
-  [
-    0,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "translateY",
-        VAL: {
-          NAME: "percent",
-          VAL: -25,
-        },
-      }),
-      CssJs$IsenseiMonorepo.animationTimingFunction({
-        NAME: "cubicBezier",
-        VAL: [0.8, 0, 1, 1],
-      }),
-    ],
-  ],
-  [
-    50,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "translateY",
-        VAL: {
-          NAME: "percent",
-          VAL: 0,
-        },
-      }),
-      CssJs$IsenseiMonorepo.animationTimingFunction({
-        NAME: "cubicBezier",
-        VAL: [0, 0, 0.2, 1],
-      }),
-    ],
-  ],
-  [
-    100,
-    [
-      CssJs$IsenseiMonorepo.transform({
-        NAME: "translateY",
-        VAL: {
-          NAME: "percent",
-          VAL: -25,
-        },
-      }),
-      CssJs$IsenseiMonorepo.animationTimingFunction({
-        NAME: "cubicBezier",
-        VAL: [0.8, 0, 1, 1],
-      }),
-    ],
-  ],
-]);
+      [
+        0,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "translateY",
+                VAL: {
+                  NAME: "percent",
+                  VAL: -25
+                }
+              }),
+          CssJs$IsenseiMonorepo.animationTimingFunction({
+                NAME: "cubicBezier",
+                VAL: [
+                  0.8,
+                  0,
+                  1,
+                  1
+                ]
+              })
+        ]
+      ],
+      [
+        50,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "translateY",
+                VAL: {
+                  NAME: "percent",
+                  VAL: 0
+                }
+              }),
+          CssJs$IsenseiMonorepo.animationTimingFunction({
+                NAME: "cubicBezier",
+                VAL: [
+                  0,
+                  0,
+                  0.2,
+                  1
+                ]
+              })
+        ]
+      ],
+      [
+        100,
+        [
+          CssJs$IsenseiMonorepo.transform({
+                NAME: "translateY",
+                VAL: {
+                  NAME: "percent",
+                  VAL: -25
+                }
+              }),
+          CssJs$IsenseiMonorepo.animationTimingFunction({
+                NAME: "cubicBezier",
+                VAL: [
+                  0.8,
+                  0,
+                  1,
+                  1
+                ]
+              })
+        ]
+      ]
+    ]);
 
 function toValue(animation) {
   if (animation === "pulse") {
@@ -131,5 +160,12 @@ function toValue(animation) {
   }
 }
 
-export { spin, ping, pulse, bounce, toValue };
+export {
+  spin ,
+  ping ,
+  pulse ,
+  bounce ,
+  toValue ,
+  
+}
 /* spin Not a pure module */
