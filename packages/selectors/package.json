@@ -6,6 +6,10 @@
   "sideEffects": false,
   "main": "./src/Selectors.mjs",
   "files": [],
+  "scripts": {
+    "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
   "dependencies": {
     "@isensei/css": "*"
   },

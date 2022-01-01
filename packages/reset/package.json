@@ -5,6 +5,10 @@
   "type": "module",
   "sideEffects": false,
   "main": "./src/Reset.mjs",
+  "scripts": {
+    "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
   "files": [],
   "keywords": [
     "rescript"
