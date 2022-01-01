@@ -24,3 +24,6 @@ The commit contains the following structural elements:
 - A scope may be provided to a commit’s type, to provide additional contextual information and is contained within parenthesis, e.g., `feat(parser): add ability to parse arrays`.
 
 - other available commit types are: `build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test`
+
+
+## Credits
