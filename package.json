@@ -51,9 +51,6 @@
   "lint-staged": {
     "*.+(js|jsx|ts|tsx|mjs)": [
       "eslint --fix"
-    ],
-    "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
-      "prettier --write"
     ]
   },
   "devDependencies": {
