@@ -3,6 +3,7 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["common", "headerNavLinks", "newsletter", "404", "SEO", "bio"],
-    "/projects": ["projects"]
+    "/projects": ["projects"],
+    "/matura-matematyka": ["matura"]
   }
 }
