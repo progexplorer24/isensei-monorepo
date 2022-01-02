@@ -20,7 +20,7 @@ export default function Footer() {
     <footer className="max-w-2xl mx-auto w-full mb-8 mt-16">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
 
-      <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
+      <div className="w-full max-w-2xl grid grid-cols-2 gap-y-16 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link
             href="/"
@@ -67,8 +67,6 @@ export default function Footer() {
             Snippets
           </Link>
         </div>
-      </div>
-      <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link
             href="/privacy-policy"
@@ -98,7 +96,8 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col items-center">
+
+      <div className="sm:flex sm:flex-col sm:items-center">
         <div className="flex mb-3 space-x-4">
           <SocialIcon
             kind="mail"
@@ -111,23 +110,23 @@ export default function Footer() {
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
         </div>
-        <div className="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="grid grid-cols-2 gap-y-6 gap-x-4 sm:flex mb-6 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>isensei.pl@gmail.com</div>
-          <div>{` • `}</div>
-          <div>Września</div>
-          <div>{` • `}</div>
-          <div>Daszyńskiego 2D/37</div>
-          <div>{` • `}</div>
+          <div className="hidden sm:block">{` • `}</div>
           <div>123-456-789</div>
+          <div className="hidden sm:block">{` • `}</div>
+          <div>Września</div>
+          <div className="hidden sm:block">{` • `}</div>
+          <div>Daszyńskiego 2D/37</div>
         </div>
-        <div className="flex mb-10 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>Made by {siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
+        <div className="grid grid-cols-2 gap-x-4 gap-y-6 mt-0 sm:flex mb-16 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://www.facebook.com/myway.angielski.matematyka">
             isensei Foundation
           </Link>
+          <div className="hidden sm:block">{` • `}</div>
+          <div>Made by {siteMetadata.author}</div>
+          <div className="hidden sm:block">{` • `}</div>
+          <div>{`© ${new Date().getFullYear()}`}</div>
         </div>
       </div>
     </footer>
