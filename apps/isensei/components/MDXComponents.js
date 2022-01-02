@@ -11,6 +11,7 @@ export const MDXComponents = {
   Image,
   TOCInline,
   a: CustomLink,
+  CustomLink,
   pre: Pre,
   BlogNewsletterForm: BlogNewsletterForm,
   wrapper: ({ components, layout, ...rest }) => {

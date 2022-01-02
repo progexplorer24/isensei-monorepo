@@ -14,7 +14,7 @@ const Card = ({ title, description, imgSrc, href }) => {
       >
         {imgSrc &&
           (href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
+            <Link showIcon={false} href={href} aria-label={`Link to ${title}`}>
               <Image
                 alt={title}
                 src={imgSrc}
@@ -35,7 +35,11 @@ const Card = ({ title, description, imgSrc, href }) => {
         <div className="p-6">
           <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
             {href ? (
-              <Link href={href} aria-label={`Link to ${title}`}>
+              <Link
+                showIcon={false}
+                href={href}
+                aria-label={`Link to ${title}`}
+              >
                 {title}
               </Link>
             ) : (
@@ -48,7 +52,8 @@ const Card = ({ title, description, imgSrc, href }) => {
           {href && (
             <Link
               href={href}
-              className="text-base font-medium leading-6 text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300"
+              showIcon={false}
+              className="text-base font-medium leading-6 text-pink-600 hover:text-pink-700 dark:text-primary-500 dark:hover:text-primary-400"
               aria-label={`Link to ${title}`}
             >
               {t("projects:learn")} &rarr;

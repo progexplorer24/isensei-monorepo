@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: {
-    en: "Isensei – Free spirit, philosopher, creator.",
+    en: "Isensei - Free spirit, philosopher, creator.",
     pl: "Isensei - Wolny duch, filozof, twórca.",
   },
   author: "Isensei",
@@ -14,7 +14,7 @@ const siteMetadata = {
   siteLogo: "/static/images/logo.png",
   image: "/static/images/avatar.png",
   socialBanner: "/static/images/twitter-card.png",
-  email: "address@yoursite.com",
+  email: "isensei.pl@gmail.com",
   github: "https://github.com/progexplorer24",
   twitter: "https://twitter.com/isensei_pl",
   facebook: "https://www.facebook.com/myway.angielski.matematyka",

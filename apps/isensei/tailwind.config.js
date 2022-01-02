@@ -27,17 +27,18 @@ module.exports = {
       colors: {
         primary: colors.sky,
         gray: colors.gray,
+        pink: colors.pink,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme("colors.gray.700"),
             a: {
-              color: theme("colors.primary.600"),
+              color: theme("colors.pink.600"),
               "&:hover": {
-                color: theme("colors.primary.800"),
+                color: theme("colors.pink.700"),
               },
-              code: { color: theme("colors.primary.400") },
+              code: { color: theme("colors.pink.600") },
             },
             h1: {
               fontWeight: "700",
@@ -60,7 +61,7 @@ module.exports = {
               backgroundColor: theme("colors.gray.800"),
             },
             code: {
-              color: theme("colors.pink.500"),
+              color: theme("colors.emerald.500"),
               backgroundColor: theme("colors.gray.100"),
               paddingLeft: "4px",
               paddingRight: "4px",
@@ -101,7 +102,7 @@ module.exports = {
           css: {
             color: theme("colors.gray.300"),
             a: {
-              color: theme("colors.primary.400"),
+              color: theme("colors.primary.500"),
               "&:hover": {
                 color: theme("colors.primary.300"),
               },

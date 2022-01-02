@@ -62,7 +62,7 @@ export default function PostLayout({
                   <div className="pt-4 xl:pt-8">
                     <Link
                       href={`/blog/${prev.slug}`}
-                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                      className="text-custom-500 hover:text-custom-600 dark:hover:text-custom-400"
                     >
                       &larr; {prev.title}
                     </Link>
