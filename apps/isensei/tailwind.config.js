@@ -34,11 +34,11 @@ module.exports = {
           css: {
             color: theme("colors.gray.700"),
             a: {
-              color: theme("colors.pink.600"),
+              color: theme("colors.sky.700"),
               "&:hover": {
-                color: theme("colors.pink.700"),
+                color: theme("colors.sky.500"),
               },
-              code: { color: theme("colors.pink.600") },
+              code: { color: theme("colors.sky.700") },
             },
             h1: {
               fontWeight: "700",
@@ -61,7 +61,7 @@ module.exports = {
               backgroundColor: theme("colors.gray.800"),
             },
             code: {
-              color: theme("colors.emerald.500"),
+              color: theme("colors.blue.600"),
               backgroundColor: theme("colors.gray.100"),
               paddingLeft: "4px",
               paddingRight: "4px",

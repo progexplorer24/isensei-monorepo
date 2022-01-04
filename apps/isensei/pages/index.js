@@ -97,7 +97,7 @@ export default function Home({ posts, locale, availableLocales }) {
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="text-pink-600 hover:text-pink-700 dark:text-primary-500 dark:hover:text-primary-400"
+                          className="text-sky-700 hover:text-sky-500 dark:text-primary-500 dark:hover:text-primary-400"
                           aria-label={`Read "${title}"`}
                         >
                           {t("common:more")} &rarr;
@@ -115,7 +115,7 @@ export default function Home({ posts, locale, availableLocales }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-pink-600 hover:text-pink-700 dark:text-primary-500 dark:hover:text-primary-400"
+            className="text-sky-700 hover:text-sky-500 dark:text-primary-500 dark:hover:text-primary-400"
             aria-label="all posts"
           >
             {t("common:all")} &rarr;

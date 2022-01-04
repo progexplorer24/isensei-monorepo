@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
+
 import Link from "@/components/Link";
 import siteMetadata from "@/data/siteMetadata";
 import SocialIcon from "@/components/social-icons";
-import { useRouter } from "next/router";
 
 const ExternalLink = ({ href, children }) => (
   <a
@@ -16,6 +18,7 @@ const ExternalLink = ({ href, children }) => (
 
 export default function Footer() {
   const { locale } = useRouter();
+  const { t } = useTranslation();
   return (
     <footer className="max-w-2xl mx-auto w-full mb-8 mt-16">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
@@ -26,20 +29,20 @@ export default function Footer() {
             href="/"
             className="text-gray-700 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Home
+            {t("footerLinks:home")}
           </Link>
           <Link
             href="/about"
             className="text-gray-700 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            About
+            {t("footerLinks:about")}
           </Link>
 
           <Link
             href="/mission"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Mission
+            {t("footerLinks:mission")}
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
@@ -52,19 +55,19 @@ export default function Footer() {
             href="/tags"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Tags
+            {t("footerLinks:tags")}
           </Link>
           <Link
             href="/projects"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Projects
+            {t("footerLinks:projects")}
           </Link>
           <Link
             href="/snippets"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Snippets
+            {t("footerLinks:snippets")}
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
@@ -72,7 +75,7 @@ export default function Footer() {
             href="/privacy-policy"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Privacy Policy
+            {t("footerLinks:privacy-policy")}
           </Link>
           <Link
             href="/cookies"
@@ -113,7 +116,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-y-6 gap-x-4 sm:flex mb-6 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>isensei.pl@gmail.com</div>
           <div className="hidden sm:block">{` • `}</div>
-          <div>123-456-789</div>
+          <div>515-009-644</div>
           <div className="hidden sm:block">{` • `}</div>
           <div>Września</div>
           <div className="hidden sm:block">{` • `}</div>

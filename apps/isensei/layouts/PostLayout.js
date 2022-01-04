@@ -97,7 +97,7 @@ export default function PostLayout({
                           {author.twitter && (
                             <Link
                               href={author.twitter}
-                              className="text-pink-600 hover:text-pink-700 dark:text-primary-500 dark:hover:text-primary-400"
+                              className="text-sky-700 hover:text-sky-500 dark:text-primary-500 dark:hover:text-primary-400"
                             >
                               {author.twitter.replace(
                                 "https://twitter.com/",
