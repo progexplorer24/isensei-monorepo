@@ -1,5 +1,7 @@
 const bsconfig = require("../../bsconfig.json");
 const withPlugins = require("next-compose-plugins");
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
 
 if (!process.env.NEXTAUTH_URL) {
   console.warn(
@@ -16,6 +18,8 @@ if (!process.env.NEXTAUTH_URL) {
     );
   }
 }
+
+const isDevelopment = process.env.NODE_ENV === "development";
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -72,8 +76,15 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const config = {
+  swcMinify: true,
   reactStrictMode: true,
-  pageExtensions: ["js", "jsx", "md", "mdx", "mjs"],
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx", "mjs"],
+  pwa: {
+    dest: "public",
+    runtimeCaching,
+    disable: isDevelopment,
+    mode: "production",
+  },
   eslint: {
     dirs: ["pages", "components", "lib", "layouts", "scripts"],
   },
@@ -135,4 +146,4 @@ const transpileModules = ["rescript", "@isensei/ui"].concat(
 
 const withTM = require("next-transpile-modules")(transpileModules);
 
-module.exports = withPlugins([withTM, withNextTranslate], config);
+module.exports = withPlugins([withTM, withPWA, withNextTranslate], config);
