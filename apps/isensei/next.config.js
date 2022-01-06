@@ -81,7 +81,10 @@ const config = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx", "mjs"],
   pwa: {
     dest: "public",
+    register: true,
+    skipWaiting: true,
     runtimeCaching,
+    buildExcludes: [/middleware-manifest\.json$/],
     disable: isDevelopment,
     mode: "production",
   },
