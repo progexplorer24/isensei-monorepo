@@ -3181,31 +3181,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "@prisma/client@npm:3.7.0"
+"@prisma/client@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "@prisma/client@npm:3.8.0"
   dependencies:
-    "@prisma/engines-version": 3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f
+    "@prisma/engines-version": 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
   peerDependencies:
     prisma: "*"
   peerDependenciesMeta:
     prisma:
       optional: true
-  checksum: 655adc8dfbd0161d5550938997265faee1f2fe46cc018e8ec6bd006a6b9bef2c25dab1af322e6423d9d2e566fdc99f93e83dad687673ff346b77582f7e9e7e9d
+  checksum: 9808f78085f9f4b1717dec3e46b9e48cec4d23a94e4f40e64954578cdae3972721b4848881997c9bec83c786edff29b695824abe764f73f4c5c4f672d2929ccd
   languageName: node
   linkType: hard
 
-"@prisma/engines-version@npm:3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f":
-  version: 3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f
-  resolution: "@prisma/engines-version@npm:3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
-  checksum: b6e37f964bdb4244584b534100302651d70af920e1ffd5fa51bbc6bfb2076229c071fd6b45d8cba1752acd05337bd9e4fddb9456060d55985d51829f1c7e6c7d
+"@prisma/engines-version@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f":
+  version: 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
+  resolution: "@prisma/engines-version@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
+  checksum: b41892214631a0f51a422ada47c7357cf757337bc17af4ad5f43ce2943f32c2eddc7f0517f57b95ff541f696ced8de373a46e22a91c6918262d2b28455aa733f
   languageName: node
   linkType: hard
 
-"@prisma/engines@npm:3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f":
-  version: 3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f
-  resolution: "@prisma/engines@npm:3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
-  checksum: 82ef728857ae2e978d159d57b0135f419b02a6c69b9d6d08630619d0e0018314c8c5ee5608f8a6fe4b911656b7a1c5795698cb856a16c27039642f12cd2a7163
+"@prisma/engines@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f":
+  version: 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
+  resolution: "@prisma/engines@npm:3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
+  checksum: 569496142dec78fb36ccfe55be72599cd45b84876089132491fbd3133040cbed7b9517e967bf370173ee8d66f06129f10912e1d7d8248f890817aa97fcb0cb14
   languageName: node
   linkType: hard
 
@@ -3390,18 +3390,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/babel-plugin-transform-svg-component@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@svgr/babel-plugin-transform-svg-component@npm:6.1.0"
+"@svgr/babel-plugin-transform-svg-component@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/babel-plugin-transform-svg-component@npm:6.2.0"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 929bd49b3e5f91a2756674b3097895bbb4255dac49f06fa39dd2a0e724648ed45cc8d2b239be76ff6a1d41a0fa1782b6a36f0eeb6a912c15fa186e4e57c06b82
+  checksum: 2d4c4ff27c65d26dc4e6fbbdb85ab1fce701473c0616a7f0a55a671f530c4ad3a56e21c627c4b649b592bb9731fc7238f2c39871bc27a8e090dce8b751b1f9d5
   languageName: node
   linkType: hard
 
-"@svgr/babel-preset@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@svgr/babel-preset@npm:6.1.0"
+"@svgr/babel-preset@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/babel-preset@npm:6.2.0"
   dependencies:
     "@svgr/babel-plugin-add-jsx-attribute": ^6.0.0
     "@svgr/babel-plugin-remove-jsx-attribute": ^6.0.0
@@ -3410,21 +3410,21 @@ __metadata:
     "@svgr/babel-plugin-svg-dynamic-title": ^6.0.0
     "@svgr/babel-plugin-svg-em-dimensions": ^6.0.0
     "@svgr/babel-plugin-transform-react-native-svg": ^6.0.0
-    "@svgr/babel-plugin-transform-svg-component": ^6.1.0
+    "@svgr/babel-plugin-transform-svg-component": ^6.2.0
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: df8125fc4e8ae5c4137092fcd58c70c4fa888227062e557867f08b8ce7ae4ffabbfa698bb418b56e15118f3b254b08788cdbcc3829383e65ad2eac172e1207d2
+  checksum: 9a5ce414815df2c5f05add8a322ce42182563198a8d379850834d801fda3319eed5a3f7f1174c5163626dd9f8f4af36cad7049b0603c8de21e1bc859b931bcea
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@svgr/core@npm:6.1.2"
+"@svgr/core@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/core@npm:6.2.0"
   dependencies:
-    "@svgr/plugin-jsx": ^6.1.2
+    "@svgr/plugin-jsx": ^6.2.0
     camelcase: ^6.2.0
     cosmiconfig: ^7.0.1
-  checksum: 8169eb05c58b8c4b9bdc2937c3d4e238e3b35457ae1ea43db09b4e1bcf4c22a6f09c7de6f7a46df5a927726753a7cbf2b6ac64ffe8c0f21b8816cc9f97cd4f52
+  checksum: 02c7ed5a5ebf1fad03b8e2c844dbb10077e2a6c2f53cebd751397784c6725ae37e426e51c4d47f51fc7eeb9c9bf1ae469b7b60ddf3081709870ed91dfd4df6f1
   languageName: node
   linkType: hard
 
@@ -3438,46 +3438,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@svgr/plugin-jsx@npm:6.1.2"
+"@svgr/plugin-jsx@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/plugin-jsx@npm:6.2.0"
   dependencies:
     "@babel/core": ^7.15.5
-    "@svgr/babel-preset": ^6.1.0
+    "@svgr/babel-preset": ^6.2.0
     "@svgr/hast-util-to-babel-ast": ^6.0.0
     svg-parser: ^2.0.2
   peerDependencies:
     "@svgr/core": ^6.0.0
-  checksum: a02c2c5f6d72bd8526b41b213757e742218651e290835bc33e27e9057857fd6258149206cb64075c8a005e49dee5a721d4f1fb97f71569df20b76f971d98e44f
+  checksum: 7f0482603a18d0cda57d66a0449e332394aac9b5b6a852db182943bc5c3a5388f90a1c4b47f4d2c6147ebc6c9f51bebc29bcc2152a2feac87d7ec969baf8164e
   languageName: node
   linkType: hard
 
-"@svgr/plugin-svgo@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@svgr/plugin-svgo@npm:6.1.2"
+"@svgr/plugin-svgo@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/plugin-svgo@npm:6.2.0"
   dependencies:
     cosmiconfig: ^7.0.1
     deepmerge: ^4.2.2
     svgo: ^2.5.0
   peerDependencies:
     "@svgr/core": ^6.0.0
-  checksum: b8c83d8f787dddf82dffa2654401acc336de02edda6334a125fdb5d60b23b85d551a82a701aadcf090c2fd7dd3f2cf78cf4a7deaa5f3edc35cce7f147cd7279c
+  checksum: 74d3aedd0fcaafbfe4985924b4d40e63536a686988eff52a3411cf83851ce2afc1f5e84e203dae18ab896db48c0b824dcfb8c5dd5b071b4ea90d00fc08951254
   languageName: node
   linkType: hard
 
-"@svgr/webpack@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "@svgr/webpack@npm:6.1.2"
+"@svgr/webpack@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "@svgr/webpack@npm:6.2.0"
   dependencies:
     "@babel/core": ^7.15.5
     "@babel/plugin-transform-react-constant-elements": ^7.14.5
     "@babel/preset-env": ^7.15.6
     "@babel/preset-react": ^7.14.5
     "@babel/preset-typescript": ^7.15.0
-    "@svgr/core": ^6.1.2
-    "@svgr/plugin-jsx": ^6.1.2
-    "@svgr/plugin-svgo": ^6.1.2
-  checksum: ff2640a8acc296cba3183e365eaa6de19f2437c544bf76d3bf0cd26fb4ffc26c9d64e95a24da59c51c0f22d88b98618e1f98a94b0aaa6c8e5ecf8b04757947f6
+    "@svgr/core": ^6.2.0
+    "@svgr/plugin-jsx": ^6.2.0
+    "@svgr/plugin-svgo": ^6.2.0
+  checksum: 4fae0ee56c0674a72d896bd3d0ad7f188eb7320f060db1467953f323055c7f75e2f3b827dcf1670a2888209fa4ef30f42c1d4f89db37ff90e3c1622e9b04bf3b
   languageName: node
   linkType: hard
 
@@ -5939,154 +5939,154 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-android-arm64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-android-arm64@npm:0.14.8"
+"esbuild-android-arm64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-android-arm64@npm:0.14.11"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-darwin-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-darwin-64@npm:0.14.8"
+"esbuild-darwin-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-darwin-64@npm:0.14.11"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-darwin-arm64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-darwin-arm64@npm:0.14.8"
+"esbuild-darwin-arm64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-darwin-arm64@npm:0.14.11"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-freebsd-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-freebsd-64@npm:0.14.8"
+"esbuild-freebsd-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-freebsd-64@npm:0.14.11"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-freebsd-arm64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-freebsd-arm64@npm:0.14.8"
+"esbuild-freebsd-arm64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-freebsd-arm64@npm:0.14.11"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-linux-32@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-32@npm:0.14.8"
+"esbuild-linux-32@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-32@npm:0.14.11"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"esbuild-linux-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-64@npm:0.14.8"
+"esbuild-linux-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-64@npm:0.14.11"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-linux-arm64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-arm64@npm:0.14.8"
+"esbuild-linux-arm64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-arm64@npm:0.14.11"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild-linux-arm@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-arm@npm:0.14.8"
+"esbuild-linux-arm@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-arm@npm:0.14.11"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"esbuild-linux-mips64le@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-mips64le@npm:0.14.8"
+"esbuild-linux-mips64le@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-mips64le@npm:0.14.11"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"esbuild-linux-ppc64le@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-ppc64le@npm:0.14.8"
+"esbuild-linux-ppc64le@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-ppc64le@npm:0.14.11"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"esbuild-linux-s390x@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-linux-s390x@npm:0.14.8"
+"esbuild-linux-s390x@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-linux-s390x@npm:0.14.11"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
 
-"esbuild-netbsd-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-netbsd-64@npm:0.14.8"
+"esbuild-netbsd-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-netbsd-64@npm:0.14.11"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-openbsd-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-openbsd-64@npm:0.14.8"
+"esbuild-openbsd-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-openbsd-64@npm:0.14.11"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-sunos-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-sunos-64@npm:0.14.8"
+"esbuild-sunos-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-sunos-64@npm:0.14.11"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-windows-32@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-windows-32@npm:0.14.8"
+"esbuild-windows-32@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-windows-32@npm:0.14.11"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"esbuild-windows-64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-windows-64@npm:0.14.8"
+"esbuild-windows-64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-windows-64@npm:0.14.11"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"esbuild-windows-arm64@npm:0.14.8":
-  version: 0.14.8
-  resolution: "esbuild-windows-arm64@npm:0.14.8"
+"esbuild-windows-arm64@npm:0.14.11":
+  version: 0.14.11
+  resolution: "esbuild-windows-arm64@npm:0.14.11"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.14.8":
-  version: 0.14.8
-  resolution: "esbuild@npm:0.14.8"
+"esbuild@npm:^0.14.11":
+  version: 0.14.11
+  resolution: "esbuild@npm:0.14.11"
   dependencies:
-    esbuild-android-arm64: 0.14.8
-    esbuild-darwin-64: 0.14.8
-    esbuild-darwin-arm64: 0.14.8
-    esbuild-freebsd-64: 0.14.8
-    esbuild-freebsd-arm64: 0.14.8
-    esbuild-linux-32: 0.14.8
-    esbuild-linux-64: 0.14.8
-    esbuild-linux-arm: 0.14.8
-    esbuild-linux-arm64: 0.14.8
-    esbuild-linux-mips64le: 0.14.8
-    esbuild-linux-ppc64le: 0.14.8
-    esbuild-linux-s390x: 0.14.8
-    esbuild-netbsd-64: 0.14.8
-    esbuild-openbsd-64: 0.14.8
-    esbuild-sunos-64: 0.14.8
-    esbuild-windows-32: 0.14.8
-    esbuild-windows-64: 0.14.8
-    esbuild-windows-arm64: 0.14.8
+    esbuild-android-arm64: 0.14.11
+    esbuild-darwin-64: 0.14.11
+    esbuild-darwin-arm64: 0.14.11
+    esbuild-freebsd-64: 0.14.11
+    esbuild-freebsd-arm64: 0.14.11
+    esbuild-linux-32: 0.14.11
+    esbuild-linux-64: 0.14.11
+    esbuild-linux-arm: 0.14.11
+    esbuild-linux-arm64: 0.14.11
+    esbuild-linux-mips64le: 0.14.11
+    esbuild-linux-ppc64le: 0.14.11
+    esbuild-linux-s390x: 0.14.11
+    esbuild-netbsd-64: 0.14.11
+    esbuild-openbsd-64: 0.14.11
+    esbuild-sunos-64: 0.14.11
+    esbuild-windows-32: 0.14.11
+    esbuild-windows-64: 0.14.11
+    esbuild-windows-arm64: 0.14.11
   dependenciesMeta:
     esbuild-android-arm64:
       optional: true
@@ -6126,7 +6126,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: f47e90268a2230154cb092e8ae1e32f543b2930c261d8fe91953256f150b9d2fa4ec9d0929a898b1d0dbeb568d3906b504383ea21c24830c3346ba42f0802300
+  checksum: dd034f76fa180ae947a458d84cd3ad4989f1630bc55f092f35d562c18480e56ed0ede99752ffc13d341434ff09063110c765243a4d46244ea2422f2683dbd822
   languageName: node
   linkType: hard
 
@@ -7386,24 +7386,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-to-html@npm:^8.0.1":
-  version: 8.0.3
-  resolution: "hast-util-to-html@npm:8.0.3"
-  dependencies:
-    "@types/hast": ^2.0.0
-    ccount: ^2.0.0
-    comma-separated-tokens: ^2.0.0
-    hast-util-is-element: ^2.0.0
-    hast-util-whitespace: ^2.0.0
-    html-void-elements: ^2.0.0
-    property-information: ^6.0.0
-    space-separated-tokens: ^2.0.0
-    stringify-entities: ^4.0.2
-    unist-util-is: ^5.0.0
-  checksum: 128bf69be025a37168c871899c5c3b662fd1754609e83b999406d1c4e81088bf0460cd97a048ec6953753b3c14b192ecb30a66612a17d53e6d6b98a32040f5d3
-  languageName: node
-  linkType: hard
-
 "hast-util-to-string@npm:^2.0.0":
   version: 2.0.0
   resolution: "hast-util-to-string@npm:2.0.0"
@@ -7457,13 +7439,6 @@ __metadata:
   dependencies:
     lru-cache: ^6.0.0
   checksum: d1b2d7720398ce96a788bd38d198fbddce089a2381f63cfb01743e6c7e5aed656e5547fe74090fb9fe53b2cb785b0e8c9ebdddadff48ed26bb471dd23cd25458
-  languageName: node
-  linkType: hard
-
-"html-void-elements@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "html-void-elements@npm:2.0.1"
-  checksum: 06d41f13b9d5d6e0f39861c4bec9a9196fa4906d56cd5cf6cf54ad2e52a85bf960cca2bf9600026bde16c8331db171bedba5e5a35e2e43630c8f1d497b2fb658
   languageName: node
   linkType: hard
 
@@ -8081,8 +8056,8 @@ __metadata:
     "@mailchimp/mailchimp_marketing": ^3.0.72
     "@next-auth/prisma-adapter": ^1.0.1
     "@next/bundle-analyzer": 12.0.8
-    "@prisma/client": ^3.7.0
-    "@svgr/webpack": ^6.1.2
+    "@prisma/client": ^3.8.0
+    "@svgr/webpack": ^6.2.0
     "@tailwindcss/aspect-ratio": ^0.4.0
     "@tailwindcss/forms": ^0.4.0
     "@tailwindcss/line-clamp": ^0.3.1
@@ -8091,7 +8066,7 @@ __metadata:
     classnames: ^2.3.1
     cross-env: ^7.0.3
     dedent: ^0.7.0
-    esbuild: ^0.14.8
+    esbuild: ^0.14.11
     eslint-config-isensei: "*"
     file-loader: ^6.2.0
     github-slugger: ^1.4.0
@@ -8101,7 +8076,7 @@ __metadata:
     inquirer: ^8.2.0
     mdx-bundler: ^8.0.1
     next: 12.0.8
-    next-auth: ^4.0.6
+    next-auth: ^4.1.0
     next-compose-plugins: ^2.2.1
     next-pwa: ^5.4.4
     next-remote-watch: ^1.0.0
@@ -8110,14 +8085,14 @@ __metadata:
     next-transpile-modules: ^9.0.0
     postcss: ^8.4.5
     prettier: 2.5.1
-    prisma: ^3.7.0
+    prisma: ^3.8.0
     react: 17.0.2
     react-dom: 17.0.2
     reading-time: 1.5.0
     rehype-autolink-headings: ^6.1.1
     rehype-citation: ^0.1.2
     rehype-katex: ^6.0.2
-    rehype-prism-plus: ^1.1.3
+    rehype-prism-plus: ^1.3.1
     rehype-slug: ^5.0.1
     remark-footnotes: ^4.0.1
     remark-gfm: ^3.0.1
@@ -9802,9 +9777,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:^4.0.6":
-  version: 4.0.6
-  resolution: "next-auth@npm:4.0.6"
+"next-auth@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "next-auth@npm:4.1.0"
   dependencies:
     "@babel/runtime": ^7.16.3
     "@panva/hkdf": ^1.0.1
@@ -9822,7 +9797,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: bd2ec3ae9ee01e0ddfcd5544cf8387feb464820743380f79201d1075ce7fbd97bfce6415a0a98371995c5b8c3c1011ffaf24e857f9cbbb6add81b5fa993903be
+  checksum: db0e5cf8d5b23ea56a9dd121fab6b84abc06f9ed0d8236a14945be84651a348c27a2240abb8b51a9f1521411cfe92c28c75d5cd390596b5987b1e516e1a1287d
   languageName: node
   linkType: hard
 
@@ -10769,22 +10744,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:^3.7.0":
-  version: 3.7.0
-  resolution: "prisma@npm:3.7.0"
+"prisma@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "prisma@npm:3.8.0"
   dependencies:
-    "@prisma/engines": 3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f
+    "@prisma/engines": 3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f
   bin:
     prisma: build/index.js
     prisma2: build/index.js
-  checksum: fd68e98f5012ff6a454c39510e230bea517e8c69a639463595d07aa4e0c8e0c1670c4e01374de888feb8f2d18e57afc6142d6b7348540def85fe1ee892690fe3
+  checksum: 018b667894fbb01e265566f1eb282b75da2493cd4e3cb450a0a01c40d379ada5749c420e9dd1731e9ac58094f374c90b59a19f67891c5d52c2cd17e6bef1d954
   languageName: node
   linkType: hard
 
-"prismjs@npm:~1.25.0":
-  version: 1.25.0
-  resolution: "prismjs@npm:1.25.0"
-  checksum: 04d8eae9d1b26b76c350bc65621584c8f8cab80ace7da3953f8aef2f9a8dd4b4f71c1d15bc5c67f126ddc90cd5af613919dc1340589a6c57355bed86fa3ac010
+"prismjs@npm:~1.26.0":
+  version: 1.26.0
+  resolution: "prismjs@npm:1.26.0"
+  checksum: 6de058930ce767d44d60322e625bbc255f5107c7bf82c441ade19a289358e01e35040cea0c17adf8f7b829f17aa48e2d84b40866b5b3f8c75a12c6b3f0ead231
   languageName: node
   linkType: hard
 
@@ -11078,16 +11053,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"refractor@npm:^4.2.1":
-  version: 4.3.0
-  resolution: "refractor@npm:4.3.0"
+"refractor@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "refractor@npm:4.4.0"
   dependencies:
     "@types/hast": ^2.0.0
     "@types/prismjs": ^1.0.0
     hastscript: ^7.0.0
     parse-entities: ^4.0.0
-    prismjs: ~1.25.0
-  checksum: e9dbe1e68ee49499efae96c354bb7b2f4267b37609381e2898a5998e97a05467776f7c0356c5ba7d384cb6cd98df91291ff7a9273688547b5da799086935c49d
+    prismjs: ~1.26.0
+  checksum: 4faa6b233d2ffde41fa3431b8b684dce1af0b7659a4663c619c2fe8e1bf461c59136e90b1a48fdb87d0d4b68c074a4b6bc11bc51d6d0987302e0c8dffdbd53ea
   languageName: node
   linkType: hard
 
@@ -11228,19 +11203,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-prism-plus@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "rehype-prism-plus@npm:1.1.3"
+"rehype-prism-plus@npm:^1.3.1":
+  version: 1.3.1
+  resolution: "rehype-prism-plus@npm:1.3.1"
   dependencies:
-    hast-util-to-html: ^8.0.1
     hast-util-to-string: ^2.0.0
     parse-numeric-range: ^1.3.0
-    refractor: ^4.2.1
+    refractor: ^4.4.0
     rehype-parse: ^8.0.2
-    unified: ^10.1.0
     unist-util-filter: ^4.0.0
     unist-util-visit: ^4.0.0
-  checksum: f9234b650723aa0b52db5cd69b2c9c7125ed2ebf1871bf84cbcc420958a698b8187122bebea61957f61f1ad876045eb8b6a9c90aadbc342681d97b2dcf004472
+  checksum: a25b604cfeb768457bef7924ea437053e02640a0e436d1ffce7cac3fcb2f34a3d5cfdeeae0c3b7ef7f3a21533df86c28106422c11578909e3e1eb44917bc8f39
   languageName: node
   linkType: hard
 
@@ -12255,7 +12228,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stringify-entities@npm:^4.0.0, stringify-entities@npm:^4.0.2":
+"stringify-entities@npm:^4.0.0":
   version: 4.0.2
   resolution: "stringify-entities@npm:4.0.2"
   dependencies:
