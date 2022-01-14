@@ -1,3 +1,4 @@
+import Umami from "./Umami";
 import GA from "./GoogleAnalytics";
 import Plausible from "./Plausible";
 import SimpleAnalytics from "./SimpleAnalytics";
@@ -15,6 +16,7 @@ const Analytics = () => {
         <SimpleAnalytics />
       )}
       {isProduction && siteMetadata.analytics.googleAnalyticsId && <GA />}
+      {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
     </>
   );
 };
