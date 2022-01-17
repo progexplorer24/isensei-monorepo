@@ -2,7 +2,15 @@
   "locales": ["en", "pl"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["common", "headerNavLinks", "newsletter", "404", "SEO", "bio", "footerLinks"],
+    "*": [
+      "common",
+      "headerNavLinks",
+      "newsletter",
+      "404",
+      "SEO",
+      "bio",
+      "footerLinks"
+    ],
     "/projects": ["projects"],
     "/privacy-policy": ["privacyPolicy"],
     "/contact": ["contact"],
