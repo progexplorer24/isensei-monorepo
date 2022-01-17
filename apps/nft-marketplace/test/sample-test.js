@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("NFTMarket", function () {
   it("Should create and execute market sales", async function () {
     const Market = await ethers.getContractFactory("NFTMarket");
@@ -31,8 +32,8 @@ describe("NFTMarket", function () {
       .connect(buyerAddress)
       .createMarketSale(nftContractAddress, 1, { value: auctionPrice });
 
-    items = await market.fetchMarketItems();
-    items = await Promise.all(
+    const items = await market.fetchMarketItems();
+    const items2 = await Promise.all(
       items.map(async (i) => {
         const tokenUri = await nft.tokenURI(i.tokenId);
         let item = {
@@ -45,6 +46,6 @@ describe("NFTMarket", function () {
         return item;
       })
     );
-    console.log("items: ", items);
+    console.log("items: ", items2);
   });
 });
