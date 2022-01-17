@@ -7,7 +7,7 @@
   "main": "./src/UI.mjs",
   "source": "./src/UI.res",
   "scripts": {
-    "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
+    "lint": "eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "files": [],
@@ -18,6 +18,6 @@
     "@isensei/tailwind": "*"
   },
   "devDependencies": {
-    "eslint-config-isensei": "*"
+    "eslint-preset-isensei": "*"
   }
 }

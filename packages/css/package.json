@@ -7,7 +7,7 @@
   "main": "./src/Index.mjs",
   "source": "./src/Index.res",
   "scripts": {
-    "lint": "TIMING=1 eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
+    "lint": "eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "files": [],
@@ -19,6 +19,6 @@
     "@emotion/css": "^11.7.1"
   },
   "devDependencies": {
-    "eslint-config-isensei": "*"
+    "eslint-preset-isensei": "*"
   }
 }

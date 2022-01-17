@@ -14,7 +14,7 @@
     "@isensei/css": "*"
   },
   "devDependencies": {
-    "eslint-config-isensei": "*"
+    "eslint-preset-isensei": "*"
   },
   "keywords": [
     "rescript"

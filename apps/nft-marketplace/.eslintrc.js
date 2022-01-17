@@ -1,1 +1,1 @@
-module.exports = require("eslint-config-isensei/eslint-next-preset.cjs");
+module.exports = require("eslint-preset-isensei");
