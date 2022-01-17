@@ -1,9 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
-import { useRouter } from "next/router";
 
 import siteMetadata from "@/data/siteMetadata";
-import projectsData from "@/data/projectsData";
-import Card from "@/components/Card";
 import NoTranslation from "@/components/NoTranslation";
 import { PageSEO } from "@/components/SEO";
 
@@ -26,12 +23,14 @@ export default function Projects({ locale, availableLocales }) {
             {t("matura:title")}
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {t("matura:subtitle")}
+            {t("matura:math")}
           </p>
         </div>
         <div className="mt-16 text-gray-200">
           {locale === "pl" ? (
-            <p>Witaj na Polskiej stronie!</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              Witaj na Polskiej stronie!
+            </p>
           ) : (
             <NoTranslation language="en" />
           )}
