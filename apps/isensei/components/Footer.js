@@ -4,6 +4,7 @@ import useTranslation from "next-translate/useTranslation";
 import Link from "@/components/Link";
 import siteMetadata from "@/data/siteMetadata";
 import SocialIcon from "@/components/social-icons";
+import Emoji from "@/components/Emoji";
 
 const ExternalLink = ({ href, children }) => (
   <a
@@ -78,24 +79,10 @@ export default function Footer() {
             {t("footerLinks:privacy-policy")}
           </Link>
           <Link
-            href="/cookies"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
-          >
-            Cookie Notice
-          </Link>
-          <Link
-            href="/terms-of-use"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
-          >
-            Terms of use
-          </Link>
-        </div>
-        <div className="flex flex-col space-y-4">
-          <Link
             href="/contact"
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
-            Contact
+            {t("footerLinks:contact")}
           </Link>
         </div>
       </div>
@@ -124,10 +111,10 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 mt-0 sm:flex mb-16 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://www.facebook.com/myway.angielski.matematyka">
-            isensei Foundation
+            {t("footerLinks:foundation")}
           </Link>
           <div className="hidden sm:block">{` • `}</div>
-          <div>Made by {siteMetadata.author}</div>
+          <div>{t("footerLinks:creator")}</div>
           <div className="hidden sm:block">{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
         </div>

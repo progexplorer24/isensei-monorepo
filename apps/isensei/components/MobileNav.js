@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "./Link";
-import headerNavLinks from "@/data/headerNavLinks";
+import links from "@/data/links";
 
 import useTranslation from "next-translate/useTranslation";
 
@@ -67,6 +67,8 @@ const MobileNav = () => {
     });
   };
 
+  const textArr = ["home", "blog", "tags", "projects"];
+
   return (
     <div className="md:hidden">
       <button
@@ -89,20 +91,57 @@ const MobileNav = () => {
           onClick={onToggleNav}
         ></button>
         <nav className="fixed h-full w-full mt-0 flex flex-col">
-          {headerNavLinks.map((link) => (
-            <div
-              key={link.title}
-              className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold "
-            >
-              <Link
-                href={link.href}
-                className="block text-center py-4"
-                onClick={onToggleNav}
+          {[links.home, links.blog, links.tags, links.projects].map(
+            (item, i) => (
+              <div
+                key={i}
+                className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold "
               >
-                {t(`headerNavLinks:${link.title.toLowerCase()}`)}
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={item}
+                  className="block text-center py-4"
+                  onClick={onToggleNav}
+                >
+                  {t(`headerNavLinks:${textArr[i]}`)}
+                </Link>
+              </div>
+            )
+          )}
+          {/* <Link
+              href={links.home}
+              className="block text-center py-4"
+              onClick={onToggleNav}
+            >
+              {t("headerNavLinks:home")}
+            </Link>
+          </div>
+          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
+            <Link
+              href={links.blog}
+              className="block text-center py-4"
+              onClick={onToggleNav}
+            >
+              {t("headerNavLinks:blog")}
+            </Link>
+          </div>
+          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
+            <Link
+              href={links.tags}
+              className="block text-center py-4"
+              onClick={onToggleNav}
+            >
+              {t("headerNavLinks:tags")}
+            </Link>
+          </div>
+          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
+            <Link
+              href={links.projects}
+              className="block text-center py-4"
+              onClick={onToggleNav}
+            >
+              {t("headerNavLinks:projects")}
+            </Link>
+          </div> */}
         </nav>
       </div>
     </div>

@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
-import NextLink from "next/link";
 import cn from "classnames";
 
-import headerNavLinks from "@/data/headerNavLinks";
+import links from "@/data/links";
 import Link from "./Link";
 import SectionContainer from "./SectionContainer";
 import FooterNew from "./Footer";
@@ -29,19 +28,22 @@ function NavItem({ href, text }) {
     </Link>
   );
 }
+const textArr = ["home", "blog", "tags", "projects"];
 
 function Header({ changeLanguage, locale, locales, t }) {
   return (
     <header className="flex items-center justify-between py-10">
       <div className="flex items-center text-base leading-5">
         <div className="hidden md:block">
-          {headerNavLinks.map((link) => (
-            <NavItem
-              key={link.title}
-              href={link.href}
-              text={t(`headerNavLinks:${link.title.toLowerCase()}`)}
-            />
-          ))}
+          {[links.home, links.blog, links.tags, links.projects].map(
+            (item, i) => (
+              <NavItem
+                key={item}
+                href={item}
+                text={t(`headerNavLinks:${textArr[i]}`)}
+              />
+            )
+          )}
         </div>
 
         <MobileNav />
@@ -69,7 +71,7 @@ function Header({ changeLanguage, locale, locales, t }) {
 const LayoutWrapper = ({ children }) => {
   const { t } = useTranslation();
   const router = useRouter();
-  const { locale, locales, defaultLocale } = router;
+  const { locale, locales } = router;
 
   const changeLanguage = (e) => {
     const locale = e.target.value;
