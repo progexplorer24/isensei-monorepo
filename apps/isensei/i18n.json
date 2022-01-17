@@ -4,6 +4,8 @@
   "pages": {
     "*": ["common", "headerNavLinks", "newsletter", "404", "SEO", "bio", "footerLinks"],
     "/projects": ["projects"],
-    "/matura-matematyka": ["matura"]
+    "/privacy-policy": ["privacyPolicy"],
+    "/contact": ["contact"],
+    "/matura/*": ["matura"]
   }
 }

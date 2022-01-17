@@ -1,8 +1,8 @@
 {
+  "home": "Główna",
   "blog": "Blog",
   "tags": "Tagi",
-  "projects": "Projekty",
   "about": "O mnie",
-  "home": "Główna",
-  "matura": "Egzaminy Maturalne"
+  "projects": "Projekty",
+  "matura": "Matury"
 }
