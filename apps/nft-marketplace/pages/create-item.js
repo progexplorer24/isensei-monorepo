@@ -63,7 +63,7 @@ export default function CreateItem() {
     let tx = await transaction.wait();
     console.log(tx);
     let event = tx.events[0];
-    let value = event.args[2]; 
+    let value = event.args[2];
     let tokenId = value.toNumber();
 
     const price = ethers.utils.parseUnits(formInput.price, "ether");

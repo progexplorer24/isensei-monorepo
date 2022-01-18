@@ -22,7 +22,7 @@ export default function Home() {
     loadNFTs();
   }, []);
   async function loadNFTs() {
-    const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint)
+    const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint);
     // const provider = new ethers.providers.JsonRpcProvider(
     //   "https://rpc-mumbai.matic.today"
     // );
