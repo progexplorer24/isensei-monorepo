@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build",
     "start": "next start",
-    "dev": "yarn run clean && TAILWIND_MODE=watch next dev",
+    "dev": "yarn run clean && TAILWIND_MODE=watch next dev -p 3001",
     "analyze": "cross-env ANALYZE=true next build",
     "test": "echo 'Running testing suite'",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts && prettier --write .",
