@@ -4618,6 +4618,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/react@npm:latest":
+  version: 1.4.3
+  resolution: "@headlessui/react@npm:1.4.3"
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: 0c55bba6dc09a81576ec7d41320e3beb57b3f4576637ac4aad6048af851d5fe5434fd0d10dfb5c7b2db16eca6ded5eb3368822ddb87ff4dcb99fc3592ef63b0a
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -12448,9 +12458,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"courses@workspace:apps/courses":
+"courses-vue@workspace:apps/courses":
   version: 0.0.0-use.local
-  resolution: "courses@workspace:apps/courses"
+  resolution: "courses-vue@workspace:apps/courses"
   dependencies:
     "@tailwindcss/custom-forms": ^0.1.4
     "@vue/cli-plugin-babel": ^3.0.1
@@ -32958,6 +32968,23 @@ __metadata:
   checksum: cc4f0404bf8d6ae1a166e0e64f3f409b423f4d1274d8c02814a59a5529f07db6cd070a749664141b992b2c1af337fa9bb451a460a43bb9bcddc49f235d3115aa
   languageName: node
   linkType: hard
+
+"template-app@workspace:apps/next-isensei-app":
+  version: 0.0.0-use.local
+  resolution: "template-app@workspace:apps/next-isensei-app"
+  dependencies:
+    "@headlessui/react": latest
+    "@tailwindcss/aspect-ratio": ^0.4.0
+    "@tailwindcss/forms": ^0.4.0
+    "@tailwindcss/line-clamp": ^0.3.1
+    "@tailwindcss/typography": ^0.5.0
+    eslint-preset-isensei: "*"
+    next: 12.0.8
+    react: 17.0.2
+    react-dom: 17.0.2
+    tailwindcss: ^3.0.15
+  languageName: unknown
+  linkType: soft
 
 "tempy@npm:^0.3.0":
   version: 0.3.0
