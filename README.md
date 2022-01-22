@@ -26,4 +26,15 @@ The commit contains the following structural elements:
 - other available commit types are: `build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test`
 
 
+## Solve yarn.lock merge conflicts
+
+```bash
+git rebase origin/main
+git checkout origin/main -- yarn.lock
+yarn install
+git add yarn.lock
+git rebase --continue
+```
+
+
 ## Credits
