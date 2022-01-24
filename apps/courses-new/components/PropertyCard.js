@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const formattedPrice = (price) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -9,32 +11,38 @@ const formattedPrice = (price) => {
 const PropertyCard = ({ property }) => {
   return (
     <div>
-      <div className="relative aspect-w-6 aspect-h-5">
-        <img
+      <div className="relative">
+        <Image
           className="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover"
           src={property.imageUrl}
+          width={600}
+          height={500}
           alt=""
         />
       </div>
       <div className="relative px-4 -mt-16">
         <div className="bg-white rounded-lg px-4 py-4 shadow-lg">
           <div className="flex items-baseline">
-            <span className="inline-block px-2 py-1 leading-none bg-teal-200 text-teal-800 rounded-full font-semibold uppercase tracking-wide text-xs">
+            <span className="inline-block px-2 py-1 leading-none bg-blue-100 text-blue-900 rounded-full font-bold uppercase tracking-wide text-xs">
               Plus
             </span>
             <div className="ml-2 text-xs text-gray-600 font-semibold uppercase tracking-wide">
-              {property.beds === 1 ? "bed" : "beds"} &bull;
-              {property.baths === 1 ? "bath" : "baths"}
+              {`${property.sections} ${
+                property.sections === 1 ? "section" : "sections"
+              } `}
+              &bull;
+              {` ${property.lectures} ${
+                property.lectures === 1 ? "lecture" : "lectures"
+              }`}
             </div>
           </div>
           <h4 className="mt-1 text-gray-900 font-semibold text-lg">
             {property.title}
           </h4>
           <div className="mt-1">
-            <span className="text-gray-900">
+            <span className="text-gray-900 text-xl">
               {formattedPrice(property.price)}
             </span>
-            <span className="ml-1 text-sm text-gray-600">/wk</span>
           </div>
           <div className="mt-2 flex items-center text-sm text-gray-600">
             {[1, 2, 3, 4, 5].map((element) => (

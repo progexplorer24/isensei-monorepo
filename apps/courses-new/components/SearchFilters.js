@@ -47,18 +47,23 @@ const SearchFilters = () => {
             <div className="flex flex-wrap -mx-2">
               <label className="block w-1/2 px-2 sm:w-1/4 lg:w-1/2">
                 <span className="text-sm font-semibold text-gray-500">
-                  Bedrooms
+                  Ratings
                 </span>
                 <select className="mt-1 form-select block w-full text-white shadow focus:bg-gray-600 leading-snug border-transparent rounded-lg bg-gray-700 focus:border-transparent focus:shadow-none ">
-                  <option>4</option>
+                  <option>5</option>
+                  <option>4.5 & up</option>
+                  <option>4 & up</option>
+                  <option>3.5 & up</option>
+                  <option>3 & up</option>
                 </select>
               </label>
               <label className="block w-1/2 px-2 sm:w-1/4 lg:w-1/2">
                 <span className="text-sm font-semibold text-gray-500">
-                  Bathrooms
+                  Language
                 </span>
                 <select className="mt-1 form-select block w-full text-white shadow focus:bg-gray-600 leading-snug border-transparent rounded-lg bg-gray-700 focus:border-transparent focus:shadow-none">
-                  <option>2</option>
+                  <option>English</option>
+                  <option>Polish</option>
                 </select>
               </label>
               <label className="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
@@ -66,14 +71,17 @@ const SearchFilters = () => {
                   Price Range
                 </span>
                 <select className="mt-1 form-select block w-full text-white shadow focus:bg-gray-600 leading-snug border-transparent rounded-lg bg-gray-700 focus:border-transparent focus:shadow-none">
-                  <option>Up to $2,000/wk</option>
+                  <option>Up to $150</option>
+                  <option>Up to $100</option>
+                  <option>Up to $50</option>
+                  <option>Free</option>
                 </select>
               </label>
             </div>
           </div>
           <div className="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
             <span className="block text-sm font-semibold text-gray-500">
-              Property Type
+              Topic
             </span>
             <div className="sm:flex sm:-mx-2 lg:block lg:mx-0">
               <label className="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
@@ -83,7 +91,7 @@ const SearchFilters = () => {
                   name="propertyType"
                   value="house"
                 />
-                <span className="ml-2 text-white">House</span>
+                <span className="ml-2 text-white">Web Dev</span>
               </label>
               <label className="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                 <input
@@ -92,7 +100,7 @@ const SearchFilters = () => {
                   name="propertyType"
                   value="apartment"
                 />
-                <span className="ml-2 text-white">Apartment</span>
+                <span className="ml-2 text-white">Web Design</span>
               </label>
               <label className="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                 <input
@@ -101,7 +109,7 @@ const SearchFilters = () => {
                   name="propertyType"
                   value="loft"
                 />
-                <span className="ml-2 text-white">Loft</span>
+                <span className="ml-2 text-white">Crypto</span>
               </label>
               <label className="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                 <input
@@ -110,13 +118,13 @@ const SearchFilters = () => {
                   name="propertyType"
                   value="townhouse"
                 />
-                <span className="ml-2 text-white">Townhouse</span>
+                <span className="ml-2 text-white">Data Science</span>
               </label>
             </div>
           </div>
           <div className="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
             <span className="block text-sm font-semibold text-gray-500">
-              Amenities
+              Level
             </span>
             <div className="sm:flex sm:-mx-2 sm:flex-wrap">
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
@@ -125,7 +133,7 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="balcony"
                 />
-                <span className="ml-2 text-white">Balcony</span>
+                <span className="ml-2 text-white">All Levels</span>
               </label>
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                 <input
@@ -133,7 +141,7 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="pool"
                 />
-                <span className="ml-2 text-white">Pool</span>
+                <span className="ml-2 text-white">Freshman</span>
               </label>
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                 <input
@@ -141,7 +149,7 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="beach"
                 />
-                <span className="ml-2 text-white">Beach</span>
+                <span className="ml-2 text-white">Beginner</span>
               </label>
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                 <input
@@ -149,7 +157,7 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="petFriendly"
                 />
-                <span className="ml-2 text-white">Pet friendly</span>
+                <span className="ml-2 text-white">Intermediate</span>
               </label>
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                 <input
@@ -157,7 +165,7 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="kidFriendly"
                 />
-                <span className="ml-2 text-white">Kid friendly</span>
+                <span className="ml-2 text-white">Pro</span>
               </label>
               <label className="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                 <input
@@ -165,21 +173,13 @@ const SearchFilters = () => {
                   type="checkbox"
                   name="parking"
                 />
-                <span className="ml-2 text-white">Parking</span>
-              </label>
-              <label className="mt-3 flex items-center sm:w-1/2 sm:px-2 lg:w-full">
-                <input
-                  className="form-checkbox leading-snug border-transparent rounded-lg focus:border-transparent focus:shadow-none  bg-gray-900 focus:bg-gray-700 w-6 h-6"
-                  type="checkbox"
-                  name="airConditioning"
-                />
-                <span className="ml-2 text-white">Air conditioning</span>
+                <span className="ml-2 text-white">Expert</span>
               </label>
             </div>
           </div>
         </div>
         <div className="bg-gray-900 px-4 py-4 sm:text-right">
-          <button className="block w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg xl:block xl:w-full">
+          <button className="block w-full sm:w-auto sm:inline-block bg-blue-800 hover:bg-blue-700 font-semibold text-white px-4 py-2 rounded-lg xl:block xl:w-full">
             Update results
           </button>
         </div>

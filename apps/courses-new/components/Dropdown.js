@@ -14,7 +14,8 @@ const Dropdown = ({ trigger, dropdown }) => {
         onBlur={() => setHasFocus(true)}
       >
         <div className={isOpen ? "block" : "hidden"}></div>
-        {trigger(isOpen, hasFocus)}
+        {trigger()}
+
         {/* <slot name="trigger" :hasFocus="buttonHasFocus" :isOpen="isOpen"></slot> */}
       </button>
 
