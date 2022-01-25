@@ -19,9 +19,7 @@ For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700
 </Example>
 
 ```html
-<button class="bg-sky-600 **hover:bg-sky-700** ...">
-  Save changes
-</button>
+<button class="bg-sky-600 **hover:bg-sky-700** ...">Save changes</button>
 ```
 
 <details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
@@ -69,9 +67,7 @@ Tailwind includes modifiers for just about everything you'll ever need, includin
 These modifiers can even be [stacked](#ordering-stacked-modifiers) to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
 
 ```html
-<button class="**dark:md:hover:bg-fuchsia-600** ...">
-  Save changes
-</button>
+<button class="**dark:md:hover:bg-fuchsia-600** ...">Save changes</button>
 ```
 
 In this guide you'll learn about every modifier available in the framework, how to use them with your own custom classes, and even how to create your own.
@@ -86,14 +82,19 @@ Style elements on hover, focus, and active using the `hover`, `focus`, and `acti
 
 <Example hint="Try interacting with this button to see the hover, focus, and active states">
   <div class="grid place-items-center">
-    <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+    <button
+      type="button"
+      class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white"
+    >
       Save changes
     </button>
   </div>
 </Example>
 
 ```html
-<button class="bg-violet-500 **hover:bg-violet-400** **active:bg-violet-600** **focus:outline-none focus:ring focus:ring-violet-300** ...">
+<button
+  class="bg-violet-500 **hover:bg-violet-400** **active:bg-violet-600** **focus:outline-none focus:ring focus:ring-violet-300** ..."
+>
   Save changes
 </button>
 ```
@@ -111,28 +112,44 @@ Style an element when it is the first-child or last-child using the `first` and 
     <div class="max-w-md mx-auto bg-white shadow">
       <ul role="list" class="p-6 divide-y divide-slate-200">
         <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
           <div class="ml-3 overflow-hidden">
             <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
             <p class="text-sm text-slate-500 truncate">kristen.ramos@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
           <div class="ml-3 overflow-hidden">
             <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
             <p class="text-sm text-slate-500 truncate">floyd.miles@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
           <div class="ml-3 overflow-hidden">
             <p class="text-sm font-medium text-slate-900">Courtney Henry</p>
             <p class="text-sm text-slate-500 truncate">courtney.henry@example.com</p>
           </div>
         </li>
         <li class="py-4 flex first:pt-0 last:pb-0">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+          <img
+            class="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
           <div class="ml-3 overflow-hidden">
             <p class="text-sm font-medium text-slate-900">Ted Fox</p>
             <p class="text-sm text-slate-500 truncate">ted.fox@example.com</p>
@@ -146,14 +163,14 @@ Style an element when it is the first-child or last-child using the `first` and 
 ```html
 <ul role="list" class="p-6 divide-y divide-slate-200">
   {#each people as person}
-    <!-- Remove top/bottom padding when first/last child -->
-    <li class="flex py-4 **first:pt-0** **last:pb-0**">
-      <img class="h-10 w-10 rounded-full" src="{person.imageUrl}" alt="" />
-      <div class="ml-3 overflow-hidden">
-        <p class="text-sm font-medium text-slate-900">{person.name}</p>
-        <p class="text-sm text-slate-500 truncate">{person.email}</p>
-      </div>
-    </li>
+  <!-- Remove top/bottom padding when first/last child -->
+  <li class="flex py-4 **first:pt-0** **last:pb-0**">
+    <img class="h-10 w-10 rounded-full" src="{person.imageUrl}" alt="" />
+    <div class="ml-3 overflow-hidden">
+      <p class="text-sm font-medium text-slate-900">{person.name}</p>
+      <p class="text-sm text-slate-500 truncate">{person.email}</p>
+    </div>
+  </li>
   {/each}
 </ul>
 ```
@@ -250,12 +267,12 @@ You can also style an element when it's an odd or even child using the `odd` and
   <!-- ... -->
   <tbody>
     {#each people as person}
-      <!-- Use a white background for odd rows, and slate-100 for even rows -->
-      <tr class="**odd:bg-white** **even:bg-slate-100**">
-        <td>{person.name}</td>
-        <td>{person.title}</td>
-        <td>{person.email}</td>
-      </tr>
+    <!-- Use a white background for odd rows, and slate-100 for even rows -->
+    <tr class="**odd:bg-white** **even:bg-slate-100**">
+      <td>{person.name}</td>
+      <td>{person.title}</td>
+      <td>{person.email}</td>
+    </tr>
     {/each}
   </tbody>
 </table>
@@ -273,21 +290,47 @@ Style form elements in different states using modifiers like `required`, `invali
   <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
     <form>
       <div>
-        <label for="username" class="block text-sm font-medium text-slate-700">Username</label>
+        <label for="username" class="block text-sm font-medium text-slate-700">
+          Username
+        </label>
         <div class="mt-1">
-          <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            value="tbone"
+            disabled
+          />
         </div>
       </div>
       <div class="mt-6">
-        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+        <label for="email" class="block text-sm font-medium text-slate-700">
+          Email
+        </label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            value="george@krugerindustrial."
+            placeholder="you@example.com"
+          />
         </div>
       </div>
       <div class="mt-6">
-        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+        <label for="password" class="block text-sm font-medium text-slate-700">
+          Password
+        </label>
         <div class="mt-1">
-          <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            value="Bosco"
+          />
         </div>
       </div>
       <div class="mt-6 text-right">
@@ -304,12 +347,17 @@ Style form elements in different states using modifiers like `required`, `invali
   <label class="block">
     <span class="block text-sm font-medium text-slate-700">Username</span>
     <!-- Using form state modifers, the classes can be identical for every input -->
-    <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+    <input
+      type="text"
+      value="tbone"
+      disabled
+      class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
       **invalid:border-pink-500** **invalid:text-pink-600**
       **focus:invalid:border-pink-500** **focus:invalid:ring-pink-500**
-    "/>
+    "
+    />
   </label>
   <!-- ... -->
 </form>
@@ -317,7 +365,7 @@ Style form elements in different states using modifiers like `required`, `invali
 
 Using modifiers for this sort of thing can reduce the amount of conditional logic in your templates, letting you use the same set of classes regardless of what state an input is in and letting the browser apply the right styles for you.
 
-Tailwind also includes modifiers for other form states like `:read-only`, `:indeterminate`, `:checked`,  and more.
+Tailwind also includes modifiers for other form states like `:read-only`, `:indeterminate`, `:checked`, and more.
 
 See the [pseudo-class reference](#disabled) for a complete list of available pseudo-class modifiers.
 
@@ -326,32 +374,55 @@ See the [pseudo-class reference](#disabled) for a complete list of available pse
 When you need to style an element based on the state of some _parent_ element, mark the parent with the `group` class, and use `group-*` modifiers like `group-hover` to style the target element:
 
 <Example hint="Hover over the card to see both text elements change color">
-  <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+  <a
+    href="#"
+    class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500"
+  >
     <div class="flex items-center space-x-3">
       <svg class="h-6 w-6 stroke-sky-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11" />
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M11 19H6.931A1.922 1.922 0 015 17.087V8h12.069C18.135 8 19 8.857 19 9.913V11"
+        />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4"
+        />
       </svg>
       <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">New project</h3>
     </div>
-    <p class="text-sm text-slate-500 group-hover:text-white">Create a new project from a variety of starting templates.</p>
+    <p class="text-sm text-slate-500 group-hover:text-white">
+      Create a new project from a variety of starting templates.
+    </p>
   </a>
 </Example>
 
 ```html
-<a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
+<a
+  href="#"
+  class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-whitering-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500"
+>
   <div class="flex items-center space-x-3">
-    <svg class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**" fill="none" viewBox="0 0 24 24"><!-- ... --></svg>
+    <svg
+      class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <!-- ... -->
+    </svg>
     <h3 class="text-slate-900 **group-hover:text-white** text-sm font-semibold">New project</h3>
   </div>
-  <p class="text-slate-500 **group-hover:text-white** text-sm">Create a new project from a variety of starting templates.</p>
+  <p class="text-slate-500 **group-hover:text-white** text-sm">
+    Create a new project from a variety of starting templates.
+  </p>
 </a>
 ```
 
 This pattern works with every pseudo-class modifier, for example `group-focus`, `group-active`, or even `group-odd`.
-
 
 ### Styling based on sibling state <small>(peer-{'{modifier}'})</small>
 
@@ -361,10 +432,21 @@ When you need to style an element based on the state of a _sibling_ element, mar
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
     <form>
       <div>
-        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+        <label for="email" class="block text-sm font-medium text-slate-700">
+          Email
+        </label>
         <div class="mt-1">
-          <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
-          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Please provide a valid email address.</p>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            value="george@krugerindustrial."
+            placeholder="you@example.com"
+          />
+          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
+            Please provide a valid email address.
+          </p>
         </div>
       </div>
     </form>
@@ -375,7 +457,7 @@ When you need to style an element based on the state of a _sibling_ element, mar
 <form>
   <label class="block">
     <span class="block text-sm font-medium text-slate-700">Email</span>
-    <input type="email" class="**peer** ..."/>
+    <input type="email" class="**peer** ..." />
     <p class="mt-2 invisible **peer-invalid:visible** text-pink-600 text-sm">
       Please provide a valid email address.
     </p>
@@ -386,6 +468,17 @@ When you need to style an element based on the state of a _sibling_ element, mar
 This makes it possible to do all sorts of neat tricks, like [floating labels](https://www.youtube.com/watch?v=nJzKi6oIvBA) for example without any JS.
 
 This pattern works with every pseudo-class modifier, for example `peer-focus`, `peer-required`, and `peer-disabled`.
+
+It's important to note that the `peer` marker can only be used on _previous_ siblings because of how the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) works in CSS.
+
+<TipBad>Won't work, only previous siblings can be marked as peers</TipBad>
+
+```html
+<label>
+  <span class="**peer-invalid:text-red-500** ...">Email</span>
+  <input type="email" class="**peer** ..." />
+</label>
+```
 
 ---
 
@@ -399,8 +492,16 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
     <form>
       <label class="block">
-        <span class="block text-sm font-medium text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">Email</span>
-        <input type="email" name="email" id="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+        <span class="block text-sm font-medium text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500">
+          Email
+        </span>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+          placeholder="you@example.com"
+        />
       </label>
     </form>
   </div>
@@ -408,21 +509,31 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 
 ```html
 <label class="block">
-  <span class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-slate-700">
+  <span
+    class="**after:content-['*']** **after:ml-0.5** **after:text-red-500** block text-sm font-medium text-slate-700"
+  >
     Email
   </span>
-  <input type="email" name="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="you@example.com" />
+  <input
+    type="email"
+    name="email"
+    class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+    placeholder="you@example.com"
+  />
 </label>
 ```
 
 When using these modifiers, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
 
-
 <Example p="none">
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
       <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-        When you look <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">annoyed</span></span> all the time, people think that you're busy.
+        When you look{' '}
+        <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500">
+          <span class="relative text-white">annoyed</span>
+        </span>{' '}
+        all the time, people think that you're busy.
       </blockquote>
     </div>
   </div>
@@ -431,7 +542,9 @@ When using these modifiers, Tailwind will automatically add `content: ''` by def
 ```html
 <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
   When you look
-  <span class="**before:block** **before:absolute** **before:-inset-1** **before:-skew-y-3** **before:bg-pink-500** relative inline-block">
+  <span
+    class="**before:block** **before:absolute** **before:-inset-1** **before:-skew-y-3** **before:bg-pink-500** relative inline-block"
+  >
     <span class="relative text-white">annoyed</span>
   </span>
   all the time, people think that you're busy.
@@ -443,14 +556,14 @@ It's worth noting that you don't really need `::before` and `::after` pseudo-ele
 For example, here's the same design from above but using a `<span>` instead of the `::before` pseudo-element, which is a little easier to read and is actually less code:
 
 ```html
-  <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-    When you look
-    <span class="relative">
->     <span class="block absolute -inset-1 -skew-y-3 bg-pink-500" aria-hidden="true"></span>
-      <span class="relative text-white">annoyed</span>
-    </span>
-    all the time, people think that you're busy.
-  </blockquote>
+<blockquote class="text-2xl font-semibold italic text-center text-slate-900">
+  When you look
+  <span class="relative">
+    > <span class="block absolute -inset-1 -skew-y-3 bg-pink-500" aria-hidden="true"></span>
+    <span class="relative text-white">annoyed</span>
+  </span>
+  all the time, people think that you're busy.
+</blockquote>
 ```
 
 Save `before` and `after` for situations where it's important that the content of the pseudo-element is not actually in the DOM and can't be selected by the user.
@@ -483,7 +596,11 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
           </svg>
         </span>
         <span class="sr-only">Search</span>
-        <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
+        <input
+          type="text"
+          name="search"
+          class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+          placeholder="Search for anything..."
         />
       </label>
     </form>
@@ -496,7 +613,12 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
   <span class="absolute inset-y-0 left-0 flex items-center pl-2">
     <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
   </span>
-  <input class="**placeholder:italic** **placeholder:text-slate-400** block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search"/>
+  <input
+    class="**placeholder:italic** **placeholder:text-slate-400** block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+    placeholder="Search for anything..."
+    type="text"
+    name="search"
+  />
 </label>
 ```
 
@@ -509,11 +631,17 @@ Style the button in file inputs using the `file` modifier:
     <div class="max-w-sm mx-auto bg-white shadow py-8 px-6">
       <form class="flex items-center space-x-6">
         <div class="shrink-0">
-          <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+          <img
+            class="h-16 w-16 object-cover rounded-full"
+            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+            alt="Current profile photo"
+          />
         </div>
         <label class="block">
           <span class="sr-only">Choose profile photo</span>
-          <input type="file" class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
+          <input
+            type="file"
+            class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
           />
         </label>
       </form>
@@ -524,17 +652,24 @@ Style the button in file inputs using the `file` modifier:
 ```html
 <form class="flex items-center space-x-6">
   <div class="shrink-0">
-    <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+    <img
+      class="h-16 w-16 object-cover rounded-full"
+      src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+      alt="Current profile photo"
+    />
   </div>
   <label class="block">
     <span class="sr-only">Choose profile photo</span>
-    <input type="file" class="block w-full text-sm text-slate-500
+    <input
+      type="file"
+      class="block w-full text-sm text-slate-500
       **file:mr-4** **file:py-2** **file:px-4**
       **file:rounded-full** **file:border-0**
       **file:text-sm** **file:font-semibold**
       **file:bg-violet-50** **file:text-violet-700**
       **hover:file:bg-violet-100**
-    "/>
+    "
+    />
   </label>
 </form>
 ```
@@ -553,7 +688,10 @@ Style the counters or bullets in lists using the `marker` modifier:
   <div class="px-6">
     <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
       <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
-      <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400">
+      <ul
+        role="list"
+        class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400"
+      >
         <li>5 cups chopped Porcini mushrooms</li>
         <li>1/2 cup of olive oil</li>
         <li>3lb of celery</li>
@@ -563,7 +701,11 @@ Style the counters or bullets in lists using the `marker` modifier:
 </Example>
 
 ```html
-<ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-500" dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-400">
+<ul
+  role="list"
+  class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-500"
+  dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-400"
+>
   <li>5 cups chopped Porcini mushrooms</li>
   <li>1/2 cup of olive oil</li>
   <li>3lb of celery</li>
@@ -580,7 +722,10 @@ Style the active text selection using the `selection` modifier:
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
       <p>
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed
+        on, and as I made my way past the breakers a strange calm came over me. I don't know if it
+        was divine intervention or the kinship of all living things but I tell you Jerry at that
+        moment, I <em>was</em> a marine biologist.
       </p>
     </div>
   </div>
@@ -589,11 +734,10 @@ Style the active text selection using the `selection` modifier:
 ```html
 <div class="**selection:bg-fuchsia-300** **selection:text-fuchsia-900**">
   <p>
-    So I started to walk into the water. I won't lie to you boys, I was
-    terrified. But I pressed on, and as I made my way past the breakers
-    a strange calm came over me. I don't know if it was divine intervention
-    or the kinship of all living things but I tell you Jerry at that moment,
-    I <em>was</em> a marine biologist.
+    So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on,
+    and as I made my way past the breakers a strange calm came over me. I don't know if it was
+    divine intervention or the kinship of all living things but I tell you Jerry at that moment, I
+    <em>was</em> a marine biologist.
   </p>
 </div>
 ```
@@ -604,12 +748,12 @@ This makes it easy to set the selection color to match your brand across your en
 
 ```html
 <html>
-<head>
-  <!-- ... -->
-</head>
-<body class="**selection:bg-pink-300**">
-  <!-- ... -->
-</body>
+  <head>
+    <!-- ... -->
+  </head>
+  <body class="**selection:bg-pink-300**">
+    <!-- ... -->
+  </body>
 </html>
 ```
 
@@ -621,26 +765,33 @@ Style the first line in a block of content using the `first-line` modifier, and 
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
       <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
-        Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
+        Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New
+        York Public Library"? Well that may not mean anything to you, but that means a lot to me.
+        One whole hell of a lot.
       </p>
       <p class="mt-6">
-        Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene, flaunting convention. Yeah, I know what you're thinking. What's this guy making such a big stink about old library books? Well, let me give you a hint, junior.
+        Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene,
+        flaunting convention. Yeah, I know what you're thinking. What's this guy making such a big
+        stink about old library books? Well, let me give you a hint, junior.
       </p>
     </div>
   </div>
 </Example>
 
 ```html
-<p class="**first-line:uppercase** **first-line:tracking-widest**
+<p
+  class="**first-line:uppercase** **first-line:tracking-widest**
   **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-slate-900**
   **first-letter:mr-3** **first-letter:float-left**
-" dark-class="**first-line:uppercase** **first-line:tracking-widest**
+"
+  dark-class="**first-line:uppercase** **first-line:tracking-widest**
   **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-white**
   **first-letter:mr-3** **first-letter:float-left**
-">
-  Well, let me tell you something, funny boy. Y'know that little stamp, the one
-  that says "New York Public Library"? Well that may not mean anything to you,
-  but that means a lot to me. One whole hell of a lot.
+"
+>
+  Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York
+  Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole
+  hell of a lot.
 </p>
 ```
 
@@ -675,14 +826,27 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
       <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            <svg
+              class="h-6 w-6 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
             </svg>
           </span>
         </div>
         <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Writes Upside-Down</h3>
         <p class="mt-2 text-sm text-slate-500">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It
+          even works in outer space.
         </p>
       </div>
     </div>
@@ -691,14 +855,27 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
       <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            <svg
+              class="h-6 w-6 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
             </svg>
           </span>
         </div>
         <h3 class="mt-5 text-base font-medium text-white tracking-tight">Writes Upside-Down</h3>
         <p class="mt-2 text-sm text-slate-400">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It
+          even works in outer space.
         </p>
       </div>
     </div>
@@ -709,12 +886,24 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
 <div class="bg-white **dark:bg-slate-900** rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
   <div>
     <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
+      <svg
+        class="h-6 w-6 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <!-- ... -->
+      </svg>
     </span>
   </div>
-  <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+  <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">
+    Writes Upside-Down
+  </h3>
   <p class="text-slate-500 **dark:text-slate-400** mt-2 text-sm">
-    The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+    The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even
+    works in outer space.
   </p>
 </div>
 ```
@@ -729,10 +918,30 @@ Use the `motion-reduce` modifier to conditionally add styles when the user has r
 
 <Example hint="Try emulating `prefers-reduced-motion: reduce` in your developer tools to hide the spinner">
   <div class="flex items-center justify-center">
-    <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500" disabled>
-      <svg class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    <button
+      type="button"
+      class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500"
+      disabled
+    >
+      <svg
+        class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
       </svg>
       Processing...
     </button>
@@ -750,7 +959,9 @@ Tailwind also includes a `motion-safe` modifier that only adds styles when the u
 
 ```html
 <!-- Using `motion-reduce` can mean lots of "undoing" styles -->
-<button class="hover:-translate-y-0.5 transition **motion-reduce:hover:translate-y-0** **motion-reduce:transition-none** ...">
+<button
+  class="hover:-translate-y-0.5 transition **motion-reduce:hover:translate-y-0** **motion-reduce:transition-none** ..."
+>
   Save changes
 </button>
 
@@ -771,8 +982,8 @@ Use the `portrait` and `landscape` modifiers to conditionally add styles when th
   </div>
   <div class="landscape:hidden">
     <p>
-      This experience is designed to be viewed in landscape. Please rotate your
-      device to view the site.
+      This experience is designed to be viewed in landscape. Please rotate your device to view the
+      site.
     </p>
   </div>
 </div>
@@ -789,9 +1000,7 @@ Use the `print` modifier to conditionally add styles that only apply when the do
     <p>This recipe is a secret, and must not be shared with anyone</p>
     <!-- ... -->
   </article>
-  <div class="hidden **print:block**">
-    Are you seriously trying to print this? It's secret!
-  </div>
+  <div class="hidden **print:block**">Are you seriously trying to print this? It's secret!</div>
 </div>
 ```
 
@@ -810,20 +1019,36 @@ Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and 
     <div dir="ltr">
       <p class="mb-4 text-sm font-medium">Left-to-right</p>
       <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <img
+          class="shrink-0 h-12 w-12 rounded-full"
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
+          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+            Tom Cook
+          </p>
+          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+            Director of Operations
+          </p>
         </div>
       </div>
     </div>
     <div dir="rtl">
       <p class="mb-4 text-sm font-medium">Right-to-left</p>
       <div class="group flex items-center">
-        <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+        <img
+          class="shrink-0 h-12 w-12 rounded-full"
+          src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
-          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">تامر كرم</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">الرئيس التنفيذي</p>
+          <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+            تامر كرم
+          </p>
+          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+            الرئيس التنفيذي
+          </p>
         </div>
       </div>
     </div>
@@ -831,13 +1056,24 @@ Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and 
 </Example>
 
 ```html
-  <div class="group flex items-center">
-    <img class="shrink-0 h-12 w-12 rounded-full" src="..." alt="" />
->   <div class="ltr:ml-3 rtl:mr-3">
-      <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900" dark-class="text-sm font-medium text-slate-300 group-hover:text-white">...</p>
-      <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700" dark-class="text-sm font-medium text-slate-500 group-hover:text-slate-300">...</p>
-    </div>
+<div class="group flex items-center">
+  <img class="shrink-0 h-12 w-12 rounded-full" src="..." alt="" />
+  >
+  <div class="ltr:ml-3 rtl:mr-3">
+    <p
+      class="text-sm font-medium text-slate-700 group-hover:text-slate-900"
+      dark-class="text-sm font-medium text-slate-300 group-hover:text-white"
+    >
+      ...
+    </p>
+    <p
+      class="text-sm font-medium text-slate-500 group-hover:text-slate-700"
+      dark-class="text-sm font-medium text-slate-500 group-hover:text-slate-300"
+    >
+      ...
+    </p>
   </div>
+</div>
 ```
 
 Note that the `ltr` modifier will not take effect unless the `dir` attribute is explicitly set to `ltr`, so if you are building a multi-directional site make sure to always set a direction, not just in `rtl` mode.
@@ -852,14 +1088,16 @@ Note that the `ltr` modifier will not take effect unless the `dir` attribute is 
 
 Remember, these modifiers are only useful if you are building a site that needs to support _both_ left-to-right and right-to-left layouts. If you're building a site that only needs to support a single direction, you don't need these modifiers — just apply the styles that make sense for your content.
 
-
 ### Open/closed state
 
 Use the `open` modifier to conditionally add styles when a `<details>` or `<dialog>` element is in an open state:
 
 <Example hint="Try toggling the disclosure to see the styles change">
   <div class="max-w-lg mx-auto">
-    <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
+    <details
+      class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg"
+      open
+    >
       <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
         Why do they call it Ovaltine?
       </summary>
@@ -870,20 +1108,22 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
   </div>
 </Example>
 
-
 ```html
-  <div class="max-w-lg mx-auto p-8">
->   <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
-      <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-        Why do they call it Ovaltine?
-      </summary>
-      <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        <p>The mug is round. The jar is round. They should call it Roundtine.</p>
-      </div>
-    </details>
-  </div>
+<div class="max-w-lg mx-auto p-8">
+  >
+  <details
+    class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg"
+    open
+  >
+    <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
+      Why do they call it Ovaltine?
+    </summary>
+    <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+      <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+    </div>
+  </details>
+</div>
 ```
-
 
 ---
 
@@ -957,7 +1197,6 @@ Another place this is important is when using modifiers like `prose-headings` th
 
 In the first example, every single heading is underlined when you hover over the article itself, whereas in the second example each heading is only underlined when you hover over that heading.
 
-
 ### Creating custom modifiers
 
 You can add your own modifiers to Tailwind by creating a plugin that uses the `addVariant` API:
@@ -971,8 +1210,8 @@ module.exports = {
     plugin(function ({ addVariant }) {
       // Add a `third` variant, ie. `third:pb-0`
       addVariant('third', '&:nth-child(3)')
-    })
-  ]
+    }),
+  ],
 }
 ```
 
@@ -988,64 +1227,64 @@ A quick reference table of every single modifier included in Tailwind by default
 
 <div class="overflow-scroll max-w-screen">
 
-| Modifier | CSS |
-| --- | --- |
-| <a href="#hover" className="whitespace-nowrap">hover</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:hover</code> |
-| <a href="#focus" className="whitespace-nowrap">focus</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus</code> |
-| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-within</code> |
-| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-visible</code> |
-| <a href="#active" className="whitespace-nowrap">active</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code> |
-| <a href="#visited" className="whitespace-nowrap">visited</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code> |
-| <a href="#target" className="whitespace-nowrap">target</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code> |
-| <a href="#first" className="whitespace-nowrap">first</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code> |
-| <a href="#last" className="whitespace-nowrap">last</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code> |
-| <a href="#only" className="whitespace-nowrap">only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code> |
-| <a href="#odd" className="whitespace-nowrap">odd</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(odd)</code> |
-| <a href="#even" className="whitespace-nowrap">even</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(even)</code> |
-| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-of-type</code> |
-| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-of-type</code> |
-| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code> |
-| <a href="#empty" className="whitespace-nowrap">empty</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code> |
-| <a href="#disabled" className="whitespace-nowrap">disabled</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code> |
-| <a href="#checked" className="whitespace-nowrap">checked</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code> |
-| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code> |
-| <a href="#default" className="whitespace-nowrap">default</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code> |
-| <a href="#required" className="whitespace-nowrap">required</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:required</code> |
-| <a href="#valid" className="whitespace-nowrap">valid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:valid</code> |
-| <a href="#invalid" className="whitespace-nowrap">invalid</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:invalid</code> |
-| <a href="#in-range" className="whitespace-nowrap">in-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:in-range</code> |
-| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:out-of-range</code> |
-| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code> |
-| <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code> |
-| <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code> |
-| <a href="#open-closed-state" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
-| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
-| <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code> |
-| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
-| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code> |
-| <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
-| <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |
-| <a href="#responsive-breakpoints" className="whitespace-nowrap">lg</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1024px)</code> |
-| <a href="#responsive-breakpoints" className="whitespace-nowrap">xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1280px)</code> |
-| <a href="#responsive-breakpoints" className="whitespace-nowrap">2xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1536px)</code> |
-| <a href="#prefers-color-scheme" className="whitespace-nowrap">dark</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-color-scheme: dark)</code> |
-| <a href="#viewport-orientation" className="whitespace-nowrap">portrait</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: portrait)</code> |
-| <a href="#viewport-orientation" className="whitespace-nowrap">landscape</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code> |
-| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code> |
-| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code> |
-| <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
-| <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
-| <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
+| Modifier                                                                              | CSS                                                                                                                                               |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <a href="#hover" className="whitespace-nowrap">hover</a>                              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:hover</code>                 |
+| <a href="#focus" className="whitespace-nowrap">focus</a>                              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus</code>                 |
+| <a href="#focus-within" className="whitespace-nowrap">focus-within</a>                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-within</code>          |
+| <a href="#focus-visible" className="whitespace-nowrap">focus-visible</a>              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:focus-visible</code>         |
+| <a href="#active" className="whitespace-nowrap">active</a>                            | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:active</code>                |
+| <a href="#visited" className="whitespace-nowrap">visited</a>                          | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:visited</code>               |
+| <a href="#target" className="whitespace-nowrap">target</a>                            | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:target</code>                |
+| <a href="#first" className="whitespace-nowrap">first</a>                              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-child</code>           |
+| <a href="#last" className="whitespace-nowrap">last</a>                                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-child</code>            |
+| <a href="#only" className="whitespace-nowrap">only</a>                                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-child</code>            |
+| <a href="#odd" className="whitespace-nowrap">odd</a>                                  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(odd)</code>        |
+| <a href="#even" className="whitespace-nowrap">even</a>                                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:nth-child(even)</code>       |
+| <a href="#first-of-type" className="whitespace-nowrap">first-of-type</a>              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:first-of-type</code>         |
+| <a href="#last-of-type" className="whitespace-nowrap">last-of-type</a>                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:last-of-type</code>          |
+| <a href="#only-of-type" className="whitespace-nowrap">only-of-type</a>                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:only-of-type</code>          |
+| <a href="#empty" className="whitespace-nowrap">empty</a>                              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:empty</code>                 |
+| <a href="#disabled" className="whitespace-nowrap">disabled</a>                        | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:disabled</code>              |
+| <a href="#checked" className="whitespace-nowrap">checked</a>                          | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:checked</code>               |
+| <a href="#indeterminate" className="whitespace-nowrap">indeterminate</a>              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:indeterminate</code>         |
+| <a href="#default" className="whitespace-nowrap">default</a>                          | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:default</code>               |
+| <a href="#required" className="whitespace-nowrap">required</a>                        | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:required</code>              |
+| <a href="#valid" className="whitespace-nowrap">valid</a>                              | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:valid</code>                 |
+| <a href="#invalid" className="whitespace-nowrap">invalid</a>                          | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:invalid</code>               |
+| <a href="#in-range" className="whitespace-nowrap">in-range</a>                        | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:in-range</code>              |
+| <a href="#out-of-range" className="whitespace-nowrap">out-of-range</a>                | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:out-of-range</code>          |
+| <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>      | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code>     |
+| <a href="#autofill" className="whitespace-nowrap">autofill</a>                        | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code>              |
+| <a href="#read-only" className="whitespace-nowrap">read-only</a>                      | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code>             |
+| <a href="#open-closed-state" className="whitespace-nowrap">open</a>                   | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code>                 |
+| <a href="#before-and-after" className="whitespace-nowrap">before</a>                  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code>               |
+| <a href="#before-and-after" className="whitespace-nowrap">after</a>                   | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code>                |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code>         |
+| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>   | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code>           |
+| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>                  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code>               |
+| <a href="#selection" className="whitespace-nowrap">selection</a>                      | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code>            |
+| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>                  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
+| <a href="#placeholder" className="whitespace-nowrap">placeholder</a>                  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code>          |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a>                | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code>                                       |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a>                | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code>                                       |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">lg</a>                | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1024px)</code>                                      |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">xl</a>                | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1280px)</code>                                      |
+| <a href="#responsive-breakpoints" className="whitespace-nowrap">2xl</a>               | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1536px)</code>                                      |
+| <a href="#prefers-color-scheme" className="whitespace-nowrap">dark</a>                | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-color-scheme: dark)</code>                             |
+| <a href="#viewport-orientation" className="whitespace-nowrap">portrait</a>            | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: portrait)</code>                                  |
+| <a href="#viewport-orientation" className="whitespace-nowrap">landscape</a>           | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code>                                 |
+| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a>       | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code>                  |
+| <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a>     | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code>                         |
+| <a href="#print-styles" className="whitespace-nowrap">print</a>                       | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code>                                                    |
+| <a href="#rtl-support" className="whitespace-nowrap">rtl</a>                          | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code>           |
+| <a href="#rtl-support" className="whitespace-nowrap">ltr</a>                          | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code>           |
 
 </div>
 
 ### Pseudo-class reference
 
-This is a comprehensive list of examples for all the pseudo-class modifiers included in Tailwind to complement the [pseudo-classes  documentation](/docs/hover-focus-and-other-states#pseudo-classes) at the beginning of this guide.
+This is a comprehensive list of examples for all the pseudo-class modifiers included in Tailwind to complement the [pseudo-classes documentation](/docs/hover-focus-and-other-states#pseudo-classes) at the beginning of this guide.
 
 #### hover <small>(:hover)</small>
 
@@ -1080,9 +1319,7 @@ Style an element when it or one of its descendants has focus using the `focus-wi
 Style an element when it has been focused using the keyboard using the `focus-visible` modifier:
 
 ```html
-<button class="focus:outline-none **focus-visible:ring** ...">
-  Submit
-</button>
+<button class="focus:outline-none **focus-visible:ring** ...">Submit</button>
 ```
 
 #### active <small>(:active)</small>
@@ -1090,9 +1327,7 @@ Style an element when it has been focused using the keyboard using the `focus-vi
 Style an element when it is being pressed using the `active` modifier:
 
 ```html
-<button class="bg-blue-500 **active:bg-blue-600** ...">
-  Submit
-</button>
+<button class="bg-blue-500 **active:bg-blue-600** ...">Submit</button>
 ```
 
 #### visited <small>(:visited)</small>
@@ -1122,9 +1357,9 @@ Style an element if it's the first child using the `first` modifier:
 ```html
 <ul>
   {#each people as person}
-    <li class="py-4 **first:pt-0** ...">
-      <!-- ... -->
-    </li>
+  <li class="py-4 **first:pt-0** ...">
+    <!-- ... -->
+  </li>
   {/each}
 </ul>
 ```
@@ -1136,9 +1371,9 @@ Style an element if it's the last child using the `last` modifier:
 ```html
 <ul>
   {#each people as person}
-    <li class="py-4 **last:pb-0** ...">
-      <!-- ... -->
-    </li>
+  <li class="py-4 **last:pb-0** ...">
+    <!-- ... -->
+  </li>
   {/each}
 </ul>
 ```
@@ -1150,9 +1385,9 @@ Style an element if it's the only child using the `only` modifier:
 ```html
 <ul>
   {#each people as person}
-    <li class="py-4 **only:py-0** ...">
-      <!-- ... -->
-    </li>
+  <li class="py-4 **only:py-0** ...">
+    <!-- ... -->
+  </li>
   {/each}
 </ul>
 ```
@@ -1164,9 +1399,9 @@ Style an element if it's an oddly numbered child using the `odd` modifier:
 ```html
 <table>
   {#each people as person}
-    <tr class="bg-white **odd:bg-gray-100** ...">
-      <!-- ... -->
-    </tr>
+  <tr class="bg-white **odd:bg-gray-100** ...">
+    <!-- ... -->
+  </tr>
   {/each}
 </table>
 ```
@@ -1178,9 +1413,9 @@ Style an element if it's an evenly numbered child using the `even` modifier:
 ```html
 <table>
   {#each people as person}
-    <tr class="bg-white **even:bg-gray-100** ...">
-      <!-- ... -->
-    </tr>
+  <tr class="bg-white **even:bg-gray-100** ...">
+    <!-- ... -->
+  </tr>
   {/each}
 </table>
 ```
@@ -1239,7 +1474,7 @@ Style an element if it has no content using the `empty` modifier:
 ```html
 <ul>
   {#each people as person}
-    <li class="**empty:hidden** ...">{person.hobby}</li>
+  <li class="**empty:hidden** ...">{person.hobby}</li>
   {/each}
 </ul>
 ```
