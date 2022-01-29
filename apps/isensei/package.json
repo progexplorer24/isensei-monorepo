@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
-    "dev": "yarn run clean && TAILWIND_MODE=watch next dev",
+    "dev": "yarn run clean && TAILWIND_MODE=watch next dev -p 3001",
     "build": "prisma generate && prisma migrate deploy && next build && node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
