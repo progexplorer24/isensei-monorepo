@@ -6,3 +6,5 @@ module Button1 = {
 let btn = <div> {React.string("Button")} </div>
 
 let btn2 = <Button__UI />
+
+let tipGood = children => <Tip__UI.TipGood> children </Tip__UI.TipGood>

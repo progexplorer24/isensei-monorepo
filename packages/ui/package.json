@@ -15,7 +15,9 @@
     "rescript"
   ],
   "dependencies": {
-    "@isensei/tailwind": "*"
+    "@headlessui/react": "^1.4.3",
+    "@isensei/tailwind": "*",
+    "framer-motion": "^6.2.3"
   },
   "devDependencies": {
     "eslint-preset-isensei": "*"

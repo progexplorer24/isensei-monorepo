@@ -3,96 +3,183 @@
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_format from "rescript/lib/es6/caml_format.js";
 import * as CssJs$IsenseiMonorepo from "../../css/src/CssJs.mjs";
+import * as Theme$IsenseiMonorepo from "../../theme/src/Theme.mjs";
 import * as Selectors$IsenseiMonorepo from "../../selectors/src/Selectors.mjs";
-import * as Theme__Row$IsenseiMonorepo from "../../theme/src/Theme__Row.mjs";
-import * as Css_Js_Core$IsenseiMonorepo from "../../css/src/Css_Js_Core.mjs";
-import * as Theme__Order$IsenseiMonorepo from "../../theme/src/Theme__Order.mjs";
-import * as Theme__Colors$IsenseiMonorepo from "../../theme/src/Theme__Colors.mjs";
-import * as Theme__ZIndex$IsenseiMonorepo from "../../theme/src/Theme__ZIndex.mjs";
-import * as Theme__ColSpan$IsenseiMonorepo from "../../theme/src/Theme__ColSpan.mjs";
-import * as Theme__Opacity$IsenseiMonorepo from "../../theme/src/Theme__Opacity.mjs";
-import * as Theme__RowSpan$IsenseiMonorepo from "../../theme/src/Theme__RowSpan.mjs";
-import * as Theme__Screens$IsenseiMonorepo from "../../theme/src/Theme__Screens.mjs";
-import * as Theme__Spacing$IsenseiMonorepo from "../../theme/src/Theme__Spacing.mjs";
 import * as Css_AtomicTypes$IsenseiMonorepo from "../../css/src/Css_AtomicTypes.mjs";
-import * as Theme__ColStart$IsenseiMonorepo from "../../theme/src/Theme__ColStart.mjs";
-import * as Theme__Duration$IsenseiMonorepo from "../../theme/src/Theme__Duration.mjs";
-import * as Theme__FontSize$IsenseiMonorepo from "../../theme/src/Theme__FontSize.mjs";
-import * as Theme__GridCols$IsenseiMonorepo from "../../theme/src/Theme__GridCols.mjs";
-import * as Theme__GridRows$IsenseiMonorepo from "../../theme/src/Theme__GridRows.mjs";
-import * as Theme__MaxWidth$IsenseiMonorepo from "../../theme/src/Theme__MaxWidth.mjs";
-import * as Theme__BoxShadow$IsenseiMonorepo from "../../theme/src/Theme__BoxShadow.mjs";
-import * as Theme__KeyFrames$IsenseiMonorepo from "../../theme/src/Theme__KeyFrames.mjs";
-import * as Theme__FontWeight$IsenseiMonorepo from "../../theme/src/Theme__FontWeight.mjs";
-import * as Theme__LineHeight$IsenseiMonorepo from "../../theme/src/Theme__LineHeight.mjs";
-import * as Theme__BorderWidth$IsenseiMonorepo from "../../theme/src/Theme__BorderWidth.mjs";
-import * as Theme__Proportions$IsenseiMonorepo from "../../theme/src/Theme__Proportions.mjs";
-import * as Theme__BorderRadius$IsenseiMonorepo from "../../theme/src/Theme__BorderRadius.mjs";
-import * as Theme__LetterSpacing$IsenseiMonorepo from "../../theme/src/Theme__LetterSpacing.mjs";
-import * as Theme__TimingFunction$IsenseiMonorepo from "../../theme/src/Theme__TimingFunction.mjs";
-import * as Theme__SpacingNegative$IsenseiMonorepo from "../../theme/src/Theme__SpacingNegative.mjs";
-import * as Theme__ProportionsNegative$IsenseiMonorepo from "../../theme/src/Theme__ProportionsNegative.mjs";
 
 var emptyRule = [CssJs$IsenseiMonorepo.unsafe("", "")];
 
-var transitionNone = [CssJs$IsenseiMonorepo.transitionProperty("none")];
+var aspectAuto = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "auto")];
 
-var transitionAll = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "all")];
+var aspectSquare = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "1 / 1")];
 
-var transition = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform")];
+var aspectVideo = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "16 / 9")];
 
-var transitionColors = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform")];
-
-var transitionOpacity = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "opacity")];
-
-var transitionShadow = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "box-shadow")];
-
-var transitionTransform = [CssJs$IsenseiMonorepo.transition(Theme__Duration$IsenseiMonorepo.toValue(150), undefined, Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"), "transform")];
-
-function duration(miliseconds) {
-  return [CssJs$IsenseiMonorepo.transitionDuration(Theme__Duration$IsenseiMonorepo.toValue(miliseconds))];
+function aspectCustom(width, height) {
+  return [CssJs$IsenseiMonorepo.unsafe("aspect-ration", width + " / " + height)];
 }
 
-var easeLinear = [CssJs$IsenseiMonorepo.transitionTimingFunction(Theme__TimingFunction$IsenseiMonorepo.toValue("linear"))];
-
-var easeIn = [CssJs$IsenseiMonorepo.transitionTimingFunction(Theme__TimingFunction$IsenseiMonorepo.toValue("easeIn"))];
-
-var easeOut = [CssJs$IsenseiMonorepo.transitionTimingFunction(Theme__TimingFunction$IsenseiMonorepo.toValue("easeOut"))];
-
-var easeInOut = [CssJs$IsenseiMonorepo.transitionTimingFunction(Theme__TimingFunction$IsenseiMonorepo.toValue("easeInOut"))];
-
-function delay(miliseconds) {
-  return [CssJs$IsenseiMonorepo.transitionDelay(Theme__Duration$IsenseiMonorepo.toValue(miliseconds))];
-}
-
-var animateNone = [CssJs$IsenseiMonorepo.animationValue({
-        NAME: "value",
-        VAL: "none"
+var container = [CssJs$IsenseiMonorepo.width({
+        NAME: "percent",
+        VAL: 100
       })];
 
-var animateSpin = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, "linear", undefined, undefined, "infinite", Theme__KeyFrames$IsenseiMonorepo.spin)];
+var containerSm = [CssJs$IsenseiMonorepo.maxWidth({
+        NAME: "px",
+        VAL: 640
+      })];
 
-var animatePing = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, {
-        NAME: "cubicBezier",
-        VAL: [
-          0,
-          0,
-          0.2,
-          1
-        ]
-      }, undefined, undefined, "infinite", Theme__KeyFrames$IsenseiMonorepo.ping)];
+var containerMd = [CssJs$IsenseiMonorepo.maxWidth({
+        NAME: "px",
+        VAL: 768
+      })];
 
-var animatePulse = [CssJs$IsenseiMonorepo.animation(2000, 0, undefined, {
-        NAME: "cubicBezier",
-        VAL: [
-          0.4,
-          0,
-          0.6,
-          1
-        ]
-      }, undefined, undefined, "infinite", Theme__KeyFrames$IsenseiMonorepo.pulse)];
+var containerLg = [CssJs$IsenseiMonorepo.maxWidth({
+        NAME: "px",
+        VAL: 1024
+      })];
 
-var animateBounce = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, undefined, undefined, undefined, "infinite", Theme__KeyFrames$IsenseiMonorepo.bounce)];
+var containerXl = [CssJs$IsenseiMonorepo.maxWidth({
+        NAME: "px",
+        VAL: 1280
+      })];
+
+var container2Xl = [CssJs$IsenseiMonorepo.maxWidth({
+        NAME: "px",
+        VAL: 1536
+      })];
+
+function toString(t) {
+  if (t === 1) {
+    return "1";
+  } else if (t === 2) {
+    return "2";
+  } else if (t === 3) {
+    return "3";
+  } else if (t === 4) {
+    return "4";
+  } else if (t === 5) {
+    return "5";
+  } else if (t === 6) {
+    return "6";
+  } else if (t === 7) {
+    return "7";
+  } else if (t === 8) {
+    return "8";
+  } else if (t === 9) {
+    return "9";
+  } else if (t === 10) {
+    return "10";
+  } else if (t === 11) {
+    return "11";
+  } else if (t === 12) {
+    return "12";
+  } else if (t === "lg") {
+    return "32rem";
+  } else if (t === "md") {
+    return "28rem";
+  } else if (t === "sm") {
+    return "24rem";
+  } else if (t === "xl") {
+    return "36rem";
+  } else if (t === "xs") {
+    return "20rem";
+  } else if (t === "xl2") {
+    return "42rem";
+  } else if (t === "xl3") {
+    return "48rem";
+  } else if (t === "xl4") {
+    return "56rem";
+  } else if (t === "xl5") {
+    return "64rem";
+  } else if (t === "xl6") {
+    return "72rem";
+  } else if (t === "xl7") {
+    return "80rem";
+  } else if (t === "xs2") {
+    return "18rem";
+  } else if (t === "xs3") {
+    return "16rem";
+  } else {
+    return "auto";
+  }
+}
+
+var Columns = {
+  toString: toString
+};
+
+function columns(val) {
+  return [CssJs$IsenseiMonorepo.unsafe("columns", toString(val))];
+}
+
+function toString$1(breakType) {
+  if (breakType === "column") {
+    return "column";
+  } else if (breakType === "left") {
+    return "left";
+  } else if (breakType === "page") {
+    return "page";
+  } else if (breakType === "right") {
+    return "right";
+  } else if (breakType === "all") {
+    return "all";
+  } else if (breakType === "avoidPage") {
+    return "avoid-page";
+  } else if (breakType === "avoid") {
+    return "avoid";
+  } else {
+    return "auto";
+  }
+}
+
+var BreakAfter = {
+  toString: toString$1
+};
+
+function toString$2(breakType) {
+  if (breakType === "avoidPage") {
+    return "avoid-page";
+  } else if (breakType === "avoidColumn") {
+    return "avoid-column";
+  } else if (breakType === "avoid") {
+    return "avoid";
+  } else {
+    return "auto";
+  }
+}
+
+var BreakInside = {
+  toString: toString$2
+};
+
+function breakAfter(breakType) {
+  return [CssJs$IsenseiMonorepo.unsafe("break-after", toString$1(breakType))];
+}
+
+function breakBefore(breakType) {
+  return [CssJs$IsenseiMonorepo.unsafe("break-before", toString$1(breakType))];
+}
+
+function breakInside(breakType) {
+  return [CssJs$IsenseiMonorepo.unsafe("break-inside", toString$2(breakType))];
+}
+
+function toString$3(t) {
+  if (t === "slice") {
+    return "slice";
+  } else {
+    return "clone";
+  }
+}
+
+var BoxDecoration = {
+  toString: toString$3
+};
+
+function boxDecoration($$break) {
+  return [CssJs$IsenseiMonorepo.unsafe("box-decoration-break", toString$3($$break))];
+}
 
 var boxBorder = [CssJs$IsenseiMonorepo.boxSizing("borderBox")];
 
@@ -109,6 +196,8 @@ var flex = [CssJs$IsenseiMonorepo.display("flex")];
 var inlineFlex = [CssJs$IsenseiMonorepo.display("inlineFlex")];
 
 var table = [CssJs$IsenseiMonorepo.display("table")];
+
+var inlineTable = [CssJs$IsenseiMonorepo.display("inlineTable")];
 
 var tableCaption = [CssJs$IsenseiMonorepo.display("tableCaption")];
 
@@ -134,6 +223,8 @@ var inlineGrid = [CssJs$IsenseiMonorepo.display("inlineGrid")];
 
 var contents = [CssJs$IsenseiMonorepo.display("contents")];
 
+var listItem = [CssJs$IsenseiMonorepo.display("listItem")];
+
 var hidden = [CssJs$IsenseiMonorepo.display("none")];
 
 var floatRight = [CssJs$IsenseiMonorepo.$$float("right")];
@@ -149,6 +240,10 @@ var clearRight = [CssJs$IsenseiMonorepo.clear("right")];
 var clearBoth = [CssJs$IsenseiMonorepo.clear("both")];
 
 var clearNone = [CssJs$IsenseiMonorepo.clear("none")];
+
+var isolate = [CssJs$IsenseiMonorepo.unsafe("isolation", "isolate")];
+
+var isolateAuto = [CssJs$IsenseiMonorepo.unsafe("isolation", "auto")];
 
 var objectContain = [CssJs$IsenseiMonorepo.objectFit("contain")];
 
@@ -206,6 +301,8 @@ var overflowAuto = [CssJs$IsenseiMonorepo.overflow("auto")];
 
 var overflowHidden = [CssJs$IsenseiMonorepo.overflow("hidden")];
 
+var overflowClip = [CssJs$IsenseiMonorepo.unsafe("overflow", "clip")];
+
 var overflowVisible = [CssJs$IsenseiMonorepo.overflow("visible")];
 
 var overflowScroll = [CssJs$IsenseiMonorepo.overflow("scroll")];
@@ -217,6 +314,10 @@ var overflowYAuto = [CssJs$IsenseiMonorepo.overflowY("auto")];
 var overflowXHidden = [CssJs$IsenseiMonorepo.overflowX("hidden")];
 
 var overflowYHidden = [CssJs$IsenseiMonorepo.overflowY("hidden")];
+
+var overflowXClip = [CssJs$IsenseiMonorepo.unsafe("overflowX", "clip")];
+
+var overflowYClip = [CssJs$IsenseiMonorepo.unsafe("overflowY", "clip")];
 
 var overflowXVisible = [CssJs$IsenseiMonorepo.overflowX("visible")];
 
@@ -255,183 +356,116 @@ var relative = [CssJs$IsenseiMonorepo.position("relative")];
 var sticky = [CssJs$IsenseiMonorepo.position("sticky")];
 
 function inset(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__Spacing$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.right(Theme__Spacing$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__Spacing$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__Spacing$IsenseiMonorepo.toValue(value))
-          ];
-  } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__Proportions$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.right(Theme__Proportions$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__Proportions$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__Proportions$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.top("auto"),
-            CssJs$IsenseiMonorepo.right("auto"),
-            CssJs$IsenseiMonorepo.bottom("auto"),
-            CssJs$IsenseiMonorepo.left("auto")
-          ];
+  if (typeof value !== "object" && !(value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full")) {
+    if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
+      return [
+              CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Proportions.toValue(value)),
+              CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Proportions.toValue(value)),
+              CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Proportions.toValue(value)),
+              CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Proportions.toValue(value))
+            ];
+    } else {
+      return [
+              CssJs$IsenseiMonorepo.top("auto"),
+              CssJs$IsenseiMonorepo.right("auto"),
+              CssJs$IsenseiMonorepo.bottom("auto"),
+              CssJs$IsenseiMonorepo.left("auto")
+            ];
+    }
   }
+  return [
+          CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Spacing.toValue(value)),
+          CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Spacing.toValue(value)),
+          CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Spacing.toValue(value)),
+          CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Spacing.toValue(value))
+        ];
 }
 
 function insetX(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [
-            CssJs$IsenseiMonorepo.right(Theme__Spacing$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__Spacing$IsenseiMonorepo.toValue(value))
-          ];
-  } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.right(Theme__Proportions$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__Proportions$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.right("auto"),
-            CssJs$IsenseiMonorepo.left("auto")
-          ];
+  if (typeof value !== "object" && !(value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full")) {
+    if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
+      return [
+              CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Proportions.toValue(value)),
+              CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Proportions.toValue(value))
+            ];
+    } else {
+      return [
+              CssJs$IsenseiMonorepo.right("auto"),
+              CssJs$IsenseiMonorepo.left("auto")
+            ];
+    }
   }
+  return [
+          CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Spacing.toValue(value)),
+          CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Spacing.toValue(value))
+        ];
 }
 
 function insetY(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__Spacing$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__Spacing$IsenseiMonorepo.toValue(value))
-          ];
-  } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__Proportions$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__Proportions$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.top("auto"),
-            CssJs$IsenseiMonorepo.bottom("auto")
-          ];
+  if (typeof value !== "object" && !(value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full")) {
+    if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
+      return [
+              CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Proportions.toValue(value)),
+              CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Proportions.toValue(value))
+            ];
+    } else {
+      return [
+              CssJs$IsenseiMonorepo.top("auto"),
+              CssJs$IsenseiMonorepo.bottom("auto")
+            ];
+    }
   }
+  return [
+          CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Spacing.toValue(value)),
+          CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Spacing.toValue(value))
+        ];
 }
 
 function top(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [CssJs$IsenseiMonorepo.top(Theme__Spacing$IsenseiMonorepo.toValue(value))];
+  if (typeof value === "object") {
+    return [CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Spacing.toValue(value))];
+  } else if (value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
+    return [CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Spacing.toValue(value))];
   } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.top(Theme__Proportions$IsenseiMonorepo.toValue(value))];
+    return [CssJs$IsenseiMonorepo.top(Theme$IsenseiMonorepo.Proportions.toValue(value))];
   } else {
     return [CssJs$IsenseiMonorepo.top("auto")];
   }
 }
 
 function bottom(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [CssJs$IsenseiMonorepo.bottom(Theme__Spacing$IsenseiMonorepo.toValue(value))];
+  if (typeof value === "object") {
+    return [CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Spacing.toValue(value))];
+  } else if (value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
+    return [CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Spacing.toValue(value))];
   } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.bottom(Theme__Proportions$IsenseiMonorepo.toValue(value))];
+    return [CssJs$IsenseiMonorepo.bottom(Theme$IsenseiMonorepo.Proportions.toValue(value))];
   } else {
     return [CssJs$IsenseiMonorepo.bottom("auto")];
   }
 }
 
 function left(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [CssJs$IsenseiMonorepo.left(Theme__Spacing$IsenseiMonorepo.toValue(value))];
+  if (typeof value === "object") {
+    return [CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Spacing.toValue(value))];
+  } else if (value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
+    return [CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Spacing.toValue(value))];
   } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.left(Theme__Proportions$IsenseiMonorepo.toValue(value))];
+    return [CssJs$IsenseiMonorepo.left(Theme$IsenseiMonorepo.Proportions.toValue(value))];
   } else {
     return [CssJs$IsenseiMonorepo.left("auto")];
   }
 }
 
 function right(value) {
-  if (value === "3_5" || value === "2_5" || value === 200 || value === "1_5" || value === 196 || value === 192 || value === 188 || value === 184 || value === 180 || value === 176 || value === 172 || value === 168 || value === 164 || value === 160 || value === 156 || value === 152 || value === 148 || value === 144 || value === 140 || value === 136 || value === 132 || value === 128 || value === 124 || value === 120 || value === 116 || value === 112 || value === 108 || value === 104 || value === 100 || value === "0_5" || value === "px" || value === 96 || value === 92 || value === 88 || value === 84 || value === 80 || value === 76 || value === 72 || value === 68 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
-    return [CssJs$IsenseiMonorepo.right(Theme__Spacing$IsenseiMonorepo.toValue(value))];
+  if (typeof value === "object") {
+    return [CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Spacing.toValue(value))];
+  } else if (value === "px1" || value === "3_5" || value === "2_5" || value === "1_5" || value === "0_5" || value === 96 || value === 80 || value === 72 || value === 64 || value === 60 || value === 56 || value === 52 || value === 48 || value === 44 || value === 40 || value === 36 || value === 32 || value === 28 || value === 24 || value === 20 || value === 18 || value === 16 || value === 14 || value === 12 || value === 11 || value === 10 || value === 9 || value === 8 || value === 7 || value === 6 || value === 5 || value === 4 || value === 3 || value === 2 || value === 1 || value === 0 || value === "full") {
+    return [CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Spacing.toValue(value))];
   } else if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.right(Theme__Proportions$IsenseiMonorepo.toValue(value))];
+    return [CssJs$IsenseiMonorepo.right(Theme$IsenseiMonorepo.Proportions.toValue(value))];
   } else {
     return [CssJs$IsenseiMonorepo.right("auto")];
-  }
-}
-
-function nInset(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.right(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__SpacingNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.right(Theme__SpacingNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__SpacingNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))
-          ];
-  }
-}
-
-function nInsetX(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.right(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.right(Theme__SpacingNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.left(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))
-          ];
-  }
-}
-
-function nInsetY(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.top(Theme__SpacingNegative$IsenseiMonorepo.toValue(value)),
-            CssJs$IsenseiMonorepo.bottom(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))
-          ];
-  }
-}
-
-function nTop(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.top(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))];
-  } else {
-    return [CssJs$IsenseiMonorepo.top(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))];
-  }
-}
-
-function nBottom(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.bottom(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))];
-  } else {
-    return [CssJs$IsenseiMonorepo.bottom(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))];
-  }
-}
-
-function nLeft(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.left(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))];
-  } else {
-    return [CssJs$IsenseiMonorepo.left(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))];
-  }
-}
-
-function nRight(value) {
-  if (value === "v3By12" || value === "v9By12" || value === "v11By12" || value === "v2By12" || value === "v8By12" || value === "v5By6" || value === "v4By6" || value === "v4By5" || value === "v3By6" || value === "v3By5" || value === "v3By4" || value === "v2By6" || value === "v2By5" || value === "v2By4" || value === "v2By3" || value === "v1By6" || value === "v1By5" || value === "v1By4" || value === "v1By3" || value === "v1By2" || value === "v10By12" || value === "v1By12" || value === "v7By12" || value === "v6By12" || value === "v5By12" || value === "v4By12") {
-    return [CssJs$IsenseiMonorepo.right(Theme__ProportionsNegative$IsenseiMonorepo.toValue(value))];
-  } else {
-    return [CssJs$IsenseiMonorepo.right(Theme__SpacingNegative$IsenseiMonorepo.toValue(value))];
   }
 }
 
@@ -440,11 +474,11 @@ var visible = [CssJs$IsenseiMonorepo.visibility("visible")];
 var invisible = [CssJs$IsenseiMonorepo.visibility("hidden")];
 
 function z(index) {
-  if (index === 100 || index === 90 || index === 80 || index === 70 || index === 60 || index === 50 || index === 40 || index === 30 || index === 20 || index === 10 || index === 0) {
-    return [CssJs$IsenseiMonorepo.zIndex(Theme__ZIndex$IsenseiMonorepo.toValue(index))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("zIndex", "auto")];
-  }
+  return [CssJs$IsenseiMonorepo.unsafe("zIndex", Theme$IsenseiMonorepo.ZIndex.toValue(index))];
+}
+
+function basis(scale) {
+  return [CssJs$IsenseiMonorepo.flexBasis(Theme$IsenseiMonorepo.Spacing.toValue(scale))];
 }
 
 var flexRow = [CssJs$IsenseiMonorepo.flexDirection("row")];
@@ -472,78 +506,32 @@ var flexInitial = [CssJs$IsenseiMonorepo.flex3(0, 1, "auto")];
 
 var flexNone = [CssJs$IsenseiMonorepo.flex("none")];
 
-var flexGrow0 = [CssJs$IsenseiMonorepo.flexGrow(1)];
+var grow = [CssJs$IsenseiMonorepo.flexGrow(1)];
 
-var flexGrow = [CssJs$IsenseiMonorepo.flexGrow(0)];
+var grow0 = [CssJs$IsenseiMonorepo.flexGrow(0)];
 
-var flexShrink0 = [CssJs$IsenseiMonorepo.flexGrow(1)];
+var shrink = [CssJs$IsenseiMonorepo.flexGrow(1)];
 
-var flexShrink = [CssJs$IsenseiMonorepo.flexGrow(0)];
+var shrink0 = [CssJs$IsenseiMonorepo.flexGrow(0)];
 
 function order(order$1) {
-  return [CssJs$IsenseiMonorepo.order(Theme__Order$IsenseiMonorepo.toValue(order$1))];
+  return [CssJs$IsenseiMonorepo.order(Theme$IsenseiMonorepo.Order.toValue(order$1))];
 }
 
 function gridCols(columns) {
-  if (columns === 12 || columns === 11 || columns === 10 || columns === 9 || columns === 8 || columns === 7 || columns === 6 || columns === 5 || columns === 4 || columns === 3 || columns === 2 || columns === 1) {
-    return [CssJs$IsenseiMonorepo.gridTemplateColumns(Theme__GridCols$IsenseiMonorepo.toValue(columns))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridTemplateColumns", "none")];
-  }
+  return [CssJs$IsenseiMonorepo.unsafe("gridTemplateColumns", Theme$IsenseiMonorepo.GridCols.toValue(columns))];
 }
 
-function col(column) {
-  return [CssJs$IsenseiMonorepo.unsafe("gridColumn", Theme__ColSpan$IsenseiMonorepo.toValue(column))];
-}
-
-function colStart(cols) {
-  if (cols === 13 || cols === 12 || cols === 11 || cols === 10 || cols === 9 || cols === 8 || cols === 7 || cols === 6 || cols === 5 || cols === 4 || cols === 3 || cols === 2 || cols === 1) {
-    return [CssJs$IsenseiMonorepo.gridColumnStart(Theme__ColStart$IsenseiMonorepo.toValue(cols))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumnStart", "auto")];
-  }
-}
-
-function colEnd(cols) {
-  if (cols === 13 || cols === 12 || cols === 11 || cols === 10 || cols === 9 || cols === 8 || cols === 7 || cols === 6 || cols === 5 || cols === 4 || cols === 3 || cols === 2 || cols === 1) {
-    return [CssJs$IsenseiMonorepo.gridColumnEnd(Theme__ColStart$IsenseiMonorepo.toValue(cols))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumnEnd", "auto")];
-  }
+function col(val) {
+  return Theme$IsenseiMonorepo.Col.toValue(val);
 }
 
 function gridRows(rows) {
-  if (rows === 6 || rows === 5 || rows === 4 || rows === 3 || rows === 2 || rows === 1) {
-    return [CssJs$IsenseiMonorepo.gridTemplateRows(Theme__GridRows$IsenseiMonorepo.toValue(rows))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridTemplateRows", "none")];
-  }
+  return [CssJs$IsenseiMonorepo.unsafe("gridTemplateRows", Theme$IsenseiMonorepo.TemplateRows.toString(rows))];
 }
 
-function row(count) {
-  if (count === "full") {
-    return [CssJs$IsenseiMonorepo.gridRow(1, -1)];
-  } else if (count === 6 || count === 5 || count === 4 || count === 3 || count === 2 || count === 1) {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRow", Theme__RowSpan$IsenseiMonorepo.toValue(count))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRow", "auto")];
-  }
-}
-
-function rowStart(rows) {
-  if (rows === 7 || rows === 6 || rows === 5 || rows === 4 || rows === 3 || rows === 2 || rows === 1) {
-    return [CssJs$IsenseiMonorepo.gridRowStart(Theme__Row$IsenseiMonorepo.toValue(rows))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRowStart", "auto")];
-  }
-}
-
-function rowEnd(rows) {
-  if (rows === 7 || rows === 6 || rows === 5 || rows === 4 || rows === 3 || rows === 2 || rows === 1) {
-    return [CssJs$IsenseiMonorepo.gridRowEnd(Theme__Row$IsenseiMonorepo.toValue(rows))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRowEnd", "auto")];
-  }
+function row(val) {
+  return Theme$IsenseiMonorepo.Row.toValue(val);
 }
 
 var gridFlowRow = [CssJs$IsenseiMonorepo.gridAutoFlow("row")];
@@ -588,17 +576,22 @@ var autoRowsFr = [CssJs$IsenseiMonorepo.gridAutoRows({
         ]
       })];
 
-function gap(value) {
-  return [CssJs$IsenseiMonorepo.gridGap(Theme__Spacing$IsenseiMonorepo.toValue(value))];
+function toValue(t) {
+  var variant = t.NAME;
+  if (variant === "x") {
+    return [CssJs$IsenseiMonorepo.columnGap(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  } else if (variant === "y") {
+    return [CssJs$IsenseiMonorepo.rowGap(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  } else {
+    return [CssJs$IsenseiMonorepo.gap(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
 }
 
-function gapX(value) {
-  return [CssJs$IsenseiMonorepo.gridColumnGap(Theme__Spacing$IsenseiMonorepo.toValue(value))];
-}
+var Gap = {
+  toValue: toValue
+};
 
-function gapY(value) {
-  return [CssJs$IsenseiMonorepo.gridRowGap(Theme__Spacing$IsenseiMonorepo.toValue(value))];
-}
+var gap = toValue;
 
 var justifyStart = [CssJs$IsenseiMonorepo.justifyContent("flexStart")];
 
@@ -611,8 +604,6 @@ var justifyBetween = [CssJs$IsenseiMonorepo.justifyContent("spaceBetween")];
 var justifyAround = [CssJs$IsenseiMonorepo.justifyContent("spaceAround")];
 
 var justifyEvenly = [CssJs$IsenseiMonorepo.justifyContent("spaceEvenly")];
-
-var justifyItemsAuto = [CssJs$IsenseiMonorepo.unsafe("justifyItems", "auto")];
 
 var justifyItemsStart = [CssJs$IsenseiMonorepo.justifyItems("start")];
 
@@ -664,6 +655,8 @@ var selfCenter = [CssJs$IsenseiMonorepo.alignSelf("center")];
 
 var selfStretch = [CssJs$IsenseiMonorepo.alignSelf("stretch")];
 
+var selfBaseline = [CssJs$IsenseiMonorepo.alignSelf("baseline")];
+
 var placeContentCenter = [CssJs$IsenseiMonorepo.unsafe("placeContent", "center")];
 
 var placeContentStart = [CssJs$IsenseiMonorepo.unsafe("placeContent", "start")];
@@ -677,8 +670,6 @@ var placeContentAround = [CssJs$IsenseiMonorepo.unsafe("placeContent", "space-ar
 var placeContentEvenly = [CssJs$IsenseiMonorepo.unsafe("placeContent", "space-evenly")];
 
 var placeContentStretch = [CssJs$IsenseiMonorepo.unsafe("placeContent", "stretch")];
-
-var placeItemsAuto = [CssJs$IsenseiMonorepo.unsafe("placeItems", "auto")];
 
 var placeItemsStart = [CssJs$IsenseiMonorepo.unsafe("placeItems", "start")];
 
@@ -698,161 +689,154 @@ var placeSelfCenter = [CssJs$IsenseiMonorepo.unsafe("placeSelf", "center")];
 
 var placeSelfStretch = [CssJs$IsenseiMonorepo.unsafe("placeSelf", "stretch")];
 
-function p(size) {
-  return [CssJs$IsenseiMonorepo.padding(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function py(size) {
-  return [
-          CssJs$IsenseiMonorepo.paddingTop(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.paddingBottom(Theme__Spacing$IsenseiMonorepo.toValue(size))
-        ];
-}
-
-function px(size) {
-  return [
-          CssJs$IsenseiMonorepo.paddingLeft(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.paddingRight(Theme__Spacing$IsenseiMonorepo.toValue(size))
-        ];
-}
-
-function pt(size) {
-  return [CssJs$IsenseiMonorepo.paddingTop(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function pr(size) {
-  return [CssJs$IsenseiMonorepo.paddingRight(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function pb(size) {
-  return [CssJs$IsenseiMonorepo.paddingBottom(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function pl(size) {
-  return [CssJs$IsenseiMonorepo.paddingLeft(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function m(size) {
-  return [CssJs$IsenseiMonorepo.margin(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function my(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginTop(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginBottom(Theme__Spacing$IsenseiMonorepo.toValue(size))
-        ];
-}
-
-function mx(size) {
-  if (size === "3_5" || size === "2_5" || size === 200 || size === "1_5" || size === 196 || size === 192 || size === 188 || size === 184 || size === 180 || size === 176 || size === 172 || size === 168 || size === 164 || size === 160 || size === 156 || size === 152 || size === 148 || size === 144 || size === 140 || size === 136 || size === 132 || size === 128 || size === 124 || size === 120 || size === 116 || size === 112 || size === 108 || size === 104 || size === 100 || size === "0_5" || size === "px" || size === 96 || size === 92 || size === 88 || size === 84 || size === 80 || size === 76 || size === 72 || size === 68 || size === 64 || size === 60 || size === 56 || size === 52 || size === 48 || size === 44 || size === 40 || size === 36 || size === 32 || size === 28 || size === 24 || size === 20 || size === 18 || size === 16 || size === 14 || size === 12 || size === 11 || size === 10 || size === 9 || size === 8 || size === 7 || size === 6 || size === 5 || size === 4 || size === 3 || size === 2 || size === 1 || size === 0 || size === "full") {
+function toValue$1(t) {
+  var variant = t.NAME;
+  if (variant === "l") {
+    return [CssJs$IsenseiMonorepo.paddingLeft(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "r") {
+    return [CssJs$IsenseiMonorepo.paddingRight(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "t") {
+    return [CssJs$IsenseiMonorepo.paddingTop(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "x") {
+    var size = t.VAL;
     return [
-            CssJs$IsenseiMonorepo.marginLeft(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.marginRight(Theme__Spacing$IsenseiMonorepo.toValue(size))
+            CssJs$IsenseiMonorepo.paddingLeft(Theme$IsenseiMonorepo.Spacing.toValue(size)),
+            CssJs$IsenseiMonorepo.paddingRight(Theme$IsenseiMonorepo.Spacing.toValue(size))
+          ];
+  }
+  if (variant !== "y") {
+    if (variant === "all") {
+      return [CssJs$IsenseiMonorepo.padding(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+    } else {
+      return [CssJs$IsenseiMonorepo.paddingBottom(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+    }
+  }
+  var size$1 = t.VAL;
+  return [
+          CssJs$IsenseiMonorepo.paddingTop(Theme$IsenseiMonorepo.Spacing.toValue(size$1)),
+          CssJs$IsenseiMonorepo.paddingBottom(Theme$IsenseiMonorepo.Spacing.toValue(size$1))
+        ];
+}
+
+var Padding = {
+  toValue: toValue$1
+};
+
+var p = toValue$1;
+
+function toValue$2(t) {
+  var variant = t.NAME;
+  if (variant === "l") {
+    return [CssJs$IsenseiMonorepo.marginLeft(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "r") {
+    return [CssJs$IsenseiMonorepo.marginRight(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "t") {
+    return [CssJs$IsenseiMonorepo.marginTop(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+  }
+  if (variant === "x") {
+    var size = t.VAL;
+    return [
+            CssJs$IsenseiMonorepo.marginLeft(Theme$IsenseiMonorepo.Spacing.toValue(size)),
+            CssJs$IsenseiMonorepo.marginRight(Theme$IsenseiMonorepo.Spacing.toValue(size))
+          ];
+  }
+  if (variant !== "y") {
+    if (variant === "all") {
+      return [CssJs$IsenseiMonorepo.margin(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+    } else {
+      return [CssJs$IsenseiMonorepo.marginBottom(Theme$IsenseiMonorepo.Spacing.toValue(t.VAL))];
+    }
+  }
+  var size$1 = t.VAL;
+  return [
+          CssJs$IsenseiMonorepo.marginTop(Theme$IsenseiMonorepo.Spacing.toValue(size$1)),
+          CssJs$IsenseiMonorepo.marginBottom(Theme$IsenseiMonorepo.Spacing.toValue(size$1))
+        ];
+}
+
+var Margin = {
+  toValue: toValue$2
+};
+
+var m = toValue$2;
+
+function toValue$3(reverseOpt, t) {
+  var reverse = reverseOpt !== undefined ? reverseOpt : false;
+  if (t.NAME === "y") {
+    var size = t.VAL;
+    if (reverse) {
+      return [
+              CssJs$IsenseiMonorepo.marginTop(Theme$IsenseiMonorepo.Spacing.toValue(0)),
+              CssJs$IsenseiMonorepo.marginBottom(Theme$IsenseiMonorepo.Spacing.toValue(size))
+            ];
+    } else {
+      return [
+              CssJs$IsenseiMonorepo.marginTop(Theme$IsenseiMonorepo.Spacing.toValue(size)),
+              CssJs$IsenseiMonorepo.marginBottom(Theme$IsenseiMonorepo.Spacing.toValue(0))
+            ];
+    }
+  }
+  var size$1 = t.VAL;
+  if (reverse) {
+    return [
+            CssJs$IsenseiMonorepo.marginLeft(Theme$IsenseiMonorepo.Spacing.toValue(0)),
+            CssJs$IsenseiMonorepo.marginRight(Theme$IsenseiMonorepo.Spacing.toValue(size$1))
           ];
   } else {
     return [
-            CssJs$IsenseiMonorepo.marginLeft("auto"),
-            CssJs$IsenseiMonorepo.marginRight("auto")
+            CssJs$IsenseiMonorepo.marginLeft(Theme$IsenseiMonorepo.Spacing.toValue(size$1)),
+            CssJs$IsenseiMonorepo.marginRight(Theme$IsenseiMonorepo.Spacing.toValue(0))
           ];
   }
 }
 
-function mt(size) {
-  return [CssJs$IsenseiMonorepo.marginTop(Theme__Spacing$IsenseiMonorepo.toValue(size))];
+var SpaceBetween = {
+  toValue: toValue$3
+};
+
+function space(reverseOpt, axis) {
+  var reverse = reverseOpt !== undefined ? reverseOpt : false;
+  return toValue$3(reverse, axis);
 }
 
-function mb(size) {
-  return [CssJs$IsenseiMonorepo.marginBottom(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function mr(size) {
-  return [CssJs$IsenseiMonorepo.marginRight(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function ml(size) {
-  return [CssJs$IsenseiMonorepo.marginLeft(Theme__Spacing$IsenseiMonorepo.toValue(size))];
-}
-
-function nm(size) {
-  return [CssJs$IsenseiMonorepo.margin(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))];
-}
-
-function nmy(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginTop(Theme__SpacingNegative$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginBottom(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))
-        ];
-}
-
-function nmx(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginLeft(Theme__SpacingNegative$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginRight(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))
-        ];
-}
-
-function nmt(size) {
-  return [CssJs$IsenseiMonorepo.marginTop(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))];
-}
-
-function nmb(size) {
-  return [CssJs$IsenseiMonorepo.marginBottom(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))];
-}
-
-function nmr(size) {
-  return [CssJs$IsenseiMonorepo.marginRight(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))];
-}
-
-function nml(size) {
-  return [CssJs$IsenseiMonorepo.marginLeft(Theme__SpacingNegative$IsenseiMonorepo.toValue(size))];
-}
-
-function spaceY(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginTop(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginBottom(Theme__Spacing$IsenseiMonorepo.toValue(0))
-        ];
-}
-
-function nspaceY(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginTop(Theme__SpacingNegative$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginBottom(Theme__Spacing$IsenseiMonorepo.toValue(0))
-        ];
-}
-
-function spaceX(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginLeft(Theme__Spacing$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginRight(Theme__Spacing$IsenseiMonorepo.toValue(0))
-        ];
-}
-
-function nspaceX(size) {
-  return [
-          CssJs$IsenseiMonorepo.marginLeft(Theme__SpacingNegative$IsenseiMonorepo.toValue(size)),
-          CssJs$IsenseiMonorepo.marginRight(Theme__Spacing$IsenseiMonorepo.toValue(0))
-        ];
-}
-
-function w(width) {
-  if (width === "3_5" || width === "2_5" || width === 200 || width === "1_5" || width === 196 || width === 192 || width === 188 || width === 184 || width === 180 || width === 176 || width === 172 || width === 168 || width === 164 || width === 160 || width === 156 || width === 152 || width === 148 || width === 144 || width === 140 || width === 136 || width === 132 || width === 128 || width === 124 || width === 120 || width === 116 || width === 112 || width === 108 || width === 104 || width === 100 || width === "0_5" || width === "px" || width === 96 || width === 92 || width === 88 || width === 84 || width === 80 || width === 76 || width === 72 || width === 68 || width === 64 || width === 60 || width === 56 || width === 52 || width === 48 || width === 44 || width === 40 || width === 36 || width === 32 || width === 28 || width === 24 || width === 20 || width === 18 || width === 16 || width === 14 || width === 12 || width === 11 || width === 10 || width === 9 || width === 8 || width === 7 || width === 6 || width === 5 || width === 4 || width === 3 || width === 2 || width === 1 || width === 0 || width === "full") {
-    return [CssJs$IsenseiMonorepo.width(Theme__Spacing$IsenseiMonorepo.toValue(width))];
-  } else if (width === "screen") {
+function toValue$4(t) {
+  if (typeof t === "object") {
+    return [CssJs$IsenseiMonorepo.width(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "full") {
+    return [CssJs$IsenseiMonorepo.width({
+                  NAME: "percent",
+                  VAL: 100
+                })];
+  } else if (t === "screen") {
     return [CssJs$IsenseiMonorepo.width({
                   NAME: "vw",
                   VAL: 100
                 })];
-  } else if (width === "v3By12" || width === "v9By12" || width === "v11By12" || width === "v2By12" || width === "v8By12" || width === "v5By6" || width === "v4By6" || width === "v4By5" || width === "v3By6" || width === "v3By5" || width === "v3By4" || width === "v2By6" || width === "v2By5" || width === "v2By4" || width === "v2By3" || width === "v1By6" || width === "v1By5" || width === "v1By4" || width === "v1By3" || width === "v1By2" || width === "v10By12" || width === "v1By12" || width === "v7By12" || width === "v6By12" || width === "v5By12" || width === "v4By12") {
-    return [CssJs$IsenseiMonorepo.width(Theme__Proportions$IsenseiMonorepo.toValue(width))];
-  } else if (width === "minContent") {
-    return [CssJs$IsenseiMonorepo.unsafe("width", "min-content")];
-  } else if (width === "maxContent") {
+  } else if (t === "v3By12" || t === "v9By12" || t === "v11By12" || t === "v2By12" || t === "v8By12" || t === "v5By6" || t === "v4By6" || t === "v4By5" || t === "v3By6" || t === "v3By5" || t === "v3By4" || t === "v2By6" || t === "v2By5" || t === "v2By4" || t === "v2By3" || t === "v1By6" || t === "v1By5" || t === "v1By4" || t === "v1By3" || t === "v1By2" || t === "v10By12" || t === "v1By12" || t === "v7By12" || t === "v6By12" || t === "v5By12" || t === "v4By12") {
+    return [CssJs$IsenseiMonorepo.width(Theme$IsenseiMonorepo.Proportions.toValue(t))];
+  } else if (t === "px1" || t === "3_5" || t === "2_5" || t === "1_5" || t === "0_5" || t === 96 || t === 80 || t === 72 || t === 64 || t === 60 || t === 56 || t === 52 || t === 48 || t === 44 || t === 40 || t === 36 || t === 32 || t === 28 || t === 24 || t === 20 || t === 18 || t === 16 || t === 14 || t === 12 || t === 11 || t === 10 || t === 9 || t === 8 || t === 7 || t === 6 || t === 5 || t === 4 || t === 3 || t === 2 || t === 1 || t === 0) {
+    return [CssJs$IsenseiMonorepo.width(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "fit") {
+    return [CssJs$IsenseiMonorepo.unsafe("width", "fit-content")];
+  } else if (t === "max") {
     return [CssJs$IsenseiMonorepo.unsafe("width", "max-content")];
+  } else if (t === "min") {
+    return [CssJs$IsenseiMonorepo.unsafe("width", "min-content")];
   } else {
     return [CssJs$IsenseiMonorepo.width("auto")];
   }
 }
+
+var Width = {
+  toValue: toValue$4
+};
+
+var w = toValue$4;
 
 var minW0 = [CssJs$IsenseiMonorepo.minWidth({
         NAME: "px",
@@ -868,15 +852,17 @@ var minWMin = [CssJs$IsenseiMonorepo.unsafe("minWidth", "min-content")];
 
 var minWMax = [CssJs$IsenseiMonorepo.unsafe("minWidth", "max-content")];
 
+var minWFit = [CssJs$IsenseiMonorepo.unsafe("minWidth", "fit-content")];
+
 function maxW(max) {
   if (max === "minContent") {
     return [CssJs$IsenseiMonorepo.unsafe("maxWidth", "min-content")];
   } else if (max === "maxContent") {
     return [CssJs$IsenseiMonorepo.unsafe("maxWidth", "max-content")];
   } else if (max === "screenXl2") {
-    return [CssJs$IsenseiMonorepo.maxWidth(Theme__Screens$IsenseiMonorepo.toValue(max))];
+    return [CssJs$IsenseiMonorepo.maxWidth(Theme$IsenseiMonorepo.Screens.toValue(max))];
   } else {
-    return [CssJs$IsenseiMonorepo.maxWidth(Theme__MaxWidth$IsenseiMonorepo.toValue(max))];
+    return [CssJs$IsenseiMonorepo.maxWidth(Theme$IsenseiMonorepo.MaxWidth.toValue(max))];
   }
 }
 
@@ -887,20 +873,39 @@ function maxWPx(px) {
               })];
 }
 
-function h(height) {
-  if (height === "3_5" || height === "2_5" || height === 200 || height === "1_5" || height === 196 || height === 192 || height === 188 || height === 184 || height === 180 || height === 176 || height === 172 || height === 168 || height === 164 || height === 160 || height === 156 || height === 152 || height === 148 || height === 144 || height === 140 || height === 136 || height === 132 || height === 128 || height === 124 || height === 120 || height === 116 || height === 112 || height === 108 || height === 104 || height === 100 || height === "0_5" || height === "px" || height === 96 || height === 92 || height === 88 || height === 84 || height === 80 || height === 76 || height === 72 || height === 68 || height === 64 || height === 60 || height === 56 || height === 52 || height === 48 || height === 44 || height === 40 || height === 36 || height === 32 || height === 28 || height === 24 || height === 20 || height === 18 || height === 16 || height === 14 || height === 12 || height === 11 || height === 10 || height === 9 || height === 8 || height === 7 || height === 6 || height === 5 || height === 4 || height === 3 || height === 2 || height === 1 || height === 0 || height === "full") {
-    return [CssJs$IsenseiMonorepo.height(Theme__Spacing$IsenseiMonorepo.toValue(height))];
-  } else if (height === "screen") {
+function toValue$5(t) {
+  if (typeof t === "object") {
+    return [CssJs$IsenseiMonorepo.height(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "full") {
+    return [CssJs$IsenseiMonorepo.height({
+                  NAME: "percent",
+                  VAL: 100
+                })];
+  } else if (t === "screen") {
     return [CssJs$IsenseiMonorepo.height({
                   NAME: "vw",
                   VAL: 100
                 })];
-  } else if (height === "v3By12" || height === "v9By12" || height === "v11By12" || height === "v2By12" || height === "v8By12" || height === "v5By6" || height === "v4By6" || height === "v4By5" || height === "v3By6" || height === "v3By5" || height === "v3By4" || height === "v2By6" || height === "v2By5" || height === "v2By4" || height === "v2By3" || height === "v1By6" || height === "v1By5" || height === "v1By4" || height === "v1By3" || height === "v1By2" || height === "v10By12" || height === "v1By12" || height === "v7By12" || height === "v6By12" || height === "v5By12" || height === "v4By12") {
-    return [CssJs$IsenseiMonorepo.height(Theme__Proportions$IsenseiMonorepo.toValue(height))];
+  } else if (t === "v3By12" || t === "v9By12" || t === "v11By12" || t === "v2By12" || t === "v8By12" || t === "v5By6" || t === "v4By6" || t === "v4By5" || t === "v3By6" || t === "v3By5" || t === "v3By4" || t === "v2By6" || t === "v2By5" || t === "v2By4" || t === "v2By3" || t === "v1By6" || t === "v1By5" || t === "v1By4" || t === "v1By3" || t === "v1By2" || t === "v10By12" || t === "v1By12" || t === "v7By12" || t === "v6By12" || t === "v5By12" || t === "v4By12") {
+    return [CssJs$IsenseiMonorepo.height(Theme$IsenseiMonorepo.Proportions.toValue(t))];
+  } else if (t === "px1" || t === "3_5" || t === "2_5" || t === "1_5" || t === "0_5" || t === 96 || t === 80 || t === 72 || t === 64 || t === 60 || t === 56 || t === 52 || t === 48 || t === 44 || t === 40 || t === 36 || t === 32 || t === 28 || t === 24 || t === 20 || t === 18 || t === 16 || t === 14 || t === 12 || t === 11 || t === 10 || t === 9 || t === 8 || t === 7 || t === 6 || t === 5 || t === 4 || t === 3 || t === 2 || t === 1 || t === 0) {
+    return [CssJs$IsenseiMonorepo.height(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "fit") {
+    return [CssJs$IsenseiMonorepo.unsafe("height", "fit-content")];
+  } else if (t === "max") {
+    return [CssJs$IsenseiMonorepo.unsafe("height", "max-content")];
+  } else if (t === "min") {
+    return [CssJs$IsenseiMonorepo.unsafe("height", "min-content")];
   } else {
     return [CssJs$IsenseiMonorepo.height("auto")];
   }
 }
+
+var Height = {
+  toValue: toValue$5
+};
+
+var h = toValue$5;
 
 var minH0 = [CssJs$IsenseiMonorepo.minHeight({
         NAME: "px",
@@ -917,16 +922,41 @@ var minHScreen = [CssJs$IsenseiMonorepo.minHeight({
         VAL: 100
       })];
 
-function maxH(height) {
-  if (height === "screen") {
-    return [CssJs$IsenseiMonorepo.height({
-                  NAME: "vh",
+var minHMin = [CssJs$IsenseiMonorepo.unsafe("minHeight", "min-content")];
+
+var minHMax = [CssJs$IsenseiMonorepo.unsafe("minHeight", "max-content")];
+
+var minHFit = [CssJs$IsenseiMonorepo.unsafe("minHeight", "fit-content")];
+
+function toValue$6(t) {
+  if (typeof t === "object") {
+    return [CssJs$IsenseiMonorepo.maxHeight(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "screen") {
+    return [CssJs$IsenseiMonorepo.maxHeight({
+                  NAME: "vw",
                   VAL: 100
                 })];
+  } else if (t === "px1" || t === "3_5" || t === "2_5" || t === "1_5" || t === "0_5" || t === 96 || t === 80 || t === 72 || t === 64 || t === 60 || t === 56 || t === 52 || t === 48 || t === 44 || t === 40 || t === 36 || t === 32 || t === 28 || t === 24 || t === 20 || t === 18 || t === 16 || t === 14 || t === 12 || t === 11 || t === 10 || t === 9 || t === 8 || t === 7 || t === 6 || t === 5 || t === 4 || t === 3 || t === 2 || t === 1 || t === 0) {
+    return [CssJs$IsenseiMonorepo.maxHeight(Theme$IsenseiMonorepo.Spacing.toValue(t))];
+  } else if (t === "fit") {
+    return [CssJs$IsenseiMonorepo.unsafe("maxHeight", "fit-content")];
+  } else if (t === "max") {
+    return [CssJs$IsenseiMonorepo.unsafe("maxHeight", "max-content")];
+  } else if (t === "min") {
+    return [CssJs$IsenseiMonorepo.unsafe("maxHeight", "min-content")];
   } else {
-    return [CssJs$IsenseiMonorepo.height(Theme__Spacing$IsenseiMonorepo.toValue(height))];
+    return [CssJs$IsenseiMonorepo.maxHeight({
+                  NAME: "percent",
+                  VAL: 100
+                })];
   }
 }
+
+var MaxHeight = {
+  toValue: toValue$6
+};
+
+var maxH = toValue$6;
 
 var fontSans = [CssJs$IsenseiMonorepo.fontFamilies([
         {
@@ -1040,51 +1070,67 @@ var fontMono = [CssJs$IsenseiMonorepo.fontFamilies([
         "monospace"
       ])];
 
-function text(size) {
-  if (size === "xl" || size === "lg") {
+function toValue$7(t) {
+  if (t === "xl" || t === "lg") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(7))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(7))
           ];
-  } else if (size === "xs" || size === "sm") {
+  } else if (t === "xs" || t === "sm") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(5))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(5))
           ];
-  } else if (size === "xl2") {
+  } else if (t === "xl2") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(8))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(8))
           ];
-  } else if (size === "xl3") {
+  } else if (t === "xl3") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(9))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(9))
           ];
-  } else if (size === "xl4") {
+  } else if (t === "xl4") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(10))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(10))
           ];
-  } else if (size === "xl9" || size === "xl8" || size === "xl7" || size === "xl6" || size === "xl5") {
+  } else if (t === "xl9" || t === "xl8" || t === "xl7" || t === "xl6" || t === "xl5") {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue("none"))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue("none"))
           ];
   } else {
     return [
-            CssJs$IsenseiMonorepo.fontSize(Theme__FontSize$IsenseiMonorepo.toValue(size)),
-            CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(6))
+            CssJs$IsenseiMonorepo.fontSize(Theme$IsenseiMonorepo.FontSize.toValue(t)),
+            CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(6))
           ];
   }
 }
 
+var TextSize = {
+  toValue: toValue$7
+};
+
+var textSize = toValue$7;
+
+var antialiased = [
+  CssJs$IsenseiMonorepo.unsafe("WebkitFontSmoothing", "antialiased"),
+  CssJs$IsenseiMonorepo.unsafe("MozOSXFontSmoothing", "grayscale")
+];
+
+var subpixelAntialiased = [
+  CssJs$IsenseiMonorepo.unsafe("WebkitFontSmoothing", "auto"),
+  CssJs$IsenseiMonorepo.unsafe("MozOSXFontSmoothing", "auto")
+];
+
 var italic = [CssJs$IsenseiMonorepo.fontStyle("italic")];
 
-var noItalic = [CssJs$IsenseiMonorepo.fontStyle("normal")];
+var notItalic = [CssJs$IsenseiMonorepo.fontStyle("normal")];
 
 function fontWeight(weight) {
-  return [CssJs$IsenseiMonorepo.fontWeight(Theme__FontWeight$IsenseiMonorepo.toValue(weight))];
+  return [CssJs$IsenseiMonorepo.fontWeight(Theme$IsenseiMonorepo.FontWeight.toValue(weight))];
 }
 
 var normalNums = [CssJs$IsenseiMonorepo.unsafe("fontVariantNumeric", "normal")];
@@ -1106,11 +1152,11 @@ var diagonalFractions = [CssJs$IsenseiMonorepo.unsafe("fontVariantNumeric", "dia
 var stackedFractions = [CssJs$IsenseiMonorepo.unsafe("fontVariantNumeric", "stacked-fractions")];
 
 function tracking(wide) {
-  return [CssJs$IsenseiMonorepo.letterSpacing(Theme__LetterSpacing$IsenseiMonorepo.toValue(wide))];
+  return [CssJs$IsenseiMonorepo.letterSpacing(Theme$IsenseiMonorepo.LetterSpacing.toValue(wide))];
 }
 
 function leading(value) {
-  return [CssJs$IsenseiMonorepo.lineHeight(Theme__LineHeight$IsenseiMonorepo.toValue(value))];
+  return [CssJs$IsenseiMonorepo.lineHeight(Theme$IsenseiMonorepo.LineHeight.toValue(value))];
 }
 
 function leadingFloat($$float) {
@@ -1130,11 +1176,6 @@ var listInside = [CssJs$IsenseiMonorepo.listStylePosition("inside")];
 
 var listOutside = [CssJs$IsenseiMonorepo.listStylePosition("outside")];
 
-function placeholder(opacityOpt, color) {
-  var opacity = opacityOpt !== undefined ? opacityOpt : 1;
-  return [CssJs$IsenseiMonorepo.placeholder([CssJs$IsenseiMonorepo.color(Theme__Colors$IsenseiMonorepo.toColor(opacity, color))])];
-}
-
 var textLeft = [CssJs$IsenseiMonorepo.textAlign("left")];
 
 var textCenter = [CssJs$IsenseiMonorepo.textAlign("center")];
@@ -1143,16 +1184,87 @@ var textRight = [CssJs$IsenseiMonorepo.textAlign("right")];
 
 var textJustify = [CssJs$IsenseiMonorepo.textAlign("justify")];
 
-function textColor(opacityOpt, color) {
+function placeholder(opacityOpt, color) {
   var opacity = opacityOpt !== undefined ? opacityOpt : 1;
-  return [CssJs$IsenseiMonorepo.color(Theme__Colors$IsenseiMonorepo.toColor(opacity, color))];
+  return [CssJs$IsenseiMonorepo.placeholder([CssJs$IsenseiMonorepo.color(Theme$IsenseiMonorepo.Colors.toValue(opacity, color))])];
 }
 
-var underline = [CssJs$IsenseiMonorepo.textDecoration("underline")];
+function textColor(opacityOpt, color) {
+  var opacity = opacityOpt !== undefined ? opacityOpt : 1;
+  return [CssJs$IsenseiMonorepo.color(Theme$IsenseiMonorepo.Colors.toValue(opacity, color))];
+}
 
-var lineThrough = [CssJs$IsenseiMonorepo.textDecoration("lineThrough")];
+var underline = [CssJs$IsenseiMonorepo.textDecorationLine("underline")];
 
-var noUnderline = [CssJs$IsenseiMonorepo.textDecoration("none")];
+var overline = [CssJs$IsenseiMonorepo.textDecorationLine("overline")];
+
+var lineThrough = [CssJs$IsenseiMonorepo.textDecorationLine("lineThrough")];
+
+var noUnderline = [CssJs$IsenseiMonorepo.textDecorationLine("none")];
+
+function decorationColor(color) {
+  return [CssJs$IsenseiMonorepo.textDecorationColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color))];
+}
+
+var decorationSolid = [CssJs$IsenseiMonorepo.textDecorationStyle("solid")];
+
+var decorationDouble = [CssJs$IsenseiMonorepo.textDecorationStyle("double")];
+
+var decorationDotted = [CssJs$IsenseiMonorepo.textDecorationStyle("dotted")];
+
+var decorationDashed = [CssJs$IsenseiMonorepo.textDecorationStyle("dashed")];
+
+var decorationWavy = [CssJs$IsenseiMonorepo.textDecorationStyle("wavy")];
+
+function toString$4(t) {
+  if (t === 0) {
+    return "0px";
+  } else if (t === 1) {
+    return "1px";
+  } else if (t === 2) {
+    return "2px";
+  } else if (t === 4) {
+    return "4px";
+  } else if (t === 8) {
+    return "8px";
+  } else {
+    return "auto";
+  }
+}
+
+var TextDecorationOffset = {
+  toString: toString$4
+};
+
+function toString$5(t) {
+  if (t === 0) {
+    return "0px";
+  } else if (t === 1) {
+    return "1px";
+  } else if (t === 2) {
+    return "2px";
+  } else if (t === 4) {
+    return "4px";
+  } else if (t === 8) {
+    return "8px";
+  } else if (t === "fromFont") {
+    return "from-font";
+  } else {
+    return "auto";
+  }
+}
+
+var TextDecorationThickness = {
+  toString: toString$5
+};
+
+function decorationThickness(thickness) {
+  return [CssJs$IsenseiMonorepo.unsafe("textDecorationThickness", toString$5(thickness))];
+}
+
+function underlineOffset(offset) {
+  return [CssJs$IsenseiMonorepo.unsafe("textUnderlineOffset", toString$4(offset))];
+}
 
 var uppercase = [CssJs$IsenseiMonorepo.textTransform("uppercase")];
 
@@ -1168,9 +1280,9 @@ var truncate = [
   CssJs$IsenseiMonorepo.whiteSpace("nowrap")
 ];
 
-var overflowEllipsis = [CssJs$IsenseiMonorepo.textOverflow("ellipsis")];
+var textEllipsis = [CssJs$IsenseiMonorepo.textOverflow("ellipsis")];
 
-var overflowClip = [CssJs$IsenseiMonorepo.textOverflow("clip")];
+var textClip = [CssJs$IsenseiMonorepo.textOverflow("clip")];
 
 var alignBaseline = [CssJs$IsenseiMonorepo.verticalAlign("baseline")];
 
@@ -1183,6 +1295,10 @@ var alignBottom = [CssJs$IsenseiMonorepo.verticalAlign("bottom")];
 var alignTextTop = [CssJs$IsenseiMonorepo.unsafe("verticalAlign", "text-top")];
 
 var alignTextBottom = [CssJs$IsenseiMonorepo.unsafe("verticalAlign", "text-bottom")];
+
+var alignSub = [CssJs$IsenseiMonorepo.verticalAlign("sub")];
+
+var alignSuper = [CssJs$IsenseiMonorepo.verticalAlign("super")];
 
 var whitespaceNormal = [CssJs$IsenseiMonorepo.whiteSpace("normal")];
 
@@ -1203,6 +1319,8 @@ var breakWords = [CssJs$IsenseiMonorepo.overflowWrap("breakWord")];
 
 var breakAll = [CssJs$IsenseiMonorepo.wordBreak("breakAll")];
 
+var contentNone = [CssJs$IsenseiMonorepo.unsafe("content", "none")];
+
 var bgFixed = [CssJs$IsenseiMonorepo.backgroundAttachment("fixed")];
 
 var bgLocal = [CssJs$IsenseiMonorepo.backgroundAttachment("local")];
@@ -1219,8 +1337,14 @@ var bgClipText = [CssJs$IsenseiMonorepo.unsafe("backgroundClip", "text")];
 
 function bg(opacityOpt, color) {
   var opacity = opacityOpt !== undefined ? opacityOpt : 1;
-  return [CssJs$IsenseiMonorepo.backgroundColor(Theme__Colors$IsenseiMonorepo.toColor(opacity, color))];
+  return [CssJs$IsenseiMonorepo.backgroundColor(Theme$IsenseiMonorepo.Colors.toValue(opacity, color))];
 }
+
+var bgOriginBorder = [CssJs$IsenseiMonorepo.backgroundOrigin("borderBox")];
+
+var bgOriginPadding = [CssJs$IsenseiMonorepo.backgroundOrigin("paddingBox")];
+
+var bgOriginContent = [CssJs$IsenseiMonorepo.backgroundOrigin("contentBox")];
 
 var bgBottom = [CssJs$IsenseiMonorepo.backgroundPosition("bottom")];
 
@@ -1349,78 +1473,115 @@ function bgGradientToTl(colorList) {
   return [CssJs$IsenseiMonorepo.unsafe("backgroundImage", linGradient("to top left", colorList))];
 }
 
-function rounded(radius) {
-  return [CssJs$IsenseiMonorepo.borderRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))];
-}
-
-function roundedT(radius) {
+function toValue$8(t) {
+  var variant = t.NAME;
+  if (variant === "l") {
+    var radius = t.VAL;
+    return [
+            CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius)),
+            CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius))
+          ];
+  }
+  if (variant === "r") {
+    var radius$1 = t.VAL;
+    return [
+            CssJs$IsenseiMonorepo.borderTopRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$1)),
+            CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$1))
+          ];
+  }
+  if (variant === "t") {
+    var radius$2 = t.VAL;
+    return [
+            CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$2)),
+            CssJs$IsenseiMonorepo.borderTopRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$2))
+          ];
+  }
+  if (variant === "bl") {
+    return [CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(t.VAL))];
+  }
+  if (variant === "br") {
+    return [CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(t.VAL))];
+  }
+  if (variant === "tl") {
+    return [CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(t.VAL))];
+  }
+  if (variant === "tr") {
+    return [CssJs$IsenseiMonorepo.borderTopRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(t.VAL))];
+  }
+  if (variant === "all") {
+    return [CssJs$IsenseiMonorepo.borderRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(t.VAL))];
+  }
+  var radius$3 = t.VAL;
   return [
-          CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius)),
-          CssJs$IsenseiMonorepo.borderTopRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))
+          CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$3)),
+          CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme$IsenseiMonorepo.BorderRadius.toValue(radius$3))
         ];
 }
 
-function roundedR(radius) {
+var BorderRadius = {
+  toValue: toValue$8
+};
+
+var rounded = toValue$8;
+
+function toValue$9(t) {
+  var variant = t.NAME;
+  if (variant === "l") {
+    return [CssJs$IsenseiMonorepo.borderLeftWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(t.VAL))];
+  } else if (variant === "r") {
+    return [CssJs$IsenseiMonorepo.borderRightWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(t.VAL))];
+  } else if (variant === "t") {
+    return [CssJs$IsenseiMonorepo.borderTopWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(t.VAL))];
+  } else if (variant === "all") {
+    return [CssJs$IsenseiMonorepo.borderWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(t.VAL))];
+  } else {
+    return [CssJs$IsenseiMonorepo.borderBottomWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(t.VAL))];
+  }
+}
+
+var BorderWidth = {
+  toValue: toValue$9
+};
+
+var border = toValue$9;
+
+function toValue$10(t) {
+  var variant = t.NAME;
+  if (variant === "l") {
+    return [CssJs$IsenseiMonorepo.borderLeftColor(Theme$IsenseiMonorepo.Colors.toValue(1, t.VAL))];
+  }
+  if (variant === "r") {
+    return [CssJs$IsenseiMonorepo.borderRightColor(Theme$IsenseiMonorepo.Colors.toValue(1, t.VAL))];
+  }
+  if (variant === "t") {
+    return [CssJs$IsenseiMonorepo.borderTopColor(Theme$IsenseiMonorepo.Colors.toValue(1, t.VAL))];
+  }
+  if (variant === "x") {
+    var color = t.VAL;
+    return [
+            CssJs$IsenseiMonorepo.borderLeftColor(Theme$IsenseiMonorepo.Colors.toValue(1, color)),
+            CssJs$IsenseiMonorepo.borderRightColor(Theme$IsenseiMonorepo.Colors.toValue(1, color))
+          ];
+  }
+  if (variant !== "y") {
+    if (variant === "all") {
+      return [CssJs$IsenseiMonorepo.borderColor(Theme$IsenseiMonorepo.Colors.toValue(1, t.VAL))];
+    } else {
+      return [CssJs$IsenseiMonorepo.borderBottomColor(Theme$IsenseiMonorepo.Colors.toValue(1, t.VAL))];
+    }
+  }
+  var color$1 = t.VAL;
   return [
-          CssJs$IsenseiMonorepo.borderTopRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius)),
-          CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))
+          CssJs$IsenseiMonorepo.borderTopColor(Theme$IsenseiMonorepo.Colors.toValue(1, color$1)),
+          CssJs$IsenseiMonorepo.borderBottomColor(Theme$IsenseiMonorepo.Colors.toValue(1, color$1))
         ];
 }
 
-function roundedB(radius) {
-  return [
-          CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius)),
-          CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))
-        ];
-}
+var BorderColor = {
+  toValue: toValue$10
+};
 
-function roundedL(radius) {
-  return [
-          CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius)),
-          CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))
-        ];
-}
-
-function roundedTl(radius) {
-  return [CssJs$IsenseiMonorepo.borderTopLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))];
-}
-
-function roundedTr(radius) {
-  return [CssJs$IsenseiMonorepo.borderTopRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))];
-}
-
-function roundedBr(radius) {
-  return [CssJs$IsenseiMonorepo.borderBottomRightRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))];
-}
-
-function roundedBl(radius) {
-  return [CssJs$IsenseiMonorepo.borderBottomLeftRadius(Theme__BorderRadius$IsenseiMonorepo.toRadius(radius))];
-}
-
-function border(width) {
-  return [CssJs$IsenseiMonorepo.borderWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))];
-}
-
-function borderT(width) {
-  return [CssJs$IsenseiMonorepo.borderTopWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))];
-}
-
-function borderB(width) {
-  return [CssJs$IsenseiMonorepo.borderBottomWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))];
-}
-
-function borderL(width) {
-  return [CssJs$IsenseiMonorepo.borderLeftWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))];
-}
-
-function borderR(width) {
-  return [CssJs$IsenseiMonorepo.borderRightWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))];
-}
-
-function borderColor(opacityOpt, color) {
-  var opacity = opacityOpt !== undefined ? opacityOpt : 1;
-  return [CssJs$IsenseiMonorepo.borderColor(Theme__Colors$IsenseiMonorepo.toColor(opacity, color))];
-}
+var borderColor = toValue$10;
 
 var borderSolid = [CssJs$IsenseiMonorepo.borderStyle("solid")];
 
@@ -1430,43 +1591,52 @@ var borderDotted = [CssJs$IsenseiMonorepo.borderStyle("dotted")];
 
 var borderDouble = [CssJs$IsenseiMonorepo.borderStyle("double")];
 
+var borderHidden = [CssJs$IsenseiMonorepo.borderStyle("hidden")];
+
 var borderNone = [CssJs$IsenseiMonorepo.borderStyle("none")];
 
-function divideY(reverseOpt, colorOpt, width) {
-  var reverse = reverseOpt !== undefined ? reverseOpt : false;
-  var color = colorOpt !== undefined ? colorOpt : "gray400";
-  if (reverse) {
+function toValue$11(t) {
+  if (t.NAME === "y") {
+    var match = t.VAL;
+    var color = match[1];
+    var width = match[0];
+    if (match[2]) {
+      return [
+              CssJs$IsenseiMonorepo.borderColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)),
+              CssJs$IsenseiMonorepo.borderTopWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0)),
+              CssJs$IsenseiMonorepo.borderBottomWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width))
+            ];
+    } else {
+      return [
+              CssJs$IsenseiMonorepo.borderColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)),
+              CssJs$IsenseiMonorepo.borderTopWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width)),
+              CssJs$IsenseiMonorepo.borderBottomWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0))
+            ];
+    }
+  }
+  var match$1 = t.VAL;
+  var color$1 = match$1[1];
+  var width$1 = match$1[0];
+  if (match$1[2]) {
     return [
-            CssJs$IsenseiMonorepo.borderColor(Theme__Colors$IsenseiMonorepo.toColor(undefined, color)),
-            CssJs$IsenseiMonorepo.borderTopWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(0)),
-            CssJs$IsenseiMonorepo.borderBottomWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width))
+            CssJs$IsenseiMonorepo.borderRightWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width$1)),
+            CssJs$IsenseiMonorepo.borderLeftWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0)),
+            CssJs$IsenseiMonorepo.borderColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$1))
           ];
   } else {
     return [
-            CssJs$IsenseiMonorepo.borderColor(Theme__Colors$IsenseiMonorepo.toColor(undefined, color)),
-            CssJs$IsenseiMonorepo.borderTopWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width)),
-            CssJs$IsenseiMonorepo.borderBottomWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(0))
+            CssJs$IsenseiMonorepo.borderLeftWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width$1)),
+            CssJs$IsenseiMonorepo.borderRightWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0)),
+            CssJs$IsenseiMonorepo.borderColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$1))
           ];
   }
 }
 
-function divideX(reverseOpt, colorOpt, width) {
-  var reverse = reverseOpt !== undefined ? reverseOpt : false;
-  var color = colorOpt !== undefined ? colorOpt : "gray400";
-  if (reverse) {
-    return [
-            CssJs$IsenseiMonorepo.borderRightWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width)),
-            CssJs$IsenseiMonorepo.borderLeftWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(0)),
-            CssJs$IsenseiMonorepo.borderColor(Theme__Colors$IsenseiMonorepo.toColor(undefined, color))
-          ];
-  } else {
-    return [
-            CssJs$IsenseiMonorepo.borderLeftWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(width)),
-            CssJs$IsenseiMonorepo.borderRightWidth(Theme__BorderWidth$IsenseiMonorepo.toWidth(0)),
-            CssJs$IsenseiMonorepo.borderColor(Theme__Colors$IsenseiMonorepo.toColor(undefined, color))
-          ];
-  }
-}
+var Divide = {
+  toValue: toValue$11
+};
+
+var divide = toValue$11;
 
 var divideSolid = [CssJs$IsenseiMonorepo.borderStyle("solid")];
 
@@ -1478,69 +1648,373 @@ var divideDouble = [CssJs$IsenseiMonorepo.borderStyle("double")];
 
 var divideNone = [CssJs$IsenseiMonorepo.borderStyle("none")];
 
-function ringOffsetShadow(inset, offsetWidth, offsetColor) {
-  return Css_Js_Core$IsenseiMonorepo.Shadow.box({
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: offsetWidth
-            }, inset, offsetColor);
+function outlineWidth(width) {
+  return [CssJs$IsenseiMonorepo.outlineWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width))];
 }
 
-function ringShadow(inset, spread, color) {
-  return Css_Js_Core$IsenseiMonorepo.Shadow.box({
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: 0
-            }, {
-              NAME: "px",
-              VAL: spread
-            }, inset, color);
+function outlineColor(color) {
+  return [CssJs$IsenseiMonorepo.outlineColor(Theme$IsenseiMonorepo.Colors.toValue(undefined, color))];
 }
 
-var whiteShadow = Css_Js_Core$IsenseiMonorepo.Shadow.box({
-      NAME: "px",
-      VAL: 0
-    }, {
-      NAME: "px",
-      VAL: 0
-    }, undefined, undefined, undefined, Theme__Colors$IsenseiMonorepo.toColor(undefined, "white"));
-
-function ring(insetOpt, offsetWidthOpt, offsetColorOpt, widthOpt, color) {
-  var inset = insetOpt !== undefined ? insetOpt : false;
-  var offsetWidth = offsetWidthOpt !== undefined ? offsetWidthOpt : 0;
-  var offsetColor = offsetColorOpt !== undefined ? offsetColorOpt : Theme__Colors$IsenseiMonorepo.toColor(undefined, "white");
-  var width = widthOpt !== undefined ? widthOpt : 3;
-  return [CssJs$IsenseiMonorepo.boxShadows([
-                ringOffsetShadow(inset, offsetWidth, offsetColor),
-                ringShadow(inset, width + offsetWidth | 0, color),
-                whiteShadow
-              ])];
+function outlineOffset(offset) {
+  return [CssJs$IsenseiMonorepo.outlineOffset(Theme$IsenseiMonorepo.BorderWidth.toValue(offset))];
 }
 
-function shadow(value) {
-  if (value === "inner" || value === "default" || value === "xl2" || value === "xl" || value === "sm" || value === "md" || value === "lg") {
-    return [CssJs$IsenseiMonorepo.boxShadows(Theme__BoxShadow$IsenseiMonorepo.toShadow(value))];
+var outlineSolid = [CssJs$IsenseiMonorepo.outlineStyle("solid")];
+
+var outlineDashed = [CssJs$IsenseiMonorepo.outlineStyle("dashed")];
+
+var outlineDotted = [CssJs$IsenseiMonorepo.outlineStyle("dotted")];
+
+var outlineDouble = [CssJs$IsenseiMonorepo.outlineStyle("double")];
+
+var outlineHidden = [CssJs$IsenseiMonorepo.outlineStyle("hidden")];
+
+var outlineNone = [
+  CssJs$IsenseiMonorepo.outline({
+        NAME: "px",
+        VAL: 2
+      }, "solid", Theme$IsenseiMonorepo.Colors.toValue(undefined, "transparent")),
+  CssJs$IsenseiMonorepo.outlineOffset({
+        NAME: "px",
+        VAL: 2
+      })
+];
+
+function toWidth(width) {
+  if (width === 1) {
+    return "1";
+  } else if (width === 2) {
+    return "2";
+  } else if (width === 3) {
+    return "3";
+  } else if (width === 4) {
+    return "4";
+  } else if (width === 8) {
+    return "8";
   } else {
-    return [CssJs$IsenseiMonorepo.boxShadow("none")];
+    return "0";
   }
 }
 
-function opacity(value) {
-  return [CssJs$IsenseiMonorepo.opacity(Theme__Opacity$IsenseiMonorepo.toValue(value))];
+function toRingShadow(inset, color, width, offsetWidth) {
+  return (
+          inset ? "inset" : ""
+        ) + " 0 0 0 calc(" + toWidth(width) + "px + " + toWidth(offsetWidth) + " " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color));
 }
+
+function toValue$12(inset, color, width, offsetWidth, offsetColor) {
+  return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 0 0 " + toWidth(offsetWidth) + " " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, offsetColor)) + ", " + toRingShadow(inset, color, width, offsetWidth))];
+}
+
+var Ring = {
+  toWidth: toWidth,
+  toRingShadow: toRingShadow,
+  toValue: toValue$12
+};
+
+function ring(insetOpt, offsetWidthOpt, offsetColorOpt, width, color, param) {
+  var inset = insetOpt !== undefined ? insetOpt : false;
+  var offsetWidth = offsetWidthOpt !== undefined ? offsetWidthOpt : 0;
+  var offsetColor = offsetColorOpt !== undefined ? offsetColorOpt : "transparent";
+  return toValue$12(inset, color, width, offsetWidth, offsetColor);
+}
+
+function toValue$13(t) {
+  if (typeof t !== "object") {
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 0 #0000")];
+  }
+  var variant = t.NAME;
+  if (variant === "md") {
+    var color = t.VAL;
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 4px 6px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)) + ", 0 2px 4px -2px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)))];
+  }
+  if (variant === "sm") {
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 2px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, t.VAL)))];
+  }
+  if (variant === "xl") {
+    var color$1 = t.VAL;
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 20px 25px -5px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$1)) + ", 0 8px 10px -6px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$1)))];
+  }
+  if (variant === "xl2") {
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 25px 50px -12px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, t.VAL)))];
+  }
+  if (variant === "default") {
+    var color$2 = t.VAL;
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 3px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$2)) + ", 0 1px 2px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$2)))];
+  }
+  if (variant === "inner") {
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "inset 0 2px 4px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, t.VAL)))];
+  }
+  var color$3 = t.VAL;
+  return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 10px 15px -3px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$3)) + ", 0 4px 6px -4px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color$3)))];
+}
+
+var BoxShadow = {
+  toValue: toValue$13
+};
+
+var shadow = toValue$13;
+
+function opacity(value) {
+  return [CssJs$IsenseiMonorepo.opacity(Theme$IsenseiMonorepo.Opacity.toValue(value))];
+}
+
+function toString$6(t) {
+  if (t === "screen") {
+    return "screen";
+  } else if (t === "color") {
+    return "color";
+  } else if (t === "hardLight") {
+    return "hardLight";
+  } else if (t === "exclusion") {
+    return "exclusion";
+  } else if (t === "saturation") {
+    return "saturation";
+  } else if (t === "hue") {
+    return "hue";
+  } else if (t === "colorDodge") {
+    return "colorDodge";
+  } else if (t === "softLight") {
+    return "softLight";
+  } else if (t === "lighten") {
+    return "lighten";
+  } else if (t === "multiply") {
+    return "multiply";
+  } else if (t === "colorBurn") {
+    return "colorBurn";
+  } else if (t === "darken") {
+    return "darken";
+  } else if (t === "luminosity") {
+    return "luminosity";
+  } else if (t === "overlay") {
+    return "overlay";
+  } else if (t === "normal") {
+    return "normal";
+  } else {
+    return "difference";
+  }
+}
+
+var MixBlendMode = {
+  toString: toString$6
+};
+
+function mixBlend(mode) {
+  return [CssJs$IsenseiMonorepo.unsafe("mixBlendMode", toString$6(mode))];
+}
+
+function bgBlend(mode) {
+  return [CssJs$IsenseiMonorepo.unsafe("backgroundBlendMode", toString$6(mode))];
+}
+
+function toString$7(t) {
+  if (t === "lg") {
+    return "blur(16px)";
+  } else if (t === "md") {
+    return "blur(12px)";
+  } else if (t === "sm") {
+    return "blur(4px)";
+  } else if (t === "xl") {
+    return "blur(24px)";
+  } else if (t === "xl2") {
+    return "blur(40px)";
+  } else if (t === "xl3") {
+    return "blur(64px)";
+  } else if (t === "default") {
+    return "blur(8px)";
+  } else {
+    return "blur(0)";
+  }
+}
+
+var Blur = {
+  toString: toString$7
+};
+
+function blur(size) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$7(size))];
+}
+
+function toString$8(t) {
+  if (t === 50) {
+    return "brightness(0.5)";
+  } else if (t === 75) {
+    return "brightness(0.75)";
+  } else if (t === 90) {
+    return "brightness(0.9)";
+  } else if (t === 95) {
+    return "brightness(0.95)";
+  } else if (t === 100) {
+    return "brightness(1)";
+  } else if (t === 105) {
+    return "brightness(1.05)";
+  } else if (t === 110) {
+    return "brightness(1.1)";
+  } else if (t === 125) {
+    return "brightness(1.25)";
+  } else if (t === 150) {
+    return "brightness(1.5)";
+  } else if (t === 200) {
+    return "brightness(2)";
+  } else {
+    return "brightness(0)";
+  }
+}
+
+var Brightness = {
+  toString: toString$8
+};
+
+function brightness(value) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$8(value))];
+}
+
+function toString$9(t) {
+  if (t === 50) {
+    return "contrast(0.5)";
+  } else if (t === 75) {
+    return "contrast(0.75)";
+  } else if (t === 100) {
+    return "contrast(1)";
+  } else if (t === 125) {
+    return "contrast(1.25)";
+  } else if (t === 150) {
+    return "contrast(1.5)";
+  } else if (t === 200) {
+    return "contrast(2)";
+  } else {
+    return "contrast(0)";
+  }
+}
+
+var Contrast = {
+  toString: toString$9
+};
+
+function contrast(value) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$9(value))];
+}
+
+function toString$10(t) {
+  if (t === "lg") {
+    return "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))";
+  } else if (t === "md") {
+    return "drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06))";
+  } else if (t === "sm") {
+    return "drop-shadow(0 1px 1px rgb(0 0 0 / 0.05))";
+  } else if (t === "xl") {
+    return "drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08))";
+  } else if (t === "xl2") {
+    return "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))";
+  } else if (t === "default") {
+    return "drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06))";
+  } else {
+    return "drop-shadow(0 0 #0000)";
+  }
+}
+
+var DropShadow = {
+  toString: toString$10
+};
+
+function dropShadow(shadow) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$10(shadow))];
+}
+
+var grayscale0 = [CssJs$IsenseiMonorepo.unsafe("filter", "grayscale(0)")];
+
+var grayscale = [CssJs$IsenseiMonorepo.unsafe("filter", "grayscale(100%)")];
+
+function toString$11(t) {
+  if (t === 15) {
+    return "hue-rotate(15deg)";
+  } else if (t === 30) {
+    return "hue-rotate(30deg)";
+  } else if (t === 60) {
+    return "hue-rotate(60deg)";
+  } else if (t === 90) {
+    return "hue-rotate(90deg)";
+  } else if (t === 180) {
+    return "hue-rotate(180deg)";
+  } else {
+    return "hue-rotate(0deg)";
+  }
+}
+
+var HueRotate = {
+  toString: toString$11
+};
+
+function hueRotate(rotation) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$11(rotation))];
+}
+
+var invert0 = [CssJs$IsenseiMonorepo.unsafe("filter", "invert(0)")];
+
+var invert = [CssJs$IsenseiMonorepo.unsafe("filter", "invert(100%)")];
+
+function toString$12(t) {
+  if (t === 50) {
+    return "saturate(50)";
+  } else if (t === 100) {
+    return "saturate(100)";
+  } else if (t === 150) {
+    return "saturate(150)";
+  } else if (t === 200) {
+    return "saturate(200)";
+  } else {
+    return "saturate(0)";
+  }
+}
+
+var Saturate = {
+  toString: toString$12
+};
+
+function saturate(val) {
+  return [CssJs$IsenseiMonorepo.unsafe("filter", toString$12(val))];
+}
+
+var sepia0 = [CssJs$IsenseiMonorepo.unsafe("filter", "sepia(0)")];
+
+var sepia = [CssJs$IsenseiMonorepo.unsafe("filter", "sepia(100%)")];
+
+function backdropBlur(size) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", toString$7(size))];
+}
+
+function backdropBrightness(val) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", toString$8(val))];
+}
+
+function backdropContrast(val) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", toString$9(val))];
+}
+
+var backdropGrayscale0 = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "grayscale(0)")];
+
+var backdropGrayscale = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "grayscale(100%)")];
+
+function backdropHueRotate(rotation) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", toString$11(rotation))];
+}
+
+var backdropInvert0 = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "invert(0)")];
+
+var backdropInvert = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "invert(100%)")];
+
+function backdropOpacity(opacity) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "opacity(" + String(Theme$IsenseiMonorepo.Opacity.toValue(opacity)) + ")")];
+}
+
+function backdropSaturate(val) {
+  return [CssJs$IsenseiMonorepo.unsafe("backdropFilter", toString$12(val))];
+}
+
+var backdropSepia0 = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "sepia(0)")];
+
+var backdropSepia = [CssJs$IsenseiMonorepo.unsafe("backdropFilter", "sepia(100%)")];
 
 var borderCollapse = [CssJs$IsenseiMonorepo.borderCollapse("collapse")];
 
@@ -1550,54 +2024,93 @@ var tableAuto = [CssJs$IsenseiMonorepo.tableLayout("auto")];
 
 var tableFixed = [CssJs$IsenseiMonorepo.tableLayout("fixed")];
 
-var appearanceNone = [CssJs$IsenseiMonorepo.unsafe("appearance", "none")];
+function toString$13(t) {
+  if (t === "cell") {
+    return "cell";
+  } else if (t === "copy") {
+    return "copy";
+  } else if (t === "swResize") {
+    return "swResize";
+  } else if (t === "grab") {
+    return "grab";
+  } else if (t === "help") {
+    return "help";
+  } else if (t === "move") {
+    return "move";
+  } else if (t === "none") {
+    return "none";
+  } else if (t === "text") {
+    return "text";
+  } else if (t === "rowResize") {
+    return "rowResize";
+  } else if (t === "wait") {
+    return "wait";
+  } else if (t === "pointer") {
+    return "pointer";
+  } else if (t === "seResize") {
+    return "seResize";
+  } else if (t === "zoomOut") {
+    return "zoomOut";
+  } else if (t === "sResize") {
+    return "sResize";
+  } else if (t === "zoomIn") {
+    return "zoomIn";
+  } else if (t === "grabbing") {
+    return "grabbing";
+  } else if (t === "nsResize") {
+    return "nsResize";
+  } else if (t === "nwseResize") {
+    return "nwseResize";
+  } else if (t === "progress") {
+    return "progress";
+  } else if (t === "crosshair") {
+    return "crosshair";
+  } else if (t === "wResize") {
+    return "wResize";
+  } else if (t === "noDrop") {
+    return "noDrop";
+  } else if (t === "allScroll") {
+    return "allScroll";
+  } else if (t === "verticalText") {
+    return "verticalText";
+  } else if (t === "nResize") {
+    return "nResize";
+  } else if (t === "default") {
+    return "default";
+  } else if (t === "neswResize") {
+    return "neswResize";
+  } else if (t === "alias") {
+    return "alias";
+  } else if (t === "ewResize") {
+    return "ewResize";
+  } else if (t === "eResize") {
+    return "eResize";
+  } else if (t === "nwResize") {
+    return "nwResize";
+  } else if (t === "contextMenu") {
+    return "contextMenu";
+  } else if (t === "colResize") {
+    return "colResize";
+  } else if (t === "notAllowed") {
+    return "notAllowed";
+  } else if (t === "neResize") {
+    return "neResize";
+  } else {
+    return "auto";
+  }
+}
 
-var cursorAuto = [CssJs$IsenseiMonorepo.cursor("auto")];
+var Cursor = {
+  toString: toString$13
+};
 
-var cursorDefault = [CssJs$IsenseiMonorepo.cursor("default")];
+function cursor(val) {
+  return [CssJs$IsenseiMonorepo.cursor(val)];
+}
 
-var cursorPointer = [CssJs$IsenseiMonorepo.cursor("pointer")];
-
-var cursorWait = [CssJs$IsenseiMonorepo.cursor("wait")];
-
-var cursorText = [CssJs$IsenseiMonorepo.cursor("text")];
-
-var cursorMove = [CssJs$IsenseiMonorepo.cursor("move")];
-
-var cursorNotAllowed = [CssJs$IsenseiMonorepo.cursor("notAllowed")];
-
-var outlineNone = [
-  CssJs$IsenseiMonorepo.outline({
-        NAME: "px",
-        VAL: 2
-      }, "solid", Theme__Colors$IsenseiMonorepo.toColor(undefined, "transparent")),
-  CssJs$IsenseiMonorepo.outlineOffset({
-        NAME: "px",
-        VAL: 2
-      })
-];
-
-var outlineWhite = [
-  CssJs$IsenseiMonorepo.outline({
-        NAME: "px",
-        VAL: 2
-      }, "dotted", Theme__Colors$IsenseiMonorepo.toColor(undefined, "white")),
-  CssJs$IsenseiMonorepo.outlineOffset({
-        NAME: "px",
-        VAL: 2
-      })
-];
-
-var outlineBlack = [
-  CssJs$IsenseiMonorepo.outline({
-        NAME: "px",
-        VAL: 2
-      }, "dotted", Theme__Colors$IsenseiMonorepo.toColor(undefined, "black")),
-  CssJs$IsenseiMonorepo.outlineOffset({
-        NAME: "px",
-        VAL: 2
-      })
-];
+function caretColor(color) {
+  return [CssJs$IsenseiMonorepo.unsafe("caretColor", Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)))];
+}
 
 var pointerEventsNone = [CssJs$IsenseiMonorepo.pointerEvents("none")];
 
@@ -1611,6 +2124,142 @@ var resizeX = [CssJs$IsenseiMonorepo.resize("horizontal")];
 
 var resize = [CssJs$IsenseiMonorepo.resize("both")];
 
+var scrollAuto = [CssJs$IsenseiMonorepo.scrollBehavior("auto")];
+
+var scrollSmooth = [CssJs$IsenseiMonorepo.scrollBehavior("smooth")];
+
+function scrollM(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollMargin", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollMx(spacing) {
+  return [
+          CssJs$IsenseiMonorepo.unsafe("scrollMarginLeft", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing))),
+          CssJs$IsenseiMonorepo.unsafe("scrollMarginRight", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))
+        ];
+}
+
+function scrollMy(spacing) {
+  return [
+          CssJs$IsenseiMonorepo.unsafe("scrollMarginTop", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing))),
+          CssJs$IsenseiMonorepo.unsafe("scrollMarginBottom", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))
+        ];
+}
+
+function scrollMt(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollMarginTop", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollMr(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollMarginRight", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollMb(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollMarginBottom", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollMl(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollMarginLeft", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollP(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollPadding", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollPx(spacing) {
+  return [
+          CssJs$IsenseiMonorepo.unsafe("scrollPaddingLeft", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing))),
+          CssJs$IsenseiMonorepo.unsafe("scrollPaddingRight", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))
+        ];
+}
+
+function scrollPy(spacing) {
+  return [
+          CssJs$IsenseiMonorepo.unsafe("scrollPaddingTop", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing))),
+          CssJs$IsenseiMonorepo.unsafe("scrollPaddingBottom", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))
+        ];
+}
+
+function scrollPt(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollPaddingTop", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollPr(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollPaddingRight", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollPb(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollPaddingBottom", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+function scrollPl(spacing) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollPaddingLeft", Css_AtomicTypes$IsenseiMonorepo.Length.toString(Theme$IsenseiMonorepo.Spacing.toValue(spacing)))];
+}
+
+var snapStart = [CssJs$IsenseiMonorepo.unsafe("scrollSnapAlign", "start")];
+
+var snapEnd = [CssJs$IsenseiMonorepo.unsafe("scrollSnapAlign", "end")];
+
+var snapCenter = [CssJs$IsenseiMonorepo.unsafe("scrollSnapAlign", "center")];
+
+var snapAlignNone = [CssJs$IsenseiMonorepo.unsafe("scrollSnapAlign", "none")];
+
+var snapNormal = [CssJs$IsenseiMonorepo.unsafe("scrollSnapStop", "normal")];
+
+var snapAlways = [CssJs$IsenseiMonorepo.unsafe("scrollSnapStop", "always")];
+
+function toString$14(snapStrictness, t) {
+  if (t === "none") {
+    return "none";
+  } else if (t === "x") {
+    return "x " + snapStrictness;
+  } else if (t === "y") {
+    return "y " + snapStrictness;
+  } else {
+    return "both " + snapStrictness;
+  }
+}
+
+var SnapType = {
+  toString: toString$14
+};
+
+function snap(snapStrictness, snapType) {
+  return [CssJs$IsenseiMonorepo.unsafe("scrollSnapType", toString$14(snapStrictness, snapType))];
+}
+
+function toString$15(t) {
+  if (t === "none") {
+    return "none";
+  } else if (t === "panX") {
+    return "panX";
+  } else if (t === "panY") {
+    return "panY";
+  } else if (t === "pinchZoom") {
+    return "pinchZoom";
+  } else if (t === "panDown") {
+    return "panDown";
+  } else if (t === "panLeft") {
+    return "panLeft";
+  } else if (t === "mainpulation") {
+    return "manipulation";
+  } else if (t === "panUp") {
+    return "panUp";
+  } else if (t === "panRight") {
+    return "panRight";
+  } else {
+    return "auto";
+  }
+}
+
+var TouchAction = {
+  toString: toString$15
+};
+
+function touch(action) {
+  return [CssJs$IsenseiMonorepo.unsafe("touchAction", toString$15(action))];
+}
+
 var selectNone = [CssJs$IsenseiMonorepo.userSelect("none")];
 
 var selectText = [CssJs$IsenseiMonorepo.userSelect("text")];
@@ -1619,24 +2268,51 @@ var selectAll = [CssJs$IsenseiMonorepo.userSelect("all")];
 
 var selectAuto = [CssJs$IsenseiMonorepo.userSelect("auto")];
 
-var fillCurrent = [Css_Js_Core$IsenseiMonorepo.SVG.fill("currentColor")];
+function toString$16(t) {
+  if (t === "transform") {
+    return "transform";
+  } else if (t === "scrollPosition") {
+    return "scrollPosition";
+  } else if (t === "contents") {
+    return "contents";
+  } else {
+    return "auto";
+  }
+}
 
-var strokeCurrent = [Css_Js_Core$IsenseiMonorepo.SVG.stroke("currentColor")];
+var WillChange = {
+  toString: toString$16
+};
 
-var stroke0 = [Css_Js_Core$IsenseiMonorepo.SVG.strokeWidth({
-        NAME: "px",
-        VAL: 0
-      })];
+function willChange(value) {
+  return [CssJs$IsenseiMonorepo.unsafe("will-change", toString$16(value))];
+}
 
-var stroke1 = [Css_Js_Core$IsenseiMonorepo.SVG.strokeWidth({
-        NAME: "px",
-        VAL: 1
-      })];
+function fill(color) {
+  return [CssJs$IsenseiMonorepo.unsafe("fill", Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)))];
+}
 
-var stroke2 = [Css_Js_Core$IsenseiMonorepo.SVG.strokeWidth({
-        NAME: "px",
-        VAL: 2
-      })];
+function stroke(color) {
+  return [CssJs$IsenseiMonorepo.unsafe("stroke", Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)))];
+}
+
+function toString$17(t) {
+  if (t === 1) {
+    return "1";
+  } else if (t === 2) {
+    return "2";
+  } else {
+    return "0";
+  }
+}
+
+var StrokeWidth = {
+  toString: toString$17
+};
+
+function strokeWidth(width) {
+  return [CssJs$IsenseiMonorepo.unsafe("strokeWidth", toString$17(width))];
+}
 
 var srOnly = [
   CssJs$IsenseiMonorepo.position("absolute"),
@@ -1754,77 +2430,175 @@ function transformGpu(twTranslateXOpt, twTranslateYOpt, twRotateOpt, twSkewXOpt,
 
 var transformNone = [CssJs$IsenseiMonorepo.transform("none")];
 
-var originCenter = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 50
-      }, {
-        NAME: "percent",
-        VAL: 50
+var originCenter = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "center")];
+
+var originRight = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "right")];
+
+var originLeft = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "left")];
+
+var originTop = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "top")];
+
+var originTopLeft = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "top left")];
+
+var originTopRight = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "top right")];
+
+var originBottom = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "bottom")];
+
+var originBottomRight = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "bottom right")];
+
+var originBottomLeft = [CssJs$IsenseiMonorepo.unsafe("transformOrigin", "bottom left")];
+
+function accentColor(color) {
+  return [CssJs$IsenseiMonorepo.unsafe("accentColor", Css_AtomicTypes$IsenseiMonorepo.Color.toString(Theme$IsenseiMonorepo.Colors.toValue(undefined, color)))];
+}
+
+var appearanceNone = [CssJs$IsenseiMonorepo.unsafe("appearance", "none")];
+
+var timingFunction = {
+  NAME: "cubicBezier",
+  VAL: [
+    0.4,
+    0,
+    0.2,
+    1
+  ]
+};
+
+var transitionNone = [CssJs$IsenseiMonorepo.transitionProperty("none")];
+
+var transitionAll = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "all")];
+
+var transition = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter")];
+
+var transitionColors = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "color, background-color, border-color, text-decoration-color, fill, stroke")];
+
+var transitionOpacity = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "opacity")];
+
+var transitionShadow = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "boxShadow")];
+
+var transitionTransform = [CssJs$IsenseiMonorepo.transition(Theme$IsenseiMonorepo.Duration.toValue(150), undefined, timingFunction, "transform")];
+
+function duration(miliseconds) {
+  return [CssJs$IsenseiMonorepo.transitionDuration(Theme$IsenseiMonorepo.Duration.toValue(miliseconds))];
+}
+
+var easeLinear = [CssJs$IsenseiMonorepo.transitionTimingFunction(Theme$IsenseiMonorepo.TimingFunction.toValue("linear"))];
+
+var easeIn = [CssJs$IsenseiMonorepo.transitionTimingFunction({
+        NAME: "cubicBezier",
+        VAL: [
+          0.4,
+          0,
+          1,
+          1
+        ]
       })];
 
-var originRight = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 50
-      }, {
-        NAME: "percent",
-        VAL: 100
+var easeOut = [CssJs$IsenseiMonorepo.transitionTimingFunction({
+        NAME: "cubicBezier",
+        VAL: [
+          0,
+          0,
+          0.2,
+          1
+        ]
       })];
 
-var originLeft = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 50
-      }, {
-        NAME: "percent",
-        VAL: 0
+var easeInOut = [CssJs$IsenseiMonorepo.transitionTimingFunction({
+        NAME: "cubicBezier",
+        VAL: [
+          0.4,
+          0,
+          0.2,
+          1
+        ]
       })];
 
-var originTop = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 0
-      }, {
-        NAME: "percent",
-        VAL: 50
+function delay(miliseconds) {
+  return [CssJs$IsenseiMonorepo.transitionDelay(Theme$IsenseiMonorepo.Duration.toValue(miliseconds))];
+}
+
+var animateNone = [CssJs$IsenseiMonorepo.animationValue({
+        NAME: "value",
+        VAL: "none"
       })];
 
-var originTopLeft = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 0
-      }, {
-        NAME: "percent",
-        VAL: 0
-      })];
+var animateSpin = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, "linear", undefined, undefined, "infinite", Theme$IsenseiMonorepo.KeyFrames.spin)];
 
-var originTopRight = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 0
-      }, {
-        NAME: "percent",
-        VAL: 100
-      })];
+var animatePing = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, {
+        NAME: "cubicBezier",
+        VAL: [
+          0,
+          0,
+          0.2,
+          1
+        ]
+      }, undefined, undefined, "infinite", Theme$IsenseiMonorepo.KeyFrames.ping)];
 
-var originBottom = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 100
-      }, {
-        NAME: "percent",
-        VAL: 50
-      })];
+var animatePulse = [CssJs$IsenseiMonorepo.animation(2000, 0, undefined, {
+        NAME: "cubicBezier",
+        VAL: [
+          0.4,
+          0,
+          0.6,
+          1
+        ]
+      }, undefined, undefined, "infinite", Theme$IsenseiMonorepo.KeyFrames.pulse)];
 
-var originBottomRight = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 100
-      }, {
-        NAME: "percent",
-        VAL: 100
-      })];
+var animateBounce = [CssJs$IsenseiMonorepo.animation(1000, 0, undefined, undefined, undefined, undefined, "infinite", Theme$IsenseiMonorepo.KeyFrames.bounce)];
 
-var originBottomLeft = [CssJs$IsenseiMonorepo.transformOrigin({
-        NAME: "percent",
-        VAL: 100
-      }, {
-        NAME: "percent",
-        VAL: 0
-      })];
+function scale(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "scale",
+                VAL: [
+                  Theme$IsenseiMonorepo.Scale.toValue(val),
+                  Theme$IsenseiMonorepo.Scale.toValue(val)
+                ]
+              })];
+}
+
+function scaleX(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "scaleX",
+                VAL: Theme$IsenseiMonorepo.Scale.toValue(val)
+              })];
+}
+
+function scaleY(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "scaleY",
+                VAL: Theme$IsenseiMonorepo.Scale.toValue(val)
+              })];
+}
+
+function rotate(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "rotate",
+                VAL: Theme$IsenseiMonorepo.Rotate.toValue(val)
+              })];
+}
+
+function translateX(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "translateX",
+                VAL: Theme$IsenseiMonorepo.Spacing.toValue(val)
+              })];
+}
+
+function translateY(val) {
+  return [CssJs$IsenseiMonorepo.transform({
+                NAME: "translateY",
+                VAL: Theme$IsenseiMonorepo.Spacing.toValue(val)
+              })];
+}
+
+function skewX(val) {
+  return [CssJs$IsenseiMonorepo.skewX(Theme$IsenseiMonorepo.Skew.toValue(val))];
+}
+
+function skewY(val) {
+  return [CssJs$IsenseiMonorepo.skewY(Theme$IsenseiMonorepo.Skew.toValue(val))];
+}
 
 var tw = Belt_Array.concatMany;
 
@@ -1878,22 +2652,14 @@ function contentText(text) {
               })];
 }
 
-var contentNone = [CssJs$IsenseiMonorepo.contentRule("none")];
+var contentRuleNone = [CssJs$IsenseiMonorepo.contentRule("none")];
 
-var contentOpen = [CssJs$IsenseiMonorepo.contentRule("openQuote")];
-
-var contentClose = [CssJs$IsenseiMonorepo.contentRule("closeQuote")];
-
-var container = Belt_Array.concatMany([
-      w("full"),
-      minWBreakpoint(640, [maxW("screenSm")]),
-      minWBreakpoint(768, [
-            maxW("screenMd"),
-            minWBreakpoint(1024, [maxW("screenLg")]),
-            minWBreakpoint(1280, [maxW("screenXl")]),
-            minWBreakpoint(1536, [maxW("screen2Xl")])
-          ])
-    ]);
+function content(string) {
+  return [CssJs$IsenseiMonorepo.contentRule({
+                NAME: "text",
+                VAL: string
+              })];
+}
 
 function selector(string, rules) {
   return [CssJs$IsenseiMonorepo.selector(string, Belt_Array.concatMany(rules))];
@@ -2080,63 +2846,63 @@ function leading$1(px, base) {
               })];
 }
 
-function mt$1(px, base) {
+function mt(px, base) {
   return [CssJs$IsenseiMonorepo.marginTop(em(px, base))];
 }
 
-function mr$1(px, base) {
+function mr(px, base) {
   return [CssJs$IsenseiMonorepo.marginRight(em(px, base))];
 }
 
-function ml$1(px, base) {
+function ml(px, base) {
   return [CssJs$IsenseiMonorepo.marginLeft(em(px, base))];
 }
 
-function mb$1(px, base) {
+function mb(px, base) {
   return [CssJs$IsenseiMonorepo.marginBottom(em(px, base))];
 }
 
-function my$1(px, base) {
+function my(px, base) {
   return [
           CssJs$IsenseiMonorepo.marginBottom(em(px, base)),
           CssJs$IsenseiMonorepo.marginTop(em(px, base))
         ];
 }
 
-function mx$1(px, base) {
+function mx(px, base) {
   return [
           CssJs$IsenseiMonorepo.marginLeft(em(px, base)),
           CssJs$IsenseiMonorepo.marginRight(em(px, base))
         ];
 }
 
-function pt$1(px, base) {
+function pt(px, base) {
   return [CssJs$IsenseiMonorepo.paddingTop(em(px, base))];
 }
 
-function pr$1(px, base) {
+function pr(px, base) {
   return [CssJs$IsenseiMonorepo.paddingRight(em(px, base))];
 }
 
-function pl$1(px, base) {
+function pl(px, base) {
   return [CssJs$IsenseiMonorepo.paddingLeft(em(px, base))];
 }
 
-function pb$1(px, base) {
+function pb(px, base) {
   return [CssJs$IsenseiMonorepo.paddingBottom(em(px, base))];
 }
 
-function py$1(px, base) {
+function py(px, base) {
   return [
           CssJs$IsenseiMonorepo.paddingBottom(em(px, base)),
           CssJs$IsenseiMonorepo.paddingTop(em(px, base))
         ];
 }
 
-function px$1(px$2, base) {
+function px(px$1, base) {
   return [
-          CssJs$IsenseiMonorepo.paddingLeft(em(px$2, base)),
-          CssJs$IsenseiMonorepo.paddingRight(em(px$2, base))
+          CssJs$IsenseiMonorepo.paddingLeft(em(px$1, base)),
+          CssJs$IsenseiMonorepo.paddingRight(em(px$1, base))
         ];
 }
 
@@ -2254,18 +3020,18 @@ var Typography = {
   em: em,
   toRem: toRem,
   leading: leading$1,
-  mt: mt$1,
-  mr: mr$1,
-  ml: ml$1,
-  mb: mb$1,
-  my: my$1,
-  mx: mx$1,
-  pt: pt$1,
-  pr: pr$1,
-  pl: pl$1,
-  pb: pb$1,
-  py: py$1,
-  px: px$1,
+  mt: mt,
+  mr: mr,
+  ml: ml,
+  mb: mb,
+  my: my,
+  mx: mx,
+  pt: pt,
+  pr: pr,
+  pl: pl,
+  pb: pb,
+  py: py,
+  px: px,
   w: w$1,
   h: h$1,
   square: square,
@@ -2282,30 +3048,34 @@ var Typography = {
   fontSize: fontSize
 };
 
+var BreakBefore;
+
 var merge = CssJs$IsenseiMonorepo.merge;
 
 var style = CssJs$IsenseiMonorepo.style;
 
 export {
   emptyRule ,
-  transitionNone ,
-  transitionAll ,
-  transition ,
-  transitionColors ,
-  transitionOpacity ,
-  transitionShadow ,
-  transitionTransform ,
-  duration ,
-  easeLinear ,
-  easeIn ,
-  easeOut ,
-  easeInOut ,
-  delay ,
-  animateNone ,
-  animateSpin ,
-  animatePing ,
-  animatePulse ,
-  animateBounce ,
+  aspectAuto ,
+  aspectSquare ,
+  aspectVideo ,
+  aspectCustom ,
+  container ,
+  containerSm ,
+  containerMd ,
+  containerLg ,
+  containerXl ,
+  container2Xl ,
+  Columns ,
+  columns ,
+  BreakAfter ,
+  BreakBefore ,
+  BreakInside ,
+  breakAfter ,
+  breakBefore ,
+  breakInside ,
+  BoxDecoration ,
+  boxDecoration ,
   boxBorder ,
   boxContent ,
   block ,
@@ -2314,6 +3084,7 @@ export {
   flex ,
   inlineFlex ,
   table ,
+  inlineTable ,
   tableCaption ,
   tableCell ,
   tableColumn ,
@@ -2326,6 +3097,7 @@ export {
   grid ,
   inlineGrid ,
   contents ,
+  listItem ,
   hidden ,
   floatRight ,
   floatLeft ,
@@ -2334,6 +3106,8 @@ export {
   clearRight ,
   clearBoth ,
   clearNone ,
+  isolate ,
+  isolateAuto ,
   objectContain ,
   objectCover ,
   objectFill ,
@@ -2350,12 +3124,15 @@ export {
   objectTop ,
   overflowAuto ,
   overflowHidden ,
+  overflowClip ,
   overflowVisible ,
   overflowScroll ,
   overflowXAuto ,
   overflowYAuto ,
   overflowXHidden ,
   overflowYHidden ,
+  overflowXClip ,
+  overflowYClip ,
   overflowXVisible ,
   overflowYVisible ,
   overflowXScroll ,
@@ -2381,16 +3158,10 @@ export {
   bottom ,
   left ,
   right ,
-  nInset ,
-  nInsetX ,
-  nInsetY ,
-  nTop ,
-  nBottom ,
-  nLeft ,
-  nRight ,
   visible ,
   invisible ,
   z ,
+  basis ,
   flexRow ,
   flexRowReverse ,
   flexCol ,
@@ -2402,19 +3173,15 @@ export {
   flexAuto ,
   flexInitial ,
   flexNone ,
-  flexGrow0 ,
-  flexGrow ,
-  flexShrink0 ,
-  flexShrink ,
+  grow ,
+  grow0 ,
+  shrink ,
+  shrink0 ,
   order ,
   gridCols ,
   col ,
-  colStart ,
-  colEnd ,
   gridRows ,
   row ,
-  rowStart ,
-  rowEnd ,
   gridFlowRow ,
   gridFlowCol ,
   gridFlowRowDense ,
@@ -2427,16 +3194,14 @@ export {
   autoRowsMin ,
   autoRowsMax ,
   autoRowsFr ,
+  Gap ,
   gap ,
-  gapX ,
-  gapY ,
   justifyStart ,
   justifyEnd ,
   justifyCenter ,
   justifyBetween ,
   justifyAround ,
   justifyEvenly ,
-  justifyItemsAuto ,
   justifyItemsStart ,
   justifyItemsEnd ,
   justifyItemsCenter ,
@@ -2462,6 +3227,7 @@ export {
   selfEnd ,
   selfCenter ,
   selfStretch ,
+  selfBaseline ,
   placeContentCenter ,
   placeContentStart ,
   placeContentBetween ,
@@ -2469,7 +3235,6 @@ export {
   placeContentAround ,
   placeContentEvenly ,
   placeContentStretch ,
-  placeItemsAuto ,
   placeItemsStart ,
   placeItemsEnd ,
   placeItemsCenter ,
@@ -2479,49 +3244,40 @@ export {
   placeSelfEnd ,
   placeSelfCenter ,
   placeSelfStretch ,
+  Padding ,
   p ,
-  py ,
-  px ,
-  pt ,
-  pr ,
-  pb ,
-  pl ,
+  Margin ,
   m ,
-  my ,
-  mx ,
-  mt ,
-  mb ,
-  mr ,
-  ml ,
-  nm ,
-  nmy ,
-  nmx ,
-  nmt ,
-  nmb ,
-  nmr ,
-  nml ,
-  spaceY ,
-  nspaceY ,
-  spaceX ,
-  nspaceX ,
+  SpaceBetween ,
+  space ,
+  Width ,
   w ,
   minW0 ,
   minWFull ,
   minWMin ,
   minWMax ,
+  minWFit ,
   maxW ,
   maxWPx ,
+  Height ,
   h ,
   minH0 ,
   minHFull ,
   minHScreen ,
+  minHMin ,
+  minHMax ,
+  minHFit ,
+  MaxHeight ,
   maxH ,
   fontSans ,
   fontSerif ,
   fontMono ,
-  text ,
+  TextSize ,
+  textSize ,
+  antialiased ,
+  subpixelAntialiased ,
   italic ,
-  noItalic ,
+  notItalic ,
   fontWeight ,
   normalNums ,
   ordinal ,
@@ -2540,28 +3296,41 @@ export {
   listDecimal ,
   listInside ,
   listOutside ,
-  placeholder ,
   textLeft ,
   textCenter ,
   textRight ,
   textJustify ,
+  placeholder ,
   textColor ,
   underline ,
+  overline ,
   lineThrough ,
   noUnderline ,
+  decorationColor ,
+  decorationSolid ,
+  decorationDouble ,
+  decorationDotted ,
+  decorationDashed ,
+  decorationWavy ,
+  TextDecorationOffset ,
+  TextDecorationThickness ,
+  decorationThickness ,
+  underlineOffset ,
   uppercase ,
   lowercase ,
   capitalize ,
   normalCase ,
   truncate ,
-  overflowEllipsis ,
-  overflowClip ,
+  textEllipsis ,
+  textClip ,
   alignBaseline ,
   alignTop ,
   alignMiddle ,
   alignBottom ,
   alignTextTop ,
   alignTextBottom ,
+  alignSub ,
+  alignSuper ,
   whitespaceNormal ,
   whitespaceNowrap ,
   whitespacePre ,
@@ -2570,6 +3339,7 @@ export {
   breakNormal ,
   breakWords ,
   breakAll ,
+  contentNone ,
   bgFixed ,
   bgLocal ,
   bgScroll ,
@@ -2578,6 +3348,9 @@ export {
   bgClipContent ,
   bgClipText ,
   bg ,
+  bgOriginBorder ,
+  bgOriginPadding ,
+  bgOriginContent ,
   bgBottom ,
   bgCenter ,
   bgLeft ,
@@ -2615,69 +3388,121 @@ export {
   bgGradientToBl ,
   bgGradientToL ,
   bgGradientToTl ,
+  BorderRadius ,
   rounded ,
-  roundedT ,
-  roundedR ,
-  roundedB ,
-  roundedL ,
-  roundedTl ,
-  roundedTr ,
-  roundedBr ,
-  roundedBl ,
+  BorderWidth ,
   border ,
-  borderT ,
-  borderB ,
-  borderL ,
-  borderR ,
+  BorderColor ,
   borderColor ,
   borderSolid ,
   borderDashed ,
   borderDotted ,
   borderDouble ,
+  borderHidden ,
   borderNone ,
-  divideY ,
-  divideX ,
+  Divide ,
+  divide ,
   divideSolid ,
   divideDashed ,
   divideDotted ,
   divideDouble ,
   divideNone ,
-  ringOffsetShadow ,
-  ringShadow ,
-  whiteShadow ,
+  outlineWidth ,
+  outlineColor ,
+  outlineOffset ,
+  outlineSolid ,
+  outlineDashed ,
+  outlineDotted ,
+  outlineDouble ,
+  outlineHidden ,
+  outlineNone ,
+  Ring ,
   ring ,
+  BoxShadow ,
   shadow ,
   opacity ,
+  MixBlendMode ,
+  mixBlend ,
+  bgBlend ,
+  Blur ,
+  blur ,
+  Brightness ,
+  brightness ,
+  Contrast ,
+  contrast ,
+  DropShadow ,
+  dropShadow ,
+  grayscale0 ,
+  grayscale ,
+  HueRotate ,
+  hueRotate ,
+  invert0 ,
+  invert ,
+  Saturate ,
+  saturate ,
+  sepia0 ,
+  sepia ,
+  backdropBlur ,
+  backdropBrightness ,
+  backdropContrast ,
+  backdropGrayscale0 ,
+  backdropGrayscale ,
+  backdropHueRotate ,
+  backdropInvert0 ,
+  backdropInvert ,
+  backdropOpacity ,
+  backdropSaturate ,
+  backdropSepia0 ,
+  backdropSepia ,
   borderCollapse ,
   borderSeparate ,
   tableAuto ,
   tableFixed ,
-  appearanceNone ,
-  cursorAuto ,
-  cursorDefault ,
-  cursorPointer ,
-  cursorWait ,
-  cursorText ,
-  cursorMove ,
-  cursorNotAllowed ,
-  outlineNone ,
-  outlineWhite ,
-  outlineBlack ,
+  Cursor ,
+  cursor ,
+  caretColor ,
   pointerEventsNone ,
   pointerEventsAuto ,
   resizeNone ,
   resizeY ,
   resizeX ,
   resize ,
+  scrollAuto ,
+  scrollSmooth ,
+  scrollM ,
+  scrollMx ,
+  scrollMy ,
+  scrollMt ,
+  scrollMr ,
+  scrollMb ,
+  scrollMl ,
+  scrollP ,
+  scrollPx ,
+  scrollPy ,
+  scrollPt ,
+  scrollPr ,
+  scrollPb ,
+  scrollPl ,
+  snapStart ,
+  snapEnd ,
+  snapCenter ,
+  snapAlignNone ,
+  snapNormal ,
+  snapAlways ,
+  SnapType ,
+  snap ,
+  TouchAction ,
+  touch ,
   selectNone ,
   selectText ,
   selectAll ,
   selectAuto ,
-  fillCurrent ,
-  strokeCurrent ,
-  stroke0 ,
-  stroke1 ,
-  stroke2 ,
+  WillChange ,
+  willChange ,
+  fill ,
+  stroke ,
+  StrokeWidth ,
+  strokeWidth ,
   srOnly ,
   noSrOnly ,
   transform ,
@@ -2692,6 +3517,35 @@ export {
   originBottom ,
   originBottomRight ,
   originBottomLeft ,
+  accentColor ,
+  appearanceNone ,
+  timingFunction ,
+  transitionNone ,
+  transitionAll ,
+  transition ,
+  transitionColors ,
+  transitionOpacity ,
+  transitionShadow ,
+  transitionTransform ,
+  duration ,
+  easeLinear ,
+  easeIn ,
+  easeOut ,
+  easeInOut ,
+  delay ,
+  animateNone ,
+  animateSpin ,
+  animatePing ,
+  animatePulse ,
+  animateBounce ,
+  scale ,
+  scaleX ,
+  scaleY ,
+  rotate ,
+  translateX ,
+  translateY ,
+  skewX ,
+  skewY ,
   merge ,
   style ,
   tw ,
@@ -2706,10 +3560,8 @@ export {
   fontFamilies ,
   fontName ,
   contentText ,
-  contentNone ,
-  contentOpen ,
-  contentClose ,
-  container ,
+  contentRuleNone ,
+  content ,
   selector ,
   dividers ,
   dark ,
