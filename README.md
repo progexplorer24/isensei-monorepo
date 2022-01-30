@@ -29,6 +29,7 @@ The commit contains the following structural elements:
 ## Solve yarn.lock merge conflicts
 
 ```bash
+git fetch upstream
 git rebase origin/main
 git checkout origin/main -- yarn.lock
 yarn install
