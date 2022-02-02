@@ -22,11 +22,32 @@ function tipGood(children) {
             });
 }
 
+function tipBad(children) {
+  return React.createElement(Tip__UI$IsenseiMonorepo.TipBad.make, {
+              children: children
+            });
+}
+
+function tipCompat(children) {
+  return React.createElement(Tip__UI$IsenseiMonorepo.TipCompat.make, {
+              children: children
+            });
+}
+
+function tipInfo(children) {
+  return React.createElement(Tip__UI$IsenseiMonorepo.TipInfo.make, {
+              children: children
+            });
+}
+
 export {
   Button1 ,
   btn ,
   btn2 ,
   tipGood ,
+  tipBad ,
+  tipCompat ,
+  tipInfo ,
   
 }
 /* btn Not a pure module */

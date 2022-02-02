@@ -1199,6 +1199,8 @@ function toString$33(x) {
   if (typeof x !== "object") {
     if (x === "transparent") {
       return "transparent";
+    } else if (x === "inherit") {
+      return "inherit";
     } else {
       return "currentColor";
     }
@@ -2328,6 +2330,10 @@ function toString$97(x) {
   }
 }
 
+var FontFamilyName = {
+  toString: toString$97
+};
+
 function toString$98(x) {
   if (x === "swap") {
     return "swap";
@@ -2341,6 +2347,10 @@ function toString$98(x) {
     return "auto";
   }
 }
+
+var FontDisplay = {
+  toString: toString$98
+};
 
 var toString$99 = toString$23;
 
@@ -2589,14 +2599,6 @@ var Gradient = {
   repeatingLinearGradient: repeatingLinearGradient,
   repeatingRadialGradient: repeatingRadialGradient,
   toString: toString$89
-};
-
-var FontFamilyName = {
-  toString: toString$97
-};
-
-var FontDisplay = {
-  toString: toString$98
 };
 
 export {

@@ -563,6 +563,7 @@ module Color: {
     | #hex(string)
     | #transparent
     | #currentColor
+    | #inherit
   ]
 
   let rgb: (int, int, int) => [> t]

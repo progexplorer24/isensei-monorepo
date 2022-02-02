@@ -1660,7 +1660,7 @@ function textDecorationColor(x) {
     var variant = x.NAME;
     tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
   } else {
-    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
+    tmp = x === "inherit" || x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x);
   }
   return {
           TAG: /* D */0,
@@ -1847,7 +1847,7 @@ function caretColor(x) {
     tmp = variant === "var" || variant === "varDefault" ? Css_AtomicTypes$IsenseiMonorepo.Var.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x);
   } else {
     tmp = x === "unset" || x === "inherit_" || x === "initial" ? Css_AtomicTypes$IsenseiMonorepo.Cascading.toString(x) : (
-        x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.CaretColor.toString(x)
+        x === "inherit" || x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Css_AtomicTypes$IsenseiMonorepo.CaretColor.toString(x)
       );
   }
   return {
@@ -3203,7 +3203,7 @@ function background(x) {
         variant === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
       );
   } else {
-    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : "none";
+    tmp = x === "inherit" || x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : "none";
   }
   return {
           TAG: /* D */0,
@@ -3218,7 +3218,7 @@ function backgrounds(x) {
           _0: "background",
           _1: join(Belt_Array.map(x, (function (item) {
                       if (typeof item !== "object") {
-                        if (item === "transparent" || item === "currentColor") {
+                        if (item === "inherit" || item === "transparent" || item === "currentColor") {
                           return Css_AtomicTypes$IsenseiMonorepo.Color.toString(item);
                         } else {
                           return "none";
@@ -3475,7 +3475,7 @@ function fill(x) {
         variant === "url" ? Css_AtomicTypes$IsenseiMonorepo.Url.toString(x) : Css_AtomicTypes$IsenseiMonorepo.Color.toString(x)
       );
   } else {
-    tmp = x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Curry._1(Css_AtomicTypes$IsenseiMonorepo.SVG.Fill.toString, x);
+    tmp = x === "inherit" || x === "transparent" || x === "currentColor" ? Css_AtomicTypes$IsenseiMonorepo.Color.toString(x) : Curry._1(Css_AtomicTypes$IsenseiMonorepo.SVG.Fill.toString, x);
   }
   return {
           TAG: /* D */0,

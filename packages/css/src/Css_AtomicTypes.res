@@ -1,12 +1,12 @@
-let join = (strings, separator) => {
-  let rec run = (strings, acc) =>
-    switch strings {
-    | list{} => acc
-    | list{x} => acc ++ x
-    | list{x, ...xs} => run(xs, acc ++ (x ++ separator))
-    }
-  run(strings, "")
-}
+// let join = (strings, separator) => {
+//   let rec run = (strings, acc) =>
+//     switch strings {
+//     | list{} => acc
+//     | list{x} => acc ++ x
+//     | list{x, ...xs} => run(xs, acc ++ (x ++ separator))
+//     }
+//   run(strings, "")
+// }
 
 module Cascading = {
   type t = [#initial | #inherit_ | #unset]
@@ -787,6 +787,7 @@ module Color = {
     | #hex(string)
     | #transparent
     | #currentColor
+    | #inherit
   ]
 
   let rgb = (r, g, b) => #rgb(r, g, b)
@@ -828,6 +829,7 @@ module Color = {
     | #hex(s) => "#" ++ s
     | #transparent => "transparent"
     | #currentColor => "currentColor"
+    | #inherit => "inherit"
     }
 }
 
@@ -1560,7 +1562,6 @@ module Gradient = {
   let repeatingLinearGradient = (angle, stops) => #repeatingLinearGradient(angle, stops)
   let radialGradient = stops => #radialGradient(stops)
   let repeatingRadialGradient = stops => #repeatingRadialGradient(stops)
-
   let string_of_color = x =>
     switch x {
     | #...Color.t as co => Color.toString(co)
@@ -1688,16 +1689,16 @@ module FontFamilyName = {
     | #fangsong
   ]
 
-  let custom = #custom
-  let serif = #serif
-  let sansSerif = #sansSerif
-  let cursive = #cursive
-  let fantasy = #fantasy
-  let monospace = #monospace
-  let systemUi = #systemUi
-  let emoji = #emoji
-  let math = #math
-  let fangsong = #fangsong
+  // let custom = #custom
+  // let serif = #serif
+  // let sansSerif = #sansSerif
+  // let cursive = #cursive
+  // let fantasy = #fantasy
+  // let monospace = #monospace
+  // let systemUi = #systemUi
+  // let emoji = #emoji
+  // let math = #math
+  // let fangsong = #fangsong
 
   let toString = x =>
     switch x {
@@ -1717,11 +1718,11 @@ module FontFamilyName = {
 module FontDisplay = {
   type t = [#auto | #block | #swap | #fallback | #optional]
 
-  let auto = #auto
-  let block = #block
-  let swap = #swap
-  let fallback = #fallback
-  let optional = #optional
+  // let auto = #auto
+  // let block = #block
+  // let swap = #swap
+  // let fallback = #fallback
+  // let optional = #optional
 
   let toString = x =>
     switch x {

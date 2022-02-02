@@ -1,5 +1,82 @@
 open CssJs
+// Functions
 let emptyRule = [CssJs.unsafe("", "")]
+let merge = CssJs.merge
+let style = CssJs.style
+let tw = rules => Belt.Array.concatMany(rules)
+let twStyle = rules => CssJs.style(. Belt.Array.concatMany(rules))
+
+let minWBreakpoint = (breakpoint, styles) => [
+  CssJs.media(. `screen and (min-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
+]
+
+let maxWBreakpoint = (breakpoint, styles) => [
+  CssJs.media(. `screen and (max-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
+]
+
+let sm = minWBreakpoint(640)
+let md = minWBreakpoint(768)
+let lg = minWBreakpoint(1024)
+let xl = minWBreakpoint(1280)
+let xl2 = minWBreakpoint(1536)
+let fontFamilies = fonts => [CssJs.fontFamilies(fonts)]
+let fontName = font => [CssJs.fontFamily(#custom(font))]
+let contentText = text => [CssJs.contentRule(#text(text))]
+// WARNING: This is not a function - create separate section for Atomic types not available in tailwind
+let contentRuleNone = [CssJs.contentRule(#none)]
+let content = string => [CssJs.contentRule(#text(string))]
+
+// Selectors
+let selector = (string, rules) => [CssJs.selector(. string, tw(rules))]
+let dividers = rules => [CssJs.selector(. Selectors.ignoreFirstChild, tw(rules))]
+let dark = rules => [CssJs.selector(. ".dark &", tw(rules))]
+let marker = rules => [CssJs.selector(. "&::marker", tw(rules))]
+let active = rules => [CssJs.active(tw(rules))]
+let checked = rules => [CssJs.checked(tw(rules))]
+let default = rules => [CssJs.default(tw(rules))]
+let defined = rules => [CssJs.defined(tw(rules))]
+let disabled = rules => [CssJs.disabled(tw(rules))]
+let empty = rules => [CssJs.empty(tw(rules))]
+let enabled = rules => [CssJs.enabled(tw(rules))]
+let first = rules => [CssJs.first(tw(rules))]
+let firstChild = rules => [CssJs.firstChild(tw(rules))]
+let firstOfType = rules => [CssJs.firstOfType(tw(rules))]
+let focus = rules => [CssJs.focus(tw(rules))]
+let focusWithin = rules => [CssJs.focusWithin(tw(rules))]
+// TODO: host selector
+
+let hover = rules => [CssJs.hover(tw(rules))]
+let indeterminate = rules => [CssJs.indeterminate(tw(rules))]
+let inRange = rules => [CssJs.inRange(tw(rules))]
+let invalid = rules => [CssJs.invalid(tw(rules))]
+// TODO: lang selector
+
+let lastChild = rules => [CssJs.lastChild(tw(rules))]
+let lastOfType = rules => [CssJs.lastOfType(tw(rules))]
+let link = rules => [CssJs.lastOfType(tw(rules))]
+//  TODO: Figure out not function
+// let not = rules => [CssJs.not__(tw(rules))]
+// TODO: Nth selectors
+
+let onlyChild = rules => [CssJs.onlyChild(tw(rules))]
+let onlyOfType = rules => [CssJs.onlyOfType(tw(rules))]
+let optional = rules => [CssJs.optional(tw(rules))]
+let outOfRange = rules => [CssJs.outOfRange(tw(rules))]
+let readOnly = rules => [CssJs.readOnly(tw(rules))]
+let readWrite = rules => [CssJs.readWrite(tw(rules))]
+let required = rules => [CssJs.required(tw(rules))]
+// TODO: why right selector is commented out?
+let root = rules => [CssJs.root(tw(rules))]
+let scope = rules => [CssJs.scope(tw(rules))]
+let target = rules => [CssJs.target(tw(rules))]
+let valid = rules => [CssJs.valid(tw(rules))]
+let visited = rules => [CssJs.visited(tw(rules))]
+
+let after = rules => [CssJs.after(tw(rules))]
+let before = rules => [CssJs.before(tw(rules))]
+let firstLetter = rules => [CssJs.firstLetter(tw(rules))]
+let firstLine = rules => [CssJs.firstLine(tw(rules))]
+let selection = rules => [CssJs.selection(tw(rules))]
 
 // Aspect Ratio
 let aspectAuto = [CssJs.unsafe("aspect-ration", "auto")]
@@ -485,16 +562,25 @@ let m = (size: Margin.t) => Margin.toValue(size)
 module SpaceBetween = {
   type spacing = [Theme.Spacing.t]
   type t = [#x(spacing) | #y(spacing)]
+
   let toValue = (~reverse=false, t) =>
     switch t {
-    | #x(size) =>
-      reverse
-        ? [marginLeft(Theme.Spacing.toValue(#0)), marginRight(Theme.Spacing.toValue(size))]
-        : [marginLeft(Theme.Spacing.toValue(size)), marginRight(Theme.Spacing.toValue(#0))]
-    | #y(size) =>
-      reverse
-        ? [marginTop(Theme.Spacing.toValue(#0)), marginBottom(Theme.Spacing.toValue(size))]
-        : [marginTop(Theme.Spacing.toValue(size)), marginBottom(Theme.Spacing.toValue(#0))]
+    | #x(size) => [
+        CssJs.selector(.
+          "& > :not([hidden]) ~ :not([hidden])",
+          reverse
+            ? [marginLeft(Theme.Spacing.toValue(#0)), marginRight(Theme.Spacing.toValue(size))]
+            : [marginLeft(Theme.Spacing.toValue(size)), marginRight(Theme.Spacing.toValue(#0))],
+        ),
+      ]
+    | #y(size) => [
+        CssJs.selector(.
+          "& > :not([hidden]) ~ :not([hidden])",
+          reverse
+            ? [marginTop(Theme.Spacing.toValue(#0)), marginBottom(Theme.Spacing.toValue(size))]
+            : [marginTop(Theme.Spacing.toValue(size)), marginBottom(Theme.Spacing.toValue(#0))],
+        ),
+      ]
     }
 }
 
@@ -731,16 +817,16 @@ let textRight = [textAlign(#right)]
 let textJustify = [textAlign(#justify)]
 
 // Placeholder Color
-type colorType = Theme.Colors.t
-
-let placeholder = (~opacity=1., color: colorType) => [
-  CssJs.placeholder([CssJs.color(Theme.Colors.toValue(color, ~opacity))]),
-]
+// let placeholder = (~opacity=1., color: colorType) => [
+//   CssJs.placeholder([CssJs.color(Theme.Colors.toValue(color, ~opacity))]),
+// ]
 
 // Text Color
-let textColor = (~opacity=1., color: colorType) => [
-  CssJs.color(Theme.Colors.toValue(color, ~opacity)),
-]
+let textColor = (~opacity=1., color: Theme.Colors.t) =>
+  switch color {
+  | #inherit => [CssJs.unsafe("color", "inherit")]
+  | _ => [CssJs.color(Theme.Colors.toValue(color, ~opacity))]
+  }
 
 // Text Decoration
 let underline = [textDecorationLine(#underline)]
@@ -843,7 +929,9 @@ let bgClipContent = [backgroundClip(#contentBox)]
 let bgClipText = [CssJs.unsafe("backgroundClip", "text")]
 
 // Background Color
-let bg = (~opacity=1., color: colorType) => [backgroundColor(Theme.Colors.toValue(color, ~opacity))]
+let bg = (~opacity=1., color: Theme.Colors.t) => [
+  backgroundColor(Theme.Colors.toValue(color, ~opacity)),
+]
 
 // Background Origin
 let bgOriginBorder = [CssJs.backgroundOrigin(#borderBox)]
@@ -1068,7 +1156,6 @@ let outlineNone = [
 ]
 
 // Ring
-// let ring = ()
 module Ring = {
   type color = Theme.Colors.t
   type width = [#0 | #1 | #2 | #3 | #4 | #8]
@@ -1087,23 +1174,68 @@ module Ring = {
         offsetWidth,
       )} ${Types.Color.toString(Theme.Colors.toValue(color))}`
 
+  let toOffsetShadow = (~inset: bool, ~offsetWidth: offsetWidth, ~offsetColor: color) =>
+    `${inset ? "inset" : ""} 0 0 0 ${toWidth(offsetWidth)} ${Types.Color.toString(
+        Theme.Colors.toValue(offsetColor),
+      )}`
+
   let toValue = (
     ~inset,
     ~color: color,
     ~width: width,
     ~offsetWidth: offsetWidth,
     ~offsetColor: color,
+    (),
   ) => [
     CssJs.unsafe(
       "boxShadow",
-      `0 0 0 ${toWidth(offsetWidth)} ${Types.Color.toString(
-          Theme.Colors.toValue(offsetColor),
-        )}, ${toRingShadow(~inset, ~color, ~width, ~offsetWidth)}`,
+      `${toOffsetShadow(~inset, ~offsetWidth, ~offsetColor)}, ${toRingShadow(
+          ~inset,
+          ~color,
+          ~width,
+          ~offsetWidth,
+        )}`,
     ),
   ]
 }
-let ring = (~inset=false, ~offsetWidth=#0, ~offsetColor=#transparent, ~width, ~color, ()) =>
-  Ring.toValue(~inset, ~width, ~offsetWidth, ~offsetColor, ~color)
+
+let ringOffsetShadow = (~inset, ~offsetWidth, ~offsetColor, ()) =>
+  CssJs.Shadow.box(
+    ~inset,
+    ~x=#px(0),
+    ~y=#px(0),
+    ~blur=#px(0),
+    ~spread=#px(offsetWidth),
+    offsetColor,
+  )
+
+let ringShadow = (~inset, ~spread, ~color, ()) =>
+  CssJs.Shadow.box(~inset, ~x=#px(0), ~y=#px(0), ~blur=#px(0), ~spread=#px(spread), color)
+
+let whiteShadow = CssJs.Shadow.box(~x=#px(0), ~y=#px(0), Theme.Colors.toValue(#white))
+
+// TODO: Ring utility issues on focus
+let ring = (
+  ~inset=false,
+  ~offsetWidth=0,
+  ~offsetColor=Theme.Colors.toValue(#white),
+  ~width=#3,
+  ~color: Theme.Colors.t,
+  (),
+) => {
+  [
+    boxShadows([
+      ringOffsetShadow(~inset, ~offsetWidth, ~offsetColor, ()),
+      ringShadow(
+        ~inset,
+        ~spread=Theme.RingWidth.toValue(width) + offsetWidth,
+        ~color=Theme.Colors.toValue(color),
+        (),
+      ),
+      whiteShadow,
+    ]),
+  ]
+}
 
 // Box Shadow
 module BoxShadow = {
@@ -1760,89 +1892,6 @@ let translateY = val => [CssJs.transform(#translateY(Theme.Spacing.toValue(val))
 let skewX = val => [CssJs.skewX(Theme.Skew.toValue(val))]
 let skewY = val => [CssJs.skewY(Theme.Skew.toValue(val))]
 
-// INFO: FUNCTIONS
-
-let merge = CssJs.merge
-
-let style = CssJs.style
-
-let tw = rules => Belt.Array.concatMany(rules)
-
-let twStyle = rules => CssJs.style(. Belt.Array.concatMany(rules))
-
-let minWBreakpoint = (breakpoint, styles) => [
-  CssJs.media(. `screen and (min-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
-]
-
-let maxWBreakpoint = (breakpoint, styles) => [
-  CssJs.media(. `screen and (max-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
-]
-
-let sm = minWBreakpoint(640)
-let md = minWBreakpoint(768)
-let lg = minWBreakpoint(1024)
-let xl = minWBreakpoint(1280)
-let xl2 = minWBreakpoint(1536)
-let fontFamilies = fonts => [CssJs.fontFamilies(fonts)]
-let fontName = font => [CssJs.fontFamily(#custom(font))]
-let contentText = text => [CssJs.contentRule(#text(text))]
-// WARNING: This is not a function - create separate section for Atomic types not available in tailwind
-let contentRuleNone = [CssJs.contentRule(#none)]
-let content = string => [CssJs.contentRule(#text(string))]
-
-// INFO: Selectors
-
-let selector = (string, rules) => [CssJs.selector(. string, tw(rules))]
-let dividers = rules => [CssJs.selector(. Selectors.ignoreFirstChild, tw(rules))]
-let dark = rules => [CssJs.selector(. ".dark &", tw(rules))]
-let marker = rules => [CssJs.selector(. "&::marker", tw(rules))]
-let active = rules => [CssJs.active(tw(rules))]
-let checked = rules => [CssJs.checked(tw(rules))]
-let default = rules => [CssJs.default(tw(rules))]
-let defined = rules => [CssJs.defined(tw(rules))]
-let disabled = rules => [CssJs.disabled(tw(rules))]
-let empty = rules => [CssJs.empty(tw(rules))]
-let enabled = rules => [CssJs.enabled(tw(rules))]
-let first = rules => [CssJs.first(tw(rules))]
-let firstChild = rules => [CssJs.firstChild(tw(rules))]
-let firstOfType = rules => [CssJs.firstOfType(tw(rules))]
-let focus = rules => [CssJs.focus(tw(rules))]
-let focusWithin = rules => [CssJs.focusWithin(tw(rules))]
-// TODO: host selector
-
-let hover = rules => [CssJs.hover(tw(rules))]
-let indeterminate = rules => [CssJs.indeterminate(tw(rules))]
-let inRange = rules => [CssJs.inRange(tw(rules))]
-let invalid = rules => [CssJs.invalid(tw(rules))]
-// TODO: lang selector
-
-let lastChild = rules => [CssJs.lastChild(tw(rules))]
-let lastOfType = rules => [CssJs.lastOfType(tw(rules))]
-let link = rules => [CssJs.lastOfType(tw(rules))]
-//  TODO: Figure out not function
-// let not = rules => [CssJs.not__(tw(rules))]
-// TODO: Nth selectors
-
-let onlyChild = rules => [CssJs.onlyChild(tw(rules))]
-let onlyOfType = rules => [CssJs.onlyOfType(tw(rules))]
-let optional = rules => [CssJs.optional(tw(rules))]
-let outOfRange = rules => [CssJs.outOfRange(tw(rules))]
-let readOnly = rules => [CssJs.readOnly(tw(rules))]
-let readWrite = rules => [CssJs.readWrite(tw(rules))]
-let required = rules => [CssJs.required(tw(rules))]
-// TODO: why right selector is commented out?
-let root = rules => [CssJs.root(tw(rules))]
-let scope = rules => [CssJs.scope(tw(rules))]
-let target = rules => [CssJs.target(tw(rules))]
-let valid = rules => [CssJs.valid(tw(rules))]
-let visited = rules => [CssJs.visited(tw(rules))]
-
-let after = rules => [CssJs.after(tw(rules))]
-let before = rules => [CssJs.before(tw(rules))]
-let firstLetter = rules => [CssJs.firstLetter(tw(rules))]
-let firstLine = rules => [CssJs.firstLine(tw(rules))]
-let selection = rules => [CssJs.selection(tw(rules))]
-
 module Typography = {
   let round = float => float_of_string(Js.Float.toFixedWithPrecision(~digits=7, float))
 
@@ -1852,19 +1901,19 @@ module Typography = {
 
   let leading = (px, base) => [CssJs.lineHeight(#abs(round(px /. base)))]
 
-  let mt = (px, base) => [CssJs.marginTop(em(px, base))]
-  let mr = (px, base) => [CssJs.marginRight(em(px, base))]
-  let ml = (px, base) => [CssJs.marginLeft(em(px, base))]
-  let mb = (px, base) => [CssJs.marginBottom(em(px, base))]
-  let my = (px, base) => [CssJs.marginBottom(em(px, base)), CssJs.marginTop(em(px, base))]
-  let mx = (px, base) => [CssJs.marginLeft(em(px, base)), CssJs.marginRight(em(px, base))]
+  // let mt = (px, base) => [CssJs.marginTop(em(px, base))]
+  // let mr = (px, base) => [CssJs.marginRight(em(px, base))]
+  // let ml = (px, base) => [CssJs.marginLeft(em(px, base))]
+  // let mb = (px, base) => [CssJs.marginBottom(em(px, base))]
+  // let my = (px, base) => [CssJs.marginBottom(em(px, base)), CssJs.marginTop(em(px, base))]
+  // let mx = (px, base) => [CssJs.marginLeft(em(px, base)), CssJs.marginRight(em(px, base))]
 
-  let pt = (px, base) => [CssJs.paddingTop(em(px, base))]
-  let pr = (px, base) => [CssJs.paddingRight(em(px, base))]
-  let pl = (px, base) => [CssJs.paddingLeft(em(px, base))]
-  let pb = (px, base) => [CssJs.paddingBottom(em(px, base))]
-  let py = (px, base) => [CssJs.paddingBottom(em(px, base)), CssJs.paddingTop(em(px, base))]
-  let px = (px, base) => [CssJs.paddingLeft(em(px, base)), CssJs.paddingRight(em(px, base))]
+  // let pt = (px, base) => [CssJs.paddingTop(em(px, base))]
+  // let pr = (px, base) => [CssJs.paddingRight(em(px, base))]
+  // let pl = (px, base) => [CssJs.paddingLeft(em(px, base))]
+  // let pb = (px, base) => [CssJs.paddingBottom(em(px, base))]
+  // let py = (px, base) => [CssJs.paddingBottom(em(px, base)), CssJs.paddingTop(em(px, base))]
+  // let px = (px, base) => [CssJs.paddingLeft(em(px, base)), CssJs.paddingRight(em(px, base))]
 
   let w = (px, base) => [CssJs.width(em(px, base))]
   let h = (px, base) => [CssJs.height(em(px, base))]

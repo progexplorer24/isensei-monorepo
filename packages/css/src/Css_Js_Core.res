@@ -48,8 +48,8 @@ module type MakeResult = {
 module Make = (CssImpl: Css_Core.CssImplementationIntf): (
   MakeResult with type styleEncoding := CssImpl.styleEncoding and type renderer := CssImpl.renderer
 ) => {
-  type styleEncoding
-  type renderer
+  // type styleEncoding
+  // type renderer
 
   let insertRule = (. css) => CssImpl.injectRaw(. css)
   let renderRule = (. renderer, css) => CssImpl.renderRaw(. renderer, css)
@@ -413,7 +413,7 @@ let columnCount = x => D(
   },
 )
 
-let rowGap = x => D("rowGap", string_of_row_gap(x))
+// let rowGap = x => D("rowGap", string_of_row_gap(x))
 let columnGap = x => D("columnGap", string_of_column_gap(x))
 
 let contentRule = x => D("content", string_of_content(x))
@@ -1155,20 +1155,20 @@ let anyLink = selector(. ":any-link", _)
 /* Type aliasing */
 
 type angle = Angle.t
-type animationDirection = AnimationDirection.t
-type animationFillMode = AnimationFillMode.t
-type animationIterationCount = AnimationIterationCount.t
-type animationPlayState = AnimationPlayState.t
-type cascading = Cascading.t
-type color = Color.t
-type fontStyle = FontStyle.t
-type fontWeight = FontWeight.t
-type length = Length.t
-type listStyleType = ListStyleType.t
-type repeatValue = RepeatValue.t
-type outlineStyle = OutlineStyle.t
-type transform = Transform.t
-type gradient<'colorOrVar> = Gradient.t<'colorOrVar>
+// type animationDirection = AnimationDirection.t
+// type animationFillMode = AnimationFillMode.t
+// type animationIterationCount = AnimationIterationCount.t
+// type animationPlayState = AnimationPlayState.t
+// type cascading = Cascading.t
+// type color = Color.t
+// type fontStyle = FontStyle.t
+// type fontWeight = FontWeight.t
+// type length = Length.t
+// type listStyleType = ListStyleType.t
+// type repeatValue = RepeatValue.t
+// type outlineStyle = OutlineStyle.t
+// type transform = Transform.t
+// type gradient<'colorOrVar> = Gradient.t<'colorOrVar>
 
 /* Constructor aliases */
 

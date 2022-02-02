@@ -1,4 +1,12 @@
-import { btn, Button1, btn2, tipGood } from "@isensei/ui";
+import {
+  btn,
+  Button1,
+  btn2,
+  tipGood,
+  tipBad,
+  tipCompat,
+  tipInfo,
+} from "@isensei/ui";
 
 export function TipGood({ children }) {
   return (
@@ -110,6 +118,12 @@ export default function Test() {
       {btn2}
       {tipGood("This is good advice")}
       <TipGood>This is good advice</TipGood>
+      {tipBad("This is bad advice")}
+      <TipBad>This is bad advice</TipBad>
+      {tipCompat("This is compat advice")}
+      <TipCompat>This is compat advice</TipCompat>
+      {tipInfo("This is info advice")}
+      <TipInfo>This is info advice</TipInfo>
     </div>
   );
 }

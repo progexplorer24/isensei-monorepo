@@ -53,8 +53,8 @@ module type MakeResult = {
 module Make = (CssImpl: Css_Core.CssImplementationIntf): (
   MakeResult with type styleEncoding := CssImpl.styleEncoding and type renderer := CssImpl.renderer
 ) => {
-  type styleEncoding
-  type renderer
+  // type styleEncoding
+  // type renderer
 
   let insertRule = css => CssImpl.injectRaw(. css)
   let renderRule = (renderer, css) => CssImpl.renderRaw(. renderer, css)
@@ -87,8 +87,8 @@ let join = (strings, separator) => {
 }
 
 module Converter = {
-  let string_of_stops = stops =>
-    stops->Belt.List.map(((l, c)) => Color.toString(c) ++ (" " ++ Length.toString(l)))->join(", ")
+  // let string_of_stops = stops =>
+  //   stops->Belt.List.map(((l, c)) => Color.toString(c) ++ (" " ++ Length.toString(l)))->join(", ")
 
   let string_of_time = t => Js.Int.toString(t) ++ "ms"
 
@@ -1151,20 +1151,20 @@ let anyLink = selector(":any-link")
 /* Type aliasing */
 
 type angle = Angle.t
-type animationDirection = AnimationDirection.t
-type animationFillMode = AnimationFillMode.t
-type animationIterationCount = AnimationIterationCount.t
-type animationPlayState = AnimationPlayState.t
-type cascading = Cascading.t
-type color = Color.t
-type fontStyle = FontStyle.t
-type fontWeight = FontWeight.t
-type length = Length.t
-type listStyleType = ListStyleType.t
-type repeatValue = RepeatValue.t
-type outlineStyle = OutlineStyle.t
-type transform = Transform.t
-type gradient<'colorOrVar> = Gradient.t<'colorOrVar>
+// type animationDirection = AnimationDirection.t
+// type animationFillMode = AnimationFillMode.t
+// type animationIterationCount = AnimationIterationCount.t
+// type animationPlayState = AnimationPlayState.t
+// type cascading = Cascading.t
+// type color = Color.t
+// type fontStyle = FontStyle.t
+// type fontWeight = FontWeight.t
+// type length = Length.t
+// type listStyleType = ListStyleType.t
+// type repeatValue = RepeatValue.t
+// type outlineStyle = OutlineStyle.t
+// type transform = Transform.t
+// type gradient<'colorOrVar> = Gradient.t<'colorOrVar>
 
 /* Constructor aliases */
 

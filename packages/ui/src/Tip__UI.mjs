@@ -5,18 +5,18 @@ import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
 
 var wrapper = Tailwind$IsenseiMonorepo.twStyle([
       Tailwind$IsenseiMonorepo.flex,
-      Tailwind$IsenseiMonorepo.itemsCenter,
+      Tailwind$IsenseiMonorepo.itemsStart,
       Tailwind$IsenseiMonorepo.m({
             NAME: "y",
             VAL: 6
           }),
-      Tailwind$IsenseiMonorepo.space(true, {
+      Tailwind$IsenseiMonorepo.space(undefined, {
             NAME: "x",
             VAL: 4
           })
     ]);
 
-var wrapper2 = Tailwind$IsenseiMonorepo.twStyle([
+var commonTip = Tailwind$IsenseiMonorepo.twStyle([
       Tailwind$IsenseiMonorepo.relative,
       Tailwind$IsenseiMonorepo.m({
             NAME: "t",
@@ -28,32 +28,37 @@ var wrapper2 = Tailwind$IsenseiMonorepo.twStyle([
             NAME: "all",
             VAL: "full"
           }),
-      Tailwind$IsenseiMonorepo.bg(undefined, "cyan500"),
       Tailwind$IsenseiMonorepo.textColor(undefined, "white"),
       Tailwind$IsenseiMonorepo.flex,
       Tailwind$IsenseiMonorepo.itemsCenter,
-      Tailwind$IsenseiMonorepo.justifyCenter,
-      Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.bg(undefined, "lightBlue500")]),
-      Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "cyan500", undefined),
-      Tailwind$IsenseiMonorepo.dark([
-            Tailwind$IsenseiMonorepo.bg(undefined, "blue500"),
-            Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "blue500", undefined)
+      Tailwind$IsenseiMonorepo.justifyCenter
+    ]);
+
+var tipGood = Tailwind$IsenseiMonorepo.merge([
+      commonTip,
+      Tailwind$IsenseiMonorepo.twStyle([
+            Tailwind$IsenseiMonorepo.bg(undefined, "cyan500"),
+            Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "cyan500", undefined),
+            Tailwind$IsenseiMonorepo.dark([
+                  Tailwind$IsenseiMonorepo.bg(undefined, "sky500"),
+                  Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "sky500", undefined)
+                ])
+          ])
+    ]);
+
+var tipBad = Tailwind$IsenseiMonorepo.merge([
+      commonTip,
+      Tailwind$IsenseiMonorepo.twStyle([
+            Tailwind$IsenseiMonorepo.bg(undefined, "rose400"),
+            Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "rose400", undefined),
+            Tailwind$IsenseiMonorepo.dark([
+                  Tailwind$IsenseiMonorepo.bg(undefined, "red400"),
+                  Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "red400", undefined)
+                ])
           ])
     ]);
 
 var overflow = Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.overflowVisible]);
-
-var paragraph = Tailwind$IsenseiMonorepo.twStyle([
-      Tailwind$IsenseiMonorepo.m({
-            NAME: "all",
-            VAL: 0
-          }),
-      Tailwind$IsenseiMonorepo.flex1,
-      Tailwind$IsenseiMonorepo.textSize("base"),
-      Tailwind$IsenseiMonorepo.fontWeight(700),
-      Tailwind$IsenseiMonorepo.textColor(undefined, "gray900"),
-      Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.textColor(undefined, "gray200")])
-    ]);
 
 var customLine = Tailwind$IsenseiMonorepo.twStyle([
       Tailwind$IsenseiMonorepo.absolute,
@@ -71,7 +76,7 @@ var customLine = Tailwind$IsenseiMonorepo.twStyle([
             VAL: 1.375
           }),
       Tailwind$IsenseiMonorepo.w("px1"),
-      Tailwind$IsenseiMonorepo.bg(undefined, "cyan500"),
+      Tailwind$IsenseiMonorepo.bg(0.3, "cyan500"),
       Tailwind$IsenseiMonorepo.rounded({
             NAME: "all",
             VAL: "full"
@@ -79,12 +84,118 @@ var customLine = Tailwind$IsenseiMonorepo.twStyle([
       Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.bg(undefined, "blue400")])
     ]);
 
+var customLineGood = Tailwind$IsenseiMonorepo.merge([
+      customLine,
+      Tailwind$IsenseiMonorepo.twStyle([])
+    ]);
+
+var customLineBad = Tailwind$IsenseiMonorepo.merge([
+      customLine,
+      Tailwind$IsenseiMonorepo.twStyle([
+            Tailwind$IsenseiMonorepo.bg(undefined, "rose200"),
+            Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.bg(0.25, "red200")])
+          ])
+    ]);
+
+var paragraph = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.m({
+            NAME: "all",
+            VAL: 0
+          }),
+      Tailwind$IsenseiMonorepo.flex1,
+      Tailwind$IsenseiMonorepo.textSize("base"),
+      Tailwind$IsenseiMonorepo.fontWeight(600),
+      Tailwind$IsenseiMonorepo.textColor(undefined, "slate900"),
+      Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.textColor(undefined, "slate200")])
+    ]);
+
+var compatWrapper = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.textSize("sm"),
+      Tailwind$IsenseiMonorepo.bg(undefined, "sky100"),
+      Tailwind$IsenseiMonorepo.textColor(undefined, "sky800"),
+      Tailwind$IsenseiMonorepo.fontWeight(500),
+      Tailwind$IsenseiMonorepo.p({
+            NAME: "x",
+            VAL: 4
+          }),
+      Tailwind$IsenseiMonorepo.p({
+            NAME: "y",
+            VAL: 3
+          }),
+      Tailwind$IsenseiMonorepo.m({
+            NAME: "b",
+            VAL: 4
+          }),
+      Tailwind$IsenseiMonorepo.rounded({
+            NAME: "all",
+            VAL: "xl"
+          })
+    ]);
+
+var compatFlex = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.flex,
+      Tailwind$IsenseiMonorepo.itemsStart,
+      Tailwind$IsenseiMonorepo.space(undefined, {
+            NAME: "x",
+            VAL: 3
+          })
+    ]);
+
+var compatSvg = Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.textColor(undefined, "sky500")]);
+
+var compatP = Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.flex1]);
+
+var infoWrapper = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.m({
+            NAME: "t",
+            VAL: 6
+          }),
+      Tailwind$IsenseiMonorepo.m({
+            NAME: "b",
+            VAL: {
+              NAME: "px",
+              VAL: -4
+            }
+          }),
+      Tailwind$IsenseiMonorepo.flex,
+      Tailwind$IsenseiMonorepo.space(undefined, {
+            NAME: "x",
+            VAL: 2
+          })
+    ]);
+
+var infoSvg = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.flexNone,
+      Tailwind$IsenseiMonorepo.w(5),
+      Tailwind$IsenseiMonorepo.h(5),
+      Tailwind$IsenseiMonorepo.textColor(undefined, "slate400"),
+      Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.textColor(undefined, "slate600")])
+    ]);
+
+var infoP = Tailwind$IsenseiMonorepo.twStyle([
+      Tailwind$IsenseiMonorepo.textColor(undefined, "slate700"),
+      Tailwind$IsenseiMonorepo.textSize("sm"),
+      Tailwind$IsenseiMonorepo.fontWeight(500),
+      Tailwind$IsenseiMonorepo.dark([Tailwind$IsenseiMonorepo.textColor(undefined, "slate200")])
+    ]);
+
 var Styles = {
   wrapper: wrapper,
-  wrapper2: wrapper2,
+  commonTip: commonTip,
+  tipGood: tipGood,
+  tipBad: tipBad,
   overflow: overflow,
+  customLine: customLine,
+  customLineGood: customLineGood,
+  customLineBad: customLineBad,
   paragraph: paragraph,
-  customLine: customLine
+  compatWrapper: compatWrapper,
+  compatFlex: compatFlex,
+  compatSvg: compatSvg,
+  compatP: compatP,
+  infoWrapper: infoWrapper,
+  infoSvg: infoSvg,
+  infoP: infoP
 };
 
 function Tip__UI$TipGood(Props) {
@@ -92,7 +203,7 @@ function Tip__UI$TipGood(Props) {
   return React.createElement("div", {
               className: Tailwind$IsenseiMonorepo.merge([wrapper])
             }, React.createElement("div", {
-                  className: Tailwind$IsenseiMonorepo.merge([wrapper2])
+                  className: Tailwind$IsenseiMonorepo.merge([tipGood])
                 }, React.createElement("svg", {
                       "aria-hidden": true,
                       className: Tailwind$IsenseiMonorepo.merge([overflow]),
@@ -106,7 +217,7 @@ function Tip__UI$TipGood(Props) {
                           strokeLinejoin: "round",
                           strokeWidth: "2"
                         })), React.createElement("div", {
-                      className: customLine
+                      className: customLineGood
                     })), React.createElement("p", {
                   className: paragraph
                 }, children));
@@ -121,10 +232,10 @@ function Tip__UI$TipBad(Props) {
   return React.createElement("div", {
               className: wrapper
             }, React.createElement("div", {
-                  className: "relative mt-1 w-4 h-4 rounded-full bg-rose-400 text-white flex items-center justify-center ring-2 ring-rose-400 dark:bg-red-400 dark:ring-red-400"
+                  className: tipBad
                 }, React.createElement("svg", {
                       "aria-hidden": true,
-                      className: "overflow-visible",
+                      className: overflow,
                       height: "6",
                       width: "6"
                     }, React.createElement("path", {
@@ -135,7 +246,7 @@ function Tip__UI$TipBad(Props) {
                           strokeLinejoin: "round",
                           strokeWidth: "2"
                         })), React.createElement("div", {
-                      className: "absolute top-full mt-1 left-[0.46875rem] w-px h-[1.375rem] bg-rose-200 rounded-full dark:bg-red-200/25"
+                      className: customLineBad
                     })), React.createElement("p", {
                   className: paragraph
                 }, children));
@@ -148,11 +259,11 @@ var TipBad = {
 function Tip__UI$TipCompat(Props) {
   var children = Props.children;
   return React.createElement("div", {
-              className: "text-sm bg-sky-100 text-sky-800 font-medium px-4 py-3 mb-4 rounded-xl"
+              className: compatWrapper
             }, React.createElement("div", {
-                  className: "flex items-start space-x-3"
+                  className: compatFlex
                 }, React.createElement("svg", {
-                      className: "text-sky-500",
+                      className: compatSvg,
                       height: "20",
                       width: "20",
                       fill: "currentColor"
@@ -161,7 +272,7 @@ function Tip__UI$TipCompat(Props) {
                           d: "M6.998 2a1 1 0 00-.707 1.707l.707.707v3.758a1 1 0 01-.293.707l-4 4C.815 14.769 2.154 18 4.826 18H15.17c2.672 0 4.01-3.231 2.12-5.121l-4-4a1 1 0 01-.292-.707V4.414l.707-.707A1 1 0 0012.998 2h-6zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.992 1.992 0 00-.114-.035l1.063-1.063a3 3 0 00.879-2.121z",
                           fillRule: "evenodd"
                         })), React.createElement("p", {
-                      className: "flex-1"
+                      className: compatP
                     }, children)));
 }
 
@@ -172,10 +283,10 @@ var TipCompat = {
 function Tip__UI$TipInfo(Props) {
   var children = Props.children;
   return React.createElement("div", {
-              className: "not-prose mt-6 -mb-1 flex space-x-2"
+              className: infoWrapper
             }, React.createElement("svg", {
                   "aria-hidden": true,
-                  className: "flex-none w-5 h-5 text-slate-400 dark:text-slate-600",
+                  className: infoSvg,
                   fill: "currentColor",
                   viewBox: "0 0 20 20"
                 }, React.createElement("path", {
@@ -183,7 +294,7 @@ function Tip__UI$TipInfo(Props) {
                       d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z",
                       fillRule: "evenodd"
                     })), React.createElement("p", {
-                  className: "text-slate-700 text-sm font-medium dark:text-slate-200"
+                  className: infoP
                 }, children));
 }
 

@@ -242,6 +242,201 @@ var Spacing = {
 };
 
 function toValue$2(value) {
+  if (typeof value === "object") {
+    if (value.NAME === "rem") {
+      return {
+              NAME: "rem",
+              VAL: value.VAL
+            };
+    } else {
+      return {
+              NAME: "px",
+              VAL: value.VAL
+            };
+    }
+  } else if (value === 2) {
+    return {
+            NAME: "rem",
+            VAL: -0.5
+          };
+  } else if (value === 3) {
+    return {
+            NAME: "rem",
+            VAL: -0.75
+          };
+  } else if (value === 4) {
+    return {
+            NAME: "rem",
+            VAL: -1
+          };
+  } else if (value === 5) {
+    return {
+            NAME: "rem",
+            VAL: -1.25
+          };
+  } else if (value === 6) {
+    return {
+            NAME: "rem",
+            VAL: -1.5
+          };
+  } else if (value === 7) {
+    return {
+            NAME: "rem",
+            VAL: -1.75
+          };
+  } else if (value === 8) {
+    return {
+            NAME: "rem",
+            VAL: -2
+          };
+  } else if (value === 9) {
+    return {
+            NAME: "rem",
+            VAL: -2.25
+          };
+  } else if (value === 10) {
+    return {
+            NAME: "rem",
+            VAL: -2.5
+          };
+  } else if (value === 11) {
+    return {
+            NAME: "rem",
+            VAL: -2.75
+          };
+  } else if (value === 12) {
+    return {
+            NAME: "rem",
+            VAL: -3
+          };
+  } else if (value === 14) {
+    return {
+            NAME: "rem",
+            VAL: -3.5
+          };
+  } else if (value === 16) {
+    return {
+            NAME: "rem",
+            VAL: -4
+          };
+  } else if (value === 18) {
+    return {
+            NAME: "rem",
+            VAL: -4.5
+          };
+  } else if (value === 20) {
+    return {
+            NAME: "rem",
+            VAL: -5
+          };
+  } else if (value === 24) {
+    return {
+            NAME: "rem",
+            VAL: -6
+          };
+  } else if (value === 28) {
+    return {
+            NAME: "rem",
+            VAL: -7
+          };
+  } else if (value === 32) {
+    return {
+            NAME: "rem",
+            VAL: -8
+          };
+  } else if (value === 36) {
+    return {
+            NAME: "rem",
+            VAL: -9
+          };
+  } else if (value === 40) {
+    return {
+            NAME: "rem",
+            VAL: -10
+          };
+  } else if (value === 44) {
+    return {
+            NAME: "rem",
+            VAL: -11
+          };
+  } else if (value === 48) {
+    return {
+            NAME: "rem",
+            VAL: -12
+          };
+  } else if (value === 52) {
+    return {
+            NAME: "rem",
+            VAL: -13
+          };
+  } else if (value === 56) {
+    return {
+            NAME: "rem",
+            VAL: -14
+          };
+  } else if (value === 60) {
+    return {
+            NAME: "rem",
+            VAL: -15
+          };
+  } else if (value === 64) {
+    return {
+            NAME: "rem",
+            VAL: -16
+          };
+  } else if (value === 72) {
+    return {
+            NAME: "rem",
+            VAL: -18
+          };
+  } else if (value === 80) {
+    return {
+            NAME: "rem",
+            VAL: -20
+          };
+  } else if (value === 96) {
+    return {
+            NAME: "rem",
+            VAL: -24
+          };
+  } else if (value === "0_5") {
+    return {
+            NAME: "rem",
+            VAL: -0.125
+          };
+  } else if (value === "1_5") {
+    return {
+            NAME: "rem",
+            VAL: -0.375
+          };
+  } else if (value === "2_5") {
+    return {
+            NAME: "rem",
+            VAL: -0.625
+          };
+  } else if (value === "3_5") {
+    return {
+            NAME: "rem",
+            VAL: -0.875
+          };
+  } else if (value === "px1") {
+    return {
+            NAME: "px",
+            VAL: -1
+          };
+  } else {
+    return {
+            NAME: "rem",
+            VAL: -0.25
+          };
+  }
+}
+
+var SpacingNegative = {
+  toValue: toValue$2
+};
+
+function toValue$3(value) {
   if (value === "v5By12") {
     return {
             NAME: "percent",
@@ -321,10 +516,10 @@ function toValue$2(value) {
 }
 
 var Proportions = {
-  toValue: toValue$2
+  toValue: toValue$3
 };
 
-function toValue$3(opacity) {
+function toValue$4(opacity) {
   if (opacity === 5) {
     return 0.05;
   } else if (opacity === 10) {
@@ -371,7 +566,7 @@ function toValue$3(opacity) {
 }
 
 var Opacity = {
-  toValue: toValue$3
+  toValue: toValue$4
 };
 
 var none = {
@@ -419,7 +614,7 @@ var full = {
   VAL: 9999
 };
 
-function toValue$4(t) {
+function toValue$5(t) {
   if (t === "none") {
     return none;
   } else if (t === "lg") {
@@ -451,10 +646,10 @@ var BorderRadius = {
   _2xl: _2xl,
   _3xl: _3xl,
   full: full,
-  toValue: toValue$4
+  toValue: toValue$5
 };
 
-function toValue$5(t) {
+function toValue$6(t) {
   if (t === 1) {
     return {
             NAME: "px",
@@ -484,7 +679,27 @@ function toValue$5(t) {
 }
 
 var BorderWidth = {
-  toValue: toValue$5
+  toValue: toValue$6
+};
+
+function toValue$7(t) {
+  if (t === 1) {
+    return 1;
+  } else if (t === 2) {
+    return 2;
+  } else if (t === 3) {
+    return 3;
+  } else if (t === 4) {
+    return 4;
+  } else if (t === 8) {
+    return 8;
+  } else {
+    return 0;
+  }
+}
+
+var RingWidth = {
+  toValue: toValue$7
 };
 
 var sm$1 = [
@@ -792,7 +1007,7 @@ var inner = [Css_Js_Core$IsenseiMonorepo.Shadow.box({
         ]
       })];
 
-function toValue$6(t) {
+function toValue$8(t) {
   if (t === "md") {
     return md$1;
   } else if (t === "sm") {
@@ -819,10 +1034,10 @@ var BoxShadow = {
   _2xl: _2xl$1,
   inner: inner,
   none: "none",
-  toValue: toValue$6
+  toValue: toValue$8
 };
 
-function toValue$7(width) {
+function toValue$9(width) {
   if (width === "screenLg") {
     return {
             NAME: "px",
@@ -924,10 +1139,10 @@ function toValue$7(width) {
 }
 
 var MaxWidth = {
-  toValue: toValue$7
+  toValue: toValue$9
 };
 
-function toValue$8(index) {
+function toValue$10(index) {
   if (index === 0) {
     return "0";
   } else if (index === 10) {
@@ -946,10 +1161,10 @@ function toValue$8(index) {
 }
 
 var ZIndex = {
-  toValue: toValue$8
+  toValue: toValue$10
 };
 
-function toValue$9(order) {
+function toValue$11(order) {
   if (order === "none") {
     return 0;
   } else if (order === 1) {
@@ -984,10 +1199,10 @@ function toValue$9(order) {
 }
 
 var Order = {
-  toValue: toValue$9
+  toValue: toValue$11
 };
 
-function toValue$10(duration) {
+function toValue$12(duration) {
   if (duration === 100) {
     return 100;
   } else if (duration === 150) {
@@ -1008,10 +1223,10 @@ function toValue$10(duration) {
 }
 
 var Duration = {
-  toValue: toValue$10
+  toValue: toValue$12
 };
 
-function toValue$11(timing) {
+function toValue$13(timing) {
   if (timing === "linear") {
     return "linear";
   } else if (timing === "easeIn") {
@@ -1048,7 +1263,7 @@ function toValue$11(timing) {
 }
 
 var TimingFunction = {
-  toValue: toValue$11
+  toValue: toValue$13
 };
 
 var spin = CssJs$IsenseiMonorepo.keyframes([
@@ -1197,7 +1412,7 @@ var bounce = CssJs$IsenseiMonorepo.keyframes([
       ]
     ]);
 
-function toValue$12(animation) {
+function toValue$14(animation) {
   if (animation === "pulse") {
     return pulse;
   } else if (animation === "spin") {
@@ -1214,10 +1429,10 @@ var KeyFrames = {
   ping: ping,
   pulse: pulse,
   bounce: bounce,
-  toValue: toValue$12
+  toValue: toValue$14
 };
 
-function toValue$13(degrees) {
+function toValue$15(degrees) {
   if (degrees === 1) {
     return {
             NAME: "deg",
@@ -1252,10 +1467,10 @@ function toValue$13(degrees) {
 }
 
 var Skew = {
-  toValue: toValue$13
+  toValue: toValue$15
 };
 
-function toValue$14(scale) {
+function toValue$16(scale) {
   if (scale === 50) {
     return 0.5;
   } else if (scale === 75) {
@@ -1280,10 +1495,10 @@ function toValue$14(scale) {
 }
 
 var Scale = {
-  toValue: toValue$14
+  toValue: toValue$16
 };
 
-function toValue$15(rotate) {
+function toValue$17(rotate) {
   if (rotate === 1) {
     return {
             NAME: "deg",
@@ -1333,10 +1548,3389 @@ function toValue$15(rotate) {
 }
 
 var Rotate = {
-  toValue: toValue$15
+  toValue: toValue$17
 };
 
-function toValue$16(opacityOpt, color) {
+function toValue$18(fontSize) {
+  if (fontSize === "lg") {
+    return {
+            NAME: "rem",
+            VAL: 1.125
+          };
+  } else if (fontSize === "sm") {
+    return {
+            NAME: "rem",
+            VAL: 0.875
+          };
+  } else if (fontSize === "xl") {
+    return {
+            NAME: "rem",
+            VAL: 1.25
+          };
+  } else if (fontSize === "xs") {
+    return {
+            NAME: "rem",
+            VAL: 0.75
+          };
+  } else if (fontSize === "xl2") {
+    return {
+            NAME: "rem",
+            VAL: 1.5
+          };
+  } else if (fontSize === "xl3") {
+    return {
+            NAME: "rem",
+            VAL: 1.875
+          };
+  } else if (fontSize === "xl4") {
+    return {
+            NAME: "rem",
+            VAL: 2.25
+          };
+  } else if (fontSize === "xl5") {
+    return {
+            NAME: "rem",
+            VAL: 3
+          };
+  } else if (fontSize === "xl6") {
+    return {
+            NAME: "rem",
+            VAL: 3.75
+          };
+  } else if (fontSize === "xl7") {
+    return {
+            NAME: "rem",
+            VAL: 4.5
+          };
+  } else if (fontSize === "xl8") {
+    return {
+            NAME: "rem",
+            VAL: 6
+          };
+  } else if (fontSize === "xl9") {
+    return {
+            NAME: "rem",
+            VAL: 8
+          };
+  } else {
+    return {
+            NAME: "rem",
+            VAL: 1
+          };
+  }
+}
+
+var FontSize = {
+  toValue: toValue$18
+};
+
+function toValue$19(spacing) {
+  if (spacing === "widest") {
+    return {
+            NAME: "em",
+            VAL: 0.1
+          };
+  } else if (spacing === "wide") {
+    return {
+            NAME: "em",
+            VAL: 0.025
+          };
+  } else if (spacing === "tighter") {
+    return {
+            NAME: "em",
+            VAL: -0.05
+          };
+  } else if (spacing === "tight") {
+    return {
+            NAME: "em",
+            VAL: -0.025
+          };
+  } else if (spacing === "normal") {
+    return {
+            NAME: "em",
+            VAL: 0
+          };
+  } else {
+    return {
+            NAME: "em",
+            VAL: 0.05
+          };
+  }
+}
+
+var LetterSpacing = {
+  toValue: toValue$19
+};
+
+function toValue$20(lineHeight) {
+  if (lineHeight === "snug") {
+    return {
+            NAME: "abs",
+            VAL: 1.375
+          };
+  } else if (lineHeight === "relaxed") {
+    return {
+            NAME: "abs",
+            VAL: 1.625
+          };
+  } else if (lineHeight === "loose") {
+    return {
+            NAME: "abs",
+            VAL: 2
+          };
+  } else if (lineHeight === 3) {
+    return {
+            NAME: "rem",
+            VAL: 0.75
+          };
+  } else if (lineHeight === 4) {
+    return {
+            NAME: "rem",
+            VAL: 1
+          };
+  } else if (lineHeight === 5) {
+    return {
+            NAME: "rem",
+            VAL: 1.25
+          };
+  } else if (lineHeight === 6) {
+    return {
+            NAME: "rem",
+            VAL: 1.5
+          };
+  } else if (lineHeight === 7) {
+    return {
+            NAME: "rem",
+            VAL: 1.75
+          };
+  } else if (lineHeight === 8) {
+    return {
+            NAME: "rem",
+            VAL: 2
+          };
+  } else if (lineHeight === 9) {
+    return {
+            NAME: "rem",
+            VAL: 2.25
+          };
+  } else if (lineHeight === 10) {
+    return {
+            NAME: "rem",
+            VAL: 2.5
+          };
+  } else if (lineHeight === 11) {
+    return {
+            NAME: "rem",
+            VAL: 2.75
+          };
+  } else if (lineHeight === 12) {
+    return {
+            NAME: "rem",
+            VAL: 3
+          };
+  } else if (lineHeight === 13) {
+    return {
+            NAME: "rem",
+            VAL: 3.25
+          };
+  } else if (lineHeight === 14) {
+    return {
+            NAME: "rem",
+            VAL: 3.5
+          };
+  } else if (lineHeight === "tight") {
+    return {
+            NAME: "abs",
+            VAL: 1.25
+          };
+  } else if (lineHeight === "normal") {
+    return {
+            NAME: "abs",
+            VAL: 1.5
+          };
+  } else {
+    return {
+            NAME: "abs",
+            VAL: 1
+          };
+  }
+}
+
+var LineHeight = {
+  toValue: toValue$20
+};
+
+function toValue$21(fontWeight) {
+  if (fontWeight === 200) {
+    return {
+            NAME: "num",
+            VAL: 200
+          };
+  } else if (fontWeight === 300) {
+    return {
+            NAME: "num",
+            VAL: 300
+          };
+  } else if (fontWeight === 400) {
+    return {
+            NAME: "num",
+            VAL: 400
+          };
+  } else if (fontWeight === 500) {
+    return {
+            NAME: "num",
+            VAL: 500
+          };
+  } else if (fontWeight === 600) {
+    return {
+            NAME: "num",
+            VAL: 600
+          };
+  } else if (fontWeight === 700) {
+    return {
+            NAME: "num",
+            VAL: 700
+          };
+  } else if (fontWeight === 800) {
+    return {
+            NAME: "num",
+            VAL: 800
+          };
+  } else if (fontWeight === 900) {
+    return {
+            NAME: "num",
+            VAL: 900
+          };
+  } else {
+    return {
+            NAME: "num",
+            VAL: 100
+          };
+  }
+}
+
+var FontWeight = {
+  toValue: toValue$21
+};
+
+function repeatCols(columns) {
+  return [{
+            NAME: "repeat",
+            VAL: [
+              {
+                NAME: "num",
+                VAL: columns
+              },
+              {
+                NAME: "minmax",
+                VAL: [
+                  "zero",
+                  {
+                    NAME: "fr",
+                    VAL: 1
+                  }
+                ]
+              }
+            ]
+          }];
+}
+
+function gridTemplateColumns(num) {
+  return "repeat(" + String(num) + ", minmax(0, 1fr))";
+}
+
+function toValue$22(cols) {
+  if (cols === 1) {
+    return gridTemplateColumns(1);
+  } else if (cols === 2) {
+    return gridTemplateColumns(2);
+  } else if (cols === 3) {
+    return gridTemplateColumns(3);
+  } else if (cols === 4) {
+    return gridTemplateColumns(4);
+  } else if (cols === 5) {
+    return gridTemplateColumns(5);
+  } else if (cols === 6) {
+    return gridTemplateColumns(6);
+  } else if (cols === 7) {
+    return gridTemplateColumns(7);
+  } else if (cols === 8) {
+    return gridTemplateColumns(8);
+  } else if (cols === 9) {
+    return gridTemplateColumns(9);
+  } else if (cols === 10) {
+    return gridTemplateColumns(10);
+  } else if (cols === 11) {
+    return gridTemplateColumns(11);
+  } else if (cols === 12) {
+    return gridTemplateColumns(12);
+  } else {
+    return "none";
+  }
+}
+
+var GridCols = {
+  repeatCols: repeatCols,
+  gridTemplateColumns: gridTemplateColumns,
+  toValue: toValue$22
+};
+
+function toNumString(num) {
+  if (num === 1) {
+    return "1";
+  } else if (num === 2) {
+    return "2";
+  } else if (num === 3) {
+    return "3";
+  } else if (num === 4) {
+    return "4";
+  } else if (num === 5) {
+    return "5";
+  } else if (num === 6) {
+    return "6";
+  } else if (num === 7) {
+    return "7";
+  } else if (num === 8) {
+    return "8";
+  } else if (num === 9) {
+    return "9";
+  } else if (num === 10) {
+    return "10";
+  } else if (num === 11) {
+    return "11";
+  } else if (num === 12) {
+    return "12";
+  } else if (num === 13) {
+    return "13";
+  } else {
+    return "auto";
+  }
+}
+
+function toSpanString(num) {
+  if (num === 1) {
+    return "span 1 / span 1";
+  } else if (num === 2) {
+    return "span 2 / span 2";
+  } else if (num === 3) {
+    return "span 3 / span 3";
+  } else if (num === 4) {
+    return "span 4 / span 4";
+  } else if (num === 5) {
+    return "span 5 / span 5";
+  } else if (num === 6) {
+    return "span 6 / span 6";
+  } else if (num === 7) {
+    return "span 7 / span 7";
+  } else if (num === 8) {
+    return "span 8 / span 8";
+  } else if (num === 9) {
+    return "span 9 / span 9";
+  } else if (num === 10) {
+    return "span 10 / span 10";
+  } else if (num === 11) {
+    return "span 11 / span 11";
+  } else if (num === 12) {
+    return "span 12 / span 12";
+  } else if (num === 13) {
+    return "span 13 / span 13";
+  } else {
+    return "1 / -1";
+  }
+}
+
+function toValue$23(t) {
+  if (typeof t !== "object") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridColumn", "auto")];
+  }
+  var variant = t.NAME;
+  if (variant === "end") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridColumnEnd", toNumString(t.VAL))];
+  } else if (variant === "start") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridColumnStart", toNumString(t.VAL))];
+  } else {
+    return [CssJs$IsenseiMonorepo.unsafe("gridColumn", toSpanString(t.VAL))];
+  }
+}
+
+var Col = {
+  toNumString: toNumString,
+  toSpanString: toSpanString,
+  toValue: toValue$23
+};
+
+function toRepeat(num) {
+  return "repeat(" + String(num) + ", minmax(0, 1fr))";
+}
+
+function toString(span) {
+  if (span === 1) {
+    return toRepeat(1);
+  } else if (span === 2) {
+    return toRepeat(2);
+  } else if (span === 3) {
+    return toRepeat(3);
+  } else if (span === 4) {
+    return toRepeat(4);
+  } else if (span === 5) {
+    return toRepeat(5);
+  } else if (span === 6) {
+    return toRepeat(6);
+  } else {
+    return "none";
+  }
+}
+
+var TemplateRows = {
+  toRepeat: toRepeat,
+  toString: toString
+};
+
+function toNumString$1(num) {
+  if (num === 1) {
+    return "1";
+  } else if (num === 2) {
+    return "2";
+  } else if (num === 3) {
+    return "3";
+  } else if (num === 4) {
+    return "4";
+  } else if (num === 5) {
+    return "5";
+  } else if (num === 6) {
+    return "6";
+  } else {
+    return "auto";
+  }
+}
+
+function toSpanString$1(num) {
+  if (num === 1) {
+    return "span 1 / span 1";
+  } else if (num === 2) {
+    return "span 2 / span 2";
+  } else if (num === 3) {
+    return "span 3 / span 3";
+  } else if (num === 4) {
+    return "span 4 / span 4";
+  } else if (num === 5) {
+    return "span 5 / span 5";
+  } else if (num === 6) {
+    return "span 6 / span 6";
+  } else {
+    return "1 / -1";
+  }
+}
+
+function toValue$24(t) {
+  if (typeof t !== "object") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridRow", "auto")];
+  }
+  var variant = t.NAME;
+  if (variant === "end") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridRowEnd", toNumString$1(t.VAL))];
+  } else if (variant === "start") {
+    return [CssJs$IsenseiMonorepo.unsafe("gridRowStart", toNumString$1(t.VAL))];
+  } else {
+    return [CssJs$IsenseiMonorepo.unsafe("gridRow", toSpanString$1(t.VAL))];
+  }
+}
+
+var Row = {
+  toNumString: toNumString$1,
+  toSpanString: toSpanString$1,
+  toValue: toValue$24
+};
+
+function toValue$25(opacityOpt, color) {
+  var opacity = opacityOpt !== undefined ? opacityOpt : 1;
+  if (color === "teal50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              240,
+              253,
+              250,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "white") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              255,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              252,
+              231,
+              243,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              251,
+              207,
+              232,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              249,
+              168,
+              212,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              244,
+              114,
+              182,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              236,
+              72,
+              153,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              219,
+              39,
+              119,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              190,
+              24,
+              93,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              157,
+              23,
+              77,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              131,
+              24,
+              67,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              241,
+              242,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              244,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              220,
+              252,
+              231,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              187,
+              247,
+              208,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              134,
+              239,
+              172,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              74,
+              222,
+              128,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              34,
+              197,
+              94,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              22,
+              163,
+              74,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              21,
+              128,
+              61,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              22,
+              101,
+              52,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              20,
+              83,
+              45,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              204,
+              251,
+              241,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              153,
+              246,
+              228,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              94,
+              234,
+              212,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              45,
+              212,
+              191,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              20,
+              184,
+              166,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              13,
+              148,
+              136,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              15,
+              118,
+              110,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              17,
+              94,
+              89,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "teal900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              19,
+              78,
+              74,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              237,
+              233,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              221,
+              214,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              196,
+              181,
+              253,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              167,
+              139,
+              250,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              139,
+              92,
+              246,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              124,
+              58,
+              237,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              109,
+              40,
+              217,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              91,
+              33,
+              182,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              76,
+              29,
+              149,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              228,
+              230,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              205,
+              211,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              164,
+              175,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              251,
+              113,
+              133,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              244,
+              63,
+              94,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              225,
+              29,
+              72,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              190,
+              18,
+              60,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              159,
+              18,
+              57,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "rose900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              136,
+              19,
+              55,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              250,
+              245,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              244,
+              244,
+              245,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              228,
+              228,
+              231,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              212,
+              212,
+              216,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              161,
+              161,
+              170,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              113,
+              113,
+              122,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              82,
+              82,
+              91,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              63,
+              63,
+              70,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              39,
+              39,
+              42,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              24,
+              24,
+              27,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              242,
+              242,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              224,
+              242,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              186,
+              230,
+              253,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              125,
+              211,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              56,
+              189,
+              248,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              14,
+              165,
+              233,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              2,
+              132,
+              199,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              3,
+              105,
+              161,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              7,
+              89,
+              133,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              12,
+              74,
+              110,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              224,
+              231,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              199,
+              210,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              165,
+              180,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              129,
+              140,
+              248,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              99,
+              102,
+              241,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              79,
+              70,
+              229,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              67,
+              56,
+              202,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              55,
+              48,
+              163,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              49,
+              46,
+              129,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              247,
+              254,
+              231,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              243,
+              244,
+              246,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              229,
+              231,
+              235,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              209,
+              213,
+              219,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              156,
+              163,
+              175,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              107,
+              114,
+              128,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              75,
+              85,
+              99,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              55,
+              65,
+              81,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              31,
+              41,
+              55,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              17,
+              24,
+              39,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "zinc50" || color === "neutral50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              250,
+              250,
+              250,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              209,
+              250,
+              229,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              167,
+              243,
+              208,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              110,
+              231,
+              183,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              52,
+              211,
+              153,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              16,
+              185,
+              129,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              5,
+              150,
+              105,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              4,
+              120,
+              87,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              6,
+              95,
+              70,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "emerald900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              6,
+              78,
+              59,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "sky50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              240,
+              249,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              226,
+              226,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              202,
+              202,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              252,
+              165,
+              165,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              248,
+              113,
+              113,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              239,
+              68,
+              68,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              220,
+              38,
+              38,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              185,
+              28,
+              28,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              153,
+              27,
+              27,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "red900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              127,
+              29,
+              29,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              236,
+              254,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              243,
+              199,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              230,
+              138,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              252,
+              211,
+              77,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              251,
+              191,
+              36,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              245,
+              158,
+              11,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              217,
+              119,
+              6,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              180,
+              83,
+              9,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              146,
+              64,
+              14,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              120,
+              53,
+              15,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              248,
+              250,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              245,
+              245,
+              244,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              231,
+              229,
+              228,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              214,
+              211,
+              209,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              168,
+              162,
+              158,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              120,
+              113,
+              108,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              87,
+              83,
+              78,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              68,
+              64,
+              60,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              41,
+              37,
+              36,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "stone900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              28,
+              25,
+              23,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "pink50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              242,
+              248,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "amber50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              251,
+              235,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "indigo50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              238,
+              242,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              245,
+              245,
+              245,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              229,
+              229,
+              229,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              212,
+              212,
+              212,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              163,
+              163,
+              163,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              115,
+              115,
+              115,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              82,
+              82,
+              82,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              64,
+              64,
+              64,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              38,
+              38,
+              38,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "neutral900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              23,
+              23,
+              23,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              236,
+              252,
+              203,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              217,
+              249,
+              157,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              190,
+              242,
+              100,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              163,
+              230,
+              53,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              132,
+              204,
+              22,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              101,
+              163,
+              13,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              77,
+              124,
+              15,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              63,
+              98,
+              18,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "lime900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              54,
+              83,
+              20,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "currentColor") {
+    return "currentColor";
+  } else if (color === "slate100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              241,
+              245,
+              249,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              226,
+              232,
+              240,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              203,
+              213,
+              225,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              148,
+              163,
+              184,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              100,
+              116,
+              139,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              71,
+              85,
+              105,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              51,
+              65,
+              85,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              30,
+              41,
+              59,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "slate900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              15,
+              23,
+              42,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "gray50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              249,
+              250,
+              251,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              252,
+              232,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              207,
+              250,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              165,
+              243,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              103,
+              232,
+              249,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              34,
+              211,
+              238,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              6,
+              182,
+              212,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              8,
+              145,
+              178,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              14,
+              116,
+              144,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              21,
+              94,
+              117,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "cyan900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              22,
+              78,
+              99,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "transparent") {
+    return "transparent";
+  } else if (color === "blue50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              239,
+              246,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              243,
+              232,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              233,
+              213,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              216,
+              180,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              192,
+              132,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              168,
+              85,
+              247,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              147,
+              51,
+              234,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              126,
+              34,
+              206,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              107,
+              33,
+              168,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "purple900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              88,
+              28,
+              135,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "inherit") {
+    return "inherit";
+  } else if (color === "emerald50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              236,
+              253,
+              245,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              247,
+              237,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "black") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              0,
+              0,
+              0,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              249,
+              195,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              240,
+              138,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              224,
+              71,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              250,
+              204,
+              21,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              234,
+              179,
+              8,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              202,
+              138,
+              4,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              161,
+              98,
+              7,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              133,
+              77,
+              14,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "yellow900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              113,
+              63,
+              18,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              250,
+              232,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              245,
+              208,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              240,
+              171,
+              252,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              232,
+              121,
+              249,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              217,
+              70,
+              239,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              192,
+              38,
+              211,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              162,
+              28,
+              175,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              134,
+              25,
+              143,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "fuchsia900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              112,
+              26,
+              117,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "green50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              240,
+              253,
+              244,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              219,
+              234,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              191,
+              219,
+              254,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              147,
+              197,
+              253,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              96,
+              165,
+              250,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              59,
+              130,
+              246,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              37,
+              99,
+              235,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              29,
+              78,
+              216,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              30,
+              64,
+              175,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "blue900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              30,
+              58,
+              138,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange100") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              255,
+              237,
+              213,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange200") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              254,
+              215,
+              170,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange300") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              253,
+              186,
+              116,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange400") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              251,
+              146,
+              60,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange500") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              249,
+              115,
+              22,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange600") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              234,
+              88,
+              12,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange700") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              194,
+              65,
+              12,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange800") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              154,
+              52,
+              18,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "orange900") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              124,
+              45,
+              18,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "violet50") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              245,
+              243,
+              255,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else {
+    return {
+            NAME: "rgba",
+            VAL: [
+              250,
+              250,
+              249,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  }
+}
+
+var Tailwind3 = {
+  toValue: toValue$25
+};
+
+function toValue$26(opacityOpt, color) {
   var opacity = opacityOpt !== undefined ? opacityOpt : 1;
   if (color === "trueGray100") {
     return {
@@ -3711,510 +7305,302 @@ function toValue$16(opacityOpt, color) {
   }
 }
 
-var Colors = {
-  toValue: toValue$16
+var Tailwind2 = {
+  toValue: toValue$26
 };
 
-function toValue$17(fontSize) {
-  if (fontSize === "lg") {
+function toValue$27(opacityOpt, color) {
+  var opacity = opacityOpt !== undefined ? opacityOpt : 1;
+  if (color === "nord1") {
     return {
-            NAME: "rem",
-            VAL: 1.125
-          };
-  } else if (fontSize === "sm") {
-    return {
-            NAME: "rem",
-            VAL: 0.875
-          };
-  } else if (fontSize === "xl") {
-    return {
-            NAME: "rem",
-            VAL: 1.25
-          };
-  } else if (fontSize === "xs") {
-    return {
-            NAME: "rem",
-            VAL: 0.75
-          };
-  } else if (fontSize === "xl2") {
-    return {
-            NAME: "rem",
-            VAL: 1.5
-          };
-  } else if (fontSize === "xl3") {
-    return {
-            NAME: "rem",
-            VAL: 1.875
-          };
-  } else if (fontSize === "xl4") {
-    return {
-            NAME: "rem",
-            VAL: 2.25
-          };
-  } else if (fontSize === "xl5") {
-    return {
-            NAME: "rem",
-            VAL: 3
-          };
-  } else if (fontSize === "xl6") {
-    return {
-            NAME: "rem",
-            VAL: 3.75
-          };
-  } else if (fontSize === "xl7") {
-    return {
-            NAME: "rem",
-            VAL: 4.5
-          };
-  } else if (fontSize === "xl8") {
-    return {
-            NAME: "rem",
-            VAL: 6
-          };
-  } else if (fontSize === "xl9") {
-    return {
-            NAME: "rem",
-            VAL: 8
-          };
-  } else {
-    return {
-            NAME: "rem",
-            VAL: 1
-          };
-  }
-}
-
-var FontSize = {
-  toValue: toValue$17
-};
-
-function toValue$18(spacing) {
-  if (spacing === "widest") {
-    return {
-            NAME: "em",
-            VAL: 0.1
-          };
-  } else if (spacing === "wide") {
-    return {
-            NAME: "em",
-            VAL: 0.025
-          };
-  } else if (spacing === "tighter") {
-    return {
-            NAME: "em",
-            VAL: -0.05
-          };
-  } else if (spacing === "tight") {
-    return {
-            NAME: "em",
-            VAL: -0.025
-          };
-  } else if (spacing === "normal") {
-    return {
-            NAME: "em",
-            VAL: 0
-          };
-  } else {
-    return {
-            NAME: "em",
-            VAL: 0.05
-          };
-  }
-}
-
-var LetterSpacing = {
-  toValue: toValue$18
-};
-
-function toValue$19(lineHeight) {
-  if (lineHeight === "snug") {
-    return {
-            NAME: "abs",
-            VAL: 1.375
-          };
-  } else if (lineHeight === "relaxed") {
-    return {
-            NAME: "abs",
-            VAL: 1.625
-          };
-  } else if (lineHeight === "loose") {
-    return {
-            NAME: "abs",
-            VAL: 2
-          };
-  } else if (lineHeight === 3) {
-    return {
-            NAME: "rem",
-            VAL: 0.75
-          };
-  } else if (lineHeight === 4) {
-    return {
-            NAME: "rem",
-            VAL: 1
-          };
-  } else if (lineHeight === 5) {
-    return {
-            NAME: "rem",
-            VAL: 1.25
-          };
-  } else if (lineHeight === 6) {
-    return {
-            NAME: "rem",
-            VAL: 1.5
-          };
-  } else if (lineHeight === 7) {
-    return {
-            NAME: "rem",
-            VAL: 1.75
-          };
-  } else if (lineHeight === 8) {
-    return {
-            NAME: "rem",
-            VAL: 2
-          };
-  } else if (lineHeight === 9) {
-    return {
-            NAME: "rem",
-            VAL: 2.25
-          };
-  } else if (lineHeight === 10) {
-    return {
-            NAME: "rem",
-            VAL: 2.5
-          };
-  } else if (lineHeight === 11) {
-    return {
-            NAME: "rem",
-            VAL: 2.75
-          };
-  } else if (lineHeight === 12) {
-    return {
-            NAME: "rem",
-            VAL: 3
-          };
-  } else if (lineHeight === 13) {
-    return {
-            NAME: "rem",
-            VAL: 3.25
-          };
-  } else if (lineHeight === 14) {
-    return {
-            NAME: "rem",
-            VAL: 3.5
-          };
-  } else if (lineHeight === "tight") {
-    return {
-            NAME: "abs",
-            VAL: 1.25
-          };
-  } else if (lineHeight === "normal") {
-    return {
-            NAME: "abs",
-            VAL: 1.5
-          };
-  } else {
-    return {
-            NAME: "abs",
-            VAL: 1
-          };
-  }
-}
-
-var LineHeight = {
-  toValue: toValue$19
-};
-
-function toValue$20(fontWeight) {
-  if (fontWeight === 200) {
-    return {
-            NAME: "num",
-            VAL: 200
-          };
-  } else if (fontWeight === 300) {
-    return {
-            NAME: "num",
-            VAL: 300
-          };
-  } else if (fontWeight === 400) {
-    return {
-            NAME: "num",
-            VAL: 400
-          };
-  } else if (fontWeight === 500) {
-    return {
-            NAME: "num",
-            VAL: 500
-          };
-  } else if (fontWeight === 600) {
-    return {
-            NAME: "num",
-            VAL: 600
-          };
-  } else if (fontWeight === 700) {
-    return {
-            NAME: "num",
-            VAL: 700
-          };
-  } else if (fontWeight === 800) {
-    return {
-            NAME: "num",
-            VAL: 800
-          };
-  } else if (fontWeight === 900) {
-    return {
-            NAME: "num",
-            VAL: 900
-          };
-  } else {
-    return {
-            NAME: "num",
-            VAL: 100
-          };
-  }
-}
-
-var FontWeight = {
-  toValue: toValue$20
-};
-
-function repeatCols(columns) {
-  return [{
-            NAME: "repeat",
+            NAME: "rgba",
             VAL: [
+              69,
+              66,
+              82,
               {
                 NAME: "num",
-                VAL: columns
-              },
-              {
-                NAME: "minmax",
-                VAL: [
-                  "zero",
-                  {
-                    NAME: "fr",
-                    VAL: 1
-                  }
-                ]
+                VAL: opacity
               }
             ]
-          }];
-}
-
-function gridTemplateColumns(num) {
-  return "repeat(" + String(num) + ", minmax(0, 1fr))";
-}
-
-function toValue$21(cols) {
-  if (cols === 1) {
-    return gridTemplateColumns(1);
-  } else if (cols === 2) {
-    return gridTemplateColumns(2);
-  } else if (cols === 3) {
-    return gridTemplateColumns(3);
-  } else if (cols === 4) {
-    return gridTemplateColumns(4);
-  } else if (cols === 5) {
-    return gridTemplateColumns(5);
-  } else if (cols === 6) {
-    return gridTemplateColumns(6);
-  } else if (cols === 7) {
-    return gridTemplateColumns(7);
-  } else if (cols === 8) {
-    return gridTemplateColumns(8);
-  } else if (cols === 9) {
-    return gridTemplateColumns(9);
-  } else if (cols === 10) {
-    return gridTemplateColumns(10);
-  } else if (cols === 11) {
-    return gridTemplateColumns(11);
-  } else if (cols === 12) {
-    return gridTemplateColumns(12);
+          };
+  } else if (color === "nord2") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              67,
+              76,
+              94,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord3") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              76,
+              86,
+              106,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord4") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              216,
+              222,
+              233,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord5") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              229,
+              233,
+              240,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord6") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              236,
+              239,
+              244,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord7") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              143,
+              188,
+              187,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord8") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              136,
+              192,
+              208,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord9") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              129,
+              161,
+              193,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord10") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              94,
+              129,
+              172,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord11") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              191,
+              97,
+              106,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord12") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              208,
+              135,
+              112,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord13") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              235,
+              203,
+              139,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord14") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              163,
+              190,
+              140,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
+  } else if (color === "nord15") {
+    return {
+            NAME: "rgba",
+            VAL: [
+              180,
+              142,
+              173,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
   } else {
-    return "none";
+    return {
+            NAME: "rgba",
+            VAL: [
+              46,
+              52,
+              64,
+              {
+                NAME: "num",
+                VAL: opacity
+              }
+            ]
+          };
   }
 }
 
-var GridCols = {
-  repeatCols: repeatCols,
-  gridTemplateColumns: gridTemplateColumns,
-  toValue: toValue$21
+var Nord = {
+  toValue: toValue$27
 };
 
-function toNumString(num) {
-  if (num === 1) {
-    return "1";
-  } else if (num === 2) {
-    return "2";
-  } else if (num === 3) {
-    return "3";
-  } else if (num === 4) {
-    return "4";
-  } else if (num === 5) {
-    return "5";
-  } else if (num === 6) {
-    return "6";
-  } else if (num === 7) {
-    return "7";
-  } else if (num === 8) {
-    return "8";
-  } else if (num === 9) {
-    return "9";
-  } else if (num === 10) {
-    return "10";
-  } else if (num === 11) {
-    return "11";
-  } else if (num === 12) {
-    return "12";
-  } else if (num === 13) {
-    return "13";
-  } else {
-    return "auto";
-  }
-}
-
-function toSpanString(num) {
-  if (num === 1) {
-    return "span 1 / span 1";
-  } else if (num === 2) {
-    return "span 2 / span 2";
-  } else if (num === 3) {
-    return "span 3 / span 3";
-  } else if (num === 4) {
-    return "span 4 / span 4";
-  } else if (num === 5) {
-    return "span 5 / span 5";
-  } else if (num === 6) {
-    return "span 6 / span 6";
-  } else if (num === 7) {
-    return "span 7 / span 7";
-  } else if (num === 8) {
-    return "span 8 / span 8";
-  } else if (num === 9) {
-    return "span 9 / span 9";
-  } else if (num === 10) {
-    return "span 10 / span 10";
-  } else if (num === 11) {
-    return "span 11 / span 11";
-  } else if (num === 12) {
-    return "span 12 / span 12";
-  } else if (num === 13) {
-    return "span 13 / span 13";
-  } else {
-    return "1 / -1";
-  }
-}
-
-function toValue$22(t) {
-  if (typeof t !== "object") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumn", "auto")];
-  }
-  var variant = t.NAME;
-  if (variant === "end") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumnEnd", toNumString(t.VAL))];
-  } else if (variant === "start") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumnStart", toNumString(t.VAL))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridColumn", toSpanString(t.VAL))];
-  }
-}
-
-var Col = {
-  toNumString: toNumString,
-  toSpanString: toSpanString,
-  toValue: toValue$22
+var ColorPalettes = {
+  Tailwind3: Tailwind3,
+  Tailwind2: Tailwind2,
+  Nord: Nord
 };
 
-function toRepeat(num) {
-  return "repeat(" + String(num) + ", minmax(0, 1fr))";
-}
-
-function toString(span) {
-  if (span === 1) {
-    return toRepeat(1);
-  } else if (span === 2) {
-    return toRepeat(2);
-  } else if (span === 3) {
-    return toRepeat(3);
-  } else if (span === 4) {
-    return toRepeat(4);
-  } else if (span === 5) {
-    return toRepeat(5);
-  } else if (span === 6) {
-    return toRepeat(6);
+function toValue$28(t) {
+  if (t === 1) {
+    return "0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12)";
+  } else if (t === 2) {
+    return "0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)";
+  } else if (t === 3) {
+    return "0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12)";
+  } else if (t === 4) {
+    return "0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12)";
+  } else if (t === 5) {
+    return "0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12)";
+  } else if (t === 6) {
+    return "0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)";
+  } else if (t === 7) {
+    return "0 4px 5px -2px rgba(0,0,0,.2),0 7px 10px 1px rgba(0,0,0,.14),0 2px 16px 1px rgba(0,0,0,.12)";
+  } else if (t === 8) {
+    return "0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)";
+  } else if (t === 9) {
+    return "0 5px 6px -3px rgba(0,0,0,.2),0 9px 12px 1px rgba(0,0,0,.14),0 3px 16px 2px rgba(0,0,0,.12)";
+  } else if (t === 10) {
+    return "0 6px 6px -3px rgba(0,0,0,.2),0 10px 14px 1px rgba(0,0,0,.14),0 4px 18px 3px rgba(0,0,0,.12)";
+  } else if (t === 11) {
+    return "0 6px 7px -4px rgba(0,0,0,.2),0 11px 15px 1px rgba(0,0,0,.14),0 4px 20px 3px rgba(0,0,0,.12)";
+  } else if (t === 12) {
+    return "0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)";
+  } else if (t === 13) {
+    return "0 7px 8px -4px rgba(0,0,0,.2),0 13px 19px 2px rgba(0,0,0,.14),0 5px 24px 4px rgba(0,0,0,.12)";
+  } else if (t === 14) {
+    return "0 7px 9px -4px rgba(0,0,0,.2),0 14px 21px 2px rgba(0,0,0,.14),0 5px 26px 4px rgba(0,0,0,.12)";
+  } else if (t === 15) {
+    return "0 8px 9px -5px rgba(0,0,0,.2),0 15px 22px 2px rgba(0,0,0,.14),0 6px 28px 5px rgba(0,0,0,.12)";
+  } else if (t === 16) {
+    return "0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12)";
+  } else if (t === 17) {
+    return "0 8px 11px -5px rgba(0,0,0,.2),0 17px 26px 2px rgba(0,0,0,.14),0 6px 32px 5px rgba(0,0,0,.12)";
+  } else if (t === 18) {
+    return "0 9px 11px -5px rgba(0,0,0,.2),0 18px 28px 2px rgba(0,0,0,.14),0 7px 34px 6px rgba(0,0,0,.12)";
+  } else if (t === 19) {
+    return "0 9px 12px -6px rgba(0,0,0,.2),0 19px 29px 2px rgba(0,0,0,.14),0 7px 36px 6px rgba(0,0,0,.12)";
+  } else if (t === 20) {
+    return "0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12)";
+  } else if (t === 21) {
+    return "0 10px 13px -6px rgba(0,0,0,.2),0 21px 33px 3px rgba(0,0,0,.14),0 8px 40px 7px rgba(0,0,0,.12)";
+  } else if (t === 22) {
+    return "0 10px 14px -6px rgba(0,0,0,.2),0 22px 35px 3px rgba(0,0,0,.14),0 8px 42px 7px rgba(0,0,0,.12)";
+  } else if (t === 23) {
+    return "0 11px 14px -7px rgba(0,0,0,.2),0 23px 36px 3px rgba(0,0,0,.14),0 9px 44px 8px rgba(0,0,0,.12)";
+  } else if (t === 24) {
+    return "0 11px 15px -7px rgba(0,0,0,.2),0 24px 38px 3px rgba(0,0,0,.14),0 9px 46px 8px rgba(0,0,0,.12)";
   } else {
-    return "none";
+    return "0 0 0 0 rgba(0,0,0,.2),0 0 0 0 rgba(0,0,0,.14),0 0 0 0 rgba(0,0,0,.12)";
   }
 }
 
-var TemplateRows = {
-  toRepeat: toRepeat,
-  toString: toString
+var Elevation = {
+  toValue: toValue$28
 };
 
-function toNumString$1(num) {
-  if (num === 1) {
-    return "1";
-  } else if (num === 2) {
-    return "2";
-  } else if (num === 3) {
-    return "3";
-  } else if (num === 4) {
-    return "4";
-  } else if (num === 5) {
-    return "5";
-  } else if (num === 6) {
-    return "6";
-  } else {
-    return "auto";
-  }
-}
-
-function toSpanString$1(num) {
-  if (num === 1) {
-    return "span 1 / span 1";
-  } else if (num === 2) {
-    return "span 2 / span 2";
-  } else if (num === 3) {
-    return "span 3 / span 3";
-  } else if (num === 4) {
-    return "span 4 / span 4";
-  } else if (num === 5) {
-    return "span 5 / span 5";
-  } else if (num === 6) {
-    return "span 6 / span 6";
-  } else {
-    return "1 / -1";
-  }
-}
-
-function toValue$23(t) {
-  if (typeof t !== "object") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRow", "auto")];
-  }
-  var variant = t.NAME;
-  if (variant === "end") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRowEnd", toNumString$1(t.VAL))];
-  } else if (variant === "start") {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRowStart", toNumString$1(t.VAL))];
-  } else {
-    return [CssJs$IsenseiMonorepo.unsafe("gridRow", toSpanString$1(t.VAL))];
-  }
-}
-
-var Row = {
-  toNumString: toNumString$1,
-  toSpanString: toSpanString$1,
-  toValue: toValue$23
-};
-
-var ColorPalettes = {};
+var Colors;
 
 export {
   Screens ,
   Spacing ,
+  SpacingNegative ,
   Proportions ,
   Opacity ,
   BorderRadius ,
   BorderWidth ,
+  RingWidth ,
   BoxShadow ,
   MaxWidth ,
   ZIndex ,
@@ -4225,7 +7611,6 @@ export {
   Skew ,
   Scale ,
   Rotate ,
-  Colors ,
   FontSize ,
   LetterSpacing ,
   LineHeight ,
@@ -4235,6 +7620,8 @@ export {
   TemplateRows ,
   Row ,
   ColorPalettes ,
+  Elevation ,
+  Colors ,
   
 }
 /* sm Not a pure module */
