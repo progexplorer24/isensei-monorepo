@@ -1,4 +1,3 @@
-open CssJs
 // Functions
 let emptyRule = [CssJs.unsafe("", "")]
 let merge = CssJs.merge
@@ -6,13 +5,24 @@ let style = CssJs.style
 let tw = rules => Belt.Array.concatMany(rules)
 let twStyle = rules => CssJs.style(. Belt.Array.concatMany(rules))
 
+// We solve grouping with hooks
+
 let minWBreakpoint = (breakpoint, styles) => [
-  CssJs.media(. `screen and (min-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
+  CssJs.media(. `(min-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
 ]
 
 let maxWBreakpoint = (breakpoint, styles) => [
-  CssJs.media(. `screen and (max-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
+  CssJs.media(. `(max-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
 ]
+
+let darkMedia = styles => [CssJs.media(. "(prefers-color-scheme: dark)", tw(styles))]
+let portrait = styles => [CssJs.media(. "(orientation: portrait)", tw(styles))]
+let landscape = styles => [CssJs.media(. "(orientation: landscape)", tw(styles))]
+let motionSafe = styles => [CssJs.media(. "(prefers-reduced-motion: no-preference)", tw(styles))]
+let motionReduce = styles => [CssJs.media(. "(prefers-reduced-motion: reduce)", tw(styles))]
+let print = styles => [CssJs.media(. "print", tw(styles))]
+let rtl = styles => [CssJs.media(. "[dir=“rtl”] &", tw(styles))]
+let ltr = styles => [CssJs.media(. "[dir=“ltr”] &", tw(styles))]
 
 let sm = minWBreakpoint(640)
 let md = minWBreakpoint(768)
@@ -21,16 +31,11 @@ let xl = minWBreakpoint(1280)
 let xl2 = minWBreakpoint(1536)
 let fontFamilies = fonts => [CssJs.fontFamilies(fonts)]
 let fontName = font => [CssJs.fontFamily(#custom(font))]
-let contentText = text => [CssJs.contentRule(#text(text))]
-// WARNING: This is not a function - create separate section for Atomic types not available in tailwind
-let contentRuleNone = [CssJs.contentRule(#none)]
-let content = string => [CssJs.contentRule(#text(string))]
 
 // Selectors
 let selector = (string, rules) => [CssJs.selector(. string, tw(rules))]
 let dividers = rules => [CssJs.selector(. Selectors.ignoreFirstChild, tw(rules))]
 let dark = rules => [CssJs.selector(. ".dark &", tw(rules))]
-let marker = rules => [CssJs.selector(. "&::marker", tw(rules))]
 let active = rules => [CssJs.active(tw(rules))]
 let checked = rules => [CssJs.checked(tw(rules))]
 let default = rules => [CssJs.default(tw(rules))]
@@ -38,12 +43,20 @@ let defined = rules => [CssJs.defined(tw(rules))]
 let disabled = rules => [CssJs.disabled(tw(rules))]
 let empty = rules => [CssJs.empty(tw(rules))]
 let enabled = rules => [CssJs.enabled(tw(rules))]
-let first = rules => [CssJs.first(tw(rules))]
-let firstChild = rules => [CssJs.firstChild(tw(rules))]
+let first = rules => [CssJs.firstChild(tw(rules))]
+// first rule is already taken
+// let first = rules => [CssJs.first(tw(rules))]
 let firstOfType = rules => [CssJs.firstOfType(tw(rules))]
 let focus = rules => [CssJs.focus(tw(rules))]
 let focusWithin = rules => [CssJs.focusWithin(tw(rules))]
+let focusVisible = rules => [CssJs.focusVisible(tw(rules))]
 // TODO: host selector
+
+let odd = rules => [CssJs.selector(. "&:nth-child(odd)", tw(rules))]
+let even = rules => [CssJs.selector(. "&:nth-child(even)", tw(rules))]
+let placeholderShown = rules => [CssJs.selector(. "&:placeholder-shown", tw(rules))]
+let autofill = rules => [CssJs.selector(. "&:autofill", tw(rules))]
+let _open = rules => [CssJs.selector(. "&[open]", tw(rules))]
 
 let hover = rules => [CssJs.hover(tw(rules))]
 let indeterminate = rules => [CssJs.indeterminate(tw(rules))]
@@ -51,14 +64,14 @@ let inRange = rules => [CssJs.inRange(tw(rules))]
 let invalid = rules => [CssJs.invalid(tw(rules))]
 // TODO: lang selector
 
-let lastChild = rules => [CssJs.lastChild(tw(rules))]
+let last = rules => [CssJs.lastChild(tw(rules))]
 let lastOfType = rules => [CssJs.lastOfType(tw(rules))]
 let link = rules => [CssJs.lastOfType(tw(rules))]
 //  TODO: Figure out not function
 // let not = rules => [CssJs.not__(tw(rules))]
 // TODO: Nth selectors
 
-let onlyChild = rules => [CssJs.onlyChild(tw(rules))]
+let only = rules => [CssJs.onlyChild(tw(rules))]
 let onlyOfType = rules => [CssJs.onlyOfType(tw(rules))]
 let optional = rules => [CssJs.optional(tw(rules))]
 let outOfRange = rules => [CssJs.outOfRange(tw(rules))]
@@ -77,6 +90,9 @@ let before = rules => [CssJs.before(tw(rules))]
 let firstLetter = rules => [CssJs.firstLetter(tw(rules))]
 let firstLine = rules => [CssJs.firstLine(tw(rules))]
 let selection = rules => [CssJs.selection(tw(rules))]
+let marker = rules => [CssJs.selector(. "&::marker", tw(rules))]
+let file = rules => [CssJs.selector(. "&::file-selector-button", tw(rules))]
+let placeholder = rules => [CssJs.selector(. "&::placeholder", tw(rules))]
 
 // Aspect Ratio
 let aspectAuto = [CssJs.unsafe("aspect-ration", "auto")]
@@ -190,31 +206,31 @@ module BoxDecoration = {
 let boxDecoration = break => [CssJs.unsafe("box-decoration-break", BoxDecoration.toString(break))]
 
 // Box Sizing
-let boxBorder = [boxSizing(#borderBox)]
-let boxContent = [boxSizing(#contentBox)]
+let boxBorder = [CssJs.boxSizing(#borderBox)]
+let boxContent = [CssJs.boxSizing(#contentBox)]
 
 // Display
-let block = [display(#block)]
-let inlineBlock = [display(#inlineBlock)]
-let inline = [display(#inline)]
-let flex = [display(#flex)]
-let inlineFlex = [display(#inlineFlex)]
-let table = [display(#table)]
-let inlineTable = [display(#inlineTable)]
-let tableCaption = [display(#tableCaption)]
-let tableCell = [display(#tableCell)]
-let tableColumn = [display(#tableColumn)]
-let tableColumnGroup = [display(#tableColumnGroup)]
-let tableFooterGroup = [display(#tableFooterGroup)]
-let tableHeaderGroup = [display(#tableHeaderGroup)]
-let tableRowGroup = [display(#tableRowGroup)]
-let tableRow = [display(#tableRow)]
-let flowRoot = [CssJs.unsafe("display", "flow-root")]
-let grid = [display(#grid)]
-let inlineGrid = [display(#inlineGrid)]
-let contents = [display(#contents)]
-let listItem = [display(#listItem)]
-let hidden = [display(#none)]
+let block = [CssJs.display(#block)]
+let inlineBlock = [CssJs.display(#inlineBlock)]
+let inline = [CssJs.display(#inline)]
+let flex = [CssJs.display(#flex)]
+let inlineFlex = [CssJs.display(#inlineFlex)]
+let table = [CssJs.display(#table)]
+let inlineTable = [CssJs.display(#inlineTable)]
+let tableCaption = [CssJs.display(#tableCaption)]
+let tableCell = [CssJs.display(#tableCell)]
+let tableColumn = [CssJs.display(#tableColumn)]
+let tableColumnGroup = [CssJs.display(#tableColumnGroup)]
+let tableFooterGroup = [CssJs.display(#tableFooterGroup)]
+let tableHeaderGroup = [CssJs.display(#tableHeaderGroup)]
+let tableRowGroup = [CssJs.display(#tableRowGroup)]
+let tableRow = [CssJs.display(#tableRow)]
+let flowRoot = [CssJs.unsafe("CssJs.display", "flow-root")]
+let grid = [CssJs.display(#grid)]
+let inlineGrid = [CssJs.display(#inlineGrid)]
+let contents = [CssJs.display(#contents)]
+let listItem = [CssJs.display(#listItem)]
+let hidden = [CssJs.display(#none)]
 
 // Floats
 let floatRight = [CssJs.float(#right)]
@@ -222,49 +238,49 @@ let floatLeft = [CssJs.float(#left)]
 let floatNone = [CssJs.float(#none)]
 
 // Clear
-let clearLeft = [clear(#left)]
-let clearRight = [clear(#right)]
-let clearBoth = [clear(#both)]
-let clearNone = [clear(#none)]
+let clearLeft = [CssJs.clear(#left)]
+let clearRight = [CssJs.clear(#right)]
+let clearBoth = [CssJs.clear(#both)]
+let clearNone = [CssJs.clear(#none)]
 
 // Isolation
 let isolate = [CssJs.unsafe("isolation", "isolate")]
 let isolateAuto = [CssJs.unsafe("isolation", "auto")]
 
 // NOTE: Object Fit
-let objectContain = [objectFit(#contain)]
-let objectCover = [objectFit(#cover)]
-let objectFill = [objectFit(#fill)]
-let objectNone = [objectFit(#none)]
-let objectScaleDown = [objectFit(#scaleDown)]
+let objectContain = [CssJs.objectFit(#contain)]
+let objectCover = [CssJs.objectFit(#cover)]
+let objectFill = [CssJs.objectFit(#fill)]
+let objectNone = [CssJs.objectFit(#none)]
+let objectScaleDown = [CssJs.objectFit(#scaleDown)]
 
 // NOTE: Object Position
-let objectBottom = [objectPosition(#bottom)]
-let objectCenter = [objectPosition(#center)]
-let objectLeft = [objectPosition(#left)]
-let objectLeftBottom = [objectPosition(#hv(#left, #bottom))]
-let objectLeftTop = [objectPosition(#hv(#left, #top))]
-let objectRight = [objectPosition(#right)]
-let objectRightBottom = [objectPosition(#hv(#right, #bottom))]
-let objectRightTop = [objectPosition(#hv(#right, #top))]
-let objectTop = [objectPosition(#top)]
+let objectBottom = [CssJs.objectPosition(#bottom)]
+let objectCenter = [CssJs.objectPosition(#center)]
+let objectLeft = [CssJs.objectPosition(#left)]
+let objectLeftBottom = [CssJs.objectPosition(#hv(#left, #bottom))]
+let objectLeftTop = [CssJs.objectPosition(#hv(#left, #top))]
+let objectRight = [CssJs.objectPosition(#right)]
+let objectRightBottom = [CssJs.objectPosition(#hv(#right, #bottom))]
+let objectRightTop = [CssJs.objectPosition(#hv(#right, #top))]
+let objectTop = [CssJs.objectPosition(#top)]
 
 // NOTE: Overflow
-let overflowAuto = [overflow(#auto)]
-let overflowHidden = [overflow(#hidden)]
+let overflowAuto = [CssJs.overflow(#auto)]
+let overflowHidden = [CssJs.overflow(#hidden)]
 let overflowClip = [CssJs.unsafe("overflow", "clip")]
-let overflowVisible = [overflow(#visible)]
-let overflowScroll = [overflow(#scroll)]
-let overflowXAuto = [overflowX(#auto)]
-let overflowYAuto = [overflowY(#auto)]
-let overflowXHidden = [overflowX(#hidden)]
-let overflowYHidden = [overflowY(#hidden)]
+let overflowVisible = [CssJs.overflow(#visible)]
+let overflowScroll = [CssJs.overflow(#scroll)]
+let overflowXAuto = [CssJs.overflowX(#auto)]
+let overflowYAuto = [CssJs.overflowY(#auto)]
+let overflowXHidden = [CssJs.overflowX(#hidden)]
+let overflowYHidden = [CssJs.overflowY(#hidden)]
 let overflowXClip = [CssJs.unsafe("overflowX", "clip")]
 let overflowYClip = [CssJs.unsafe("overflowY", "clip")]
-let overflowXVisible = [overflowX(#visible)]
-let overflowYVisible = [overflowY(#visible)]
-let overflowXScroll = [overflowX(#scroll)]
-let overflowYScroll = [overflowY(#scroll)]
+let overflowXVisible = [CssJs.overflowX(#visible)]
+let overflowYVisible = [CssJs.overflowY(#visible)]
+let overflowXScroll = [CssJs.overflowX(#scroll)]
+let overflowYScroll = [CssJs.overflowY(#scroll)]
 
 // Overscroll Behavior
 let overscrollAuto = [CssJs.unsafe("overscrollBehavior", "auto")]
@@ -278,11 +294,11 @@ let overscrollXContain = [CssJs.unsafe("overscrollBehaviorX", "contain")]
 let overscrollXNone = [CssJs.unsafe("overscrollBehaviorX", "none")]
 
 // Position
-let static = [position(#static)]
-let fixed = [position(#fixed)]
-let absolute = [position(#absolute)]
-let relative = [position(#relative)]
-let sticky = [position(#sticky)]
+let static = [CssJs.position(#static)]
+let fixed = [CssJs.position(#fixed)]
+let absolute = [CssJs.position(#absolute)]
+let relative = [CssJs.position(#relative)]
+let sticky = [CssJs.position(#sticky)]
 
 // Top / Right / Bottom / Left
 type spacing = Theme.Spacing.t
@@ -291,82 +307,88 @@ type inset = [spacing | proportions | #auto]
 
 let inset = value =>
   switch value {
-  | #auto => [top(#auto), right(#auto), bottom(#auto), left(#auto)]
+  | #auto => [CssJs.top(#auto), CssJs.right(#auto), CssJs.bottom(#auto), CssJs.left(#auto)]
   | #...spacing as v => [
-      top(Theme.Spacing.toValue(v)),
-      right(Theme.Spacing.toValue(v)),
-      bottom(Theme.Spacing.toValue(v)),
-      left(Theme.Spacing.toValue(v)),
+      CssJs.top(Theme.Spacing.toValue(v)),
+      CssJs.right(Theme.Spacing.toValue(v)),
+      CssJs.bottom(Theme.Spacing.toValue(v)),
+      CssJs.left(Theme.Spacing.toValue(v)),
     ]
   | #...proportions as prop => [
-      top(Theme.Proportions.toValue(prop)),
-      right(Theme.Proportions.toValue(prop)),
-      bottom(Theme.Proportions.toValue(prop)),
-      left(Theme.Proportions.toValue(prop)),
+      CssJs.top(Theme.Proportions.toValue(prop)),
+      CssJs.right(Theme.Proportions.toValue(prop)),
+      CssJs.bottom(Theme.Proportions.toValue(prop)),
+      CssJs.left(Theme.Proportions.toValue(prop)),
     ]
   }
 
 let insetX = value =>
   switch value {
-  | #auto => [right(#auto), left(#auto)]
-  | #...spacing as v => [right(Theme.Spacing.toValue(v)), left(Theme.Spacing.toValue(v))]
+  | #auto => [CssJs.right(#auto), CssJs.left(#auto)]
+  | #...spacing as v => [
+      CssJs.right(Theme.Spacing.toValue(v)),
+      CssJs.left(Theme.Spacing.toValue(v)),
+    ]
   | #...proportions as prop => [
-      right(Theme.Proportions.toValue(prop)),
-      left(Theme.Proportions.toValue(prop)),
+      CssJs.right(Theme.Proportions.toValue(prop)),
+      CssJs.left(Theme.Proportions.toValue(prop)),
     ]
   }
 
 let insetY = value =>
   switch value {
-  | #auto => [top(#auto), bottom(#auto)]
-  | #...spacing as v => [top(Theme.Spacing.toValue(v)), bottom(Theme.Spacing.toValue(v))]
+  | #auto => [CssJs.top(#auto), CssJs.bottom(#auto)]
+  | #...spacing as v => [
+      CssJs.top(Theme.Spacing.toValue(v)),
+      CssJs.bottom(Theme.Spacing.toValue(v)),
+    ]
   | #...proportions as prop => [
-      top(Theme.Proportions.toValue(prop)),
-      bottom(Theme.Proportions.toValue(prop)),
+      CssJs.top(Theme.Proportions.toValue(prop)),
+      CssJs.bottom(Theme.Proportions.toValue(prop)),
     ]
   }
 
 let top = value =>
   switch value {
-  | #auto => [top(#auto)]
-  | #...spacing as v => [top(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [top(Theme.Proportions.toValue(prop))]
+  | #auto => [CssJs.top(#auto)]
+  | #...spacing as v => [CssJs.top(Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [CssJs.top(Theme.Proportions.toValue(prop))]
   }
 
 let bottom = value =>
   switch value {
-  | #auto => [bottom(#auto)]
-  | #...spacing as v => [bottom(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [bottom(Theme.Proportions.toValue(prop))]
+  | #auto => [CssJs.bottom(#auto)]
+  | #...spacing as v => [CssJs.bottom(Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [CssJs.bottom(Theme.Proportions.toValue(prop))]
   }
 
 let left = value =>
   switch value {
-  | #auto => [left(#auto)]
-  | #...spacing as v => [left(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [left(Theme.Proportions.toValue(prop))]
+  | #auto => [CssJs.left(#auto)]
+  | #...spacing as v => [CssJs.left(Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [CssJs.left(Theme.Proportions.toValue(prop))]
   }
 
 let right = value =>
   switch value {
-  | #auto => [right(#auto)]
-  | #...spacing as v => [right(Theme.Spacing.toValue(v))]
-  | #...proportions as prop => [right(Theme.Proportions.toValue(prop))]
+  | #auto => [CssJs.right(#auto)]
+  | #...spacing as v => [CssJs.right(Theme.Spacing.toValue(v))]
+  | #...proportions as prop => [CssJs.right(Theme.Proportions.toValue(prop))]
   }
 
 // Visibility
-let visible = [visibility(#visible)]
-let invisible = [visibility(#hidden)]
+let visible = [CssJs.visibility(#visible)]
+let invisible = [CssJs.visibility(#hidden)]
 
 // Z-Index
 let z = index => [CssJs.unsafe("zIndex", Theme.ZIndex.toValue(index))]
 
 let basis = scale => [CssJs.flexBasis(Theme.Spacing.toValue(scale))]
 // Flex Direction
-let flexRow = [flexDirection(#row)]
-let flexRowReverse = [flexDirection(#rowReverse)]
-let flexCol = [flexDirection(#column)]
-let flexColReverse = [flexDirection(#columnReverse)]
+let flexRow = [CssJs.flexDirection(#row)]
+let flexRowReverse = [CssJs.flexDirection(#rowReverse)]
+let flexCol = [CssJs.flexDirection(#column)]
+let flexColReverse = [CssJs.flexDirection(#columnReverse)]
 
 // Flex Wrap
 let flexWrap = [CssJs.flexWrap(#wrap)]
@@ -406,22 +428,22 @@ let gridRows = (rows: Theme.TemplateRows.t) => [
 let row = (val: Theme.Row.t) => Theme.Row.toValue(val)
 
 // Grid Auto Flow
-let gridFlowRow = [gridAutoFlow(#row)]
-let gridFlowCol = [gridAutoFlow(#column)]
-let gridFlowRowDense = [gridAutoFlow(#rowDense)]
-let gridFlowColDense = [gridAutoFlow(#columnDense)]
+let gridFlowRow = [CssJs.gridAutoFlow(#row)]
+let gridFlowCol = [CssJs.gridAutoFlow(#column)]
+let gridFlowRowDense = [CssJs.gridAutoFlow(#rowDense)]
+let gridFlowColDense = [CssJs.gridAutoFlow(#columnDense)]
 
 // Grid Auto Columns
-let autoColsAuto = [gridAutoColumns(#auto)]
-let autoColsMin = [gridAutoColumns(#minContent)]
-let autoColsMax = [gridAutoColumns(#maxContent)]
-let autoColsFr = [gridAutoColumns(#minmax(#zero, #fr(1.)))]
+let autoColsAuto = [CssJs.gridAutoColumns(#auto)]
+let autoColsMin = [CssJs.gridAutoColumns(#minContent)]
+let autoColsMax = [CssJs.gridAutoColumns(#maxContent)]
+let autoColsFr = [CssJs.gridAutoColumns(#minmax(#zero, #fr(1.)))]
 
 // Grid Auto Rows
-let autoRowsAuto = [gridAutoRows(#auto)]
-let autoRowsMin = [gridAutoRows(#minContent)]
-let autoRowsMax = [gridAutoRows(#maxContent)]
-let autoRowsFr = [gridAutoRows(#minmax(#zero, #fr(1.)))]
+let autoRowsAuto = [CssJs.gridAutoRows(#auto)]
+let autoRowsMin = [CssJs.gridAutoRows(#minContent)]
+let autoRowsMax = [CssJs.gridAutoRows(#maxContent)]
+let autoRowsFr = [CssJs.gridAutoRows(#minmax(#zero, #fr(1.)))]
 
 // NOTE: Gap - Utilities for controlling gutters between grid rows and columns.
 module Gap = {
@@ -438,48 +460,48 @@ module Gap = {
 let gap = value => Gap.toValue(value)
 
 // Justify Content
-let justifyStart = [justifyContent(#flexStart)]
-let justifyEnd = [justifyContent(#flexEnd)]
-let justifyCenter = [justifyContent(#center)]
-let justifyBetween = [justifyContent(#spaceBetween)]
-let justifyAround = [justifyContent(#spaceAround)]
-let justifyEvenly = [justifyContent(#spaceEvenly)]
+let justifyStart = [CssJs.justifyContent(#flexStart)]
+let justifyEnd = [CssJs.justifyContent(#flexEnd)]
+let justifyCenter = [CssJs.justifyContent(#center)]
+let justifyBetween = [CssJs.justifyContent(#spaceBetween)]
+let justifyAround = [CssJs.justifyContent(#spaceAround)]
+let justifyEvenly = [CssJs.justifyContent(#spaceEvenly)]
 
 // Justify Items
-let justifyItemsStart = [justifyItems(#start)]
-let justifyItemsEnd = [justifyItems(#end_)]
-let justifyItemsCenter = [justifyItems(#center)]
+let justifyItemsStart = [CssJs.justifyItems(#start)]
+let justifyItemsEnd = [CssJs.justifyItems(#end_)]
+let justifyItemsCenter = [CssJs.justifyItems(#center)]
 let justifyItemsStretch = [CssJs.unsafe("justifyItems", "stretch")]
 
 // Justify Self
-let justifySelfAuto = [justifySelf(#auto)]
-let justifySelfStart = [justifySelf(#start)]
-let justifySelfEnd = [justifySelf(#end_)]
-let justifySelfCenter = [justifySelf(#center)]
-let justifySelfStretch = [justifySelf(#stretch)]
+let justifySelfAuto = [CssJs.justifySelf(#auto)]
+let justifySelfStart = [CssJs.justifySelf(#start)]
+let justifySelfEnd = [CssJs.justifySelf(#end_)]
+let justifySelfCenter = [CssJs.justifySelf(#center)]
+let justifySelfStretch = [CssJs.justifySelf(#stretch)]
 
 // Align Content
-let contentCenter = [alignContent(#center)]
-let contentStart = [alignContent(#flexStart)]
-let contentEnd = [alignContent(#flexEnd)]
-let contentBetween = [alignContent(#spaceBetween)]
-let contentAround = [alignContent(#spaceAround)]
-let contentEvenly = [alignContent(#spaceEvenly)]
+let contentCenter = [CssJs.alignContent(#center)]
+let contentStart = [CssJs.alignContent(#flexStart)]
+let contentEnd = [CssJs.alignContent(#flexEnd)]
+let contentBetween = [CssJs.alignContent(#spaceBetween)]
+let contentAround = [CssJs.alignContent(#spaceAround)]
+let contentEvenly = [CssJs.alignContent(#spaceEvenly)]
 
 // Align Items
-let itemsStart = [alignItems(#flexStart)]
-let itemsEnd = [alignItems(#flexEnd)]
-let itemsCenter = [alignItems(#center)]
-let itemsBaseline = [alignItems(#baseline)]
-let itemsStretch = [alignItems(#stretch)]
+let itemsStart = [CssJs.alignItems(#flexStart)]
+let itemsEnd = [CssJs.alignItems(#flexEnd)]
+let itemsCenter = [CssJs.alignItems(#center)]
+let itemsBaseline = [CssJs.alignItems(#baseline)]
+let itemsStretch = [CssJs.alignItems(#stretch)]
 
 // Align Self
-let selfAuto = [alignSelf(#auto)]
-let selfStart = [alignSelf(#flexStart)]
-let selfEnd = [alignSelf(#flexEnd)]
-let selfCenter = [alignSelf(#center)]
-let selfStretch = [alignSelf(#stretch)]
-let selfBaseline = [alignSelf(#baseline)]
+let selfAuto = [CssJs.alignSelf(#auto)]
+let selfStart = [CssJs.alignSelf(#flexStart)]
+let selfEnd = [CssJs.alignSelf(#flexEnd)]
+let selfCenter = [CssJs.alignSelf(#center)]
+let selfStretch = [CssJs.alignSelf(#stretch)]
+let selfBaseline = [CssJs.alignSelf(#baseline)]
 
 // Place Content
 let placeContentCenter = [CssJs.unsafe("placeContent", "center")]
@@ -519,17 +541,17 @@ module Padding = {
   let toValue = t =>
     switch t {
     | #all(size) => [CssJs.padding(Theme.Spacing.toValue(size))]
-    | #t(size) => [paddingTop(Theme.Spacing.toValue(size))]
-    | #b(size) => [paddingBottom(Theme.Spacing.toValue(size))]
-    | #r(size) => [paddingRight(Theme.Spacing.toValue(size))]
-    | #l(size) => [paddingLeft(Theme.Spacing.toValue(size))]
+    | #t(size) => [CssJs.paddingTop(Theme.Spacing.toValue(size))]
+    | #b(size) => [CssJs.paddingBottom(Theme.Spacing.toValue(size))]
+    | #r(size) => [CssJs.paddingRight(Theme.Spacing.toValue(size))]
+    | #l(size) => [CssJs.paddingLeft(Theme.Spacing.toValue(size))]
     | #x(size) => [
-        paddingLeft(Theme.Spacing.toValue(size)),
-        paddingRight(Theme.Spacing.toValue(size)),
+        CssJs.paddingLeft(Theme.Spacing.toValue(size)),
+        CssJs.paddingRight(Theme.Spacing.toValue(size)),
       ]
     | #y(size) => [
-        paddingTop(Theme.Spacing.toValue(size)),
-        paddingBottom(Theme.Spacing.toValue(size)),
+        CssJs.paddingTop(Theme.Spacing.toValue(size)),
+        CssJs.paddingBottom(Theme.Spacing.toValue(size)),
       ]
     }
 }
@@ -541,17 +563,17 @@ module Margin = {
   let toValue = t =>
     switch t {
     | #all(size) => [CssJs.margin(Theme.Spacing.toValue(size))]
-    | #t(size) => [marginTop(Theme.Spacing.toValue(size))]
-    | #b(size) => [marginBottom(Theme.Spacing.toValue(size))]
-    | #r(size) => [marginRight(Theme.Spacing.toValue(size))]
-    | #l(size) => [marginLeft(Theme.Spacing.toValue(size))]
+    | #t(size) => [CssJs.marginTop(Theme.Spacing.toValue(size))]
+    | #b(size) => [CssJs.marginBottom(Theme.Spacing.toValue(size))]
+    | #r(size) => [CssJs.marginRight(Theme.Spacing.toValue(size))]
+    | #l(size) => [CssJs.marginLeft(Theme.Spacing.toValue(size))]
     | #x(size) => [
-        marginLeft(Theme.Spacing.toValue(size)),
-        marginRight(Theme.Spacing.toValue(size)),
+        CssJs.marginLeft(Theme.Spacing.toValue(size)),
+        CssJs.marginRight(Theme.Spacing.toValue(size)),
       ]
     | #y(size) => [
-        marginTop(Theme.Spacing.toValue(size)),
-        marginBottom(Theme.Spacing.toValue(size)),
+        CssJs.marginTop(Theme.Spacing.toValue(size)),
+        CssJs.marginBottom(Theme.Spacing.toValue(size)),
       ]
     }
 }
@@ -569,16 +591,28 @@ module SpaceBetween = {
         CssJs.selector(.
           "& > :not([hidden]) ~ :not([hidden])",
           reverse
-            ? [marginLeft(Theme.Spacing.toValue(#0)), marginRight(Theme.Spacing.toValue(size))]
-            : [marginLeft(Theme.Spacing.toValue(size)), marginRight(Theme.Spacing.toValue(#0))],
+            ? [
+                CssJs.marginLeft(Theme.Spacing.toValue(#0)),
+                CssJs.marginRight(Theme.Spacing.toValue(size)),
+              ]
+            : [
+                CssJs.marginLeft(Theme.Spacing.toValue(size)),
+                CssJs.marginRight(Theme.Spacing.toValue(#0)),
+              ],
         ),
       ]
     | #y(size) => [
         CssJs.selector(.
           "& > :not([hidden]) ~ :not([hidden])",
           reverse
-            ? [marginTop(Theme.Spacing.toValue(#0)), marginBottom(Theme.Spacing.toValue(size))]
-            : [marginTop(Theme.Spacing.toValue(size)), marginBottom(Theme.Spacing.toValue(#0))],
+            ? [
+                CssJs.marginTop(Theme.Spacing.toValue(#0)),
+                CssJs.marginBottom(Theme.Spacing.toValue(size)),
+              ]
+            : [
+                CssJs.marginTop(Theme.Spacing.toValue(size)),
+                CssJs.marginBottom(Theme.Spacing.toValue(#0)),
+              ],
         ),
       ]
     }
@@ -623,8 +657,8 @@ type spacingWidth = [
 ]
 
 // Min-Width
-let minW0 = [minWidth(#px(0))]
-let minWFull = [minWidth(#percent(100.))]
+let minW0 = [CssJs.minWidth(#px(0))]
+let minWFull = [CssJs.minWidth(#percent(100.))]
 let minWMin = [CssJs.unsafe("minWidth", "min-content")]
 let minWMax = [CssJs.unsafe("minWidth", "max-content")]
 let minWFit = [CssJs.unsafe("minWidth", "fit-content")]
@@ -638,8 +672,8 @@ let maxW = (max: maxWidth) =>
   switch max {
   | #minContent => [CssJs.unsafe("maxWidth", "min-content")]
   | #maxContent => [CssJs.unsafe("maxWidth", "max-content")]
-  | #...widths as wd => [maxWidth(Theme.MaxWidth.toValue(wd))]
-  | #...screens as sc => [maxWidth(Theme.Screens.toValue(sc))]
+  | #...widths as wd => [CssJs.maxWidth(Theme.MaxWidth.toValue(wd))]
+  | #...screens as sc => [CssJs.maxWidth(Theme.Screens.toValue(sc))]
   }
 
 let maxWPx = px => [CssJs.maxWidth(#px(px))]
@@ -671,9 +705,9 @@ module Height = {
 let h = (height: Height.t) => Height.toValue(height)
 
 // Min-Height
-let minH0 = [minHeight(#px(0))]
-let minHFull = [minHeight(#percent(100.))]
-let minHScreen = [minHeight(#vh(100.))]
+let minH0 = [CssJs.minHeight(#px(0))]
+let minHFull = [CssJs.minHeight(#percent(100.))]
+let minHScreen = [CssJs.minHeight(#vh(100.))]
 let minHMin = [CssJs.unsafe("minHeight", "min-content")]
 let minHMax = [CssJs.unsafe("minHeight", "max-content")]
 let minHFit = [CssJs.unsafe("minHeight", "fit-content")]
@@ -750,17 +784,41 @@ module TextSize = {
   type t = Theme.FontSize.t
   let toValue = t =>
     switch t {
-    | #xs => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#5))]
-    | #sm => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#5))]
-    | #base => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#6))]
-    | #lg => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#7))]
-    | #xl => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#7))]
-    | #xl2 => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#8))]
-    | #xl3 => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#9))]
-    | #xl4 => [fontSize(Theme.FontSize.toValue(t)), lineHeight(Theme.LineHeight.toValue(#10))]
+    | #xs => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#5)),
+      ]
+    | #sm => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#5)),
+      ]
+    | #base => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#6)),
+      ]
+    | #lg => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#7)),
+      ]
+    | #xl => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#7)),
+      ]
+    | #xl2 => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#8)),
+      ]
+    | #xl3 => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#9)),
+      ]
+    | #xl4 => [
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#10)),
+      ]
     | #xl5 | #xl6 | #xl7 | #xl8 | #xl9 => [
-        fontSize(Theme.FontSize.toValue(t)),
-        lineHeight(Theme.LineHeight.toValue(#none)),
+        CssJs.fontSize(Theme.FontSize.toValue(t)),
+        CssJs.lineHeight(Theme.LineHeight.toValue(#none)),
       ]
     }
 }
@@ -777,8 +835,8 @@ let subpixelAntialiased = [
 ]
 
 // Font Style
-let italic = [fontStyle(#italic)]
-let notItalic = [fontStyle(#normal)]
+let italic = [CssJs.fontStyle(#italic)]
+let notItalic = [CssJs.fontStyle(#normal)]
 
 // NOTE: Font Weight - Utilities for controlling the font weight of an element.
 let fontWeight = weight => [CssJs.fontWeight(Theme.FontWeight.toValue(weight))]
@@ -795,26 +853,26 @@ let diagonalFractions = [CssJs.unsafe("fontVariantNumeric", "diagonal-fractions"
 let stackedFractions = [CssJs.unsafe("fontVariantNumeric", "stacked-fractions")]
 
 //Letter Spacing
-let tracking = wide => [letterSpacing(Theme.LetterSpacing.toValue(wide))]
+let tracking = wide => [CssJs.letterSpacing(Theme.LetterSpacing.toValue(wide))]
 
 // Line Height
-let leading = value => [lineHeight(Theme.LineHeight.toValue(value))]
-let leadingFloat = float => [lineHeight(#abs(float))]
+let leading = value => [CssJs.lineHeight(Theme.LineHeight.toValue(value))]
+let leadingFloat = float => [CssJs.lineHeight(#abs(float))]
 
 // List Style Type
-let listNone = [listStyleType(#none)]
-let listDisc = [listStyleType(#disc)]
-let listDecimal = [listStyleType(#decimal)]
+let listNone = [CssJs.listStyleType(#none)]
+let listDisc = [CssJs.listStyleType(#disc)]
+let listDecimal = [CssJs.listStyleType(#decimal)]
 
 // List Style Position
-let listInside = [listStylePosition(#inside)]
-let listOutside = [listStylePosition(#outside)]
+let listInside = [CssJs.listStylePosition(#inside)]
+let listOutside = [CssJs.listStylePosition(#outside)]
 
 // Text Alignment
-let textLeft = [textAlign(#left)]
-let textCenter = [textAlign(#center)]
-let textRight = [textAlign(#right)]
-let textJustify = [textAlign(#justify)]
+let textLeft = [CssJs.textAlign(#left)]
+let textCenter = [CssJs.textAlign(#center)]
+let textRight = [CssJs.textAlign(#right)]
+let textJustify = [CssJs.textAlign(#justify)]
 
 // Placeholder Color
 // let placeholder = (~opacity=1., color: colorType) => [
@@ -829,10 +887,10 @@ let textColor = (~opacity=1., color: Theme.Colors.t) =>
   }
 
 // Text Decoration
-let underline = [textDecorationLine(#underline)]
-let overline = [textDecorationLine(#overline)]
-let lineThrough = [textDecorationLine(#lineThrough)]
-let noUnderline = [textDecorationLine(#none)]
+let underline = [CssJs.textDecorationLine(#underline)]
+let overline = [CssJs.textDecorationLine(#overline)]
+let lineThrough = [CssJs.textDecorationLine(#lineThrough)]
+let noUnderline = [CssJs.textDecorationLine(#none)]
 
 // Text Decoration Color
 let decorationColor = color => [CssJs.textDecorationColor(Theme.Colors.toValue(color))]
@@ -882,55 +940,56 @@ let underlineOffset = offset => [
 ]
 
 // Text Transform
-let uppercase = [textTransform(#uppercase)]
-let lowercase = [textTransform(#lowercase)]
-let capitalize = [textTransform(#capitalize)]
-let normalCase = [textTransform(#none)]
+let uppercase = [CssJs.textTransform(#uppercase)]
+let lowercase = [CssJs.textTransform(#lowercase)]
+let capitalize = [CssJs.textTransform(#capitalize)]
+let normalCase = [CssJs.textTransform(#none)]
 
 // Text Overflow
-let truncate = [overflow(#hidden), textOverflow(#ellipsis), whiteSpace(#nowrap)]
-let textEllipsis = [textOverflow(#ellipsis)]
-let textClip = [textOverflow(#clip)]
+let truncate = [CssJs.overflow(#hidden), CssJs.textOverflow(#ellipsis), CssJs.whiteSpace(#nowrap)]
+let textEllipsis = [CssJs.textOverflow(#ellipsis)]
+let textClip = [CssJs.textOverflow(#clip)]
 
 // Vertical Alignment
-let alignBaseline = [verticalAlign(#baseline)]
-let alignTop = [verticalAlign(#top)]
-let alignMiddle = [verticalAlign(#middle)]
-let alignBottom = [verticalAlign(#bottom)]
+let alignBaseline = [CssJs.verticalAlign(#baseline)]
+let alignTop = [CssJs.verticalAlign(#top)]
+let alignMiddle = [CssJs.verticalAlign(#middle)]
+let alignBottom = [CssJs.verticalAlign(#bottom)]
 let alignTextTop = [CssJs.unsafe("verticalAlign", "text-top")]
 let alignTextBottom = [CssJs.unsafe("verticalAlign", "text-bottom")]
-let alignSub = [verticalAlign(#sub)]
-let alignSuper = [verticalAlign(#super)]
+let alignSub = [CssJs.verticalAlign(#sub)]
+let alignSuper = [CssJs.verticalAlign(#super)]
 
 // Whitespace
-let whitespaceNormal = [whiteSpace(#normal)]
-let whitespaceNowrap = [whiteSpace(#nowrap)]
-let whitespacePre = [whiteSpace(#pre)]
-let whitespacePreLine = [whiteSpace(#preLine)]
-let whitespacePreWrap = [whiteSpace(#preWrap)]
+let whitespaceNormal = [CssJs.whiteSpace(#normal)]
+let whitespaceNowrap = [CssJs.whiteSpace(#nowrap)]
+let whitespacePre = [CssJs.whiteSpace(#pre)]
+let whitespacePreLine = [CssJs.whiteSpace(#preLine)]
+let whitespacePreWrap = [CssJs.whiteSpace(#preWrap)]
 
 // Word Break
-let breakNormal = [overflowWrap(#normal), wordBreak(#normal)]
-let breakWords = [overflowWrap(#breakWord)]
-let breakAll = [wordBreak(#breakAll)]
+let breakNormal = [CssJs.overflowWrap(#normal), CssJs.wordBreak(#normal)]
+let breakWords = [CssJs.overflowWrap(#breakWord)]
+let breakAll = [CssJs.wordBreak(#breakAll)]
 
 // Content
-let contentNone = [CssJs.unsafe("content", "none")]
+let contentNone = [CssJs.contentRule(#none)]
+let content = string => [CssJs.contentRule(#text(string))]
 
 // Background Attachment
-let bgFixed = [backgroundAttachment(#fixed)]
-let bgLocal = [backgroundAttachment(#local)]
-let bgScroll = [backgroundAttachment(#scroll)]
+let bgFixed = [CssJs.backgroundAttachment(#fixed)]
+let bgLocal = [CssJs.backgroundAttachment(#local)]
+let bgScroll = [CssJs.backgroundAttachment(#scroll)]
 
 // Background Clip
-let bgClipBorder = [backgroundClip(#borderBox)]
-let bgClipPadding = [backgroundClip(#paddingBox)]
-let bgClipContent = [backgroundClip(#contentBox)]
+let bgClipBorder = [CssJs.backgroundClip(#borderBox)]
+let bgClipPadding = [CssJs.backgroundClip(#paddingBox)]
+let bgClipContent = [CssJs.backgroundClip(#contentBox)]
 let bgClipText = [CssJs.unsafe("backgroundClip", "text")]
 
 // Background Color
 let bg = (~opacity=1., color: Theme.Colors.t) => [
-  backgroundColor(Theme.Colors.toValue(color, ~opacity)),
+  CssJs.backgroundColor(Theme.Colors.toValue(color, ~opacity)),
 ]
 
 // Background Origin
@@ -939,28 +998,28 @@ let bgOriginPadding = [CssJs.backgroundOrigin(#paddingBox)]
 let bgOriginContent = [CssJs.backgroundOrigin(#contentBox)]
 
 // Background Position
-let bgBottom = [backgroundPosition(#bottom)]
-let bgCenter = [backgroundPosition(#center)]
-let bgLeft = [backgroundPosition(#left)]
-let bgLeftBottom = [backgroundPositions([#left, #bottom])]
-let bgLeftTop = [backgroundPositions([#left, #top])]
-let bgRight = [backgroundPosition(#right)]
-let bgRightBottom = [backgroundPositions([#right, #bottom])]
-let bgRightTop = [backgroundPositions([#right, #top])]
-let bgTop = [backgroundPosition(#top)]
+let bgBottom = [CssJs.backgroundPosition(#bottom)]
+let bgCenter = [CssJs.backgroundPosition(#center)]
+let bgLeft = [CssJs.backgroundPosition(#left)]
+let bgLeftBottom = [CssJs.backgroundPositions([#left, #bottom])]
+let bgLeftTop = [CssJs.backgroundPositions([#left, #top])]
+let bgRight = [CssJs.backgroundPosition(#right)]
+let bgRightBottom = [CssJs.backgroundPositions([#right, #bottom])]
+let bgRightTop = [CssJs.backgroundPositions([#right, #top])]
+let bgTop = [CssJs.backgroundPosition(#top)]
 
 // Background Repeat
-let bgRepeat = [backgroundRepeat(#repeat)]
-let bgNoRepeat = [backgroundRepeat(#noRepeat)]
-let bgRepeatX = [backgroundRepeat(#repeatX)]
-let bgRepeatY = [backgroundRepeat(#repeatY)]
-let bgRepeatRound = [backgroundRepeat(#round)]
-let bgRepeatSpace = [backgroundRepeat(#space)]
+let bgRepeat = [CssJs.backgroundRepeat(#repeat)]
+let bgNoRepeat = [CssJs.backgroundRepeat(#noRepeat)]
+let bgRepeatX = [CssJs.backgroundRepeat(#repeatX)]
+let bgRepeatY = [CssJs.backgroundRepeat(#repeatY)]
+let bgRepeatRound = [CssJs.backgroundRepeat(#round)]
+let bgRepeatSpace = [CssJs.backgroundRepeat(#space)]
 
 // Background Size
-let bgAuto = [backgroundSize(#auto)]
-let bgCover = [backgroundSize(#cover)]
-let bgContain = [backgroundSize(#contain)]
+let bgAuto = [CssJs.backgroundSize(#auto)]
+let bgCover = [CssJs.backgroundSize(#cover)]
+let bgContain = [CssJs.backgroundSize(#contain)]
 
 // Background Image
 type colorTuple = (CssJs.Types.Length.t, CssJs.Types.Color.t)
@@ -973,14 +1032,17 @@ let linGradient = (direction, arrayOfTuples: array<colorTuple>) =>
       acc ++ combineGradientColors((percent, color))
     )})`
 
-let bgNone = [backgroundImage(#none)]
-let toT = colorList => CssJs.Types.Gradient.toString(CssJs.linearGradient(deg(0.), colorList))
+let bgNone = [CssJs.backgroundImage(#none)]
+let toT = colorList => CssJs.Types.Gradient.toString(CssJs.linearGradient(CssJs.deg(0.), colorList))
 let toTr = colorList => linGradient("to top right", colorList)
-let toR = colorList => CssJs.Types.Gradient.toString(CssJs.linearGradient(deg(90.), colorList))
+let toR = colorList =>
+  CssJs.Types.Gradient.toString(CssJs.linearGradient(CssJs.deg(90.), colorList))
 let toBr = colorList => linGradient("to bottom right", colorList)
-let toB = colorList => CssJs.Types.Gradient.toString(CssJs.linearGradient(deg(180.), colorList))
+let toB = colorList =>
+  CssJs.Types.Gradient.toString(CssJs.linearGradient(CssJs.deg(180.), colorList))
 let toBl = colorList => linGradient("to bottom left", colorList)
-let toL = colorList => CssJs.Types.Gradient.toString(CssJs.linearGradient(deg(270.), colorList))
+let toL = colorList =>
+  CssJs.Types.Gradient.toString(CssJs.linearGradient(CssJs.deg(270.), colorList))
 let toTl = colorList => linGradient("to top left", colorList)
 
 let bgGradientToT = (colorList: array<colorTuple>) => [
@@ -1024,28 +1086,28 @@ module BorderRadius = {
   ]
   let toValue = t =>
     switch t {
-    | #all(radius) => [borderRadius(Theme.BorderRadius.toValue(radius))]
+    | #all(radius) => [CssJs.borderRadius(Theme.BorderRadius.toValue(radius))]
     | #t(radius) => [
-        borderTopLeftRadius(Theme.BorderRadius.toValue(radius)),
-        borderTopRightRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderTopLeftRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderTopRightRadius(Theme.BorderRadius.toValue(radius)),
       ]
     | #b(radius) => [
-        borderBottomRightRadius(Theme.BorderRadius.toValue(radius)),
-        borderBottomLeftRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderBottomRightRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderBottomLeftRadius(Theme.BorderRadius.toValue(radius)),
       ]
 
     | #r(radius) => [
-        borderTopRightRadius(Theme.BorderRadius.toValue(radius)),
-        borderBottomRightRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderTopRightRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderBottomRightRadius(Theme.BorderRadius.toValue(radius)),
       ]
     | #l(radius) => [
-        borderTopLeftRadius(Theme.BorderRadius.toValue(radius)),
-        borderBottomLeftRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderTopLeftRadius(Theme.BorderRadius.toValue(radius)),
+        CssJs.borderBottomLeftRadius(Theme.BorderRadius.toValue(radius)),
       ]
-    | #tr(radius) => [borderTopRightRadius(Theme.BorderRadius.toValue(radius))]
-    | #tl(radius) => [borderTopLeftRadius(Theme.BorderRadius.toValue(radius))]
-    | #br(radius) => [borderBottomRightRadius(Theme.BorderRadius.toValue(radius))]
-    | #bl(radius) => [borderBottomLeftRadius(Theme.BorderRadius.toValue(radius))]
+    | #tr(radius) => [CssJs.borderTopRightRadius(Theme.BorderRadius.toValue(radius))]
+    | #tl(radius) => [CssJs.borderTopLeftRadius(Theme.BorderRadius.toValue(radius))]
+    | #br(radius) => [CssJs.borderBottomRightRadius(Theme.BorderRadius.toValue(radius))]
+    | #bl(radius) => [CssJs.borderBottomLeftRadius(Theme.BorderRadius.toValue(radius))]
     }
 }
 let rounded = size => BorderRadius.toValue(size)
@@ -1056,45 +1118,45 @@ module BorderWidth = {
   type t = [#all(width) | #t(width) | #b(width) | #l(width) | #r(width)]
   let toValue = t =>
     switch t {
-    | #all(width) => [borderWidth(Theme.BorderWidth.toValue(width))]
-    | #t(width) => [borderTopWidth(Theme.BorderWidth.toValue(width))]
-    | #b(width) => [borderBottomWidth(Theme.BorderWidth.toValue(width))]
-    | #l(width) => [borderLeftWidth(Theme.BorderWidth.toValue(width))]
-    | #r(width) => [borderRightWidth(Theme.BorderWidth.toValue(width))]
+    | #all(width) => [CssJs.borderWidth(Theme.BorderWidth.toValue(width))]
+    | #t(width) => [CssJs.borderTopWidth(Theme.BorderWidth.toValue(width))]
+    | #b(width) => [CssJs.borderBottomWidth(Theme.BorderWidth.toValue(width))]
+    | #l(width) => [CssJs.borderLeftWidth(Theme.BorderWidth.toValue(width))]
+    | #r(width) => [CssJs.borderRightWidth(Theme.BorderWidth.toValue(width))]
     }
 }
 
-let border = width => BorderWidth.toValue(width)
+let borderWidth = width => BorderWidth.toValue(width)
 module BorderColor = {
   type color = Theme.Colors.t
   type t = [#all(color) | #x(color) | #y(color) | #t(color) | #b(color) | #l(color) | #r(color)]
   let toValue = t =>
     switch t {
-    | #all(color) => [borderColor(Theme.Colors.toValue(~opacity=1., color))]
+    | #all(color) => [CssJs.borderColor(Theme.Colors.toValue(~opacity=1., color))]
     | #x(color) => [
-        borderLeftColor(Theme.Colors.toValue(~opacity=1., color)),
-        borderRightColor(Theme.Colors.toValue(~opacity=1., color)),
+        CssJs.borderLeftColor(Theme.Colors.toValue(~opacity=1., color)),
+        CssJs.borderRightColor(Theme.Colors.toValue(~opacity=1., color)),
       ]
     | #y(color) => [
-        borderTopColor(Theme.Colors.toValue(~opacity=1., color)),
-        borderBottomColor(Theme.Colors.toValue(~opacity=1., color)),
+        CssJs.borderTopColor(Theme.Colors.toValue(~opacity=1., color)),
+        CssJs.borderBottomColor(Theme.Colors.toValue(~opacity=1., color)),
       ]
-    | #t(color) => [borderTopColor(Theme.Colors.toValue(~opacity=1., color))]
-    | #b(color) => [borderBottomColor(Theme.Colors.toValue(~opacity=1., color))]
-    | #l(color) => [borderLeftColor(Theme.Colors.toValue(~opacity=1., color))]
-    | #r(color) => [borderRightColor(Theme.Colors.toValue(~opacity=1., color))]
+    | #t(color) => [CssJs.borderTopColor(Theme.Colors.toValue(~opacity=1., color))]
+    | #b(color) => [CssJs.borderBottomColor(Theme.Colors.toValue(~opacity=1., color))]
+    | #l(color) => [CssJs.borderLeftColor(Theme.Colors.toValue(~opacity=1., color))]
+    | #r(color) => [CssJs.borderRightColor(Theme.Colors.toValue(~opacity=1., color))]
     }
 }
 // Border Color
 let borderColor = (color: BorderColor.t) => BorderColor.toValue(color)
 
 // Border Style
-let borderSolid = [borderStyle(#solid)]
-let borderDashed = [borderStyle(#dashed)]
-let borderDotted = [borderStyle(#dotted)]
-let borderDouble = [borderStyle(#double)]
-let borderHidden = [borderStyle(#hidden)]
-let borderNone = [borderStyle(#none)]
+let borderSolid = [CssJs.borderStyle(#solid)]
+let borderDashed = [CssJs.borderStyle(#dashed)]
+let borderDotted = [CssJs.borderStyle(#dotted)]
+let borderDouble = [CssJs.borderStyle(#double)]
+let borderHidden = [CssJs.borderStyle(#hidden)]
+let borderNone = [CssJs.borderStyle(#none)]
 
 // Divide Width
 module Divide = {
@@ -1102,47 +1164,47 @@ module Divide = {
   type color = Theme.Colors.t
   type t = [#x(width, color, bool) | #y(width, color, bool)]
 
-  let toValue = t =>
+  let toValue = (~reverse=false, t) =>
     switch t {
-    | #x(width, color, reverse) =>
+    | #x(width, color) =>
       reverse
         ? [
-            borderRightWidth(Theme.BorderWidth.toValue(width)),
-            borderLeftWidth(Theme.BorderWidth.toValue(#0)),
+            CssJs.borderRightWidth(Theme.BorderWidth.toValue(width)),
+            CssJs.borderLeftWidth(Theme.BorderWidth.toValue(#0)),
             CssJs.borderColor(Theme.Colors.toValue(color)),
           ]
         : [
-            borderLeftWidth(Theme.BorderWidth.toValue(width)),
-            borderRightWidth(Theme.BorderWidth.toValue(#0)),
+            CssJs.borderLeftWidth(Theme.BorderWidth.toValue(width)),
+            CssJs.borderRightWidth(Theme.BorderWidth.toValue(#0)),
             CssJs.borderColor(Theme.Colors.toValue(color)),
           ]
-    | #y(width, color, reverse) =>
+    | #y(width, color) =>
       reverse
         ? [
             CssJs.borderColor(Theme.Colors.toValue(color)),
-            borderTopWidth(Theme.BorderWidth.toValue(#0)),
-            borderBottomWidth(Theme.BorderWidth.toValue(width)),
+            CssJs.borderTopWidth(Theme.BorderWidth.toValue(#0)),
+            CssJs.borderBottomWidth(Theme.BorderWidth.toValue(width)),
           ]
         : [
             CssJs.borderColor(Theme.Colors.toValue(color)),
-            borderTopWidth(Theme.BorderWidth.toValue(width)),
-            borderBottomWidth(Theme.BorderWidth.toValue(#0)),
+            CssJs.borderTopWidth(Theme.BorderWidth.toValue(width)),
+            CssJs.borderBottomWidth(Theme.BorderWidth.toValue(#0)),
           ]
     }
 }
 let divide = t => Divide.toValue(t)
 
 // Divide Style
-let divideSolid = [borderStyle(#solid)]
-let divideDashed = [borderStyle(#dashed)]
-let divideDotted = [borderStyle(#dotted)]
-let divideDouble = [borderStyle(#double)]
-let divideNone = [borderStyle(#none)]
+let divideSolid = [CssJs.borderStyle(#solid)]
+let divideDashed = [CssJs.borderStyle(#dashed)]
+let divideDotted = [CssJs.borderStyle(#dotted)]
+let divideDouble = [CssJs.borderStyle(#double)]
+let divideNone = [CssJs.borderStyle(#none)]
 
 // Outline
 let outlineWidth = width => [CssJs.outlineWidth(Theme.BorderWidth.toValue(width))]
 let outlineColor = color => [CssJs.outlineColor(Theme.Colors.toValue(color))]
-let outlineOffset = offset => [outlineOffset(Theme.BorderWidth.toValue(offset))]
+let outlineOffset = offset => [CssJs.outlineOffset(Theme.BorderWidth.toValue(offset))]
 
 // Outline style
 let outlineSolid = [CssJs.outlineStyle(#solid)]
@@ -1172,10 +1234,10 @@ module Ring = {
   let toRingShadow = (~inset: bool, ~color: color, ~width: width, ~offsetWidth: offsetWidth) =>
     `${inset ? "inset" : ""} 0 0 0 calc(${toWidth(width)}px + ${toWidth(
         offsetWidth,
-      )} ${Types.Color.toString(Theme.Colors.toValue(color))}`
+      )} ${CssJs.Types.Color.toString(Theme.Colors.toValue(color))}`
 
   let toOffsetShadow = (~inset: bool, ~offsetWidth: offsetWidth, ~offsetColor: color) =>
-    `${inset ? "inset" : ""} 0 0 0 ${toWidth(offsetWidth)} ${Types.Color.toString(
+    `${inset ? "inset" : ""} 0 0 0 ${toWidth(offsetWidth)} ${CssJs.Types.Color.toString(
         Theme.Colors.toValue(offsetColor),
       )}`
 
@@ -1224,7 +1286,7 @@ let ring = (
   (),
 ) => {
   [
-    boxShadows([
+    CssJs.boxShadows([
       ringOffsetShadow(~inset, ~offsetWidth, ~offsetColor, ()),
       ringShadow(
         ~inset,
@@ -1255,51 +1317,63 @@ module BoxShadow = {
     | #sm(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 1px 2px 0 ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 1px 2px 0 ${CssJs.Types.Color.toString(Theme.Colors.toValue(color, ~opacity=0.05))}`,
         ),
       ]
     | #default(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 1px 3px 0 ${Types.Color.toString(
-              Theme.Colors.toValue(color),
-            )}, 0 1px 2px -1px ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 1px 3px 0 ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}, 0 1px 2px -1px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}`,
         ),
       ]
     | #md(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 4px 6px -1px ${Types.Color.toString(
-              Theme.Colors.toValue(color),
-            )}, 0 2px 4px -2px ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 4px 6px -1px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}, 0 2px 4px -2px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}`,
         ),
       ]
     | #lg(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 10px 15px -3px ${Types.Color.toString(
-              Theme.Colors.toValue(color),
-            )}, 0 4px 6px -4px ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 10px 15px -3px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}, 0 4px 6px -4px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}`,
         ),
       ]
     | #xl(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 20px 25px -5px ${Types.Color.toString(
-              Theme.Colors.toValue(color),
-            )}, 0 8px 10px -6px ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 20px 25px -5px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}, 0 8px 10px -6px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.1),
+            )}`,
         ),
       ]
     | #xl2(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `0 25px 50px -12px ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `0 25px 50px -12px ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.25),
+            )}`,
         ),
       ]
     | #inner(color) => [
         CssJs.unsafe(
           "boxShadow",
-          `inset 0 2px 4px 0 ${Types.Color.toString(Theme.Colors.toValue(color))}`,
+          `inset 0 2px 4px 0 ${CssJs.Types.Color.toString(
+              Theme.Colors.toValue(color, ~opacity=0.05),
+            )}`,
         ),
       ]
     | #none => [CssJs.unsafe("boxShadow", "0 0 #0000")]
@@ -1308,7 +1382,7 @@ module BoxShadow = {
 let shadow = (type_: BoxShadow.t) => BoxShadow.toValue(type_)
 
 // Opacity
-let opacity = (value: Theme.Opacity.t) => [opacity(Theme.Opacity.toValue(value))]
+let opacity = (value: Theme.Opacity.t) => [CssJs.opacity(Theme.Opacity.toValue(value))]
 
 // Mix Blend Mode
 module MixBlendMode = {
@@ -1486,8 +1560,8 @@ let borderCollapse = [CssJs.borderCollapse(#collapse)]
 let borderSeparate = [CssJs.borderCollapse(#separate)]
 
 // NOTE: Table Layout - Utilities for controlling the table layout algorithm.
-let tableAuto = [tableLayout(#auto)]
-let tableFixed = [tableLayout(#fixed)]
+let tableAuto = [CssJs.tableLayout(#auto)]
+let tableFixed = [CssJs.tableLayout(#fixed)]
 
 // NOTE: Cursor - Utilities for controlling the cursor style when hovering over an element.
 module Cursor = {
@@ -1570,67 +1644,67 @@ module Cursor = {
     | #zoomOut => "zoomOut"
     }
 }
-let cursor = (val: Cursor.t) => [cursor(val)]
+let cursor = (val: Cursor.t) => [CssJs.cursor(val)]
 let caretColor = (color: Theme.Colors.t) => [
-  CssJs.unsafe("caretColor", Types.Color.toString(Theme.Colors.toValue(color))),
+  CssJs.unsafe("caretColor", CssJs.Types.Color.toString(Theme.Colors.toValue(color))),
 ]
 
-let pointerEventsNone = [pointerEvents(#none)]
-let pointerEventsAuto = [pointerEvents(#auto)]
+let pointerEventsNone = [CssJs.pointerEvents(#none)]
+let pointerEventsAuto = [CssJs.pointerEvents(#auto)]
 
-let resizeNone = [resize(#none)]
-let resizeY = [resize(#vertical)]
-let resizeX = [resize(#horizontal)]
-let resize = [resize(#both)]
+let resizeNone = [CssJs.resize(#none)]
+let resizeY = [CssJs.resize(#vertical)]
+let resizeX = [CssJs.resize(#horizontal)]
+let resize = [CssJs.resize(#both)]
 
 let scrollAuto = [CssJs.scrollBehavior(#auto)]
 let scrollSmooth = [CssJs.scrollBehavior(#smooth)]
 let scrollM = spacing => [
-  CssJs.unsafe("scrollMargin", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMargin", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMx = spacing => [
-  CssJs.unsafe("scrollMarginLeft", Types.Length.toString(Theme.Spacing.toValue(spacing))),
-  CssJs.unsafe("scrollMarginRight", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginLeft", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginRight", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMy = spacing => [
-  CssJs.unsafe("scrollMarginTop", Types.Length.toString(Theme.Spacing.toValue(spacing))),
-  CssJs.unsafe("scrollMarginBottom", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginTop", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginBottom", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMt = spacing => [
-  CssJs.unsafe("scrollMarginTop", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginTop", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMr = spacing => [
-  CssJs.unsafe("scrollMarginRight", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginRight", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMb = spacing => [
-  CssJs.unsafe("scrollMarginBottom", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginBottom", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollMl = spacing => [
-  CssJs.unsafe("scrollMarginLeft", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollMarginLeft", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 
 let scrollP = spacing => [
-  CssJs.unsafe("scrollPadding", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPadding", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPx = spacing => [
-  CssJs.unsafe("scrollPaddingLeft", Types.Length.toString(Theme.Spacing.toValue(spacing))),
-  CssJs.unsafe("scrollPaddingRight", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingLeft", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingRight", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPy = spacing => [
-  CssJs.unsafe("scrollPaddingTop", Types.Length.toString(Theme.Spacing.toValue(spacing))),
-  CssJs.unsafe("scrollPaddingBottom", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingTop", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingBottom", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPt = spacing => [
-  CssJs.unsafe("scrollPaddingTop", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingTop", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPr = spacing => [
-  CssJs.unsafe("scrollPaddingRight", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingRight", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPb = spacing => [
-  CssJs.unsafe("scrollPaddingBottom", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingBottom", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 let scrollPl = spacing => [
-  CssJs.unsafe("scrollPaddingLeft", Types.Length.toString(Theme.Spacing.toValue(spacing))),
+  CssJs.unsafe("scrollPaddingLeft", CssJs.Types.Length.toString(Theme.Spacing.toValue(spacing))),
 ]
 
 let snapStart = [CssJs.unsafe("scrollSnapAlign", "start")]
@@ -1686,10 +1760,10 @@ module TouchAction = {
 let touch = action => [CssJs.unsafe("touchAction", TouchAction.toString(action))]
 
 // NOTE: User Select - Utilities for controlling whether the user can select text in an element.
-let selectNone = [userSelect(#none)]
-let selectText = [userSelect(#text)]
-let selectAll = [userSelect(#all)]
-let selectAuto = [userSelect(#auto)]
+let selectNone = [CssJs.userSelect(#none)]
+let selectText = [CssJs.userSelect(#text)]
+let selectAll = [CssJs.userSelect(#all)]
+let selectAuto = [CssJs.userSelect(#auto)]
 
 module WillChange = {
   type t = [#auto | #scrollPosition | #contents | #transform]
@@ -1703,8 +1777,10 @@ module WillChange = {
 }
 
 let willChange = value => [CssJs.unsafe("will-change", WillChange.toString(value))]
-let fill = color => [CssJs.unsafe("fill", Types.Color.toString(Theme.Colors.toValue(color)))]
-let stroke = color => [CssJs.unsafe("stroke", Types.Color.toString(Theme.Colors.toValue(color)))]
+let fill = color => [CssJs.unsafe("fill", CssJs.Types.Color.toString(Theme.Colors.toValue(color)))]
+let stroke = color => [
+  CssJs.unsafe("stroke", CssJs.Types.Color.toString(Theme.Colors.toValue(color))),
+]
 module StrokeWidth = {
   type t = [#0 | #1 | #2]
   let toString = t =>
@@ -1720,26 +1796,26 @@ type rulesArray = array<CssJs.rule>
 
 // Screen Readers
 let srOnly = [
-  position(#absolute),
-  width(#px(1)),
-  height(#px(1)),
-  padding(#px(0)),
-  margin(#px(-1)),
-  overflow(#hidden),
+  CssJs.position(#absolute),
+  CssJs.width(#px(1)),
+  CssJs.height(#px(1)),
+  CssJs.padding(#px(0)),
+  CssJs.margin(#px(-1)),
+  CssJs.overflow(#hidden),
   CssJs.unsafe("clip", "rect(0, 0, 0, 0)"),
-  whiteSpace(#nowrap),
-  borderWidth(#px(0)),
+  CssJs.whiteSpace(#nowrap),
+  CssJs.borderWidth(#px(0)),
 ]
 
 let noSrOnly = [
-  position(#static),
-  width(#auto),
-  height(#auto),
-  padding(#px(0)),
-  margin(#px(0)),
-  overflow(#visible),
+  CssJs.position(#static),
+  CssJs.width(#auto),
+  CssJs.height(#auto),
+  CssJs.padding(#px(0)),
+  CssJs.margin(#px(0)),
+  CssJs.overflow(#visible),
   CssJs.unsafe("clip", "auto"),
-  whiteSpace(#normal),
+  CssJs.whiteSpace(#normal),
 ]
 
 // NOTE: Transform - Utilities for controlling transform behaviour.
@@ -1800,7 +1876,7 @@ let originBottomLeft = [CssJs.unsafe("transformOrigin", "bottom left")]
 
 // Interactivity
 let accentColor = color => [
-  CssJs.unsafe("accentColor", Types.Color.toString(Theme.Colors.toValue(color))),
+  CssJs.unsafe("accentColor", CssJs.Types.Color.toString(Theme.Colors.toValue(color))),
 ]
 
 let appearanceNone = [CssJs.unsafe("appearance", "none")]
@@ -1808,10 +1884,12 @@ let appearanceNone = [CssJs.unsafe("appearance", "none")]
 // INFO: TRANSITIONS AND ANIMATIONS
 // NOTE: Transition Property - Utilities for controlling which CSS properties transition.
 let timingFunction = #cubicBezier(0.4, 0., 0.2, 1.)
-let transitionNone = [transitionProperty("none")]
-let transitionAll = [transition("all", ~duration=Theme.Duration.toValue(#150), ~timingFunction)]
+let transitionNone = [CssJs.transitionProperty("none")]
+let transitionAll = [
+  CssJs.transition("all", ~duration=Theme.Duration.toValue(#150), ~timingFunction),
+]
 let transition = [
-  transition(
+  CssJs.transition(
     "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
     ~duration=Theme.Duration.toValue(#150),
     ~timingFunction,
@@ -1836,21 +1914,21 @@ let transitionTransform = [
 ]
 
 // NOTE: Transition Duration - Utilities for controlling the duration of CSS transitions.
-let duration = miliseconds => [transitionDuration(Theme.Duration.toValue(miliseconds))]
+let duration = miliseconds => [CssJs.transitionDuration(Theme.Duration.toValue(miliseconds))]
 
 // NOTE: Transition Timing Function - Utilities for controlling the easing of CSS transitions.
-let easeLinear = [transitionTimingFunction(Theme.TimingFunction.toValue(#linear))]
-let easeIn = [transitionTimingFunction(#cubicBezier(0.4, 0., 1., 1.))]
-let easeOut = [transitionTimingFunction(#cubicBezier(0., 0., 0.2, 1.))]
-let easeInOut = [transitionTimingFunction(#cubicBezier(0.4, 0., 0.2, 1.))]
+let easeLinear = [CssJs.transitionTimingFunction(Theme.TimingFunction.toValue(#linear))]
+let easeIn = [CssJs.transitionTimingFunction(#cubicBezier(0.4, 0., 1., 1.))]
+let easeOut = [CssJs.transitionTimingFunction(#cubicBezier(0., 0., 0.2, 1.))]
+let easeInOut = [CssJs.transitionTimingFunction(#cubicBezier(0.4, 0., 0.2, 1.))]
 
 // NOTE: Transition Delay - Utilities for controlling the delay of CSS transitions.
-let delay = miliseconds => [transitionDelay(Theme.Duration.toValue(miliseconds))]
+let delay = miliseconds => [CssJs.transitionDelay(Theme.Duration.toValue(miliseconds))]
 
 // NOTE: Animation - Utilities for animating elements with CSS animations.
-let animateNone = [animationValue(#value("none"))]
+let animateNone = [CssJs.animationValue(#value("none"))]
 let animateSpin = [
-  animation(
+  CssJs.animation(
     Theme.KeyFrames.spin,
     ~duration=1000,
     ~delay=0,
@@ -1860,7 +1938,7 @@ let animateSpin = [
 ]
 
 let animatePing = [
-  animation(
+  CssJs.animation(
     Theme.KeyFrames.ping,
     ~duration=1000,
     ~timingFunction=#cubicBezier(0., 0., 0.2, 1.),
@@ -1870,7 +1948,7 @@ let animatePing = [
 ]
 
 let animatePulse = [
-  animation(
+  CssJs.animation(
     Theme.KeyFrames.pulse,
     ~duration=2000,
     ~timingFunction=#cubicBezier(0.4, 0., 0.6, 1.),
@@ -1880,7 +1958,7 @@ let animatePulse = [
 ]
 
 let animateBounce = [
-  animation(Theme.KeyFrames.bounce, ~duration=1000, ~delay=0, ~iterationCount=#infinite),
+  CssJs.animation(Theme.KeyFrames.bounce, ~duration=1000, ~delay=0, ~iterationCount=#infinite),
 ]
 
 let scale = val => [CssJs.transform(#scale(Theme.Scale.toValue(val), Theme.Scale.toValue(val)))]

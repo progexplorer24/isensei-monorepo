@@ -18,11 +18,43 @@ function twStyle(rules) {
 }
 
 function minWBreakpoint(breakpoint, styles) {
-  return [CssJs$IsenseiMonorepo.media("screen and (min-width: " + String(breakpoint) + "px)", Belt_Array.concatMany(styles))];
+  return [CssJs$IsenseiMonorepo.media("(min-width: " + String(breakpoint) + "px)", Belt_Array.concatMany(styles))];
 }
 
 function maxWBreakpoint(breakpoint, styles) {
-  return [CssJs$IsenseiMonorepo.media("screen and (max-width: " + String(breakpoint) + "px)", Belt_Array.concatMany(styles))];
+  return [CssJs$IsenseiMonorepo.media("(max-width: " + String(breakpoint) + "px)", Belt_Array.concatMany(styles))];
+}
+
+function darkMedia(styles) {
+  return [CssJs$IsenseiMonorepo.media("(prefers-color-scheme: dark)", Belt_Array.concatMany(styles))];
+}
+
+function portrait(styles) {
+  return [CssJs$IsenseiMonorepo.media("(orientation: portrait)", Belt_Array.concatMany(styles))];
+}
+
+function landscape(styles) {
+  return [CssJs$IsenseiMonorepo.media("(orientation: landscape)", Belt_Array.concatMany(styles))];
+}
+
+function motionSafe(styles) {
+  return [CssJs$IsenseiMonorepo.media("(prefers-reduced-motion: no-preference)", Belt_Array.concatMany(styles))];
+}
+
+function motionReduce(styles) {
+  return [CssJs$IsenseiMonorepo.media("(prefers-reduced-motion: reduce)", Belt_Array.concatMany(styles))];
+}
+
+function print(styles) {
+  return [CssJs$IsenseiMonorepo.media("print", Belt_Array.concatMany(styles))];
+}
+
+function rtl(styles) {
+  return [CssJs$IsenseiMonorepo.media("[dir=\xe2\x80\x9crtl\xe2\x80\x9d] &", Belt_Array.concatMany(styles))];
+}
+
+function ltr(styles) {
+  return [CssJs$IsenseiMonorepo.media("[dir=\xe2\x80\x9cltr\xe2\x80\x9d] &", Belt_Array.concatMany(styles))];
 }
 
 function sm(param) {
@@ -56,22 +88,6 @@ function fontName(font) {
               })];
 }
 
-function contentText(text) {
-  return [CssJs$IsenseiMonorepo.contentRule({
-                NAME: "text",
-                VAL: text
-              })];
-}
-
-var contentRuleNone = [CssJs$IsenseiMonorepo.contentRule("none")];
-
-function content(string) {
-  return [CssJs$IsenseiMonorepo.contentRule({
-                NAME: "text",
-                VAL: string
-              })];
-}
-
 function selector(string, rules) {
   return [CssJs$IsenseiMonorepo.selector(string, Belt_Array.concatMany(rules))];
 }
@@ -82,10 +98,6 @@ function dividers(rules) {
 
 function dark(rules) {
   return [CssJs$IsenseiMonorepo.selector(".dark &", Belt_Array.concatMany(rules))];
-}
-
-function marker(rules) {
-  return [CssJs$IsenseiMonorepo.selector("&::marker", Belt_Array.concatMany(rules))];
 }
 
 function active(rules) {
@@ -117,10 +129,6 @@ function enabled(rules) {
 }
 
 function first(rules) {
-  return [CssJs$IsenseiMonorepo.first(Belt_Array.concatMany(rules))];
-}
-
-function firstChild(rules) {
   return [CssJs$IsenseiMonorepo.firstChild(Belt_Array.concatMany(rules))];
 }
 
@@ -134,6 +142,30 @@ function focus(rules) {
 
 function focusWithin(rules) {
   return [CssJs$IsenseiMonorepo.focusWithin(Belt_Array.concatMany(rules))];
+}
+
+function focusVisible(rules) {
+  return [CssJs$IsenseiMonorepo.focusVisible(Belt_Array.concatMany(rules))];
+}
+
+function odd(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&:nth-child(odd)", Belt_Array.concatMany(rules))];
+}
+
+function even(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&:nth-child(even)", Belt_Array.concatMany(rules))];
+}
+
+function placeholderShown(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&:placeholder-shown", Belt_Array.concatMany(rules))];
+}
+
+function autofill(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&:autofill", Belt_Array.concatMany(rules))];
+}
+
+function _open(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&[open]", Belt_Array.concatMany(rules))];
 }
 
 function hover(rules) {
@@ -152,7 +184,7 @@ function invalid(rules) {
   return [CssJs$IsenseiMonorepo.invalid(Belt_Array.concatMany(rules))];
 }
 
-function lastChild(rules) {
+function last(rules) {
   return [CssJs$IsenseiMonorepo.lastChild(Belt_Array.concatMany(rules))];
 }
 
@@ -164,7 +196,7 @@ function link(rules) {
   return [CssJs$IsenseiMonorepo.lastOfType(Belt_Array.concatMany(rules))];
 }
 
-function onlyChild(rules) {
+function only(rules) {
   return [CssJs$IsenseiMonorepo.onlyChild(Belt_Array.concatMany(rules))];
 }
 
@@ -230,6 +262,18 @@ function firstLine(rules) {
 
 function selection(rules) {
   return [CssJs$IsenseiMonorepo.selection(Belt_Array.concatMany(rules))];
+}
+
+function marker(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&::marker", Belt_Array.concatMany(rules))];
+}
+
+function file(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&::file-selector-button", Belt_Array.concatMany(rules))];
+}
+
+function placeholder(rules) {
+  return [CssJs$IsenseiMonorepo.selector("&::placeholder", Belt_Array.concatMany(rules))];
 }
 
 var aspectAuto = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "auto")];
@@ -438,7 +482,7 @@ var tableRowGroup = [CssJs$IsenseiMonorepo.display("tableRowGroup")];
 
 var tableRow = [CssJs$IsenseiMonorepo.display("tableRow")];
 
-var flowRoot = [CssJs$IsenseiMonorepo.unsafe("display", "flow-root")];
+var flowRoot = [CssJs$IsenseiMonorepo.unsafe("CssJs.display", "flow-root")];
 
 var grid = [CssJs$IsenseiMonorepo.display("grid")];
 
@@ -1533,7 +1577,14 @@ var breakWords = [CssJs$IsenseiMonorepo.overflowWrap("breakWord")];
 
 var breakAll = [CssJs$IsenseiMonorepo.wordBreak("breakAll")];
 
-var contentNone = [CssJs$IsenseiMonorepo.unsafe("content", "none")];
+var contentNone = [CssJs$IsenseiMonorepo.contentRule("none")];
+
+function content(string) {
+  return [CssJs$IsenseiMonorepo.contentRule({
+                NAME: "text",
+                VAL: string
+              })];
+}
 
 var bgFixed = [CssJs$IsenseiMonorepo.backgroundAttachment("fixed")];
 
@@ -1757,7 +1808,7 @@ var BorderWidth = {
   toValue: toValue$9
 };
 
-var border = toValue$9;
+var borderWidth = toValue$9;
 
 function toValue$10(t) {
   var variant = t.NAME;
@@ -1809,12 +1860,13 @@ var borderHidden = [CssJs$IsenseiMonorepo.borderStyle("hidden")];
 
 var borderNone = [CssJs$IsenseiMonorepo.borderStyle("none")];
 
-function toValue$11(t) {
+function toValue$11(reverseOpt, t) {
+  var reverse = reverseOpt !== undefined ? reverseOpt : false;
   if (t.NAME === "y") {
     var match = t.VAL;
     var color = match[1];
     var width = match[0];
-    if (match[2]) {
+    if (reverse) {
       return [
               CssJs$IsenseiMonorepo.borderColor(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color)),
               CssJs$IsenseiMonorepo.borderTopWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0)),
@@ -1831,7 +1883,7 @@ function toValue$11(t) {
   var match$1 = t.VAL;
   var color$1 = match$1[1];
   var width$1 = match$1[0];
-  if (match$1[2]) {
+  if (reverse) {
     return [
             CssJs$IsenseiMonorepo.borderRightWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(width$1)),
             CssJs$IsenseiMonorepo.borderLeftWidth(Theme$IsenseiMonorepo.BorderWidth.toValue(0)),
@@ -1850,7 +1902,9 @@ var Divide = {
   toValue: toValue$11
 };
 
-var divide = toValue$11;
+function divide(t) {
+  return toValue$11(undefined, t);
+}
 
 var divideSolid = [CssJs$IsenseiMonorepo.borderStyle("solid")];
 
@@ -1993,27 +2047,27 @@ function toValue$13(t) {
   var variant = t.NAME;
   if (variant === "md") {
     var color = t.VAL;
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 4px 6px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color)) + ", 0 2px 4px -2px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 4px 6px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color)) + ", 0 2px 4px -2px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color)))];
   }
   if (variant === "sm") {
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 2px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, t.VAL)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 2px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.05, t.VAL)))];
   }
   if (variant === "xl") {
     var color$1 = t.VAL;
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 20px 25px -5px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$1)) + ", 0 8px 10px -6px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$1)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 20px 25px -5px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$1)) + ", 0 8px 10px -6px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$1)))];
   }
   if (variant === "xl2") {
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 25px 50px -12px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, t.VAL)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 25px 50px -12px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.25, t.VAL)))];
   }
   if (variant === "default") {
     var color$2 = t.VAL;
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 3px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$2)) + ", 0 1px 2px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$2)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 1px 3px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$2)) + ", 0 1px 2px -1px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$2)))];
   }
   if (variant === "inner") {
-    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "inset 0 2px 4px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, t.VAL)))];
+    return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "inset 0 2px 4px 0 " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.05, t.VAL)))];
   }
   var color$3 = t.VAL;
-  return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 10px 15px -3px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$3)) + ", 0 4px 6px -4px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, undefined, color$3)))];
+  return [CssJs$IsenseiMonorepo.unsafe("boxShadow", "0 10px 15px -3px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$3)) + ", 0 4px 6px -4px " + Css_AtomicTypes$IsenseiMonorepo.Color.toString(Curry._2(Theme$IsenseiMonorepo.ColorPalettes.Tailwind3.toValue, 0.1, color$3)))];
 }
 
 var BoxShadow = {
@@ -2891,66 +2945,6 @@ function leading$1(px, base) {
               })];
 }
 
-function mt(px, base) {
-  return [CssJs$IsenseiMonorepo.marginTop(em(px, base))];
-}
-
-function mr(px, base) {
-  return [CssJs$IsenseiMonorepo.marginRight(em(px, base))];
-}
-
-function ml(px, base) {
-  return [CssJs$IsenseiMonorepo.marginLeft(em(px, base))];
-}
-
-function mb(px, base) {
-  return [CssJs$IsenseiMonorepo.marginBottom(em(px, base))];
-}
-
-function my(px, base) {
-  return [
-          CssJs$IsenseiMonorepo.marginBottom(em(px, base)),
-          CssJs$IsenseiMonorepo.marginTop(em(px, base))
-        ];
-}
-
-function mx(px, base) {
-  return [
-          CssJs$IsenseiMonorepo.marginLeft(em(px, base)),
-          CssJs$IsenseiMonorepo.marginRight(em(px, base))
-        ];
-}
-
-function pt(px, base) {
-  return [CssJs$IsenseiMonorepo.paddingTop(em(px, base))];
-}
-
-function pr(px, base) {
-  return [CssJs$IsenseiMonorepo.paddingRight(em(px, base))];
-}
-
-function pl(px, base) {
-  return [CssJs$IsenseiMonorepo.paddingLeft(em(px, base))];
-}
-
-function pb(px, base) {
-  return [CssJs$IsenseiMonorepo.paddingBottom(em(px, base))];
-}
-
-function py(px, base) {
-  return [
-          CssJs$IsenseiMonorepo.paddingBottom(em(px, base)),
-          CssJs$IsenseiMonorepo.paddingTop(em(px, base))
-        ];
-}
-
-function px(px$1, base) {
-  return [
-          CssJs$IsenseiMonorepo.paddingLeft(em(px$1, base)),
-          CssJs$IsenseiMonorepo.paddingRight(em(px$1, base))
-        ];
-}
-
 function w$1(px, base) {
   return [CssJs$IsenseiMonorepo.width(em(px, base))];
 }
@@ -3065,18 +3059,6 @@ var Typography = {
   em: em,
   toRem: toRem,
   leading: leading$1,
-  mt: mt,
-  mr: mr,
-  ml: ml,
-  mb: mb,
-  my: my,
-  mx: mx,
-  pt: pt,
-  pr: pr,
-  pl: pl,
-  pb: pb,
-  py: py,
-  px: px,
   w: w$1,
   h: h$1,
   square: square,
@@ -3107,6 +3089,14 @@ export {
   twStyle ,
   minWBreakpoint ,
   maxWBreakpoint ,
+  darkMedia ,
+  portrait ,
+  landscape ,
+  motionSafe ,
+  motionReduce ,
+  print ,
+  rtl ,
+  ltr ,
   sm ,
   md ,
   lg ,
@@ -3114,13 +3104,9 @@ export {
   xl2 ,
   fontFamilies ,
   fontName ,
-  contentText ,
-  contentRuleNone ,
-  content ,
   selector ,
   dividers ,
   dark ,
-  marker ,
   active ,
   checked ,
   $$default ,
@@ -3130,18 +3116,23 @@ export {
   empty ,
   enabled ,
   first ,
-  firstChild ,
   firstOfType ,
   focus ,
   focusWithin ,
+  focusVisible ,
+  odd ,
+  even ,
+  placeholderShown ,
+  autofill ,
+  _open ,
   hover ,
   indeterminate ,
   inRange ,
   invalid ,
-  lastChild ,
+  last ,
   lastOfType ,
   link ,
-  onlyChild ,
+  only ,
   onlyOfType ,
   optional ,
   outOfRange ,
@@ -3158,6 +3149,9 @@ export {
   firstLetter ,
   firstLine ,
   selection ,
+  marker ,
+  file ,
+  placeholder ,
   aspectAuto ,
   aspectSquare ,
   aspectVideo ,
@@ -3441,6 +3435,7 @@ export {
   breakWords ,
   breakAll ,
   contentNone ,
+  content ,
   bgFixed ,
   bgLocal ,
   bgScroll ,
@@ -3492,7 +3487,7 @@ export {
   BorderRadius ,
   rounded ,
   BorderWidth ,
-  border ,
+  borderWidth ,
   BorderColor ,
   borderColor ,
   borderSolid ,
