@@ -3,16 +3,162 @@
 import * as React from "react";
 import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
 
-var red = Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.bg(undefined, "red400")]);
+function toDarkValue(variant) {
+  if (variant === "sky") {
+    return Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.dark([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "sky500"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "sky50"),
+                      Tailwind$IsenseiMonorepo.hover([
+                            Tailwind$IsenseiMonorepo.bg(undefined, "sky400"),
+                            Tailwind$IsenseiMonorepo.textColor(undefined, "white")
+                          ]),
+                      Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "sky200", undefined)])
+                    ])]);
+  } else {
+    return Tailwind$IsenseiMonorepo.twStyle([Tailwind$IsenseiMonorepo.dark([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "slate700"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "slate100"),
+                      Tailwind$IsenseiMonorepo.hover([
+                            Tailwind$IsenseiMonorepo.bg(undefined, "slate600"),
+                            Tailwind$IsenseiMonorepo.textColor(undefined, "white")
+                          ]),
+                      Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "slate500", undefined)])
+                    ])]);
+  }
+}
+
+function toValue(variant) {
+  if (variant === "gray") {
+    return Tailwind$IsenseiMonorepo.twStyle([
+                Tailwind$IsenseiMonorepo.bg(undefined, "slate100"),
+                Tailwind$IsenseiMonorepo.textColor(undefined, "slate700"),
+                Tailwind$IsenseiMonorepo.hover([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "slate200"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "slate900")
+                    ]),
+                Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "slate500", undefined)])
+              ]);
+  } else if (variant === "pink") {
+    return Tailwind$IsenseiMonorepo.twStyle([
+                Tailwind$IsenseiMonorepo.bg(undefined, "pink50"),
+                Tailwind$IsenseiMonorepo.textColor(undefined, "pink600"),
+                Tailwind$IsenseiMonorepo.hover([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "pink100"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "pink700")
+                    ]),
+                Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "pink600", undefined)])
+              ]);
+  } else if (variant === "sky") {
+    return Tailwind$IsenseiMonorepo.twStyle([
+                Tailwind$IsenseiMonorepo.bg(undefined, "sky50"),
+                Tailwind$IsenseiMonorepo.textColor(undefined, "sky600"),
+                Tailwind$IsenseiMonorepo.hover([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "sky100"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "sky700")
+                    ]),
+                Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "sky600", undefined)])
+              ]);
+  } else if (variant === "indigo") {
+    return Tailwind$IsenseiMonorepo.twStyle([
+                Tailwind$IsenseiMonorepo.bg(undefined, "indigo50"),
+                Tailwind$IsenseiMonorepo.textColor(undefined, "indigo600"),
+                Tailwind$IsenseiMonorepo.hover([Tailwind$IsenseiMonorepo.bg(undefined, "indigo200")]),
+                Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "indigo500", undefined)])
+              ]);
+  } else {
+    return Tailwind$IsenseiMonorepo.twStyle([
+                Tailwind$IsenseiMonorepo.bg(undefined, "blue50"),
+                Tailwind$IsenseiMonorepo.textColor(undefined, "blue600"),
+                Tailwind$IsenseiMonorepo.hover([
+                      Tailwind$IsenseiMonorepo.bg(undefined, "blue100"),
+                      Tailwind$IsenseiMonorepo.textColor(undefined, "blue700")
+                    ]),
+                Tailwind$IsenseiMonorepo.focus([Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, undefined, "blue600", undefined)])
+              ]);
+  }
+}
+
+function svg(color, darkColor, reverse, param) {
+  return Tailwind$IsenseiMonorepo.merge([
+              Tailwind$IsenseiMonorepo.twStyle([
+                    Tailwind$IsenseiMonorepo.overflowVisible,
+                    reverse ? Tailwind$IsenseiMonorepo.m({
+                            NAME: "r",
+                            VAL: 3
+                          }) : Tailwind$IsenseiMonorepo.m({
+                            NAME: "l",
+                            VAL: 3
+                          })
+                  ]),
+              toValue(color),
+              toDarkValue(darkColor)
+            ]);
+}
+
+function a(color, darkColor, reverse, param) {
+  return Tailwind$IsenseiMonorepo.merge([
+              Tailwind$IsenseiMonorepo.twStyle([
+                    Tailwind$IsenseiMonorepo.inlineFlex,
+                    Tailwind$IsenseiMonorepo.itemsCenter,
+                    Tailwind$IsenseiMonorepo.h(9),
+                    Tailwind$IsenseiMonorepo.rounded({
+                          NAME: "all",
+                          VAL: "full"
+                        }),
+                    Tailwind$IsenseiMonorepo.fontWeight(600),
+                    Tailwind$IsenseiMonorepo.whitespaceNowrap,
+                    Tailwind$IsenseiMonorepo.p({
+                          NAME: "x",
+                          VAL: 3
+                        }),
+                    reverse ? Tailwind$IsenseiMonorepo.flexRowReverse : Tailwind$IsenseiMonorepo.emptyRule,
+                    Tailwind$IsenseiMonorepo.focus([
+                          Tailwind$IsenseiMonorepo.outlineNone,
+                          Tailwind$IsenseiMonorepo.ring(undefined, undefined, undefined, 2, "black", undefined)
+                        ])
+                  ]),
+              toValue(color),
+              toDarkValue(darkColor)
+            ]);
+}
 
 var Styles = {
-  red: red
+  toDarkValue: toDarkValue,
+  toValue: toValue,
+  svg: svg,
+  a: a
 };
 
 function Button__UI(Props) {
-  return React.createElement("div", {
-              className: Tailwind$IsenseiMonorepo.merge([red])
-            }, "Component Button");
+  var colorOpt = Props.color;
+  var darkColorOpt = Props.darkColor;
+  var href = Props.href;
+  var children = Props.children;
+  var classNameOpt = Props.className;
+  var reverseOpt = Props.reverse;
+  var color = colorOpt !== undefined ? colorOpt : "gray";
+  var darkColor = darkColorOpt !== undefined ? darkColorOpt : "gray";
+  var className = classNameOpt !== undefined ? classNameOpt : "";
+  var reverse = reverseOpt !== undefined ? reverseOpt : false;
+  return React.createElement("a", {
+              className: Tailwind$IsenseiMonorepo.merge([
+                    a(color, darkColor, reverse, undefined),
+                    className
+                  ]),
+              href: href
+            }, children, React.createElement("svg", {
+                  className: svg(color, darkColor, reverse, undefined),
+                  height: "6",
+                  width: "3",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  strokeWidth: "2",
+                  viewBox: "0 0 3 6"
+                }, React.createElement("path", {
+                      d: reverse ? "M3 0L0 3L3 6" : "M0 0L3 3L0 6"
+                    })));
 }
 
 var make = Button__UI;
@@ -22,4 +168,4 @@ export {
   make ,
   
 }
-/* red Not a pure module */
+/* react Not a pure module */

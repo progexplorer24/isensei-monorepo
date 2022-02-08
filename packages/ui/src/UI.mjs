@@ -3,18 +3,23 @@
 import * as React from "react";
 import * as Tip__UI$IsenseiMonorepo from "./Tip__UI.mjs";
 import * as Button__UI$IsenseiMonorepo from "./Button__UI.mjs";
+import * as Headless__Examples$IsenseiMonorepo from "./Headless__Examples.mjs";
 
-function UI$Button1(Props) {
-  return React.createElement("div", undefined, "Component Button");
+function btn(href, children, colorOpt, param) {
+  var color = colorOpt !== undefined ? colorOpt : "indigo";
+  return React.createElement(Button__UI$IsenseiMonorepo.make, {
+              color: color,
+              href: href,
+              children: children
+            });
 }
 
-var Button1 = {
-  make: UI$Button1
-};
-
-var btn = React.createElement("div", undefined, "Button");
-
-var btn2 = React.createElement(Button__UI$IsenseiMonorepo.make, {});
+function btn2(href, children, param) {
+  return React.createElement(Button__UI$IsenseiMonorepo.make, {
+              href: href,
+              children: children
+            });
+}
 
 function tipGood(children) {
   return React.createElement(Tip__UI$IsenseiMonorepo.TipGood.make, {
@@ -40,14 +45,44 @@ function tipInfo(children) {
             });
 }
 
+var menu = React.createElement(Headless__Examples$IsenseiMonorepo.Menu.make, {});
+
+function dropdown(_as) {
+  return React.createElement(Headless__Examples$IsenseiMonorepo.Dropdown.make, {
+              as: _as
+            });
+}
+
+var listbox = React.createElement(Headless__Examples$IsenseiMonorepo.Listbox.make, {});
+
+var _switch = React.createElement(Headless__Examples$IsenseiMonorepo.Switch.make, {});
+
+var disclosure = React.createElement(Headless__Examples$IsenseiMonorepo.Disclosure.make, {});
+
+var popover = React.createElement(Headless__Examples$IsenseiMonorepo.Popover.make, {});
+
+var dialog = React.createElement(Headless__Examples$IsenseiMonorepo.Dialog.make, {});
+
+var radioGroup = React.createElement(Headless__Examples$IsenseiMonorepo.RadioGroup.make, {});
+
+var tabs = React.createElement(Headless__Examples$IsenseiMonorepo.Tabs.make, {});
+
 export {
-  Button1 ,
   btn ,
   btn2 ,
   tipGood ,
   tipBad ,
   tipCompat ,
   tipInfo ,
+  menu ,
+  dropdown ,
+  listbox ,
+  _switch ,
+  disclosure ,
+  popover ,
+  dialog ,
+  radioGroup ,
+  tabs ,
   
 }
-/* btn Not a pure module */
+/* menu Not a pure module */
