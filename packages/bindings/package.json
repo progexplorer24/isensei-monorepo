@@ -1,7 +1,6 @@
 {
-  "name": "emotion",
+  "name": "@isensei/bindings",
   "version": "0.0.0",
   "private": true,
-  "main": "index.js",
   "files": []
 }

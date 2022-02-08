@@ -4388,6 +4388,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@heroicons/react@npm:1.0.5"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 12114af19c17f69140cc7338e4cd12fe38098ad3ed79f02762106160655cde3ebdba58a2b26f1067f720786187364fd9465bc72f02aad85b0ead8172d76aa51d
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -4429,6 +4438,12 @@ __metadata:
   checksum: 85d109afb5f069cf53f2af2048828afde197e9fc3e3c4172ae7dbbb99659cd74d0c30871b874e9159f3ce7e8998e2679abfb895185bc7b3a3463ed2c3d75e543
   languageName: node
   linkType: hard
+
+"@isensei/bindings@*, @isensei/bindings@workspace:packages/bindings":
+  version: 0.0.0-use.local
+  resolution: "@isensei/bindings@workspace:packages/bindings"
+  languageName: unknown
+  linkType: soft
 
 "@isensei/css@*, @isensei/css@workspace:packages/css":
   version: 0.0.0-use.local
@@ -4483,6 +4498,8 @@ __metadata:
   resolution: "@isensei/ui@workspace:packages/ui"
   dependencies:
     "@headlessui/react": ^1.4.3
+    "@heroicons/react": ^1.0.5
+    "@isensei/bindings": "*"
     "@isensei/tailwind": "*"
     eslint-preset-isensei: "*"
     framer-motion: ^6.2.3
