@@ -5,21 +5,14 @@ module Styles = {
 
   type darkVariant = [#gray | #sky]
 
-  // gray: [
-  //   'dark:text-slate-500 dark:group-hover:text-slate-400',
-  // ],
-  // sky: [
-
-  //   'dark:text-sky-300 dark:group-hover:text-sky-100',
-  // ],
-  let toDarkValue = variant =>
+  let toDarkValue = (variant, ~isGroup: bool) =>
     switch variant {
     | #gray =>
       twStyle([
         dark([
           bg(#slate700),
           textColor(#slate100),
-          hover([bg(#slate600), textColor(#white)]),
+          hover([bg(#slate600), textColor(#white), isGroup ? textColor(#slate400) : emptyRule]),
           focus([ring(~color=#slate500, ())]),
         ]),
       ])
@@ -28,69 +21,59 @@ module Styles = {
         dark([
           bg(#sky500),
           textColor(#sky50),
-          hover([bg(#sky400), textColor(#white)]),
+          hover([bg(#sky400), textColor(#white), isGroup ? textColor(#sky100) : emptyRule]),
           focus([ring(~color=#sky200, ())]),
         ]),
       ])
     }
 
-  let toValue = variant =>
+  let toValue = (variant, ~isGroup: bool) =>
     switch variant {
     | #indigo =>
       twStyle([
         bg(#indigo50),
         textColor(#indigo600),
-        hover([bg(#indigo200)]),
+        hover([bg(#indigo200), isGroup ? textColor(#indigo400) : emptyRule]),
         focus([ring(~color=#indigo500, ())]),
       ])
     | #pink =>
       twStyle([
         bg(#pink50),
         textColor(#pink600),
-        hover([bg(#pink100), textColor(#pink700)]),
+        hover([bg(#pink100), textColor(#pink700), isGroup ? textColor(#pink400) : emptyRule]),
         focus([ring(~color=#pink600, ())]),
       ])
-    //   sky: [
-    //  group-hover:text-sky-400',
-    //   ],
     | #sky =>
       twStyle([
         bg(#sky50),
         textColor(#sky600),
-        hover([bg(#sky100), textColor(#sky700)]),
+        hover([bg(#sky100), textColor(#sky700), isGroup ? textColor(#sky400) : emptyRule]),
         focus([ring(~color=#sky600, ())]),
       ])
-    //   blue: [
-    //      group-hover:text-blue-400',
-    //   ],
     | #blue =>
       twStyle([
         bg(#blue50),
         textColor(#blue600),
-        hover([bg(#blue100), textColor(#blue700)]),
+        hover([bg(#blue100), textColor(#blue700), isGroup ? textColor(#blue400) : emptyRule]),
         focus([ring(~color=#blue600, ())]),
       ])
-    //   gray: [
-    //     'text-slate-300 group-hover:text-slate-400',
-    //   ],
-    // }
     | #gray =>
       twStyle([
         bg(#slate100),
         textColor(#slate700),
-        hover([bg(#slate200), textColor(#slate900)]),
+        hover([bg(#slate200), textColor(#slate900), isGroup ? textColor(#slate400) : emptyRule]),
         focus([ring(~color=#slate500, ())]),
       ])
     }
 
-  let svg = (~color, ~darkColor, ~reverse, ()) =>
+  let svg = (~color, ~darkColor, ~reverse, ~isGroup, ()) =>
     merge(. [
       twStyle([overflowVisible, reverse ? m(#r(#3)) : m(#l(#3))]),
-      toValue(color),
-      toDarkValue(darkColor),
+      toValue(color, ~isGroup),
+      toDarkValue(darkColor, ~isGroup),
     ])
 
-  let a = (~color, ~darkColor, ~reverse, ()) =>
+  let a = (~color, ~darkColor, ~reverse, ~isGroup, ()) =>
     merge(. [
       twStyle([
         inlineFlex,
@@ -103,8 +86,8 @@ module Styles = {
         reverse ? flexRowReverse : emptyRule,
         focus([outlineNone, ring(~width=#2, ~color=#black, ())]),
       ]),
-      toValue(color),
-      toDarkValue(darkColor),
+      toValue(color, ~isGroup),
+      toDarkValue(darkColor, ~isGroup),
     ])
 }
 
@@ -118,12 +101,22 @@ let make = (
   ~reverse=false,
   (),
 ) => {
-  <a href className={Tailwind.merge(. [Styles.a(~color, ~darkColor, ~reverse, ()), className])}>
+  let (isHovered, setIsHovered) = React.useState(_ => false)
+  let onMouseEnter = _ => setIsHovered(_ => true)
+  let onMouseLeave = _ => setIsHovered(_ => false)
+  <a
+    href
+    onMouseEnter
+    onMouseLeave
+    className={Tailwind.merge(. [
+      Styles.a(~color, ~darkColor, ~reverse, ~isGroup=isHovered, ()),
+      className,
+    ])}>
     {children}
     <svg
       width="3"
       height="6"
-      className={Styles.svg(~color, ~darkColor, ~reverse, ())}
+      className={Styles.svg(~color, ~darkColor, ~reverse, ~isGroup=isHovered, ())}
       viewBox="0 0 3 6"
       fill="none"
       stroke="currentColor"
