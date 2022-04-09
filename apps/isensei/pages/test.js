@@ -1,37 +1,29 @@
 import {
-  btn,
-  btn2,
-  tipGood,
-  tipBad,
-  tipCompat,
-  tipInfo,
-  menu,
-  dropdown,
-  tabs,
-  listbox,
+  btn2 as Button,
+  tipGood as TipGood,
+  tipBad as TipBad,
+  tipCompat as TipCompat,
+  tipInfo as TipInfo,
+  menu as Menu,
+  tabs as Tabs,
   _switch,
-  radioGroup,
-  popover,
-  disclosure,
+  Card,
 } from "@isensei/ui";
 
 export default function Test() {
   return (
-    <div>
-      {btn("", "Hello Link")}
-      {btn2("", "Another Button")}
-      {tipGood("This is good advice")}
-      {tipBad("This is bad advice")}
-      {tipCompat("This is compat advice")}
-      {tipInfo("This is info advice")}
-      {menu}
-      {dropdown("div")}
-      {tabs}
-      {listbox}
-      {_switch}
-      {radioGroup}
-      {popover}
-      {disclosure}
+    <div className="space-y-6">
+      <Button href="" color="indigo">
+        Another Button
+      </Button>
+      <Button href="">Another Button</Button>
+      <TipGood>This is good advice</TipGood>
+      <TipBad>This is bad advice</TipBad>
+      <TipCompat>This is compat advice</TipCompat>
+      <TipInfo>This is info advice</TipInfo>
+      <Menu />
+      <Tabs />
+      <Card.make />
     </div>
   );
 }
