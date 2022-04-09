@@ -6,6 +6,7 @@ let tw = rules => Belt.Array.concatMany(rules)
 let twStyle = rules => CssJs.style(. Belt.Array.concatMany(rules))
 
 // We solve grouping with hooks
+// We solve styling based on sibling state with hooks
 
 let minWBreakpoint = (breakpoint, styles) => [
   CssJs.media(. `(min-width: ${Belt.Int.toString(breakpoint)}px)`, tw(styles)),
@@ -617,6 +618,8 @@ module SpaceBetween = {
       ]
     }
 }
+
+let mxAuto = [CssJs.marginLeft(#auto), CssJs.marginRight(#auto)]
 
 let space = (~reverse=false, axis) => SpaceBetween.toValue(~reverse, axis)
 

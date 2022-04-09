@@ -276,6 +276,12 @@ function placeholder(rules) {
   return [CssJs$IsenseiMonorepo.selector("&::placeholder", Belt_Array.concatMany(rules))];
 }
 
+var group = [CssJs$IsenseiMonorepo.selector(".group", [])];
+
+function groupHover(rules) {
+  return [CssJs$IsenseiMonorepo.selector(".group:hover &", Belt_Array.concatMany(rules))];
+}
+
 var aspectAuto = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "auto")];
 
 var aspectSquare = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "1 / 1")];
@@ -1057,6 +1063,11 @@ function toValue$3(reverseOpt, t) {
 var SpaceBetween = {
   toValue: toValue$3
 };
+
+var mxAuto = [
+  CssJs$IsenseiMonorepo.marginLeft("auto"),
+  CssJs$IsenseiMonorepo.marginRight("auto")
+];
 
 function space(reverseOpt, axis) {
   var reverse = reverseOpt !== undefined ? reverseOpt : false;
@@ -3152,6 +3163,8 @@ export {
   marker ,
   file ,
   placeholder ,
+  group ,
+  groupHover ,
   aspectAuto ,
   aspectSquare ,
   aspectVideo ,
@@ -3345,6 +3358,7 @@ export {
   Margin ,
   m ,
   SpaceBetween ,
+  mxAuto ,
   space ,
   Width ,
   w ,
