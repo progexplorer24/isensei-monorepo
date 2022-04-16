@@ -43,6 +43,7 @@ const genFrontMatter = (answers) => {
   summary: ${answers.summary ? answers.summary : " "}
   images: []
   layout: ${answers.layout}
+  canonicalUrl: ${answers.canonicalUrl}
   `;
 
   if (answers.authors.length > 0) {
@@ -95,6 +96,11 @@ inquirer
       type: "list",
       choices: getLayouts,
     },
+    {
+      name: "canonicalUrl",
+      message: "Enter canonical url:",
+      type: "input",
+    },
   ])
   .then((answers) => {
     // Remove special characters and replace space with -
@@ -104,6 +110,8 @@ inquirer
       .replace(/ /g, "-")
       .replace(/-+/g, "-");
     const frontMatter = genFrontMatter(answers);
+    if (!fs.existsSync("data/blog"))
+      fs.mkdirSync("data/blog", { recursive: true });
     const filePath = `data/blog/${fileName ? fileName : "untitled"}.${
       answers.extension ? answers.extension : "md"
     }`;

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const globby = require("globby");
+const matter = require("gray-matter");
 const path = require("path");
 const prettier = require("prettier");
 const { cpuUsage } = require("process");
@@ -10,11 +11,13 @@ const i18nConfig = require("../i18n.json");
   const prettierConfig = await prettier.resolveConfig("./.prettierrc.js");
   const pages = await globby([
     "pages/*.js",
+    "pages/*.tsx",
     "data/blog/**/*.mdx",
     "data/blog/**/*.md",
     "public/tags/**/*.xml",
     "!pages/_*.js",
     "!pages/api",
+    "!pages/_*.tsx",
   ]);
 
   const { locales, defaultLocale } = i18nConfig;
@@ -74,18 +77,34 @@ const i18nConfig = require("../i18n.json");
       http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
             ${pagesWithLoc
               .map(([path, loc, alreadyPresent]) => {
+                // Exclude drafts from the sitemap
+                if (path.search(".md") >= 1 && fs.existsSync(path)) {
+                  const source = fs.readFileSync(path, "utf8");
+                  const fm = matter(source);
+                  if (fm.data.draft) {
+                    return;
+                  }
+                  if (fm.data.canonicalUrl) {
+                    return;
+                  }
+                  if (fm.data.canonicalUrl) {
+                    return;
+                  }
+                }
+
                 // @todo: Can you check especially here ?
                 const route = path.includes("/index")
                   ? path.replace("/index", "")
                   : path;
+
                 if (
-                  path.includes(`/404.js`) ||
-                  path.includes(`/blog/[...slug].js`) ||
+                  path.search("pages/404.") > -1 ||
+                  path.search(`pages/blog/[...slug].`) > -1 ||
                   alreadyPresent
                 ) {
-                  // Not sure about the [...slug] condition...
                   return;
                 }
+
                 const routeMultiLang = pagesWithLoc.filter(
                   ([ipath, iloc, _]) =>
                     ipath.replace(`/${iloc}`, "") == path.replace(`/${loc}`, "")

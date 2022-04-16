@@ -2,7 +2,7 @@ import { visit } from "unist-util-visit";
 
 export default function remarkCodeTitles() {
   return (tree) =>
-    visit(tree, "code", (node, index) => {
+    visit(tree, "code", (node, index, parentś) => {
       const nodeLang = node.lang || "";
       let language = "";
       let title = "";
@@ -28,7 +28,7 @@ export default function remarkCodeTitles() {
         data: { _xdmExplicitJsx: true },
       };
 
-      tree.children.splice(index, 0, titleNode);
+      parent.children.splice(index, 0, titleNode);
       node.lang = language;
     });
 }

@@ -52,6 +52,10 @@ const siteMetadata = {
       // transparent_dark, preferred_color_scheme, custom
       theme: "light",
       // theme when dark mode
+      // Place the comment box above the comments. options: bottom, top
+      inputPosition: "bottom",
+      // Choose the language giscus will be displayed in. options: en, es, zh-CN, zh-TW, ko, ja etc
+      lang: "en",
       darkTheme: "transparent_dark",
       // If the theme option above is set to 'custom`
       // please provide a link below to your custom theme css file.

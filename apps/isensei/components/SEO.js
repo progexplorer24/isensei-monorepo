@@ -58,6 +58,7 @@ const CommonSEO = ({
   ogType,
   ogImage,
   twImage,
+  canonicalUrl,
   availableLocales,
 }) => {
   const router = useRouter();
@@ -100,6 +101,14 @@ const CommonSEO = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={twImage} />
+      <link
+        rel="canonical"
+        href={
+          canonicalUrl
+            ? canonicalUrl
+            : `${siteMetadata.siteUrl}${router.asPath}`
+        }
+      />
       {availableLocales && generateLinks(router, availableLocales)}
     </Head>
   );
@@ -168,6 +177,7 @@ export const BlogSEO = ({
   url,
   availableLocales,
   images = [],
+  canonicalUrl,
 }) => {
   const router = useRouter();
   const publishedAt = new Date(date).toISOString();
@@ -235,6 +245,7 @@ export const BlogSEO = ({
         ogImage={featuredImages}
         twImage={twImageUrl}
         availableLocales={availableLocales}
+        canonicalUrl={canonicalUrl}
       />
       <Head>
         {/* <title>{`${title}`}</title>
