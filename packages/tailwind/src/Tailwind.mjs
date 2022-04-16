@@ -276,12 +276,6 @@ function placeholder(rules) {
   return [CssJs$IsenseiMonorepo.selector("&::placeholder", Belt_Array.concatMany(rules))];
 }
 
-var group = [CssJs$IsenseiMonorepo.selector(".group", [])];
-
-function groupHover(rules) {
-  return [CssJs$IsenseiMonorepo.selector(".group:hover &", Belt_Array.concatMany(rules))];
-}
-
 var aspectAuto = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "auto")];
 
 var aspectSquare = [CssJs$IsenseiMonorepo.unsafe("aspect-ration", "1 / 1")];
@@ -3163,8 +3157,6 @@ export {
   marker ,
   file ,
   placeholder ,
-  group ,
-  groupHover ,
   aspectAuto ,
   aspectSquare ,
   aspectVideo ,
