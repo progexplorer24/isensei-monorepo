@@ -47,8 +47,8 @@
     "apps/*"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@rescript/react": "^0.10.3",
     "eslint": "^8.7.0",
     "husky": "^7.0.4",
