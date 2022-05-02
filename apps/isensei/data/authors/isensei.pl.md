@@ -1,15 +1,15 @@
 ---
-name: Isensei
+name: iSensei
 avatar: /static/images/avatar.png
 occupation: Założyciel
-company: Fundacja isensei
+company: Fundacja iSensei
 email: isensei.pl@gmail.com
 twitter: https://twitter.com/isensei_pl
 linkedin: linkedin.com/in/isensei-foundation-bb3b27229
 github: https://github.com/progexplorer24
 ---
 
-Cześć, na imię mam Patryk i na co dzień prowadzę fundację isensei, w której pomagamy w nauce technologii webowych, matematyki i języków obcych. Na tej stronie znajdziesz **materiały edukacyjne, tutoriale oraz posty** opowiadające o moich naukowych przygodach.
+Cześć, na imię mam Patryk i na co dzień prowadzę fundację iSensei, w której pomagamy w nauce technologii webowych, matematyki i języków obcych. Na tej stronie znajdziesz **materiały edukacyjne, tutoriale oraz posty** opowiadające o moich naukowych przygodach.
 
 Blog ten jest dla mnie placem zabaw, w którym rozmyślam, uczę się i eksperymentuję. Jeśli interesują Cię zagadnienia związane z programowaniem, matematyką lub nauką języków obcych - **zapisz się do naszego bezpłatnego newsletter'a**. Cieszę, że wpadłeś!
 
