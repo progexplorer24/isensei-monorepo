@@ -1,6 +1,7 @@
 import {
   btn2 as Button,
   tipGood as TipGood,
+  tipBad as TipBad,
   tipCompat as TipCompat,
   tipInfo as TipInfo,
   menu as Menu,
@@ -17,6 +18,7 @@ export default function Test() {
       </Button>
       <Button href="">Another Button</Button>
       <TipGood>This is good advice</TipGood>
+      <TipBad>This is bad advice</TipBad>
       <TipCompat>This is compat advice</TipCompat>
       <TipInfo>This is info advice</TipInfo>
       <Menu />

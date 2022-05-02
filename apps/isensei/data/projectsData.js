@@ -1,23 +1,19 @@
 const projectsData = {
   en: [
     {
-      title: "A Search Engine",
-      description: `What if you could look up any information in the world? Webpages, images, videos
-      and more. Google has many features to help you find exactly what you're looking
-      for.`,
-      imgSrc: "/static/images/google.png",
-      href: "https://www.google.com",
+      title: "Functional CSS Framework",
+      description: `Rescript implementation of TailwindCSS API with style composition. Build scalable & maintainable CSS`,
+      imgSrc: "/static/images/tailwindui-small.jpg",
+      href: "https://github.com/progexplorer24/isensei-monorepo/tree/main/packages",
     },
     {
-      title: "The Time Machine",
-      description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-      to the desired date and press "Go". No more worrying about lost keys or
-      forgotten handphones with this simple yet affordable solution.`,
+      title: "Bindings for Cypress Testing Framework",
+      description: `Bindings that enable writing tests in Rescript using Cypress framework.`,
       imgSrc: "/static/images/time-machine.jpg",
-      href: "/blog/the-time-machine",
+      href: "https://github.com/progexplorer24/rescript-monorepo/blob/master/src/bindings/Cypress.res",
     },
   ],
-  fr: [
+  pl: [
     {
       title: "Un moteur de recherche",
       description: `Et si vous pouviez rechercher n'importe quelle information dans le monde ? Pages web, images, vidéos
