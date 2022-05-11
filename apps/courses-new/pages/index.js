@@ -53,7 +53,7 @@ const topics = [
         imageUrl: "/static/images/docker.svg",
         sections: 3,
         lectures: 2,
-        title: "Docker",
+        title: "Docker Mastery",
         price: 3900,
         reviewCount: 34,
         rating: 4,
@@ -62,7 +62,7 @@ const topics = [
         imageUrl: "/static/images/kubernetes.svg",
         sections: 4,
         lectures: 1,
-        title: "Kubernetes",
+        title: "Become Kubernetes Captain",
         price: 4900,
         reviewCount: 12,
         rating: 3,
@@ -71,7 +71,7 @@ const topics = [
         imageUrl: "/static/images/node.svg",
         sections: 5,
         lectures: 4,
-        title: "Node.js",
+        title: "Node.js Ninja",
         price: 9900,
         reviewCount: 54,
         rating: 5,
@@ -80,7 +80,7 @@ const topics = [
         imageUrl: "/static/images/bash.svg",
         sections: 3,
         lectures: 2,
-        title: "Bash",
+        title: "Learn Bash",
         price: 12900,
         reviewCount: 34,
         rating: 4,
@@ -137,8 +137,8 @@ const topics = [
         imageUrl: "/static/images/ipfs.svg",
         sections: 3,
         lectures: 2,
-        title: "IPFS",
-        price: 9900,
+        title: "Master IPFS Protocol",
+        price: 9999,
         reviewCount: 34,
         rating: 4,
       },
@@ -146,17 +146,17 @@ const topics = [
         imageUrl: "/static/images/solidity.svg",
         sections: 3,
         lectures: 2,
-        title: "Solidity",
+        title: "Explore Solidity",
         price: 10900,
         reviewCount: 34,
         rating: 4,
       },
       {
-        imageUrl: "/static/images/solana.svg",
-        sections: 5,
-        lectures: 4,
-        title: "Solana",
-        price: 200000,
+        imageUrl: "/static/images/truffle.svg",
+        sections: 15,
+        lectures: 49,
+        title: "Test With Truffle",
+        price: 20000,
         reviewCount: 54,
         rating: 5,
       },
@@ -164,8 +164,8 @@ const topics = [
         imageUrl: "/static/images/hardhat.svg",
         sections: 3,
         lectures: 2,
-        title: "Hardhat",
-        price: 115000,
+        title: "Become Hardhat Master",
+        price: 9999,
         reviewCount: 34,
         rating: 4,
       },
@@ -179,8 +179,8 @@ const topics = [
         imageUrl: "/static/images/julia.svg",
         sections: 3,
         lectures: 2,
-        title: "julia",
-        price: 115000,
+        title: "Have Fun With Julia",
+        price: 8999,
         reviewCount: 34,
         rating: 4,
       },
@@ -188,8 +188,8 @@ const topics = [
         imageUrl: "/static/images/haskell.svg",
         sections: 3,
         lectures: 2,
-        title: "Haskell",
-        price: 190000,
+        title: "Grow with Haskell",
+        price: 11900,
         reviewCount: 34,
         rating: 4,
       },
@@ -197,8 +197,8 @@ const topics = [
         imageUrl: "/static/images/go.svg",
         sections: 5,
         lectures: 4,
-        title: "Go",
-        price: 200000,
+        title: "Explore Go",
+        price: 19900,
         reviewCount: 54,
         rating: 5,
       },
@@ -206,8 +206,8 @@ const topics = [
         imageUrl: "/static/images/ocaml.svg",
         sections: 4,
         lectures: 1,
-        title: "OCaml",
-        price: 175000,
+        title: "Become OCaml Ninja",
+        price: 7500,
         reviewCount: 12,
         rating: 3,
       },
@@ -216,7 +216,7 @@ const topics = [
 ];
 
 export default function Home() {
-  const renderLocations = (topics) => {
+  const renderCourses = (topics) => {
     return topics.map((topic, i) => {
       return (
         <div key={i} className={i > 0 ? "mt-6" : ""}>
@@ -254,7 +254,7 @@ export default function Home() {
       <div className="xl:flex-1 xl:flex xl:overflow-y-hidden">
         <SearchFilters />
         <main className="py-6 xl:flex-1 xl:overflow-x-hidden bg-gray-50">
-          {renderLocations(topics)}
+          {renderCourses(topics)}
         </main>
       </div>
     </div>
