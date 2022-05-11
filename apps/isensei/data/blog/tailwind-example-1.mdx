@@ -1,0 +1,81 @@
+---
+title: "Accent Color - Tailwind docs example"
+authors: ["tailwind-team"]
+description: "Utilities for controlling the accented color of a form control."
+date: "2022-04-21"
+tags: ["tailwindcss", "docs", "examples", "colors"]
+draft: false
+summary: "Utilities for controlling the accented color of a form control."
+---
+
+## Basic usage
+
+### Setting the accent color
+
+Use the `accent-{color}` utilities to change the accent color of an element. This is helpful for styling elements like checkboxes and radio groups by overriding the browser's default color.
+
+```html
+<div class="flex flex-wrap justify-center gap-6">
+  <label class="flex items-center space-x-2">
+    <input type="checkbox" checked />
+    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Browser default
+    </div>
+  </label>
+  <label class="flex items-center space-x-2">
+    <input type="checkbox" class="accent-pink-500" checked />
+    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+      Customized
+    </div>
+  </label>
+</div>
+```
+
+```html
+<label> <input type="checkbox" checked /> Browser default </label>
+<label>
+  <input type="checkbox" class="**accent-pink-500**" checked /> Customized
+</label>
+```
+
+### Changing the opacity
+
+While it's possible to control the opacity of the accent color using the color opacity modifier, the `rgba()` alpha value is only supported in Firefox at this time _(last tested November 2021)_.
+
+```html
+<input type="checkbox" class="**accent-emerald-500/25**" checked /> Emerald
+```
+
+---
+
+## Applying conditionally
+
+### Hover, focus, and other states
+
+```html
+<input
+  type="checkbox"
+  class="accent-pink-300 **focus:accent-pink-500**"
+  checked
+/>
+```
+
+Note, while it's possible to set an accent color using the `hover` and `active` modifiers, the resulting color will be slightly different than what you set, as browsers automatically adjust the brightness of the accent color for these two states.
+
+### Breakpoints and media queries
+
+```html
+<input type="checkbox" class="accent-pink-300 **md:accent-pink-500**" checked />
+```
+
+---
+
+## Using custom values
+
+### Customizing your theme
+
+### Arbitrary values example
+
+```html
+<input type="checkbox" class="**accent-[#50d71e]**" checked />
+```
