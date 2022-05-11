@@ -22,13 +22,13 @@ const projectsData = {
     {
       title: "iSensei Courses Platform",
       description: "Fully Responsive Online Learning Platform",
-      imgSrc: "/static/images/platform.jpg",
+      imgSrc: "/static/images/platform.png",
       href: "https://courses.isensei.pl/",
     },
     {
       title: "iSensei Mockup",
       description: "Design files created in Figma for iSensei Platform",
-      imgSrc: "/static/images/platform.jpg",
+      imgSrc: "/static/images/platform.png",
       href: "https://www.figma.com/file/Hnasdc7eTUNsx3SjC7C3uj/Mockup?node-id=0%3A1",
     },
     {
@@ -68,13 +68,13 @@ const projectsData = {
     {
       title: "Platforma iSensei",
       description: "W pełni responsywna strona z kursami",
-      imgSrc: "/static/images/platform.jpg",
+      imgSrc: "/static/images/platform.png",
       href: "https://courses.isensei.pl/",
     },
     {
       title: "Mockup iSensei",
       description: "Mockup platformy z kursami stworzony w Figmie",
-      imgSrc: "/static/images/platform.jpg",
+      imgSrc: "/static/images/platform.png",
       href: "https://www.figma.com/file/Hnasdc7eTUNsx3SjC7C3uj/Mockup?node-id=0%3A1",
     },
     {
