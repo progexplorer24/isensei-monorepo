@@ -21,7 +21,6 @@
     "framer-motion": "^6.2.3"
   },
   "devDependencies": {
-    "@isensei/bindings": "*",
     "eslint-preset-isensei": "*"
   }
 }

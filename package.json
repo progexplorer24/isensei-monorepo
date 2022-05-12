@@ -44,6 +44,7 @@
   },
   "workspaces": [
     "packages/*",
+    "packages/bindings/*",
     "apps/*"
   ],
   "devDependencies": {

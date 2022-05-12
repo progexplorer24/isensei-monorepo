@@ -3519,12 +3519,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@isensei/bindings@*, @isensei/bindings@workspace:packages/bindings":
-  version: 0.0.0-use.local
-  resolution: "@isensei/bindings@workspace:packages/bindings"
-  languageName: unknown
-  linkType: soft
-
 "@isensei/css@*, @isensei/css@workspace:packages/css":
   version: 0.0.0-use.local
   resolution: "@isensei/css@workspace:packages/css"
@@ -3579,7 +3573,6 @@ __metadata:
   dependencies:
     "@headlessui/react": ^1.4.3
     "@heroicons/react": ^1.0.5
-    "@isensei/bindings": "*"
     "@isensei/tailwind": "*"
     eslint-preset-isensei: "*"
     framer-motion: ^6.2.3
@@ -8184,6 +8177,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cypress-fc7df6@workspace:packages/bindings/cypress":
+  version: 0.0.0-use.local
+  resolution: "cypress-fc7df6@workspace:packages/bindings/cypress"
+  languageName: unknown
+  linkType: soft
+
 "d@npm:1, d@npm:^1.0.1":
   version: 1.0.1
   resolution: "d@npm:1.0.1"
@@ -8834,6 +8833,12 @@ __metadata:
   checksum: ddaaa02542e1e9436c03970eeed445f4ed29a5337dfba0fe0c38dfdd2af5da2429c2a0821304e8a8d1cadf27fdd5b22ff793571fa803ae16852a6975c65e8e70
   languageName: node
   linkType: hard
+
+"emotion-fb66d3@workspace:packages/bindings/emotion":
+  version: 0.0.0-use.local
+  resolution: "emotion-fb66d3@workspace:packages/bindings/emotion"
+  languageName: unknown
+  linkType: soft
 
 "encodeurl@npm:~1.0.2":
   version: 1.0.2
@@ -13439,6 +13444,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-global-96177d@workspace:packages/bindings/js-global":
+  version: 0.0.0-use.local
+  resolution: "js-global-96177d@workspace:packages/bindings/js-global"
+  languageName: unknown
+  linkType: soft
+
 "js-sha3@npm:0.8.0, js-sha3@npm:^0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -16061,6 +16072,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-1e7df9@workspace:packages/bindings/next":
+  version: 0.0.0-use.local
+  resolution: "next-1e7df9@workspace:packages/bindings/next"
+  languageName: unknown
+  linkType: soft
+
 "next-auth@npm:^4.1.0":
   version: 4.1.0
   resolution: "next-auth@npm:4.1.0"
@@ -16122,6 +16139,12 @@ __metadata:
   checksum: a67b15c2556e380c7dfbe8651d8a89fe34f42f439fa910ece5585e988a7c23116f3e432eef93984bb3bba9683798f2f757642652883288550bf613357cc67ea3
   languageName: node
   linkType: hard
+
+"next-themes-56c6c8@workspace:packages/bindings/next-themes":
+  version: 0.0.0-use.local
+  resolution: "next-themes-56c6c8@workspace:packages/bindings/next-themes"
+  languageName: unknown
+  linkType: soft
 
 "next-themes@npm:^0.0.15":
   version: 0.0.15
@@ -16295,6 +16318,12 @@ __metadata:
   checksum: 52ea6ff01a882766ceec74a0752c0cf9571fa72559a7a3e8969779fa5ae113a2d63cb54dd267fa83a533ab2b7617131d4a6996114701f4ca27246d2513b0e5a5
   languageName: node
   linkType: hard
+
+"node-bb2c55@workspace:packages/bindings/node":
+  version: 0.0.0-use.local
+  resolution: "node-bb2c55@workspace:packages/bindings/node"
+  languageName: unknown
+  linkType: soft
 
 "node-environment-flags@npm:1.0.6":
   version: 1.0.6
@@ -22583,6 +22612,12 @@ __metadata:
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
   languageName: node
   linkType: hard
+
+"window-object-e6c45a@workspace:packages/bindings/window-object":
+  version: 0.0.0-use.local
+  resolution: "window-object-e6c45a@workspace:packages/bindings/window-object"
+  languageName: unknown
+  linkType: soft
 
 "window-size@npm:^0.2.0":
   version: 0.2.0
