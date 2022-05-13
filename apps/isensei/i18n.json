@@ -14,6 +14,7 @@
     "/projects": ["projects"],
     "/privacy-policy": ["privacyPolicy"],
     "/contact": ["contact"],
-    "/matura/*": ["matura"]
+    "/matura/*": ["matura"],
+    "/": ["hero"]
   }
 }

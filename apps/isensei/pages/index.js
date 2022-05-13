@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "@/components/Link";
+import Hero from "@/components/Hero";
 import { PageSEO } from "@/components/SEO";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
@@ -28,16 +29,17 @@ export default function Home({ posts, locale, availableLocales }) {
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
+      <Hero />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <div className="flex flex-col-reverse sm:flex-row items-start">
             <div className="flex flex-col pr-8">
-              <h1 className="font-bold text-5xl tracking-tight mb-1 text-black dark:text-white">
+              <h2 className="font-bold text-5xl tracking-tight mb-1 text-black dark:text-white">
                 iSensei
-              </h1>
-              <h2 className="text-gray-700 dark:text-gray-200 mb-4">
-                {t("bio:subtitle")}
               </h2>
+              <h3 className="text-gray-700 dark:text-gray-200 mb-4">
+                {t("bio:subtitle")}
+              </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
                 {t("bio:aboutMe")}
               </p>
