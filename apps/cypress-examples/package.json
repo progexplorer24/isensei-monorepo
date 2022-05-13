@@ -7,15 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:integration": "cypress open",
-    "test:component": "cypress open-ct"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next",
+    "test:integration": "../../node_modules/.bin/cypress open",
+    "test:component": "../../node_modules/.bin/cypress open-ct"
   },
   "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "next": "^12.1.6",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
-    "cypress": "^9.6.1"
+    "cypress": "^9.6.1",
+    "eslint-preset-isensei": "*"
   }
 }

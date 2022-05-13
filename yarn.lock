@@ -8439,9 +8439,10 @@ __metadata:
   resolution: "cypress-examples@workspace:apps/cypress-examples"
   dependencies:
     cypress: ^9.6.1
-    next: 12.1.6
-    react: 18.1.0
-    react-dom: 18.1.0
+    eslint-preset-isensei: "*"
+    next: ^12.1.6
+    react: ^18.1.0
+    react-dom: ^18.1.0
   languageName: unknown
   linkType: soft
 
@@ -16771,7 +16772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:12.1.6":
+"next@npm:^12.1.6":
   version: 12.1.6
   resolution: "next@npm:12.1.6"
   dependencies:
@@ -18619,18 +18620,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.1.0":
-  version: 18.1.0
-  resolution: "react-dom@npm:18.1.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    scheduler: ^0.22.0
-  peerDependencies:
-    react: ^18.1.0
-  checksum: bb0d48eeb0b297c79c2a03978baa29f5b3ff7ba3d070b21e34c9af1a6e7fdf0ca8b8d73e41f9214d91ad40eeb6d1f3559f884cbbc338713374a51320637c23df
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:^16.8.6":
   version: 16.14.0
   resolution: "react-dom@npm:16.14.0"
@@ -18642,6 +18631,18 @@ __metadata:
   peerDependencies:
     react: ^16.14.0
   checksum: 5a5c49da0f106b2655a69f96c622c347febcd10532db391c262b26aec225b235357d9da1834103457683482ab1b229af7a50f6927a6b70e53150275e31785544
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "react-dom@npm:18.1.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    scheduler: ^0.22.0
+  peerDependencies:
+    react: ^18.1.0
+  checksum: bb0d48eeb0b297c79c2a03978baa29f5b3ff7ba3d070b21e34c9af1a6e7fdf0ca8b8d73e41f9214d91ad40eeb6d1f3559f884cbbc338713374a51320637c23df
   languageName: node
   linkType: hard
 
@@ -18671,15 +18672,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.1.0":
-  version: 18.1.0
-  resolution: "react@npm:18.1.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 5bb296b561b43ef2220395da4faac86c14a087c8c80e1a7598a5740f01ee605c11eaf249985c1e2000971c4cd32ccb46d40f00479bbd9fb6b1c7cf857393b7d4
-  languageName: node
-  linkType: hard
-
 "react@npm:^16.8.6":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
@@ -18688,6 +18680,15 @@ __metadata:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
+  languageName: node
+  linkType: hard
+
+"react@npm:^18.1.0":
+  version: 18.1.0
+  resolution: "react@npm:18.1.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 5bb296b561b43ef2220395da4faac86c14a087c8c80e1a7598a5740f01ee605c11eaf249985c1e2000971c4cd32ccb46d40f00479bbd9fb6b1c7cf857393b7d4
   languageName: node
   linkType: hard
 
