@@ -3,5 +3,5 @@
     "testFiles": "**/__tests__/+([a-zA-Z0-9_-]).@(js|mjs)",
     "componentFolder": "./"
   },
-  "ignoreTestFiles": "*.res"
+  "ignoreTestFiles": ["*.res", "*.md"]
 }
