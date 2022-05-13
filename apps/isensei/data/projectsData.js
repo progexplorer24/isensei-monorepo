@@ -4,20 +4,13 @@ const projectsData = {
       title: "Functional CSS Framework",
       description: `Rescript implementation of TailwindCSS API with style composition. Build scalable & maintainable CSS`,
       imgSrc: "/static/images/tailwindui-small.jpg",
-      href: "https://github.com/progexplorer24/isensei-monorepo/tree/main/packages",
+      href: "https://github.com/progexplorer24/isensei-monorepo/blob/main/packages/README.md",
     },
     {
       title: "Cypress Framework Bindings",
       description: `API for writing tests in Rescript using Cypress Testing Framework.`,
       imgSrc: "/static/images/testing.jpeg",
-      href: "https://github.com/progexplorer24/rescript-monorepo/blob/master/src/bindings/Cypress.res",
-    },
-    {
-      title: "Unit & Integration Tests",
-      description:
-        "Test examples written in Rescript. They present how you should use Cypress Bindings in Rescript.",
-      imgSrc: "/static/images/testing.jpeg",
-      href: "https://github.com/progexplorer24/rescript-monorepo/tree/master/cypress/integration",
+      href: "https://github.com/progexplorer24/isensei-monorepo/blob/main/packages/bindings/cypress/README.md",
     },
     {
       title: "iSensei Courses Platform",
@@ -50,20 +43,13 @@ const projectsData = {
       title: "Funkcyjny framework CSS",
       description: `Implementacja TailwindCSS w Rescript umożliwiająca kompozycję stylów.`,
       imgSrc: "/static/images/tailwindui-small.jpg",
-      href: "https://github.com/progexplorer24/isensei-monorepo/tree/main/packages",
+      href: "https://github.com/progexplorer24/isensei-monorepo/blob/main/packages/README.md",
     },
     {
       title: "Wiązania do Cypress",
       description: `API umożliwiające pisanie testów jednostkowych, integracyjnych oraz end-to-end w języku Rescript.`,
       imgSrc: "/static/images/testing.jpeg",
-      href: "https://github.com/progexplorer24/rescript-monorepo/blob/master/src/bindings/Cypress.res",
-    },
-    {
-      title: "Testy jednostkowe i integracyjne",
-      description:
-        "Setki tesów integracyjnych i jednostkowych, prezentujących działanie wiązań napisanych w Rescript'ie",
-      imgSrc: "/static/images/testing.jpeg",
-      href: "https://github.com/progexplorer24/rescript-monorepo/tree/master/cypress/integration",
+      href: "https://github.com/progexplorer24/isensei-monorepo/blob/main/packages/bindings/cypress/README.md",
     },
     {
       title: "Platforma iSensei",
