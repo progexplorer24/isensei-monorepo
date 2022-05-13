@@ -1,15 +1,15 @@
 # Cypress Bindings
 
-The goal of this project was to enable Rescript users to write unit, integration & end-to-end tests.
+This project enables you to write Cypress tests in Rescript.
 
-At the time of writing there was no solution that enabled writing Cypress test with fully-typed API in Rescript ([Link to original repo](https://github.com/progexplorer24/rescript-monorepo/tree/master/src/bindings)).
+At the time of creating it there weren't any cypress bindings available ([Link to original repo](https://github.com/progexplorer24/rescript-monorepo/tree/master/src/bindings)). Things have changed now, and you can find cypress bindings on npm. See [Alternatives](##alternatives)
 
 ## Usage
 I created hundreds of test examples. You can check them out here:
 [**Cypress Test Examples**](https://github.com/progexplorer24/isensei-monorepo/tree/main/apps/cypress-examples/cypress/integration)
 
 ## Alternatives 
-Since then some community members created alternative implementation. Project seems to be actively maintained and is available on npm. I never used though. You can check it out and see wchich one you prefer - [Rescript Cypress](https://github.com/noble-ai/rescript-cypress).
+Other Rescript community members also shared their implementation. Project seems to be actively maintained and is available on npm. You can check it out and see which one you prefer - [Rescript Cypress](https://github.com/noble-ai/rescript-cypress).
 
 
 ## Credits
