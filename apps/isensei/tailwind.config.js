@@ -23,7 +23,7 @@ module.exports = {
       },
       fontSize: {
         "10xl": "10rem",
-        "8.5xl": "7rem",
+        "8.5xl": "6.5rem",
       },
       letterSpacing: {
         tightest: "-.06em",
