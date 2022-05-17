@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import useTranslation from "next-translate/useTranslation";
 
 import Link from "@/components/Link";
@@ -18,7 +17,6 @@ const ExternalLink = ({ href, children }) => (
 );
 
 export default function Footer() {
-  const { locale } = useRouter();
   const { t } = useTranslation();
   return (
     <footer className="max-w-2xl mx-auto w-full mb-8 mt-16">
@@ -83,6 +81,12 @@ export default function Footer() {
             className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
           >
             {t("footerLinks:contact")}
+          </Link>
+          <Link
+            href="/statute"
+            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+          >
+            {t("footerLinks:statute")}
           </Link>
         </div>
       </div>
