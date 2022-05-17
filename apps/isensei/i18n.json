@@ -16,6 +16,7 @@
     "/contact": ["contact"],
     "/mission": ["mission"],
     "/statute": ["statute"],
+    "/snippets": ["snippets"],
     "/matura/*": ["matura"],
     "/": ["hero"]
   }
