@@ -17,9 +17,9 @@ const siteMetadata = {
   email: "isensei.pl@gmail.com",
   github: "https://github.com/progexplorer24",
   twitter: "https://twitter.com/isensei_pl",
-  facebook: "https://www.facebook.com/myway.angielski.matematyka",
+  facebook: "https://www.facebook.com/fundacja.isensei",
   youtube: "https://www.youtube.com/channel/UCaOCGxhpt_Tk6Vj9gwlGduA",
-  linkedin: "linkedin.com/in/isensei-foundation-bb3b27229",
+  linkedin: "linkedin.com/in/isensei",
   locale: "en-US",
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
