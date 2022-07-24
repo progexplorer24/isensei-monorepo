@@ -1,0 +1,57 @@
+import { useSSG } from "nextra/ssg";
+import fs from "fs";
+import path from "path";
+import process from "process";
+import { Sandpack } from "@codesandbox/sandpack-react";
+import Container from "../../components/storybook/Container.tsx";
+import {options} from "../../config/sandpack.ts";
+
+export const getStaticProps = () => {
+    const rawData = fs.readFileSync(process.cwd() + "/components/storybook/Container.tsx", "utf8");
+    return {
+    	props: {
+    		// We add an `ssg` field to the page props,
+    		// which will be provided to the Nextra `useSSG` hook.
+    		ssg: {
+    			files: rawData,
+    		},
+    	},
+    };
+
+};
+
+export const InteractiveExample = () => {
+	// Get the data from SSG, and render it as a component.
+	const { files } = useSSG();
+	console.log(files);
+	const code = `import Container from "/Container.tsx";
+  export default function App(): JSX.Element {
+  return <Container widthInPx={100} className="my-4 py-4 h-10" />
+}`;
+	const sandPackFileObject = {
+		"/App.tsx": code,
+		"/Container.tsx": files,
+	};
+	const customSetup = {
+		dependencies: {
+			"@emotion/css": "^11.9.0",
+			tailwindcss: "^3.1.6",
+		},
+	};
+    return (
+    	<Sandpack
+    		template="react-ts"
+    		theme="dark"
+				options={options}
+    		files={sandPackFileObject}
+    		customSetup={customSetup}
+    	/>
+    );
+
+};
+
+# Container Component
+
+<Container widthInPx={300} className="py-24 my-12" />
+
+<InteractiveExample />
