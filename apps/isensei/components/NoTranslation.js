@@ -5,8 +5,8 @@ const NoTranslation = ({ language }) => {
     </p>
   ) : (
     <p className="text-gray-600 dark:text-gray-400">
-      We're sorry, but we do not provide English translation for this page at
-      the moment.
+      We&apos;re sorry, but we do not provide English translation for this page
+      at the moment.
     </p>
   );
 };

@@ -74,8 +74,8 @@ export default function SignIn({ providers }) {
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    An unexpected problem occurred while I'm trying to log you
-                    in. Please try with another providers.
+                    An unexpected problem occurred while I&apos;m trying to log
+                    you in. Please try with another providers.
                   </p>
                 </div>
 
