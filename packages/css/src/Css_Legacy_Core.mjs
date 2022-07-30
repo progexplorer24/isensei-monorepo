@@ -136,7 +136,7 @@ function join(strings, separator) {
     _acc = acc + (x + separator);
     _strings = xs;
     continue ;
-  };
+  }
 }
 
 function string_of_content(x) {

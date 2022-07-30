@@ -8,16 +8,23 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended",
     "next",
     "next/core-web-vitals",
-    "prettier",
+    "plugin:prettier/recommended",
   ],
   settings: {
     next: {
       rootDir: ["./apps/*/"],
     },
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.mts", "*.cts", "*.tsx"],
+      rules: {
+        "no-undef": 0,
+      },
+    },
+  ],
   rules: {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
@@ -30,7 +37,6 @@ module.exports = {
       },
     ],
     "react/prop-types": 0,
-    "no-unused-vars": 0,
-    "react/no-unescaped-entities": 0,
+    "no-unused-vars": 1,
   },
 };
