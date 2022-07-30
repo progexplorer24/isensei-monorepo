@@ -1,7 +1,7 @@
 {
   "name": "isensei-monorepo",
   "namespace": true,
-  "suffix": ".mjs",
+  "suffix": ".bs.js",
   "reason": { "react-jsx": 3 },
   "bsc-flags": ["-bs-super-errors"],
   "ppx-flags": [],
