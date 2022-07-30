@@ -4,7 +4,7 @@ With Next.js, you can pre-render your page using [Static Generation (SSG)](https
 
 This is supported by Nextra too. Here's an example:
 
-import { useSSG } from 'nextra/ssg'
+import { useSSG } from "nextra/ssg";
 
 export const getStaticProps = ({ params }) => {
   return fetch(`https://api.github.com/repos/shuding/nextra`)
@@ -19,14 +19,14 @@ export const getStaticProps = ({ params }) => {
       },
       // The page will be considered as stale and regenerated every 60 seconds.
       revalidate: 60,
-    }))
-}
+    }));
+};
 
 export const Stars = () => {
   // Get the data from SSG, and render it as a component.
-  const { stars } = useSSG()
-  return <strong>{stars}</strong>
-}
+  const { stars } = useSSG();
+  return <strong>{stars}</strong>;
+};
 
 <div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6">
   Nextra has <Stars /> stars on GitHub!

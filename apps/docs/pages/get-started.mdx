@@ -21,12 +21,12 @@ Nextra works like a Next.js plugin, and it accepts a theme config (layout) to re
 
 ```jsx
 // next.config.js
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.js',
+const withNextra = require("nextra")({
+  theme: "nextra-theme-docs",
+  themeConfig: "./theme.config.js",
   // optional: add `unstable_staticImage: true` to enable Nextra's auto image import
-})
-module.exports = withNextra()
+});
+module.exports = withNextra();
 ```
 
 4. Create a `theme.config.js` file for the docs theme:
@@ -34,9 +34,9 @@ module.exports = withNextra()
 ```jsx
 // theme.config.js
 export default {
-  projectLink: 'https://github.com/shuding/nextra', // GitHub link in the navbar
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master', // base URL for the docs repository
-  titleSuffix: ' – Nextra',
+  projectLink: "https://github.com/shuding/nextra", // GitHub link in the navbar
+  docsRepositoryBase: "https://github.com/shuding/nextra/blob/master", // base URL for the docs repository
+  titleSuffix: " – Nextra",
   nextLinks: true,
   prevLinks: true,
   search: true,
@@ -58,10 +58,10 @@ export default {
       <meta name="og:title" content="Nextra: the next docs builder" />
     </>
   ),
-}
+};
 ```
 
-import Callout from 'nextra-theme-docs/callout'
+import Callout from "nextra-theme-docs/callout";
 
 <Callout>
   More configuration options for the docs theme can be found
@@ -71,10 +71,10 @@ import Callout from 'nextra-theme-docs/callout'
 5. Create `pages/_app.js` and include the theme stylesheet:
 
 ```jsx
-import 'nextra-theme-docs/style.css'
+import "nextra-theme-docs/style.css";
 
 export default function Nextra({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 ```
 

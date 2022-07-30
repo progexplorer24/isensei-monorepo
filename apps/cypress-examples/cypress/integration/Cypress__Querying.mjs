@@ -2,57 +2,128 @@
 
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.mjs";
 
-Cypress$IsenseiMonorepo.context("Querying", (function (param) {
-        Cypress$IsenseiMonorepo.beforeEach(function (param) {
-              cy.visit("https://example.cypress.io/commands/querying", undefined);
-              
-            });
-        Cypress$IsenseiMonorepo.it("cy.get() - query DOM elements", (function (param) {
-                Cypress$IsenseiMonorepo.shouldContain(cy.get("#query-btn", undefined), "Button");
-                Cypress$IsenseiMonorepo.shouldContain(cy.get(".query-btn", undefined), "Button");
-                Cypress$IsenseiMonorepo.shouldContain(cy.get("#querying .well>button:first", undefined), "Button");
-                Cypress$IsenseiMonorepo.shouldHaveClass(cy.get("[data-test-id=\"test-example\"]", undefined), "example");
-                Cypress$IsenseiMonorepo.shouldEqualString(cy.get("[data-test-id=\"test-example\"]", undefined).invoke("attr", "data-test-id"), "test-example");
-                Cypress$IsenseiMonorepo.shouldEqualString(cy.get("[data-test-id=\"test-example\"]", undefined).invoke("css", "position"), "static");
-                return Cypress$IsenseiMonorepo.andHaveCss(Cypress$IsenseiMonorepo.shouldHaveAttrWithValueP(cy.get("[data-test-id=\"test-example\"]", undefined), "data-test-id", "test-example"), "position", "static");
-              }));
-        Cypress$IsenseiMonorepo.it("cy.contains() - query DOM elements with matching content", (function (param) {
-                Cypress$IsenseiMonorepo.andHaveClass(cy.get(".query-list", undefined).contains(undefined, "bananas", undefined), "third");
-                Cypress$IsenseiMonorepo.shouldHaveClass(cy.get(".query-list", undefined).contains(undefined, /^b\w+/, undefined), "third");
-                Cypress$IsenseiMonorepo.shouldHaveClass(cy.get(".query-list", undefined).contains(undefined, "apples", undefined), "first");
-                Cypress$IsenseiMonorepo.shouldHaveClass(cy.get("#querying", undefined).contains("ul", "oranges", undefined), "query-list");
-                return Cypress$IsenseiMonorepo.shouldHaveClass(cy.get(".query-button", undefined).contains(undefined, "Save Form", undefined), "btn");
-              }));
-        Cypress$IsenseiMonorepo.it(".within() - query DOM elements within a specific element", (function (param) {
-                cy.get(".query-form", undefined).within(function (param) {
-                      Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(cy.get("input:first", undefined), "placeholder", "Email");
-                      return Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(cy.get("input:last", undefined), "placeholder", "Password");
-                    });
-                
-              }));
-        Cypress$IsenseiMonorepo.it("cy.root() - query the root DOM element", (function (param) {
-                Cypress$IsenseiMonorepo.shouldMatch(cy.root(undefined), "html");
-                cy.get(".query-ul", undefined).within(function (param) {
-                      return Cypress$IsenseiMonorepo.shouldHaveClass(cy.root(undefined), "query-ul");
-                    });
-                
-              }));
-        return Cypress$IsenseiMonorepo.it("best practices - selecting elements", (function (param) {
-                      cy.get("[data-cy=best-practices-selecting-elements]", undefined).within(function (param) {
-                            cy.get("button", undefined).click(undefined);
-                            cy.get(".btn.btn-large", undefined).click(undefined);
-                            cy.get("[name=submission]", undefined).click(undefined);
-                            cy.get("#main", undefined).click(undefined);
-                            cy.get("#main[role=button]", undefined).click(undefined);
-                            cy.contains(undefined, "Submit", undefined).click(undefined);
-                            cy.get("[data-cy=submit]", undefined).click(undefined);
-                            
-                          });
-                      
-                    }));
-      }));
+Cypress$IsenseiMonorepo.context("Querying", function (param) {
+  Cypress$IsenseiMonorepo.beforeEach(function (param) {
+    cy.visit("https://example.cypress.io/commands/querying", undefined);
+  });
+  Cypress$IsenseiMonorepo.it("cy.get() - query DOM elements", function (param) {
+    Cypress$IsenseiMonorepo.shouldContain(
+      cy.get("#query-btn", undefined),
+      "Button"
+    );
+    Cypress$IsenseiMonorepo.shouldContain(
+      cy.get(".query-btn", undefined),
+      "Button"
+    );
+    Cypress$IsenseiMonorepo.shouldContain(
+      cy.get("#querying .well>button:first", undefined),
+      "Button"
+    );
+    Cypress$IsenseiMonorepo.shouldHaveClass(
+      cy.get('[data-test-id="test-example"]', undefined),
+      "example"
+    );
+    Cypress$IsenseiMonorepo.shouldEqualString(
+      cy
+        .get('[data-test-id="test-example"]', undefined)
+        .invoke("attr", "data-test-id"),
+      "test-example"
+    );
+    Cypress$IsenseiMonorepo.shouldEqualString(
+      cy
+        .get('[data-test-id="test-example"]', undefined)
+        .invoke("css", "position"),
+      "static"
+    );
+    return Cypress$IsenseiMonorepo.andHaveCss(
+      Cypress$IsenseiMonorepo.shouldHaveAttrWithValueP(
+        cy.get('[data-test-id="test-example"]', undefined),
+        "data-test-id",
+        "test-example"
+      ),
+      "position",
+      "static"
+    );
+  });
+  Cypress$IsenseiMonorepo.it(
+    "cy.contains() - query DOM elements with matching content",
+    function (param) {
+      Cypress$IsenseiMonorepo.andHaveClass(
+        cy
+          .get(".query-list", undefined)
+          .contains(undefined, "bananas", undefined),
+        "third"
+      );
+      Cypress$IsenseiMonorepo.shouldHaveClass(
+        cy
+          .get(".query-list", undefined)
+          .contains(undefined, /^b\w+/, undefined),
+        "third"
+      );
+      Cypress$IsenseiMonorepo.shouldHaveClass(
+        cy
+          .get(".query-list", undefined)
+          .contains(undefined, "apples", undefined),
+        "first"
+      );
+      Cypress$IsenseiMonorepo.shouldHaveClass(
+        cy.get("#querying", undefined).contains("ul", "oranges", undefined),
+        "query-list"
+      );
+      return Cypress$IsenseiMonorepo.shouldHaveClass(
+        cy
+          .get(".query-button", undefined)
+          .contains(undefined, "Save Form", undefined),
+        "btn"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".within() - query DOM elements within a specific element",
+    function (param) {
+      cy.get(".query-form", undefined).within(function (param) {
+        Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(
+          cy.get("input:first", undefined),
+          "placeholder",
+          "Email"
+        );
+        return Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(
+          cy.get("input:last", undefined),
+          "placeholder",
+          "Password"
+        );
+      });
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    "cy.root() - query the root DOM element",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldMatch(cy.root(undefined), "html");
+      cy.get(".query-ul", undefined).within(function (param) {
+        return Cypress$IsenseiMonorepo.shouldHaveClass(
+          cy.root(undefined),
+          "query-ul"
+        );
+      });
+    }
+  );
+  return Cypress$IsenseiMonorepo.it(
+    "best practices - selecting elements",
+    function (param) {
+      cy.get("[data-cy=best-practices-selecting-elements]", undefined).within(
+        function (param) {
+          cy.get("button", undefined).click(undefined);
+          cy.get(".btn.btn-large", undefined).click(undefined);
+          cy.get("[name=submission]", undefined).click(undefined);
+          cy.get("#main", undefined).click(undefined);
+          cy.get("#main[role=button]", undefined).click(undefined);
+          cy.contains(undefined, "Submit", undefined).click(undefined);
+          cy.get("[data-cy=submit]", undefined).click(undefined);
+        }
+      );
+    }
+  );
+});
 
-export {
-  
-}
+export {};
 /*  Not a pure module */

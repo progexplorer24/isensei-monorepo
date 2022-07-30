@@ -6,11 +6,11 @@ directory. The file looks something like this:
 
 ```ts
 export default {
-  projectLink: 'https://gitlab.com/librewolf-community/browser',
-  titleSuffix: ' – Nextra',
+  projectLink: "https://gitlab.com/librewolf-community/browser",
+  titleSuffix: " – Nextra",
   footerText: `MIT ${new Date().getFullYear()} © Nextra.`,
   // ...
-}
+};
 ```
 
 ## `projectLink`
@@ -30,11 +30,11 @@ Changes the icon that is shown in the top right.
 **Example:**
 
 ```jsx
-import Gitlab from '@geist-ui/react-icons/gitlab'
+import Gitlab from "@geist-ui/react-icons/gitlab";
 
 export default {
   projectLinkIcon: <Gitlab />,
-}
+};
 ```
 
 ## `docsRepositoryBase`
@@ -112,7 +112,7 @@ The text that is shown on the left of the footer.
 ```js
 export default {
   footerText: `MIT ${new Date().getFullYear()} © Nextra.`,
-}
+};
 ```
 
 ## `footerEditLink`
@@ -142,7 +142,7 @@ export default {
       </span>
     </React.Fragment>
   ),
-}
+};
 ```
 
 ## `head`
@@ -169,7 +169,7 @@ export default {
       <meta name="apple-mobile-web-app-title" content="Nextra" />
     </React.Fragment>
   ),
-}
+};
 ```
 
 ## `direction`
@@ -192,14 +192,14 @@ the menu on the left.
 **Type:** `boolean`\
 **Default:** `false`
 
-import Callout from 'nextra-theme-docs/callout'
+import Callout from "nextra-theme-docs/callout";
 
 export const Unstable = () => (
   <Callout type="error" emoji="">
     This is an unstable and experimental feature and not recommended for general
     use.
   </Callout>
-)
+);
 
 ## `unstable_faviconGlyph`
 

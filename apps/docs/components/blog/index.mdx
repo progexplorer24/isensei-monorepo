@@ -1,6 +1,6 @@
 # Get Started
 
-import Callout from 'nextra-theme-docs/callout'
+import Callout from "nextra-theme-docs/callout";
 
 <Callout>
   An example of the blog theme can be found
@@ -19,12 +19,12 @@ Similar to the docs theme, you can install the blog theme with the following com
 
 ```jsx
 // next.config.js
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-blog',
-  themeConfig: './theme.config.js',
+const withNextra = require("nextra")({
+  theme: "nextra-theme-blog",
+  themeConfig: "./theme.config.js",
   // optional: add `unstable_staticImage: true` to enable Nextra's auto image import
-})
-module.exports = withNextra()
+});
+module.exports = withNextra();
 ```
 
 ```jsx
@@ -33,36 +33,38 @@ export default {
   footer: <p>MIT 2021 © Nextra.</p>,
   head: ({ title, meta }) => (
     <>
-      {meta.description && <meta name="description" content={meta.description} />}
+      {meta.description && (
+        <meta name="description" content={meta.description} />
+      )}
       {meta.tag && <meta name="keywords" content={meta.tag} />}
       {meta.author && <meta name="author" content={meta.author} />}
     </>
   ),
-  readMore: 'Read More →',
+  readMore: "Read More →",
   titleSuffix: null,
   postFooter: null,
   cusdis: {
-    appId: 'your_app_id',
-    host: 'your_host(optional)',
-    lang: 'your_lang'
+    appId: "your_app_id",
+    host: "your_host(optional)",
+    lang: "your_lang",
   },
   darkMode: false,
   navs: [
     {
-      url: 'https://github.com/shuding/nextra',
-      name: 'Nextra'
-    }
-  ]
-}
+      url: "https://github.com/shuding/nextra",
+      name: "Nextra",
+    },
+  ],
+};
 ```
 
 4. Create `pages/_app.js` and include the theme stylesheet:
 
 ```jsx
-import 'nextra-theme-blog/style.css'
+import "nextra-theme-blog/style.css";
 
 export default function Nextra({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 ```
 

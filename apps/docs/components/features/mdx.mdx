@@ -19,7 +19,7 @@ import Callout from 'nextra-theme-docs/callout'
 
 Generates:
 
-import Callout from 'nextra-theme-docs/callout'
+import Callout from "nextra-theme-docs/callout";
 
 <div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6">
 **Markdown With React Components**
@@ -79,41 +79,41 @@ Automatic syntax highlighting:
 
 ````markdown
 ```js
-console.log('hello, world')
+console.log("hello, world");
 ```
 ````
 
 Renders:
 
 ```js
-console.log('hello, world')
+console.log("hello, world");
 ```
 
 You can also add the `highlight=<line|range>` modifier to highlight specific lines:
 
 ````markdown
 ```jsx highlight=4,6-8
-import useSWR from 'swr'
+import useSWR from "swr";
 
 function Profile() {
-  const { data, error } = useSWR('/api/user', fetcher)
+  const { data, error } = useSWR("/api/user", fetcher);
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  return <div>hello {data.name}!</div>
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return <div>hello {data.name}!</div>;
 }
 ```
 ````
 
 ```jsx highlight=4,6-8
-import useSWR from 'swr'
+import useSWR from "swr";
 
 function Profile() {
-  const { data, error } = useSWR('/api/user', fetcher)
+  const { data, error } = useSWR("/api/user", fetcher);
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  return <div>hello {data.name}!</div>
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return <div>hello {data.name}!</div>;
 }
 ```
 

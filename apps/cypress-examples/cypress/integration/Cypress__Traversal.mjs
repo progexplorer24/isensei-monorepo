@@ -2,80 +2,249 @@
 
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.mjs";
 
-Cypress$IsenseiMonorepo.context("Traversal", (function (param) {
-        Cypress$IsenseiMonorepo.beforeEach(function (param) {
-              cy.visit("https://example.cypress.io/commands/traversal", undefined);
-              
-            });
-        Cypress$IsenseiMonorepo.it(".children() - get child DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-breadcrumb", undefined).children(".active", undefined), "Data");
-              }));
-        Cypress$IsenseiMonorepo.it(".closest() - get closest ancestor DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveClass(cy.get(".traversal-badge", undefined).closest("ul", undefined), "list-group");
-              }));
-        Cypress$IsenseiMonorepo.it(".eq() - get a DOM element at a specific index", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-list>li", undefined).eq(1, undefined), "siamese");
-              }));
-        Cypress$IsenseiMonorepo.it(".filter() - get DOM elements that match the selector", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-nav>li", undefined).filter(".active", undefined), "About");
-              }));
-        Cypress$IsenseiMonorepo.it(".find() - get descendant DOM elements of the selector", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".traversal-pagination", undefined).find("li", undefined).find("a", undefined), 7);
-              }));
-        Cypress$IsenseiMonorepo.it(".first() - get first DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-table td", undefined).first(undefined), "1");
-              }));
-        Cypress$IsenseiMonorepo.it(".last() - get last DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-buttons .btn", undefined).last(undefined), "Submit");
-              }));
-        Cypress$IsenseiMonorepo.it(".next() - get next sibling DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-ul", undefined).contains(undefined, "apples", undefined).next(undefined), "oranges");
-              }));
-        Cypress$IsenseiMonorepo.it(".next() - get next sibling DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-ul", undefined).contains(undefined, "apples", undefined).next(Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined)), "oranges");
-              }));
-        Cypress$IsenseiMonorepo.it(".nextAll() - get all next sibling DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".traversal-next-all", undefined).contains(undefined, "oranges", undefined).nextAll(undefined), 3);
-              }));
-        Cypress$IsenseiMonorepo.it(".nextAll() - get all next sibling DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".traversal-next-all", undefined).contains(undefined, "oranges", undefined).nextAll(Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined)), 3);
-              }));
-        Cypress$IsenseiMonorepo.it(".nextUntil() - get next sibling DOM elements until next el", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get("#veggies", undefined).nextUntil("#nuts", undefined, undefined), 3);
-              }));
-        Cypress$IsenseiMonorepo.it(".nextUntil() - get next sibling DOM elements until next el", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get("#veggies", undefined).nextUntil("#nuts", undefined, undefined), 3);
-              }));
-        Cypress$IsenseiMonorepo.it(".nextUntil() - get next sibling DOM elements until next el", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get("#veggies", undefined).nextUntil("#nuts", "ul", undefined), 0);
-              }));
-        Cypress$IsenseiMonorepo.it(".not() - remove DOM elements from set of DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldNotContain(cy.get(".traversal-disabled .btn", undefined).not("[disabled]", undefined), "Disabled");
-              }));
-        Cypress$IsenseiMonorepo.it(".parent() - get parent DOM element from DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".traversal-mark", undefined).parent(undefined), "Morbi leo risus");
-              }));
-        Cypress$IsenseiMonorepo.it(".parents() - get parent DOM elements from DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldMatch(cy.get(".traversal-cite", undefined).parents(undefined), "blockquote");
-              }));
-        Cypress$IsenseiMonorepo.it(".parentsUntil() - get parent DOM elements from DOM elements until el", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".clothes-nav", undefined).find(".active", undefined).parentsUntil(".clothes-nav", undefined, undefined), 2);
-              }));
-        Cypress$IsenseiMonorepo.it(".prev() - get previous sibling DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".birds", undefined).find(".active", undefined).prev(undefined), "Lorikeets");
-              }));
-        Cypress$IsenseiMonorepo.it(".prevAll() - get all previous sibling DOM elements", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".fruits-list", undefined).find(".third", undefined).prevAll(undefined), 2);
-              }));
-        Cypress$IsenseiMonorepo.it(".prevUntil() - get all previous sibling DOM elements until el", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".foods-list", undefined).find("#nuts", undefined).prevUntil("#veggies", undefined, undefined), 3);
-              }));
-        return Cypress$IsenseiMonorepo.it(".siblings() - get all sibling DOM elements", (function (param) {
-                      return Cypress$IsenseiMonorepo.shouldHaveLength(cy.get(".traversal-pills .active", undefined).siblings(undefined), 2);
-                    }));
-      }));
+Cypress$IsenseiMonorepo.context("Traversal", function (param) {
+  Cypress$IsenseiMonorepo.beforeEach(function (param) {
+    cy.visit("https://example.cypress.io/commands/traversal", undefined);
+  });
+  Cypress$IsenseiMonorepo.it(
+    ".children() - get child DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy
+          .get(".traversal-breadcrumb", undefined)
+          .children(".active", undefined),
+        "Data"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".closest() - get closest ancestor DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveClass(
+        cy.get(".traversal-badge", undefined).closest("ul", undefined),
+        "list-group"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".eq() - get a DOM element at a specific index",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".traversal-list>li", undefined).eq(1, undefined),
+        "siamese"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".filter() - get DOM elements that match the selector",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".traversal-nav>li", undefined).filter(".active", undefined),
+        "About"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".find() - get descendant DOM elements of the selector",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".traversal-pagination", undefined)
+          .find("li", undefined)
+          .find("a", undefined),
+        7
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".first() - get first DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".traversal-table td", undefined).first(undefined),
+        "1"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".last() - get last DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".traversal-buttons .btn", undefined).last(undefined),
+        "Submit"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".next() - get next sibling DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy
+          .get(".traversal-ul", undefined)
+          .contains(undefined, "apples", undefined)
+          .next(undefined),
+        "oranges"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".next() - get next sibling DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy
+          .get(".traversal-ul", undefined)
+          .contains(undefined, "apples", undefined)
+          .next(
+            Cypress$IsenseiMonorepo.ChildrenOptions.make(
+              undefined,
+              undefined,
+              undefined
+            )
+          ),
+        "oranges"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".nextAll() - get all next sibling DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".traversal-next-all", undefined)
+          .contains(undefined, "oranges", undefined)
+          .nextAll(undefined),
+        3
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".nextAll() - get all next sibling DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".traversal-next-all", undefined)
+          .contains(undefined, "oranges", undefined)
+          .nextAll(
+            Cypress$IsenseiMonorepo.ChildrenOptions.make(
+              undefined,
+              undefined,
+              undefined
+            )
+          ),
+        3
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".nextUntil() - get next sibling DOM elements until next el",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy.get("#veggies", undefined).nextUntil("#nuts", undefined, undefined),
+        3
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".nextUntil() - get next sibling DOM elements until next el",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy.get("#veggies", undefined).nextUntil("#nuts", undefined, undefined),
+        3
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".nextUntil() - get next sibling DOM elements until next el",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy.get("#veggies", undefined).nextUntil("#nuts", "ul", undefined),
+        0
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".not() - remove DOM elements from set of DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldNotContain(
+        cy
+          .get(".traversal-disabled .btn", undefined)
+          .not("[disabled]", undefined),
+        "Disabled"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".parent() - get parent DOM element from DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".traversal-mark", undefined).parent(undefined),
+        "Morbi leo risus"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".parents() - get parent DOM elements from DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldMatch(
+        cy.get(".traversal-cite", undefined).parents(undefined),
+        "blockquote"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".parentsUntil() - get parent DOM elements from DOM elements until el",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".clothes-nav", undefined)
+          .find(".active", undefined)
+          .parentsUntil(".clothes-nav", undefined, undefined),
+        2
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".prev() - get previous sibling DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldContain(
+        cy.get(".birds", undefined).find(".active", undefined).prev(undefined),
+        "Lorikeets"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".prevAll() - get all previous sibling DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".fruits-list", undefined)
+          .find(".third", undefined)
+          .prevAll(undefined),
+        2
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".prevUntil() - get all previous sibling DOM elements until el",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy
+          .get(".foods-list", undefined)
+          .find("#nuts", undefined)
+          .prevUntil("#veggies", undefined, undefined),
+        3
+      );
+    }
+  );
+  return Cypress$IsenseiMonorepo.it(
+    ".siblings() - get all sibling DOM elements",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveLength(
+        cy.get(".traversal-pills .active", undefined).siblings(undefined),
+        2
+      );
+    }
+  );
+});
 
-export {
-  
-}
+export {};
 /*  Not a pure module */
