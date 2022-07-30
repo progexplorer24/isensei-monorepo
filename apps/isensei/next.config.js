@@ -25,11 +25,11 @@ const isDevelopment = process.env.NODE_ENV === "development";
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
-  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
-  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;
+  font-src 'self';
   frame-src giscus.app
 `;
 
@@ -75,6 +75,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const config = {
   swcMinify: true,
   reactStrictMode: true,
@@ -95,6 +98,12 @@ const config = {
     rules: [
       {
         test: /\.m?jsx?$/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
+        test: /\.tsx?$/,
         resolve: {
           fullySpecified: false,
         },
