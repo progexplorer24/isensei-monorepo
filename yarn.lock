@@ -5603,16 +5603,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.6":
-  version: 18.0.6
-  resolution: "@types/react-dom@npm:18.0.6"
+"@types/react-dom@npm:17.0.2":
+  version: 17.0.2
+  resolution: "@types/react-dom@npm:17.0.2"
   dependencies:
     "@types/react": "*"
-  checksum: db571047af1a567631758700b9f7d143e566df939cfe5fbf7535347cc0c726a1cdbb5e3f8566d076e54cf708b6c1166689de194a9ba09ee35efc9e1d45911685
+  checksum: 1725928a1c3a0026044e6401e6b53729e1a88849034fc67138d7784ec44a5132fe2e9056a19b741ccb462ff0ec0d8c2c01ef316bda19be0e31f2ead9346f600b
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.15":
+"@types/react@npm:*":
   version: 18.0.15
   resolution: "@types/react@npm:18.0.15"
   dependencies:
@@ -5620,6 +5620,16 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: e22cc388d1c145aa184787e44dc28db4789976c704cd5db475c170bb76a560eb81def5f346cfe750949bb3d43ad88822b8cbb9f19b1286e3795892a8263e7715
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:17.0.2":
+  version: 17.0.2
+  resolution: "@types/react@npm:17.0.2"
+  dependencies:
+    "@types/prop-types": "*"
+    csstype: ^3.0.2
+  checksum: a5198857165feddcbfc7d33e3322460ac62b8894d702414496a825b0c82272911ec33a42ef7c9d623a59308070eef4dfee6ff834b0674aa3f87eeb644196ee3b
   languageName: node
   linkType: hard
 
@@ -10011,8 +10021,8 @@ __metadata:
     "@codesandbox/sandpack-react": ^1.2.4
     "@emotion/css": ^11.9.0
     "@types/node": 18.0.3
-    "@types/react": 18.0.15
-    "@types/react-dom": 18.0.6
+    "@types/react": 17.0.2
+    "@types/react-dom": 17.0.2
     autoprefixer: ^10.4.7
     eslint-preset-isensei: "*"
     next: 12.2.2

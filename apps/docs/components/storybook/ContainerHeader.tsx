@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { cx, css } from "@emotion/css";
+import { cx } from "@emotion/css";
 
 type ContainerHeaderProps = {
   children: string;

@@ -1,3 +1,4 @@
+import React from "react";
 import { cx } from "@emotion/css";
 import { colorPalette } from "./colorPalette";
 import Container from "./Container";

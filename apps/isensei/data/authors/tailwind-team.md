@@ -10,10 +10,13 @@ github: https://github.com/tailwindlabs
 ---
 
 # Brand
+
 Tailwind CSS brand assets and usage guidelines.
 
 ​
+
 ## Trademark Usage Agreement
+
 The Tailwind name and logos are trademarks of Tailwind Labs Inc.
 
 You may not use the Tailwind name or logos in any way that could mistakenly imply any official connection with or endorsement of Tailwind Labs Inc. Any use of the Tailwind name or logos in a manner that could cause customer confusion is not permitted.

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { css, cx } from "@emotion/css";
 
@@ -55,7 +55,9 @@ type ListboxExampleProps = {
   wrapperStyles?: string;
 };
 
-export default function ListboxExample({ wrapperStyles = "" }) {
+export default function ListboxExample({
+  wrapperStyles = "",
+}: ListboxExampleProps) {
   const [selected, setSelected] = useState(people[0]);
 
   return (
