@@ -2,8 +2,8 @@
 
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Css from "@emotion/css";
-import * as Css_Colors$IsenseiMonorepo from "./Css_Colors.mjs";
-import * as Css_Js_Core$IsenseiMonorepo from "./Css_Js_Core.mjs";
+import * as Css_Colors$IsenseiMonorepo from "./Css_Colors.bs.js";
+import * as Css_Js_Core$IsenseiMonorepo from "./Css_Js_Core.bs.js";
 
 function renderRaw(param, css) {
   return Css.injectGlobal(css);

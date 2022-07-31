@@ -7,7 +7,7 @@ import * as $$String from "rescript/lib/es6/string.js";
 import * as Belt_List from "rescript/lib/es6/belt_List.js";
 import * as Js_option from "rescript/lib/es6/js_option.js";
 import * as Belt_Option from "rescript/lib/es6/belt_Option.js";
-import * as Css_AtomicTypes$IsenseiMonorepo from "./Css_AtomicTypes.mjs";
+import * as Css_AtomicTypes$IsenseiMonorepo from "./Css_AtomicTypes.bs.js";
 
 function ruleToDict(dict, rule) {
   switch (rule.TAG | 0) {
@@ -136,7 +136,7 @@ function join(strings, separator) {
     _acc = acc + (x + separator);
     _strings = xs;
     continue ;
-  }
+  };
 }
 
 function string_of_content(x) {

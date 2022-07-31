@@ -4,8 +4,8 @@ const config = {
   titleSuffix: " – iSensei",
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">iSensei</span>
-      <span className="text-gray-600 font-normal hidden md:inline">
+      <span className="mr-2 hidden font-extrabold md:inline">iSensei</span>
+      <span className="hidden font-normal text-gray-600 md:inline">
         The Documentation System for iSensei UI
       </span>
     </>

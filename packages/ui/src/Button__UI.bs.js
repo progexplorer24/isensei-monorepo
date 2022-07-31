@@ -2,7 +2,7 @@
 
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
-import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
+import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.bs.js";
 
 function toDarkValue(variant, isGroup) {
   if (variant === "sky") {

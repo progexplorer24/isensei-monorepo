@@ -4,7 +4,7 @@ import * as Curry from "rescript/lib/es6/curry.js";
 import * as Js_option from "rescript/lib/es6/js_option.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Belt_Option from "rescript/lib/es6/belt_Option.js";
-import * as Css_AtomicTypes$IsenseiMonorepo from "./Css_AtomicTypes.mjs";
+import * as Css_AtomicTypes$IsenseiMonorepo from "./Css_AtomicTypes.bs.js";
 
 function ruleToDict(dict, rule) {
   switch (rule.TAG | 0) {

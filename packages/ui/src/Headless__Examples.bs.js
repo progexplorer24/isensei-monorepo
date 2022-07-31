@@ -6,7 +6,7 @@ import * as Caml_array from "rescript/lib/es6/caml_array.js";
 import * as React$1 from "@headlessui/react";
 import * as Solid from "@heroicons/react/solid";
 import * as Outline from "@heroicons/react/outline";
-import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
+import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.bs.js";
 
 function Headless__Examples$EditInactiveIcon(Props) {
   var className = Props.className;

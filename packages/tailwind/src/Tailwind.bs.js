@@ -3,11 +3,11 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_format from "rescript/lib/es6/caml_format.js";
-import * as CssJs$IsenseiMonorepo from "../../css/src/CssJs.mjs";
-import * as Theme$IsenseiMonorepo from "../../theme/src/Theme.mjs";
-import * as Selectors$IsenseiMonorepo from "../../selectors/src/Selectors.mjs";
-import * as Css_Js_Core$IsenseiMonorepo from "../../css/src/Css_Js_Core.mjs";
-import * as Css_AtomicTypes$IsenseiMonorepo from "../../css/src/Css_AtomicTypes.mjs";
+import * as CssJs$IsenseiMonorepo from "../../css/src/CssJs.bs.js";
+import * as Theme$IsenseiMonorepo from "../../theme/src/Theme.bs.js";
+import * as Selectors$IsenseiMonorepo from "../../selectors/src/Selectors.bs.js";
+import * as Css_Js_Core$IsenseiMonorepo from "../../css/src/Css_Js_Core.bs.js";
+import * as Css_AtomicTypes$IsenseiMonorepo from "../../css/src/Css_AtomicTypes.bs.js";
 
 var emptyRule = [CssJs$IsenseiMonorepo.unsafe("", "")];
 

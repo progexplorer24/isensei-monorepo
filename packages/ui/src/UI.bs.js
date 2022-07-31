@@ -3,10 +3,10 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as React from "react";
 import * as Solid from "@heroicons/react/solid";
-import * as Tip__UI$IsenseiMonorepo from "./Tip__UI.mjs";
-import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.mjs";
-import * as Button__UI$IsenseiMonorepo from "./Button__UI.mjs";
-import * as Headless__Examples$IsenseiMonorepo from "./Headless__Examples.mjs";
+import * as Tip__UI$IsenseiMonorepo from "./Tip__UI.bs.js";
+import * as Tailwind$IsenseiMonorepo from "../../tailwind/src/Tailwind.bs.js";
+import * as Button__UI$IsenseiMonorepo from "./Button__UI.bs.js";
+import * as Headless__Examples$IsenseiMonorepo from "./Headless__Examples.bs.js";
 
 var tipGood = Tip__UI$IsenseiMonorepo.TipGood.make;
 
