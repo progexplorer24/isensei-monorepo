@@ -6,8 +6,5 @@ module.exports = {
     "./theme.config.js",
     "./styles/globals.css",
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+  presets: [require("@isensei/tailwind-config/tailwind.config")],
 };
