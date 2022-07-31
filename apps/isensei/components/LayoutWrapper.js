@@ -20,7 +20,7 @@ function NavItem({ href, text }) {
         isActive
           ? "font-semibold text-gray-800 dark:text-gray-200"
           : "font-normal text-gray-600 dark:text-gray-400",
-        "p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
+        "rounded-lg p-1 transition-all hover:bg-gray-200 dark:hover:bg-gray-800 sm:px-3 sm:py-2"
       )}
       href={href}
     >
@@ -54,7 +54,7 @@ function Header({ changeLanguage, locale, locales, t }) {
           defaultValue={locale}
           style={{ textAlignLast: "center" }}
           // dark:  hover:ring-2 ring-gray-300  transition-all
-          className="text-gray-900 h-9 rounded-lg focus:ring-2 focus:ring-gray-300 dark:text-gray-100 border-0 text-shadow-sm text-sm bg-gray-200 dark:bg-gray-600 tracking-wide mr-4"
+          className="text-shadow-sm mr-4 h-9 rounded-lg border-0 bg-gray-200 text-sm tracking-wide text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-600 dark:text-gray-100"
         >
           {locales.map((e) => (
             <option value={e} key={e}>
@@ -80,7 +80,7 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <SectionContainer>
-      <div className="flex flex-col justify-between h-screen">
+      <div className="flex h-screen flex-col justify-between">
         <Header
           changeLanguage={changeLanguage}
           locale={locale}
@@ -89,7 +89,7 @@ const LayoutWrapper = ({ children }) => {
         />
         <main
           id="skip"
-          className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+          className="flex flex-col justify-center bg-gray-50 px-8 dark:bg-gray-900"
         >
           {children}
         </main>

@@ -7,7 +7,7 @@ import Emoji from "@/components/Emoji";
 
 const ExternalLink = ({ href, children }) => (
   <a
-    className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+    className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
     target="_blank"
     rel="noopener noreferrer"
     href={href}
@@ -19,27 +19,27 @@ const ExternalLink = ({ href, children }) => (
 export default function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="max-w-2xl mx-auto w-full mb-8 mt-16">
-      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
+    <footer className="mx-auto mb-8 mt-16 w-full max-w-2xl">
+      <hr className="border-1 mb-8 w-full border-gray-200 dark:border-gray-800" />
 
-      <div className="w-full max-w-2xl grid grid-cols-2 gap-y-16 pb-16 sm:grid-cols-3">
+      <div className="grid w-full max-w-2xl grid-cols-2 gap-y-16 pb-16 sm:grid-cols-3">
         <div className="flex flex-col space-y-4">
           <Link
             href="/"
-            className="text-gray-700 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:home")}
           </Link>
           <Link
             href="/about"
-            className="text-gray-700 hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition hover:text-gray-900 dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:about")}
           </Link>
 
           <Link
             href="/mission"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:mission")}
           </Link>
@@ -52,19 +52,19 @@ export default function Footer() {
         <div className="flex flex-col space-y-4">
           <Link
             href="/tags"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:tags")}
           </Link>
           <Link
             href="/projects"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:projects")}
           </Link>
           <Link
             href="/snippets"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:snippets")}
           </Link>
@@ -72,19 +72,19 @@ export default function Footer() {
         <div className="flex flex-col space-y-4">
           <Link
             href="/privacy-policy"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:privacy-policy")}
           </Link>
           <Link
             href="/contact"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:contact")}
           </Link>
           <Link
             href="/statute"
-            className="text-gray-700 dark:text-gray-400 hover:dark:text-gray-300 transition"
+            className="text-gray-700 transition dark:text-gray-400 hover:dark:text-gray-300"
           >
             {t("footerLinks:statute")}
           </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="sm:flex sm:flex-col sm:items-center">
-        <div className="flex mb-3 space-x-4">
+        <div className="mb-3 flex space-x-4">
           <SocialIcon
             kind="mail"
             href={`mailto:${siteMetadata.email}`}
@@ -104,7 +104,7 @@ export default function Footer() {
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
         </div>
-        <div className="grid grid-cols-2 gap-y-6 gap-x-4 sm:flex mb-6 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="mb-6 grid grid-cols-2 gap-y-6 gap-x-4 text-sm text-gray-500 dark:text-gray-400 sm:flex sm:space-x-2">
           <div>isensei.pl@gmail.com</div>
           <div className="hidden sm:block">{` • `}</div>
           <div>515-009-644</div>
@@ -113,7 +113,7 @@ export default function Footer() {
           <div className="hidden sm:block">{` • `}</div>
           <div>Daszyńskiego 2D/37</div>
         </div>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-6 mt-0 sm:flex mb-16 sm:space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="mt-0 mb-16 grid grid-cols-2 gap-x-4 gap-y-6 text-sm text-gray-500 dark:text-gray-400 sm:flex sm:space-x-2">
           <Link href="https://www.facebook.com/myway.angielski.matematyka">
             {t("footerLinks:foundation")}
           </Link>

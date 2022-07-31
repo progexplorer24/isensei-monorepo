@@ -2,161 +2,596 @@
 
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.bs.js";
 
-Cypress$IsenseiMonorepo.context("Actions", (function (param) {
-        Cypress$IsenseiMonorepo.beforeEach(function (param) {
-              cy.visit("https://example.cypress.io/commands/actions", undefined);
-              
-            });
-        Cypress$IsenseiMonorepo.it(".type() - type into a DOM element", (function (param) {
-                var optionsObject1 = Cypress$IsenseiMonorepo.TypeOptions.make(undefined, 100, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-                var optionsObject2 = Cypress$IsenseiMonorepo.TypeOptions.make(undefined, undefined, true, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-                Cypress$IsenseiMonorepo.shouldHaveValue(Cypress$IsenseiMonorepo.shouldHaveValueP(cy.get(".action-email", undefined).type("fake@email.com", undefined), "fake@email.com").type("{leftarrow}{rightarrow}{uparrow}{downarrow}", undefined).type("{del}{selectall}{backspace}", undefined).type("{alt}{option}", undefined).type("{ctrl}{control}", undefined).type("{meta}{command}{cmd}", undefined).type("{shift}", undefined).type("slow.typing@email.com", optionsObject1), "slow.typing@email.com");
-                return Cypress$IsenseiMonorepo.shouldHaveValue(cy.get(".action-disabled", undefined).type("disabled error checking", optionsObject2), "disabled error checking");
-              }));
-        Cypress$IsenseiMonorepo.it(".focus() - focus on a DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.should(Cypress$IsenseiMonorepo.shouldP(Cypress$IsenseiMonorepo.shouldP(cy.get(".action-focus", undefined).focus(undefined), "haveClass", ["focus"]).prev(undefined), "haveAttr", [
-                                "style",
-                                "color: orange;"
-                              ]), "notHaveAttr", [
-                            "style",
-                            "color: black;"
-                          ]);
-              }));
-        Cypress$IsenseiMonorepo.it(".blur() - blur off a DOM element", (function (param) {
-                Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(Cypress$IsenseiMonorepo.shouldP(cy.get(".action-blur", undefined).type("About to blur", undefined).blur(undefined), "haveClass", ["error"]).prev(undefined), "style", "color: red;");
-                return Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(Cypress$IsenseiMonorepo.shouldHaveClassP(cy.get(".action-blur", undefined).type("About to blur", undefined).blur(Cypress$IsenseiMonorepo.BlurOptions.make(undefined, undefined, undefined, undefined)), "error").prev(undefined), "style", "color: red;");
-              }));
-        Cypress$IsenseiMonorepo.it(".clear() - clears an input or textarea element", (function (param) {
-                Cypress$IsenseiMonorepo.should(Cypress$IsenseiMonorepo.shouldHaveValueP(cy.get(".action-clear", undefined).type("Clear this text", undefined), "Clear this text").clear(undefined), "haveValue", [""]);
-                Cypress$IsenseiMonorepo.shouldHaveValue(Cypress$IsenseiMonorepo.shouldP(cy.get(".action-clear", undefined).type("Clear this text", undefined), "haveValue", ["Clear this text"]).clear(Cypress$IsenseiMonorepo.ClearOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined)), "");
-                Cypress$IsenseiMonorepo.shouldP(cy.get(".action-clear", undefined).type("Clear this text", undefined), "haveValue", ["Clear this text"]).clear(undefined);
-                Cypress$IsenseiMonorepo.shouldHaveValueP(cy.get(".action-clear", undefined).type("Clear this text", undefined), "Clear this text").clear(Cypress$IsenseiMonorepo.ClearOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined));
-                
-              }));
-        Cypress$IsenseiMonorepo.it(".submit() - submit a form", (function (param) {
-                cy.get(".action-form", undefined).find("[type=\"text\"]", undefined).type("HALFOFF", undefined);
-                return Cypress$IsenseiMonorepo.shouldContain(cy.get(".action-form", undefined).submit(undefined).next(undefined), "Your form has been submitted!");
-              }));
-        Cypress$IsenseiMonorepo.it(".click() - click on a DOM element", (function (param) {
-                var clickOptions = Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, true, undefined, undefined, undefined, undefined, undefined);
-                var clickOptions2 = Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, true, undefined, undefined, undefined, undefined, undefined, undefined, undefined);
-                cy.get(".action-btn", undefined).click(undefined);
-                cy.get("#action-canvas", undefined).click(undefined);
-                cy.get("#action-canvas", undefined).click("topLeft", undefined);
-                cy.get("#action-canvas", undefined).click("top", undefined);
-                cy.get("#action-canvas", undefined).click("topRight", undefined);
-                cy.get("#action-canvas", undefined).click("left", undefined);
-                cy.get("#action-canvas", undefined).click("left", Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined));
-                cy.get("#action-canvas", undefined).click("right", undefined);
-                cy.get("#action-canvas", undefined).click("bottomLeft", undefined);
-                cy.get("#action-canvas", undefined).click("bottom", undefined);
-                cy.get("#action-canvas", undefined).click("bottom", Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined));
-                cy.get("#action-canvas", undefined).click("bottomRight", undefined);
-                cy.get("#action-canvas", undefined).click(80, 75, undefined).click(170, 75, Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)).click(80, 165, undefined).click(100, 185, Cypress$IsenseiMonorepo.ClickOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined)).click(125, 190, undefined).click(150, 185, undefined).click(170, 165, undefined);
-                cy.get(".action-labels>.label", undefined).click(clickOptions);
-                cy.get(".action-opacity>.btn", undefined).click(clickOptions2);
-                
-              }));
-        Cypress$IsenseiMonorepo.it("can use `children` function", (function (param) {
-                cy.get("#navbar", undefined).children(undefined).then(function (value) {
-                      var elements = value.get();
-                      console.log(elements);
-                      
-                    });
-                cy.get("#navbar", undefined).children(Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined));
-                cy.get("#navbar", undefined).children("ul", undefined);
-                cy.get("#navbar", undefined).children("ul", Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined));
-                
-              }));
-        Cypress$IsenseiMonorepo.it(".dblclick() - double click on a DOM element", (function (param) {
-                Cypress$IsenseiMonorepo.shouldNotBeVisible(cy.get(".action-div", undefined).dblclick(undefined));
-                return Cypress$IsenseiMonorepo.shouldBeVisible(cy.get(".action-input-hidden", undefined));
-              }));
-        Cypress$IsenseiMonorepo.it(".rightclick() - right click on a DOM element", (function (param) {
-                Cypress$IsenseiMonorepo.shouldNotBeVisible(cy.get(".rightclick-action-div", undefined).rightclick(undefined));
-                return Cypress$IsenseiMonorepo.shouldBeVisible(cy.get(".rightclick-action-input-hidden", undefined));
-              }));
-        Cypress$IsenseiMonorepo.it(".check() - check a checkbox or radio element", (function (param) {
-                var checkOptions = Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, true, undefined, undefined, undefined, undefined);
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-checkboxes [type=\"checkbox\"]", undefined).not("[disabled]", undefined).check(Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined)));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-radios [type=\"radio\"]", undefined).not("[disabled]", Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined)).check(undefined));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-radios [type=\"radio\"]", undefined).not("[disabled]", undefined).check(Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined)));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-radios [type=\"radio\"]", undefined).check("radio1", undefined));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-radios [type=\"radio\"]", undefined).check("radio1", Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined)));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-multiple-checkboxes [type=\"checkbox\"]", undefined).check([
-                          "checkbox1",
-                          "checkbox2"
-                        ], undefined));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-multiple-checkboxes [type=\"checkbox\"]", undefined).check([
-                          "checkbox1",
-                          "checkbox2"
-                        ], Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, undefined, undefined, undefined, undefined, undefined)));
-                Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-checkboxes [disabled]", undefined).check(checkOptions));
-                return Cypress$IsenseiMonorepo.shouldBeChecked(cy.get(".action-radios [type=\"radio\"]", undefined).check("radio3", checkOptions));
-              }));
-        Cypress$IsenseiMonorepo.it(".uncheck() - uncheck a checkbox element", (function (param) {
-                var checkOptions = Cypress$IsenseiMonorepo.CheckOptions.make(undefined, undefined, true, undefined, undefined, undefined, undefined);
-                Cypress$IsenseiMonorepo.shouldNotBeChecked(cy.get(".action-check [type=\"checkbox\"]", undefined).not("[disabled]", undefined).uncheck(undefined));
-                Cypress$IsenseiMonorepo.shouldNotBeChecked(cy.get(".action-check [type=\"checkbox\"]", undefined).check("checkbox1", undefined).uncheck("checkbox1", undefined));
-                Cypress$IsenseiMonorepo.shouldNotBeChecked(cy.get(".action-check [type=\"checkbox\"]", undefined).check([
-                            "checkbox1",
-                            "checkbox3"
-                          ], undefined).uncheck([
-                          "checkbox1",
-                          "checkbox3"
-                        ], undefined));
-                return Cypress$IsenseiMonorepo.shouldNotBeChecked(cy.get(".action-check [disabled]", undefined).uncheck(checkOptions));
-              }));
-        Cypress$IsenseiMonorepo.it(".select() - select an option in a <select> element", (function (param) {
-                Cypress$IsenseiMonorepo.shouldHaveValue(cy.get(".action-select", undefined), "--Select a fruit--");
-                cy.get(".action-select", undefined).select("apples", undefined);
-                Cypress$IsenseiMonorepo.shouldHaveValue(cy.get(".action-select", undefined), "fr-apples");
-                Cypress$IsenseiMonorepo.shouldDeepEqual(cy.get(".action-select-multiple", undefined).select([
-                            "apples",
-                            "oranges",
-                            "bananas"
-                          ], undefined).invoke("val"), [
-                      "fr-apples",
-                      "fr-oranges",
-                      "fr-bananas"
-                    ]);
-                Cypress$IsenseiMonorepo.shouldHaveValue(cy.get(".action-select", undefined).select("fr-bananas", Cypress$IsenseiMonorepo.BlurOptions.make(undefined, undefined, undefined, undefined)), "fr-bananas");
-                Cypress$IsenseiMonorepo.shouldDeepEqual(cy.get(".action-select-multiple", undefined).select([
-                            "fr-apples",
-                            "fr-oranges",
-                            "fr-bananas"
-                          ], undefined).invoke("val"), [
-                      "fr-apples",
-                      "fr-oranges",
-                      "fr-bananas"
-                    ]);
-                return Cypress$IsenseiMonorepo.shouldInclude(cy.get(".action-select-multiple", undefined).invoke("val"), "fr-oranges");
-              }));
-        Cypress$IsenseiMonorepo.it(".scrollIntoView() - scroll an element into view", (function (param) {
-                Cypress$IsenseiMonorepo.shouldNotBeVisible(cy.get("#scroll-horizontal button", undefined));
-                Cypress$IsenseiMonorepo.shouldBeVisible(cy.get("#scroll-horizontal button", undefined).scrollIntoView(undefined));
-                Cypress$IsenseiMonorepo.shouldNotBeVisible(cy.get("#scroll-vertical button", undefined));
-                Cypress$IsenseiMonorepo.shouldBeVisible(cy.get("#scroll-vertical button", undefined).scrollIntoView(undefined));
-                Cypress$IsenseiMonorepo.shouldNotBeVisible(cy.get("#scroll-both button", undefined));
-                return Cypress$IsenseiMonorepo.shouldBeVisible(cy.get("#scroll-both button", undefined).scrollIntoView(undefined));
-              }));
-        Cypress$IsenseiMonorepo.it(".trigger() - trigger an event on a DOM element", (function (param) {
-                return Cypress$IsenseiMonorepo.shouldHaveText(cy.get(".trigger-input-range", undefined).invoke("val", 25).trigger("change", undefined, undefined).get("input[type=range]", undefined).siblings("p", undefined), "25");
-              }));
-        return Cypress$IsenseiMonorepo.it("cy.scrollTo() - scroll the window or element to a position", (function (param) {
-                      var scrollOptions1 = Cypress$IsenseiMonorepo.ScrollToOptions.make(undefined, "linear", undefined, undefined, undefined, undefined);
-                      var scrollOptions2 = Cypress$IsenseiMonorepo.ScrollToOptions.make(2000, undefined, undefined, undefined, undefined, undefined);
-                      cy.scrollTo("bottom", undefined);
-                      cy.get("#scrollable-horizontal", undefined).scrollTo("right", undefined);
-                      cy.get("#scrollable-vertical", undefined).scrollTo(250, 250, undefined);
-                      cy.get("#scrollable-both", undefined).scrollTo("75%", "25%", undefined);
-                      cy.get("#scrollable-vertical", undefined).scrollTo("center", scrollOptions1);
-                      cy.get("#scrollable-both", undefined).scrollTo("center", scrollOptions2);
-                      
-                    }));
-      }));
+Cypress$IsenseiMonorepo.context("Actions", function (param) {
+  Cypress$IsenseiMonorepo.beforeEach(function (param) {
+    cy.visit("https://example.cypress.io/commands/actions", undefined);
+  });
+  Cypress$IsenseiMonorepo.it(
+    ".type() - type into a DOM element",
+    function (param) {
+      var optionsObject1 = Cypress$IsenseiMonorepo.TypeOptions.make(
+        undefined,
+        100,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      var optionsObject2 = Cypress$IsenseiMonorepo.TypeOptions.make(
+        undefined,
+        undefined,
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      Cypress$IsenseiMonorepo.shouldHaveValue(
+        Cypress$IsenseiMonorepo.shouldHaveValueP(
+          cy.get(".action-email", undefined).type("fake@email.com", undefined),
+          "fake@email.com"
+        )
+          .type("{leftarrow}{rightarrow}{uparrow}{downarrow}", undefined)
+          .type("{del}{selectall}{backspace}", undefined)
+          .type("{alt}{option}", undefined)
+          .type("{ctrl}{control}", undefined)
+          .type("{meta}{command}{cmd}", undefined)
+          .type("{shift}", undefined)
+          .type("slow.typing@email.com", optionsObject1),
+        "slow.typing@email.com"
+      );
+      return Cypress$IsenseiMonorepo.shouldHaveValue(
+        cy
+          .get(".action-disabled", undefined)
+          .type("disabled error checking", optionsObject2),
+        "disabled error checking"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".focus() - focus on a DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.should(
+        Cypress$IsenseiMonorepo.shouldP(
+          Cypress$IsenseiMonorepo.shouldP(
+            cy.get(".action-focus", undefined).focus(undefined),
+            "haveClass",
+            ["focus"]
+          ).prev(undefined),
+          "haveAttr",
+          ["style", "color: orange;"]
+        ),
+        "notHaveAttr",
+        ["style", "color: black;"]
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".blur() - blur off a DOM element",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(
+        Cypress$IsenseiMonorepo.shouldP(
+          cy
+            .get(".action-blur", undefined)
+            .type("About to blur", undefined)
+            .blur(undefined),
+          "haveClass",
+          ["error"]
+        ).prev(undefined),
+        "style",
+        "color: red;"
+      );
+      return Cypress$IsenseiMonorepo.shouldHaveAttrWithValue(
+        Cypress$IsenseiMonorepo.shouldHaveClassP(
+          cy
+            .get(".action-blur", undefined)
+            .type("About to blur", undefined)
+            .blur(
+              Cypress$IsenseiMonorepo.BlurOptions.make(
+                undefined,
+                undefined,
+                undefined,
+                undefined
+              )
+            ),
+          "error"
+        ).prev(undefined),
+        "style",
+        "color: red;"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".clear() - clears an input or textarea element",
+    function (param) {
+      Cypress$IsenseiMonorepo.should(
+        Cypress$IsenseiMonorepo.shouldHaveValueP(
+          cy.get(".action-clear", undefined).type("Clear this text", undefined),
+          "Clear this text"
+        ).clear(undefined),
+        "haveValue",
+        [""]
+      );
+      Cypress$IsenseiMonorepo.shouldHaveValue(
+        Cypress$IsenseiMonorepo.shouldP(
+          cy.get(".action-clear", undefined).type("Clear this text", undefined),
+          "haveValue",
+          ["Clear this text"]
+        ).clear(
+          Cypress$IsenseiMonorepo.ClearOptions.make(
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined
+          )
+        ),
+        ""
+      );
+      Cypress$IsenseiMonorepo.shouldP(
+        cy.get(".action-clear", undefined).type("Clear this text", undefined),
+        "haveValue",
+        ["Clear this text"]
+      ).clear(undefined);
+      Cypress$IsenseiMonorepo.shouldHaveValueP(
+        cy.get(".action-clear", undefined).type("Clear this text", undefined),
+        "Clear this text"
+      ).clear(
+        Cypress$IsenseiMonorepo.ClearOptions.make(
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined
+        )
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(".submit() - submit a form", function (param) {
+    cy.get(".action-form", undefined)
+      .find('[type="text"]', undefined)
+      .type("HALFOFF", undefined);
+    return Cypress$IsenseiMonorepo.shouldContain(
+      cy.get(".action-form", undefined).submit(undefined).next(undefined),
+      "Your form has been submitted!"
+    );
+  });
+  Cypress$IsenseiMonorepo.it(
+    ".click() - click on a DOM element",
+    function (param) {
+      var clickOptions = Cypress$IsenseiMonorepo.ClickOptions.make(
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      var clickOptions2 = Cypress$IsenseiMonorepo.ClickOptions.make(
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      cy.get(".action-btn", undefined).click(undefined);
+      cy.get("#action-canvas", undefined).click(undefined);
+      cy.get("#action-canvas", undefined).click("topLeft", undefined);
+      cy.get("#action-canvas", undefined).click("top", undefined);
+      cy.get("#action-canvas", undefined).click("topRight", undefined);
+      cy.get("#action-canvas", undefined).click("left", undefined);
+      cy.get("#action-canvas", undefined).click(
+        "left",
+        Cypress$IsenseiMonorepo.ClickOptions.make(
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined
+        )
+      );
+      cy.get("#action-canvas", undefined).click("right", undefined);
+      cy.get("#action-canvas", undefined).click("bottomLeft", undefined);
+      cy.get("#action-canvas", undefined).click("bottom", undefined);
+      cy.get("#action-canvas", undefined).click(
+        "bottom",
+        Cypress$IsenseiMonorepo.ClickOptions.make(
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined
+        )
+      );
+      cy.get("#action-canvas", undefined).click("bottomRight", undefined);
+      cy.get("#action-canvas", undefined)
+        .click(80, 75, undefined)
+        .click(
+          170,
+          75,
+          Cypress$IsenseiMonorepo.ClickOptions.make(
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined
+          )
+        )
+        .click(80, 165, undefined)
+        .click(
+          100,
+          185,
+          Cypress$IsenseiMonorepo.ClickOptions.make(
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined
+          )
+        )
+        .click(125, 190, undefined)
+        .click(150, 185, undefined)
+        .click(170, 165, undefined);
+      cy.get(".action-labels>.label", undefined).click(clickOptions);
+      cy.get(".action-opacity>.btn", undefined).click(clickOptions2);
+    }
+  );
+  Cypress$IsenseiMonorepo.it("can use `children` function", function (param) {
+    cy.get("#navbar", undefined)
+      .children(undefined)
+      .then(function (value) {
+        var elements = value.get();
+        console.log(elements);
+      });
+    cy.get("#navbar", undefined).children(
+      Cypress$IsenseiMonorepo.ChildrenOptions.make(
+        undefined,
+        undefined,
+        undefined
+      )
+    );
+    cy.get("#navbar", undefined).children("ul", undefined);
+    cy.get("#navbar", undefined).children(
+      "ul",
+      Cypress$IsenseiMonorepo.ChildrenOptions.make(
+        undefined,
+        undefined,
+        undefined
+      )
+    );
+  });
+  Cypress$IsenseiMonorepo.it(
+    ".dblclick() - double click on a DOM element",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldNotBeVisible(
+        cy.get(".action-div", undefined).dblclick(undefined)
+      );
+      return Cypress$IsenseiMonorepo.shouldBeVisible(
+        cy.get(".action-input-hidden", undefined)
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".rightclick() - right click on a DOM element",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldNotBeVisible(
+        cy.get(".rightclick-action-div", undefined).rightclick(undefined)
+      );
+      return Cypress$IsenseiMonorepo.shouldBeVisible(
+        cy.get(".rightclick-action-input-hidden", undefined)
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".check() - check a checkbox or radio element",
+    function (param) {
+      var checkOptions = Cypress$IsenseiMonorepo.CheckOptions.make(
+        undefined,
+        undefined,
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-checkboxes [type="checkbox"]', undefined)
+          .not("[disabled]", undefined)
+          .check(
+            Cypress$IsenseiMonorepo.CheckOptions.make(
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined
+            )
+          )
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-radios [type="radio"]', undefined)
+          .not(
+            "[disabled]",
+            Cypress$IsenseiMonorepo.ChildrenOptions.make(
+              undefined,
+              undefined,
+              undefined
+            )
+          )
+          .check(undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-radios [type="radio"]', undefined)
+          .not("[disabled]", undefined)
+          .check(
+            Cypress$IsenseiMonorepo.CheckOptions.make(
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined
+            )
+          )
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-radios [type="radio"]', undefined)
+          .check("radio1", undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-radios [type="radio"]', undefined)
+          .check(
+            "radio1",
+            Cypress$IsenseiMonorepo.CheckOptions.make(
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined
+            )
+          )
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-multiple-checkboxes [type="checkbox"]', undefined)
+          .check(["checkbox1", "checkbox2"], undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-multiple-checkboxes [type="checkbox"]', undefined)
+          .check(
+            ["checkbox1", "checkbox2"],
+            Cypress$IsenseiMonorepo.CheckOptions.make(
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined
+            )
+          )
+      );
+      Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy.get(".action-checkboxes [disabled]", undefined).check(checkOptions)
+      );
+      return Cypress$IsenseiMonorepo.shouldBeChecked(
+        cy
+          .get('.action-radios [type="radio"]', undefined)
+          .check("radio3", checkOptions)
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".uncheck() - uncheck a checkbox element",
+    function (param) {
+      var checkOptions = Cypress$IsenseiMonorepo.CheckOptions.make(
+        undefined,
+        undefined,
+        true,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      Cypress$IsenseiMonorepo.shouldNotBeChecked(
+        cy
+          .get('.action-check [type="checkbox"]', undefined)
+          .not("[disabled]", undefined)
+          .uncheck(undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldNotBeChecked(
+        cy
+          .get('.action-check [type="checkbox"]', undefined)
+          .check("checkbox1", undefined)
+          .uncheck("checkbox1", undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldNotBeChecked(
+        cy
+          .get('.action-check [type="checkbox"]', undefined)
+          .check(["checkbox1", "checkbox3"], undefined)
+          .uncheck(["checkbox1", "checkbox3"], undefined)
+      );
+      return Cypress$IsenseiMonorepo.shouldNotBeChecked(
+        cy.get(".action-check [disabled]", undefined).uncheck(checkOptions)
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".select() - select an option in a <select> element",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldHaveValue(
+        cy.get(".action-select", undefined),
+        "--Select a fruit--"
+      );
+      cy.get(".action-select", undefined).select("apples", undefined);
+      Cypress$IsenseiMonorepo.shouldHaveValue(
+        cy.get(".action-select", undefined),
+        "fr-apples"
+      );
+      Cypress$IsenseiMonorepo.shouldDeepEqual(
+        cy
+          .get(".action-select-multiple", undefined)
+          .select(["apples", "oranges", "bananas"], undefined)
+          .invoke("val"),
+        ["fr-apples", "fr-oranges", "fr-bananas"]
+      );
+      Cypress$IsenseiMonorepo.shouldHaveValue(
+        cy
+          .get(".action-select", undefined)
+          .select(
+            "fr-bananas",
+            Cypress$IsenseiMonorepo.BlurOptions.make(
+              undefined,
+              undefined,
+              undefined,
+              undefined
+            )
+          ),
+        "fr-bananas"
+      );
+      Cypress$IsenseiMonorepo.shouldDeepEqual(
+        cy
+          .get(".action-select-multiple", undefined)
+          .select(["fr-apples", "fr-oranges", "fr-bananas"], undefined)
+          .invoke("val"),
+        ["fr-apples", "fr-oranges", "fr-bananas"]
+      );
+      return Cypress$IsenseiMonorepo.shouldInclude(
+        cy.get(".action-select-multiple", undefined).invoke("val"),
+        "fr-oranges"
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".scrollIntoView() - scroll an element into view",
+    function (param) {
+      Cypress$IsenseiMonorepo.shouldNotBeVisible(
+        cy.get("#scroll-horizontal button", undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldBeVisible(
+        cy.get("#scroll-horizontal button", undefined).scrollIntoView(undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldNotBeVisible(
+        cy.get("#scroll-vertical button", undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldBeVisible(
+        cy.get("#scroll-vertical button", undefined).scrollIntoView(undefined)
+      );
+      Cypress$IsenseiMonorepo.shouldNotBeVisible(
+        cy.get("#scroll-both button", undefined)
+      );
+      return Cypress$IsenseiMonorepo.shouldBeVisible(
+        cy.get("#scroll-both button", undefined).scrollIntoView(undefined)
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    ".trigger() - trigger an event on a DOM element",
+    function (param) {
+      return Cypress$IsenseiMonorepo.shouldHaveText(
+        cy
+          .get(".trigger-input-range", undefined)
+          .invoke("val", 25)
+          .trigger("change", undefined, undefined)
+          .get("input[type=range]", undefined)
+          .siblings("p", undefined),
+        "25"
+      );
+    }
+  );
+  return Cypress$IsenseiMonorepo.it(
+    "cy.scrollTo() - scroll the window or element to a position",
+    function (param) {
+      var scrollOptions1 = Cypress$IsenseiMonorepo.ScrollToOptions.make(
+        undefined,
+        "linear",
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      var scrollOptions2 = Cypress$IsenseiMonorepo.ScrollToOptions.make(
+        2000,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      cy.scrollTo("bottom", undefined);
+      cy.get("#scrollable-horizontal", undefined).scrollTo("right", undefined);
+      cy.get("#scrollable-vertical", undefined).scrollTo(250, 250, undefined);
+      cy.get("#scrollable-both", undefined).scrollTo("75%", "25%", undefined);
+      cy.get("#scrollable-vertical", undefined).scrollTo(
+        "center",
+        scrollOptions1
+      );
+      cy.get("#scrollable-both", undefined).scrollTo("center", scrollOptions2);
+    }
+  );
+});
 
-export {
-  
-}
+export {};
 /*  Not a pure module */

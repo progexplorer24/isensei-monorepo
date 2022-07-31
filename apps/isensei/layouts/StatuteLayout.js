@@ -8,8 +8,8 @@ export default function StatuteLayout({ children, availableLocales }) {
   return (
     <SectionContainer>
       <article>
-        <div className="xl:pb-0 xl:col-span-3 xl:row-span-2">
-          <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">
+        <div className="xl:col-span-3 xl:row-span-2 xl:pb-0">
+          <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">
             {children}
           </div>
         </div>

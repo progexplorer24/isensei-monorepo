@@ -45,7 +45,7 @@ const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
           </label>
           <input
             autoComplete="email"
-            className="px-4 rounded-md w-72 bg-gray-200 placeholder-gray-800 dark:placeholder-gray-400  place dark:bg-gray-800 focus:outline-none focus:ring-2 border-transparent focus:border-transparent focus:ring-gray-300"
+            className="place w-72 rounded-md border-transparent bg-gray-200 px-4  placeholder-gray-800 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:placeholder-gray-400"
             id="email-input"
             name="email"
             placeholder={
@@ -59,9 +59,9 @@ const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
             disabled={subscribed}
           />
         </div>
-        <div className="flex w-full mt-2 rounded-md shadow-sm sm:mt-0 sm:ml-3">
+        <div className="mt-2 flex w-full rounded-md shadow-sm sm:mt-0 sm:ml-3">
           <button
-            className={`py-2 sm:py-0 w-full bg-sky-700 hover:bg-sky-500 dark:bg-primary-700 dark:hover:bg-primary-500 px-4 rounded-md font-medium text-white ${
+            className={`w-full rounded-md bg-sky-700 py-2 px-4 font-medium text-white hover:bg-sky-500 dark:bg-primary-700 dark:hover:bg-primary-500 sm:py-0 ${
               subscribed ? "cursor-default" : ""
             } focus:outline-none focus:ring-2  focus:ring-gray-300`}
             type="submit"
@@ -74,7 +74,7 @@ const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
         </div>
       </form>
       {error && (
-        <div className="pt-2 text-sm text-red-500 w-72 sm:w-96 dark:text-red-400">
+        <div className="w-72 pt-2 text-sm text-red-500 dark:text-red-400 sm:w-96">
           {t("newsletter:messageError")}
         </div>
       )}
@@ -86,7 +86,7 @@ export default NewsletterForm;
 
 export const BlogNewsletterForm = ({ title }) => (
   <div className="flex items-center justify-center">
-    <div className="p-6 bg-gray-100 dark:bg-gray-800 sm:px-14 sm:py-8">
+    <div className="bg-gray-100 p-6 dark:bg-gray-800 sm:px-14 sm:py-8">
       <NewsletterForm title={title} />
     </div>
   </div>

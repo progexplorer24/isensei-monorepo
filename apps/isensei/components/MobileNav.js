@@ -73,33 +73,33 @@ const MobileNav = () => {
     <div className="md:hidden">
       <button
         type="button"
-        className="w-9 h-9 rounded flex items-center justify-center"
+        className="flex h-9 w-9 items-center justify-center rounded"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
         {navShow ? <CrossIcon /> : <MenuIcon />}
       </button>
       <div
-        className={`fixed w-full h-full top-24 right-0 bg-gray-50 dark:bg-gray-800 opacity-95 z-10 transform ease-in-out duration-300 ${
+        className={`fixed top-24 right-0 z-10 h-full w-full transform bg-gray-50 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
           navShow ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <button
           type="button"
           aria-label="toggle modal"
-          className="fixed w-full h-full cursor-auto focus:outline-none"
+          className="fixed h-full w-full cursor-auto focus:outline-none"
           onClick={onToggleNav}
         ></button>
-        <nav className="fixed h-full w-full mt-0 flex flex-col">
+        <nav className="fixed mt-0 flex h-full w-full flex-col">
           {[links.home, links.blog, links.tags, links.projects].map(
             (item, i) => (
               <div
                 key={i}
-                className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold "
+                className="w-full border-b border-gray-200 text-sm font-bold text-gray-900 dark:border-gray-700 dark:text-gray-100 "
               >
                 <Link
                   href={item}
-                  className="block text-center py-4"
+                  className="block py-4 text-center"
                   onClick={onToggleNav}
                 >
                   {t(`headerNavLinks:${textArr[i]}`)}

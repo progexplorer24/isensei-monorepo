@@ -48,7 +48,7 @@ const Utterances = ({ issueTerm }) => {
       {enableLoadComments && (
         <button onClick={LoadComments}>{t("common:comment")}</button>
       )}
-      <div className="relative utterances-frame" id={COMMENTS_ID} />
+      <div className="utterances-frame relative" id={COMMENTS_ID} />
     </div>
   );
 };

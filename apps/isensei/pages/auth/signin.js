@@ -15,12 +15,12 @@ export default function SignIn({ providers }) {
   }, [router]);
   return (
     <>
-      <div className="pt-6 pb-4 space-y-2 md:space-y-5">
+      <div className="space-y-2 pt-6 pb-4 md:space-y-5">
         <PageTitle>Sign In</PageTitle>
       </div>
-      <div className="space-y-2 flex justify-items-center items-center flex-col xl:space-y-0">
-        <div className="p-8 prose dark:prose-dark max-w-none">
-          <div className="flex gap-4 flex-col justify-between items-center">
+      <div className="flex flex-col items-center justify-items-center space-y-2 xl:space-y-0">
+        <div className="prose max-w-none p-8 dark:prose-dark">
+          <div className="flex flex-col items-center justify-between gap-4">
             <p className=" text-center sm:text-left">
               Sign in with one of these providers:
             </p>
@@ -65,7 +65,7 @@ export default function SignIn({ providers }) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
@@ -82,7 +82,7 @@ export default function SignIn({ providers }) {
                 <div className="mt-4">
                   <button
                     type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-success-900 bg-success-100 border border-transparent rounded-md hover:bg-success-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-success-500"
+                    className="text-success-900 bg-success-100 hover:bg-success-200 focus-visible:ring-success-500 inline-flex justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                     onClick={() => setIsOpen(false)}
                   >
                     OK

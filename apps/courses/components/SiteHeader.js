@@ -9,13 +9,13 @@ const SiteHeader = ({ className }) => {
   const [hasFocus, setHasFocus] = useState(false);
   return (
     <header className="bg-gray-900 sm:flex sm:items-center sm:justify-between xl:bg-white">
-      <div className="flex justify-between px-4 py-3 xl:w-72 xl:bg-gray-900 xl:justify-center xl:py-5">
+      <div className="flex justify-between px-4 py-3 xl:w-72 xl:justify-center xl:bg-gray-900 xl:py-5">
         <div className="text-2xl font-bold text-white sm:text-3xl">iSensei</div>
         <div className="flex sm:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
-            className="px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
+            className="px-2 text-gray-500 hover:text-white focus:text-white focus:outline-none"
           >
             <svg
               className="h-6 w-6 fill-current"
@@ -43,7 +43,7 @@ const SiteHeader = ({ className }) => {
           isOpen ? "block" : "hidden"
         } sm:flex sm:items-center sm:px-4 xl:flex-1 xl:justify-between`}
       >
-        <div className="hidden xl:block xl:relative xl:max-w-xs xl:w-full">
+        <div className="hidden xl:relative xl:block xl:w-full xl:max-w-xs">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3">
             <svg
               className="h-6 w-6 fill-current text-gray-600"
@@ -55,32 +55,32 @@ const SiteHeader = ({ className }) => {
             </svg>
           </div>
           <input
-            className="block w-full border border-transparent bg-gray-200 focus:outline-none focus:bg-white focus:border-gray-300 text-gray-900 rounded-lg pl-10 pr-4 py-2"
+            className="block w-full rounded-lg border border-transparent bg-gray-200 py-2 pl-10 pr-4 text-gray-900 focus:border-gray-300 focus:bg-white focus:outline-none"
             placeholder="Search by keywords"
           />
         </div>
         <div className="sm:flex sm:items-center">
-          <div className="px-2 pt-2 pb-5 border-b border-gray-800 sm:flex sm:border-b-0 sm:py-0 sm:px-0">
+          <div className="border-b border-gray-800 px-2 pt-2 pb-5 sm:flex sm:border-b-0 sm:py-0 sm:px-0">
             <Link href="/">
-              <a className="block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900 xl:hover:bg-gray-200">
+              <a className="block rounded px-3 py-1 font-semibold text-white hover:bg-gray-800 sm:px-2 sm:text-sm xl:text-gray-900 xl:hover:bg-gray-200">
                 My Learning
               </a>
             </Link>
             <Link href="/">
-              <a className="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200">
+              <a className="mt-1 block rounded px-3 py-1 font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:ml-2 sm:px-2 sm:text-sm xl:text-gray-900 xl:hover:bg-gray-200">
                 Notifications
               </a>
             </Link>
             <Link href="/">
-              <a className="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200">
+              <a className="mt-1 block rounded px-3 py-1 font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:ml-2 sm:px-2 sm:text-sm xl:text-gray-900 xl:hover:bg-gray-200">
                 Messages
               </a>
             </Link>
           </div>
-          <div className="relative px-5 py-5 sm:py-0 sm:ml-4 sm:px-0">
+          <div className="relative px-5 py-5 sm:ml-4 sm:py-0 sm:px-0">
             <div className="flex items-center sm:hidden">
               <Image
-                className="object-cover rounded-full border-0 border-transparent"
+                className="rounded-full border-0 border-transparent object-cover"
                 width={45}
                 height={45}
                 src="/static/images/avatar.png"
@@ -115,7 +115,7 @@ const SiteHeader = ({ className }) => {
               trigger={() => (
                 <span
                   // ring-2 lg:ring-gray-100 ring-offset-1 ring-offset-gray-100
-                  className={`hidden h-11 w-11 overflow-hidden rounded-full bg-gray-900 border-4 border-gray-900 sm:block ring-1 ring-offset-2 ring-offset-gray-900 ring-gray-300 xl:ring-offset-gray-50 xl:bg-gray-50 xl:border-gray-50`}
+                  className={`hidden h-11 w-11 overflow-hidden rounded-full border-4 border-gray-900 bg-gray-900 ring-1 ring-gray-300 ring-offset-2 ring-offset-gray-900 sm:block xl:border-gray-50 xl:bg-gray-50 xl:ring-offset-gray-50`}
                 >
                   <Image
                     width={45}
@@ -127,22 +127,22 @@ const SiteHeader = ({ className }) => {
                 </span>
               )}
               dropdown={() => (
-                <div className="mt-3 bg-white xl:border rounded-lg w-48 py-2 shadow-xl">
+                <div className="mt-3 w-48 rounded-lg bg-white py-2 shadow-xl xl:border">
                   <a
                     href="#account"
-                    className="block hover:text-white text-gray-800 px-4 py-2 hover:bg-indigo-500"
+                    className="block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"
                   >
                     Account settings
                   </a>
                   <a
                     href="#support"
-                    className="block hover:text-white text-gray-800 mt-0 px-4 py-2 hover:bg-indigo-500"
+                    className="mt-0 block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"
                   >
                     Support
                   </a>
                   <a
                     href="#sign-out"
-                    className="block hover:text-white text-gray-800 mt-0 px-4 py-2 hover:bg-indigo-500"
+                    className="mt-0 block px-4 py-2 text-gray-800 hover:bg-indigo-500 hover:text-white"
                   >
                     Sign out
                   </a>

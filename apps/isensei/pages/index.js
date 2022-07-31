@@ -31,26 +31,26 @@ export default function Home({ posts, locale, availableLocales }) {
       />
       <Hero />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <div className="flex flex-col-reverse sm:flex-row items-start">
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <div className="flex flex-col-reverse items-start sm:flex-row">
             <div className="flex flex-col pr-8">
-              <h2 className="font-bold text-5xl tracking-tight mb-1 text-black dark:text-white">
+              <h2 className="mb-1 text-5xl font-bold tracking-tight text-black dark:text-white">
                 iSensei
               </h2>
-              <h3 className="text-gray-700 dark:text-gray-200 mb-4">
+              <h3 className="mb-4 text-gray-700 dark:text-gray-200">
                 {t("bio:subtitle")}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-16">
+              <p className="mb-16 text-gray-600 dark:text-gray-400">
                 {t("bio:aboutMe")}
               </p>
             </div>
-            <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
+            <div className="relative mb-8 mr-auto w-[80px] sm:mb-0 sm:w-[176px]">
               <Image
                 alt="isensei smiling face"
                 height={176}
                 width={176}
                 src="/static/images/avatar.png"
-                className="rounded-full filter grayscale"
+                className="rounded-full grayscale filter"
               />
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function Home({ posts, locale, availableLocales }) {
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
                       <dt className="sr-only">{t("common:pub")}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
@@ -92,7 +92,7 @@ export default function Home({ posts, locale, availableLocales }) {
                             ))}
                           </div>
                         </div>
-                        <div className="prose text-gray-500 max-w-none dark:text-gray-400">
+                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
                       </div>

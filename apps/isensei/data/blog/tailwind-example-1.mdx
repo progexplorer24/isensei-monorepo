@@ -18,13 +18,13 @@ Use the `accent-{color}` utilities to change the accent color of an element. Thi
 <div class="flex flex-wrap justify-center gap-6">
   <label class="flex items-center space-x-2">
     <input type="checkbox" checked />
-    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+    <div class="text-sm font-semibold text-slate-900 dark:text-slate-200">
       Browser default
     </div>
   </label>
   <label class="flex items-center space-x-2">
     <input type="checkbox" class="accent-pink-500" checked />
-    <div class="text-slate-900 text-sm font-semibold dark:text-slate-200">
+    <div class="text-sm font-semibold text-slate-900 dark:text-slate-200">
       Customized
     </div>
   </label>
@@ -55,7 +55,7 @@ While it's possible to control the opacity of the accent color using the color o
 ```html
 <input
   type="checkbox"
-  class="accent-pink-300 **focus:accent-pink-500**"
+  class="**focus:accent-pink-500** accent-pink-300"
   checked
 />
 ```
@@ -65,7 +65,7 @@ Note, while it's possible to set an accent color using the `hover` and `active` 
 ### Breakpoints and media queries
 
 ```html
-<input type="checkbox" class="accent-pink-300 **md:accent-pink-500**" checked />
+<input type="checkbox" class="**md:accent-pink-500** accent-pink-300" checked />
 ```
 
 ---

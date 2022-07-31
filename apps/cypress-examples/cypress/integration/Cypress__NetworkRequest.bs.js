@@ -3,149 +3,231 @@
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.bs.js";
 
-Cypress$IsenseiMonorepo.context("Network Requests", (function (param) {
-        Cypress$IsenseiMonorepo.beforeEach(function (param) {
-              cy.visit("https://example.cypress.io/commands/network-requests", undefined);
-              
-            });
-        Cypress$IsenseiMonorepo.it("cy.request() - make an XHR request", (function (param) {
-                cy.request(undefined, "https://jsonplaceholder.cypress.io/comments", undefined).should(function (response) {
-                      Cypress$IsenseiMonorepo.expect(response.status).equal(200);
-                      Cypress$IsenseiMonorepo.andBeOneOf(Cypress$IsenseiMonorepo.expect(response.body).to.have.property("length"), [
-                            500,
-                            501
-                          ]);
-                      Cypress$IsenseiMonorepo.expect(response).to.have.property("headers");
-                      Cypress$IsenseiMonorepo.expect(response).to.have.property("duration");
-                      
-                    });
-                
-              }));
-        Cypress$IsenseiMonorepo.it("cy.request() - verify response using BDD syntax", (function (param) {
-                cy.request(undefined, "https://jsonplaceholder.cypress.io/comments", undefined).should(function (response) {
-                      Cypress$IsenseiMonorepo.expect(response).to.have.property("status", 200);
-                      Cypress$IsenseiMonorepo.andBeOneOf(Cypress$IsenseiMonorepo.expect(response).to.have.property("body").to.have.property("length"), [
-                            500,
-                            501
-                          ]);
-                      Cypress$IsenseiMonorepo.expect(response).to.include.keys([
-                            "headers",
-                            "duration"
-                          ]);
-                      
-                    });
-                
-              }));
-        Cypress$IsenseiMonorepo.it("cy.request() with query parameters", (function (param) {
-                var requestObject = Cypress$IsenseiMonorepo.createRequestOptionsObject(undefined, "https://jsonplaceholder.cypress.io/comments", undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, {
-                      postId: 1,
-                      id: 3
-                    }, undefined, undefined, undefined, undefined);
-                return Cypress$IsenseiMonorepo.shouldContain(Cypress$IsenseiMonorepo.shouldHaveLengthP(cy.request(requestObject).its("body", undefined), 1).its("0", undefined), {
-                            postId: 1,
-                            id: 3
-                          });
-              }));
-        Cypress$IsenseiMonorepo.it("cy.request() - pass result to the second request", (function (param) {
-                cy.request(undefined, "https://jsonplaceholder.cypress.io/users?_limit=1", undefined).its("body", undefined).its("0", undefined).then(function (user) {
-                        Cypress$IsenseiMonorepo.expect(user).to.have.property("id");
-                        cy.request("post", "https://jsonplaceholder.cypress.io/posts", {
-                              userId: user.id,
-                              title: "Cypress Test Runner",
-                              body: "Fast, easy and reliable testing for anything that runs in a browser."
-                            });
-                        
-                      }).then(function (response) {
-                      Cypress$IsenseiMonorepo.expect(response).to.have.property("status", 201);
-                      Cypress$IsenseiMonorepo.andContain(Cypress$IsenseiMonorepo.expect(response).to.have.property("body"), {
-                            title: "Cypress Test Runner"
-                          });
-                      Cypress$IsenseiMonorepo.andBeGtInt(Cypress$IsenseiMonorepo.expect(response.body).to.have.property("id"), 100);
-                      Cypress$IsenseiMonorepo.expect(response.body).to.have.property("userId");
-                      
-                    });
-                
-              }));
-        Cypress$IsenseiMonorepo.it("cy.request() - save response in the shared test context", (function (param) {
-                var userId = {
-                  contents: -1
-                };
-                cy.request(undefined, "https://jsonplaceholder.cypress.io/users?_limit=1", undefined).its("body", undefined).its("0", undefined).as("user").then(function (user) {
-                        userId.contents = user.id;
-                        cy.request("post", "https://jsonplaceholder.cypress.io/posts", {
-                                  userId: user.id,
-                                  title: "Cypress Test Runner",
-                                  body: "Fast, easy and reliable testing for anything that runs in a browser."
-                                }).its("body", undefined).as("post");
-                        
-                      }).then(function (post) {
-                      Cypress$IsenseiMonorepo.expectWithDescription(post, "post has the right user id").to.have.property("userId", userId.contents);
-                      
-                    });
-                
-              }));
-        return Cypress$IsenseiMonorepo.itOnly("cy.intercept() - route responses to matching requests", (function (param) {
-                      cy.intercept("get", "**/comments/*", undefined).as("getComment");
-                      cy.get(".network-btn", undefined).click(undefined);
-                      Cypress$IsenseiMonorepo.shouldBeOneOf(cy.wait("@getComment", undefined).its("response.statusCode", undefined), [
-                            200,
-                            304
-                          ]);
-                      cy.intercept("post", "**/comments", undefined).as("postComment");
-                      cy.get(".network-post", undefined).click(undefined);
-                      cy.wait("@postComment", undefined).should(function (param) {
-                            var request = param.request;
-                            Cypress$IsenseiMonorepo.expect(request.body).to.include("email");
-                            Cypress$IsenseiMonorepo.expect(request.headers).to.have.property("content-type");
-                            Cypress$IsenseiMonorepo.expect(param.response.body).to.have.property("name", "Using POST in cy.intercept()");
-                            
-                          });
-                      var arg = {
-                        error: "whoa, this comment does not exist"
-                      };
-                      var arg$1 = {
-                        "access-control-allow-origin": "*"
-                      };
-                      cy.intercept({
-                              method: "put",
-                              url: "**/comments/*"
-                            }, (function (param) {
-                                var partial_arg = 500;
-                                var partial_arg$1 = 404;
-                                return function (param$1) {
-                                  var tmp = {};
-                                  if (param !== undefined) {
-                                    tmp.fixture = param;
-                                  }
-                                  if (arg !== undefined) {
-                                    tmp.body = Caml_option.valFromOption(arg);
-                                  }
-                                  if (arg$1 !== undefined) {
-                                    tmp.headers = Caml_option.valFromOption(arg$1);
-                                  }
-                                  if (partial_arg$1 !== undefined) {
-                                    tmp.statusCode = partial_arg$1;
-                                  }
-                                  if (partial_arg !== undefined) {
-                                    tmp.delay = partial_arg;
-                                  }
-                                  return tmp;
-                                };
-                              })).as("putComment");
-                      cy.get(".network-put", undefined).click(undefined);
-                      cy.wait("@putComment", undefined).then(function (element) {
-                            console.log(element);
-                            
-                          });
-                      cy.get(".network-put-comment", undefined).then(function (element) {
-                            console.log(element);
-                            
-                          });
-                      
-                    }));
-      }));
+Cypress$IsenseiMonorepo.context("Network Requests", function (param) {
+  Cypress$IsenseiMonorepo.beforeEach(function (param) {
+    cy.visit("https://example.cypress.io/commands/network-requests", undefined);
+  });
+  Cypress$IsenseiMonorepo.it(
+    "cy.request() - make an XHR request",
+    function (param) {
+      cy.request(
+        undefined,
+        "https://jsonplaceholder.cypress.io/comments",
+        undefined
+      ).should(function (response) {
+        Cypress$IsenseiMonorepo.expect(response.status).equal(200);
+        Cypress$IsenseiMonorepo.andBeOneOf(
+          Cypress$IsenseiMonorepo.expect(response.body).to.have.property(
+            "length"
+          ),
+          [500, 501]
+        );
+        Cypress$IsenseiMonorepo.expect(response).to.have.property("headers");
+        Cypress$IsenseiMonorepo.expect(response).to.have.property("duration");
+      });
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    "cy.request() - verify response using BDD syntax",
+    function (param) {
+      cy.request(
+        undefined,
+        "https://jsonplaceholder.cypress.io/comments",
+        undefined
+      ).should(function (response) {
+        Cypress$IsenseiMonorepo.expect(response).to.have.property(
+          "status",
+          200
+        );
+        Cypress$IsenseiMonorepo.andBeOneOf(
+          Cypress$IsenseiMonorepo.expect(response)
+            .to.have.property("body")
+            .to.have.property("length"),
+          [500, 501]
+        );
+        Cypress$IsenseiMonorepo.expect(response).to.include.keys([
+          "headers",
+          "duration",
+        ]);
+      });
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    "cy.request() with query parameters",
+    function (param) {
+      var requestObject = Cypress$IsenseiMonorepo.createRequestOptionsObject(
+        undefined,
+        "https://jsonplaceholder.cypress.io/comments",
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        {
+          postId: 1,
+          id: 3,
+        },
+        undefined,
+        undefined,
+        undefined,
+        undefined
+      );
+      return Cypress$IsenseiMonorepo.shouldContain(
+        Cypress$IsenseiMonorepo.shouldHaveLengthP(
+          cy.request(requestObject).its("body", undefined),
+          1
+        ).its("0", undefined),
+        {
+          postId: 1,
+          id: 3,
+        }
+      );
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    "cy.request() - pass result to the second request",
+    function (param) {
+      cy.request(
+        undefined,
+        "https://jsonplaceholder.cypress.io/users?_limit=1",
+        undefined
+      )
+        .its("body", undefined)
+        .its("0", undefined)
+        .then(function (user) {
+          Cypress$IsenseiMonorepo.expect(user).to.have.property("id");
+          cy.request("post", "https://jsonplaceholder.cypress.io/posts", {
+            userId: user.id,
+            title: "Cypress Test Runner",
+            body: "Fast, easy and reliable testing for anything that runs in a browser.",
+          });
+        })
+        .then(function (response) {
+          Cypress$IsenseiMonorepo.expect(response).to.have.property(
+            "status",
+            201
+          );
+          Cypress$IsenseiMonorepo.andContain(
+            Cypress$IsenseiMonorepo.expect(response).to.have.property("body"),
+            {
+              title: "Cypress Test Runner",
+            }
+          );
+          Cypress$IsenseiMonorepo.andBeGtInt(
+            Cypress$IsenseiMonorepo.expect(response.body).to.have.property(
+              "id"
+            ),
+            100
+          );
+          Cypress$IsenseiMonorepo.expect(response.body).to.have.property(
+            "userId"
+          );
+        });
+    }
+  );
+  Cypress$IsenseiMonorepo.it(
+    "cy.request() - save response in the shared test context",
+    function (param) {
+      var userId = {
+        contents: -1,
+      };
+      cy.request(
+        undefined,
+        "https://jsonplaceholder.cypress.io/users?_limit=1",
+        undefined
+      )
+        .its("body", undefined)
+        .its("0", undefined)
+        .as("user")
+        .then(function (user) {
+          userId.contents = user.id;
+          cy.request("post", "https://jsonplaceholder.cypress.io/posts", {
+            userId: user.id,
+            title: "Cypress Test Runner",
+            body: "Fast, easy and reliable testing for anything that runs in a browser.",
+          })
+            .its("body", undefined)
+            .as("post");
+        })
+        .then(function (post) {
+          Cypress$IsenseiMonorepo.expectWithDescription(
+            post,
+            "post has the right user id"
+          ).to.have.property("userId", userId.contents);
+        });
+    }
+  );
+  return Cypress$IsenseiMonorepo.itOnly(
+    "cy.intercept() - route responses to matching requests",
+    function (param) {
+      cy.intercept("get", "**/comments/*", undefined).as("getComment");
+      cy.get(".network-btn", undefined).click(undefined);
+      Cypress$IsenseiMonorepo.shouldBeOneOf(
+        cy.wait("@getComment", undefined).its("response.statusCode", undefined),
+        [200, 304]
+      );
+      cy.intercept("post", "**/comments", undefined).as("postComment");
+      cy.get(".network-post", undefined).click(undefined);
+      cy.wait("@postComment", undefined).should(function (param) {
+        var request = param.request;
+        Cypress$IsenseiMonorepo.expect(request.body).to.include("email");
+        Cypress$IsenseiMonorepo.expect(request.headers).to.have.property(
+          "content-type"
+        );
+        Cypress$IsenseiMonorepo.expect(param.response.body).to.have.property(
+          "name",
+          "Using POST in cy.intercept()"
+        );
+      });
+      var arg = {
+        error: "whoa, this comment does not exist",
+      };
+      var arg$1 = {
+        "access-control-allow-origin": "*",
+      };
+      cy.intercept(
+        {
+          method: "put",
+          url: "**/comments/*",
+        },
+        function (param) {
+          var partial_arg = 500;
+          var partial_arg$1 = 404;
+          return function (param$1) {
+            var tmp = {};
+            if (param !== undefined) {
+              tmp.fixture = param;
+            }
+            if (arg !== undefined) {
+              tmp.body = Caml_option.valFromOption(arg);
+            }
+            if (arg$1 !== undefined) {
+              tmp.headers = Caml_option.valFromOption(arg$1);
+            }
+            if (partial_arg$1 !== undefined) {
+              tmp.statusCode = partial_arg$1;
+            }
+            if (partial_arg !== undefined) {
+              tmp.delay = partial_arg;
+            }
+            return tmp;
+          };
+        }
+      ).as("putComment");
+      cy.get(".network-put", undefined).click(undefined);
+      cy.wait("@putComment", undefined).then(function (element) {
+        console.log(element);
+      });
+      cy.get(".network-put-comment", undefined).then(function (element) {
+        console.log(element);
+      });
+    }
+  );
+});
 
-export {
-  
-}
+export {};
 /*  Not a pure module */

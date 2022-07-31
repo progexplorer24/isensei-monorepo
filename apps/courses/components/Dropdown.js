@@ -23,9 +23,9 @@ const Dropdown = ({ trigger, dropdown }) => {
         <button
           onClick={() => setIsOpen(false)}
           type="button"
-          className="z-30 block fixed inset-0 w-full h-full cursor-default"
+          className="fixed inset-0 z-30 block h-full w-full cursor-default"
         ></button>
-        <div className="absolute z-40 right-0">{dropdown()}</div>
+        <div className="absolute right-0 z-40">{dropdown()}</div>
       </div>
     </div>
   );
