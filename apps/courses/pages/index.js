@@ -221,7 +221,7 @@ export default function Home() {
       return (
         <div key={i} className={i > 0 ? "mt-6" : ""}>
           <div className="px-4 xl:px-8">
-            <h3 className="text-gray-900 text-xl">{topic.title}</h3>
+            <h3 className="text-xl text-gray-900">{topic.title}</h3>
             <p className="text-gray-600">{topic.description}</p>
           </div>
           <div className="mt-6 sm:overflow-x-auto sm:overflow-y-hidden">
@@ -248,12 +248,12 @@ export default function Home() {
   return (
     <div
       id="app"
-      className="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen"
+      className="min-h-screen bg-gray-200 antialiased xl:flex xl:h-screen xl:flex-col"
     >
       <SiteHeader class="xl:flex-shrink-0" />
-      <div className="xl:flex-1 xl:flex xl:overflow-y-hidden">
+      <div className="xl:flex xl:flex-1 xl:overflow-y-hidden">
         <SearchFilters />
-        <main className="py-6 xl:flex-1 xl:overflow-x-hidden bg-gray-50">
+        <main className="bg-gray-50 py-6 xl:flex-1 xl:overflow-x-hidden">
           {renderCourses(topics)}
         </main>
       </div>

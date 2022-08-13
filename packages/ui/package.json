@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "sideEffects": false,
-  "main": "./src/UI.mjs",
+  "main": "./src/UI.bs.js",
   "source": "./src/UI.res",
   "scripts": {
     "lint": "eslint './src/*.{ts,tsx,js,jsx,mjs}' --fix",

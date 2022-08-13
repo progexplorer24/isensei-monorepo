@@ -13,20 +13,20 @@ const PropertyCard = ({ property }) => {
     <div>
       <div className="relative">
         <Image
-          className="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover"
+          className="absolute inset-0 h-full w-full rounded-lg object-cover shadow-md"
           src={property.imageUrl}
           width={600}
           height={500}
           alt=""
         />
       </div>
-      <div className="relative px-4 -mt-16">
-        <div className="bg-white rounded-lg px-4 py-4 shadow-lg">
+      <div className="relative -mt-16 px-4">
+        <div className="rounded-lg bg-white px-4 py-4 shadow-lg">
           <div className="flex items-baseline">
-            <span className="inline-block px-2 py-1 leading-none bg-blue-100 text-blue-900 rounded-full font-bold uppercase tracking-wide text-xs">
+            <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-bold uppercase leading-none tracking-wide text-blue-900">
               Plus
             </span>
-            <div className="ml-2 text-xs text-gray-600 font-semibold uppercase tracking-wide">
+            <div className="ml-2 text-xs font-semibold uppercase tracking-wide text-gray-600">
               {`${property.sections} ${
                 property.sections === 1 ? "section" : "sections"
               } `}
@@ -36,11 +36,11 @@ const PropertyCard = ({ property }) => {
               }`}
             </div>
           </div>
-          <h4 className="mt-1 text-gray-900 font-semibold text-lg">
+          <h4 className="mt-1 text-lg font-semibold text-gray-900">
             {property.title}
           </h4>
           <div className="mt-1">
-            <span className="text-gray-900 text-xl">
+            <span className="text-xl text-gray-900">
               {formattedPrice(property.price)}
             </span>
           </div>
