@@ -1,0 +1,18 @@
+{
+  "name": "@isensei/tsconfig",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "node16.json",
+    "react-library.json",
+    "nextjs.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}

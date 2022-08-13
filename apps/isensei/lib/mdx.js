@@ -1,4 +1,5 @@
 import { bundleMDX } from "mdx-bundler";
+import theme from "shiki/themes/nord.json";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -13,6 +14,7 @@ import remarkExtractFrontmatter from "./remark-extract-frontmatter";
 import remarkCodeTitles from "./remark-code-title";
 import remarkTocHeadings from "./remark-toc-headings";
 import remarkImgToJsx from "./remark-img-to-jsx";
+import { remarkCodeHike } from "@code-hike/mdx";
 // Rehype packages
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -106,6 +108,17 @@ export async function getFileBySlug(type, slug, otherLocale = "") {
         [remarkFootnotes, { inlineNotes: true }],
         remarkMath,
         remarkImgToJsx,
+        [
+          remarkCodeHike,
+          {
+            lineNumbers: true,
+            showCopyButton: true,
+            theme: theme,
+            skipLanguages: ["mermaid"],
+            staticMediaQuery: "not screen, (max-width: 768px)",
+            autoImport: true,
+          },
+        ],
       ];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
@@ -113,7 +126,6 @@ export async function getFileBySlug(type, slug, otherLocale = "") {
         rehypeAutolinkHeadings,
         rehypeKatex,
         [rehypeCitation, { path: path.join(root, "data") }],
-        [rehypePrismPlus, { ignoreMissing: true }],
         rehypePresetMinify,
       ];
       return options;

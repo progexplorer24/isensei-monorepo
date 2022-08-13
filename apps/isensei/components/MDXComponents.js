@@ -7,6 +7,7 @@ import CustomLink from "./Link";
 import TOCInline from "./TOCInline";
 import Pre from "./Pre";
 import { BlogNewsletterForm } from "./NewsletterForm";
+import SandpackIsensei from "./SandpackIsensei";
 
 export const MDXComponents = {
   Image,
@@ -20,6 +21,7 @@ export const MDXComponents = {
     const Layout = require(`../layouts/${layout}`).default;
     return <Layout {...rest} />;
   },
+  SandpackIsensei: SandpackIsensei,
 };
 
 export const MDXLayoutRenderer = ({ layout, mdxSource, ...rest }) => {

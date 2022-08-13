@@ -6,6 +6,7 @@ import "@/css/tailwind.css";
 import "@/css/prism.css";
 import "@/css/fonts.css";
 import "@/css/katex.min.css";
+import "@code-hike/mdx/dist/index.css";
 import siteMetadata from "@/data/siteMetadata";
 import Analytics from "@/components/analytics";
 import LayoutWrapper from "@/components/LayoutWrapper";

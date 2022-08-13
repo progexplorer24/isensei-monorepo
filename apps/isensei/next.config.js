@@ -30,7 +30,7 @@ const ContentSecurityPolicy = `
   media-src 'none';
   connect-src *;
   font-src 'self';
-  frame-src giscus.app
+  frame-src *.codesandbox.io giscus.app;
 `;
 
 const securityHeaders = [
@@ -133,6 +133,8 @@ const config = {
       //   'react-dom': 'preact/compat',
       // })
     }
+
+    config.resolve.fallback = { fs: false };
 
     return config;
   },
