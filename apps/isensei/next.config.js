@@ -1,7 +1,14 @@
 const bsconfig = require("../../bsconfig.json");
-const withPlugins = require("next-compose-plugins");
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
+const withNextTranslate = require("next-translate");
+const transpileModules = ["rescript", "@isensei/ui"].concat(
+  bsconfig["bs-dependencies"]
+);
+const withTM = require("next-transpile-modules")(transpileModules);
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
 if (!process.env.NEXTAUTH_URL) {
   console.warn(
@@ -71,44 +78,36 @@ const securityHeaders = [
   },
 ];
 
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
-});
+// NOTE: Pwa config was deleted because it was throwing errors
+// - The root value has an unexpected property, pwa, which is not in the list of allowed properties (amp, analyticsId, assetPrefix, basePath, cleanDistDir,
+//   compiler, compress, crossOrigin, devIndicators, distDir, env, eslint, excludeDefaultMomentLocales, experimental, exportPathMap, future, generateBuildId,
+//   generateEtags, headers, httpAgentOptions, i18n, images, onDemandEntries, optimizeFonts, output, outputFileTracing, pageExtensions, poweredByHeader,
+//   productionBrowserSourceMaps, publicRuntimeConfig, reactStrictMode, redirects, rewrites, sassOptions, serverRuntimeConfig, staticPageGenerationTimeout, swcMinify,
+//   trailingSlash, typescript, useFileSystemPublicRoutes, webpack).
+//   - The root value has an unexpected property, module, which is not in the list of allowed properties (amp, analyticsId, assetPrefix, basePath, cleanDistDir,
+//     compiler, compress, crossOrigin, devIndicators, distDir, env, eslint, excludeDefaultMomentLocales, experimental, exportPathMap, future, generateBuildId,
+//     generateEtags, headers, httpAgentOptions, i18n, images, onDemandEntries, optimizeFonts, output, outputFileTracing, pageExtensions, poweredByHeader,
+//     productionBrowserSourceMaps, publicRuntimeConfig, reactStrictMode, redirects, rewrites, sassOptions, serverRuntimeConfig, staticPageGenerationTimeout,
+//     swcMinify, trailingSlash, typescript, useFileSystemPublicRoutes, webpack).
+// pwa: {
+//   dest: "public",
+//   register: true,
+//   skipWaiting: true,
+//   runtimeCaching,
+//   buildExcludes: [/middleware-manifest\.json$/],
+//   disable: isDevelopment,
+//   mode: "production",
+// },
 
 /**
  * @type {import('next').NextConfig}
  */
-const config = {
+const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx", "mjs"],
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-    runtimeCaching,
-    buildExcludes: [/middleware-manifest\.json$/],
-    disable: isDevelopment,
-    mode: "production",
-  },
   eslint: {
     dirs: ["pages", "components", "lib", "layouts", "scripts"],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.m?jsx?$/,
-        resolve: {
-          fullySpecified: false,
-        },
-      },
-      {
-        test: /\.tsx?$/,
-        resolve: {
-          fullySpecified: false,
-        },
-      },
-    ],
   },
   async headers() {
     return [
@@ -122,6 +121,20 @@ const config = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
+    });
+
+    config.module.rules.push({
+      test: /\.m?jsx?$/,
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+
+    config.module.rules.push({
+      test: /\.tsx?$/,
+      resolve: {
+        fullySpecified: false,
+      },
     });
 
     if (!dev && !isServer) {
@@ -139,12 +152,9 @@ const config = {
     return config;
   },
 };
-const withNextTranslate = require("next-translate")(withBundleAnalyzer(config));
 
-const transpileModules = ["rescript", "@isensei/ui"].concat(
-  bsconfig["bs-dependencies"]
-);
+// withTM(withNextTranslate(withBundleAnalyzer(nextConfig)));
 
-const withTM = require("next-transpile-modules")(transpileModules);
-
-module.exports = withPlugins([withTM, withPWA, withNextTranslate], config);
+const plugins = [withTM, withNextTranslate, withBundleAnalyzer];
+module.exports = (_phase, { defaultConfig }) =>
+  plugins.reduce((acc, plugin) => plugin(acc), { ...nextConfig });
