@@ -20,7 +20,6 @@ export default function PrivacyPolicy({
   availableLocales,
 }) {
   const { frontMatter, mdxSource } = privacyPolicy;
-  // console.log("Polityka Prywatności", { privacyPolicy });
 
   return (
     <>

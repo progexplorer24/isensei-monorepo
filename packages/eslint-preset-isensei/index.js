@@ -10,9 +10,11 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "next",
     "next/core-web-vitals",
+    "plugin:mdx/recommended",
     "plugin:prettier/recommended",
   ],
   settings: {
+    "mdx/code-blocks": true,
     next: {
       rootDir: ["./apps/*/"],
     },
