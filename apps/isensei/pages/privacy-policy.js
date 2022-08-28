@@ -1,35 +1,50 @@
-import useTranslation from "next-translate/useTranslation";
-
+// import useTranslation from "next-translate/useTranslation";
 import siteMetadata from "@/data/siteMetadata";
+import { getFileBySlug } from "@/lib/mdx";
 import { PageSEO } from "@/components/SEO";
+import { MDXLayoutRenderer } from "@/components/MDXComponents";
 
-export async function getStaticProps({ locale, locales }) {
-  return { props: { locale, availableLocales: locales } };
+export async function getStaticProps({ locale, defaultLocale, locales }) {
+  const otherLocale = locale !== defaultLocale ? locale : "";
+  const privacyPolicy = await getFileBySlug(
+    "legal",
+    [`privacy-policy`],
+    otherLocale
+  );
+  return { props: { privacyPolicy, availableLocales: locales } };
 }
 
-export default function Projects({ locale, availableLocales }) {
-  const { t } = useTranslation();
+export default function PrivacyPolicy({
+  privacyPolicy,
+  locale,
+  availableLocales,
+}) {
+  const { frontMatter, mdxSource } = privacyPolicy;
+  // console.log("Polityka Prywatności", { privacyPolicy });
+
   return (
     <>
       <PageSEO
-        title={`${t("privacyPolicy:title")} - ${siteMetadata.author}`}
+        title={`${frontMatter.title} - ${siteMetadata.author}`}
         description={siteMetadata.description[locale]}
         availableLocales={availableLocales}
       />
       <div>
         <div className="space-y-2 border-b border-gray-200 pt-6 pb-8 dark:border-gray-700 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {t("privacyPolicy:title")}
+            {frontMatter.title}
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {t("privacyPolicy:subtitle")}
+            {frontMatter.summary}
           </p>
         </div>
-        <div className="mt-16 text-gray-200">
-          <p className="text-gray-600 dark:text-gray-400">
-            {t("privacyPolicy:content")}
-          </p>
-        </div>
+
+        <MDXLayoutRenderer
+          layout={frontMatter.layout || "StatuteLayout"}
+          mdxSource={mdxSource}
+          frontMatter={frontMatter}
+          availableLocales={availableLocales}
+        />
       </div>
     </>
   );
