@@ -9,6 +9,7 @@ import SectionContainer from "./SectionContainer";
 import FooterNew from "./Footer";
 import MobileNav from "./MobileNav";
 import ThemeSwitch from "./ThemeSwitch";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -31,6 +32,8 @@ function NavItem({ href, text }) {
 const textArr = ["home", "blog", "tags", "projects"];
 
 function Header({ changeLanguage, locale, locales, t }) {
+  const { data: session } = useSession();
+
   return (
     <header className="flex items-center justify-between py-10 xl:px-4">
       <div className="flex items-center text-base leading-5">
@@ -63,6 +66,17 @@ function Header({ changeLanguage, locale, locales, t }) {
           ))}
         </select>
         <ThemeSwitch />
+        {session ? (
+          <>
+            Signed in as {session.user.email} <br />
+            <button onClick={() => signOut()}>Sign out</button>
+          </>
+        ) : (
+          <>
+            Not signed in <br />
+            <button onClick={() => signIn()}>Sign in</button>
+          </>
+        )}
       </div>
     </header>
   );

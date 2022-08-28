@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 export default function SignIn({ providers }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  console.log("Providers", { providers });
   useEffect(() => {
     if (router.query.error) {
       setIsOpen(true);
@@ -24,9 +25,9 @@ export default function SignIn({ providers }) {
             <p className=" text-center sm:text-left">
               Sign in with one of these providers:
             </p>
-            {Object.values(providers).map((provider) => {
+            {/* {Object.values(providers)?.map((provider) => {
               return <LoginButton key={provider.id} provider={provider} />;
-            })}
+            })} */}
           </div>
         </div>
       </div>
