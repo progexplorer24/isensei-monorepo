@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
-    "dev": "yarn run clean && TAILWIND_MODE=watch next dev -p 3001",
+    "dev": "yarn run clean && TAILWIND_MODE=watch next dev -p 3000",
     "build": "prisma generate && prisma migrate deploy && next build && node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
@@ -26,10 +26,10 @@
     "@isensei/ui": "*",
     "@mailchimp/mailchimp_marketing": "^3.0.78",
     "@next-auth/prisma-adapter": "^1.0.4",
-    "@prisma/client": "^3.12.0",
+    "@prisma/client": "^4.3.1",
     "@types/react-dom": "17.0.2",
     "classnames": "^2.3.1",
-    "esbuild": "^0.14.51",
+    "esbuild": "^0.15.7",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
     "image-size": "1.0.2",
@@ -69,7 +69,7 @@
     "globby": "^11.0.4",
     "inquirer": "^8.2.0",
     "next-remote-watch": "^1.0.0",
-    "prisma": "3.12.0",
+    "prisma": "4.3.1",
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1"
   }
