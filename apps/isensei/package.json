@@ -14,7 +14,6 @@
     "prisma:generate": "npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
-    "pscale:shadow": "pscale connect isensei shadow --port 3310",
     "pscale:dev": "pscale connect isensei dev --port 3309",
     "pscale:main": "pscale connect isensei main --port 3309",
     "compose": "node ./scripts/compose.js"

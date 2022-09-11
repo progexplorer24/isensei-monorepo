@@ -6,7 +6,7 @@ import { getFileBySlug } from "@/lib/mdx";
 
 export async function getStaticProps({ locale, defaultLocale, locales }) {
   const otherLocale = locale !== defaultLocale ? locale : "";
-  const statute = await getFileBySlug("./statute", [`statute`], otherLocale);
+  const statute = await getFileBySlug("./legal", [`statute`], otherLocale);
   return { props: { statute, availableLocales: locales } };
 }
 
