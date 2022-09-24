@@ -1,7 +1,10 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import useTranslation from "next-translate/useTranslation";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import cn from "classnames";
+import { Auth } from "@supabase/ui";
+import { supabase } from "@/lib/auth/client";
 
 import links from "@/data/links";
 import Link from "./Link";
@@ -9,7 +12,9 @@ import SectionContainer from "./SectionContainer";
 import FooterNew from "./Footer";
 import MobileNav from "./MobileNav";
 import ThemeSwitch from "./ThemeSwitch";
-import { useSession, signIn, signOut } from "next-auth/react";
+// import { useSession, signIn, signOut } from "next-auth/react";
+import { useAuth } from "@/lib/auth/auth";
+import { VIEWS } from "../lib/auth/auth";
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -32,7 +37,8 @@ function NavItem({ href, text }) {
 const textArr = ["home", "blog", "tags", "projects"];
 
 function Header({ changeLanguage, locale, locales, t }) {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
+  const { user, signOut, view } = useAuth();
 
   return (
     <header className="flex items-center justify-between py-10 xl:px-4">
@@ -66,15 +72,15 @@ function Header({ changeLanguage, locale, locales, t }) {
           ))}
         </select>
         <ThemeSwitch />
-        {session ? (
+        {user ? (
           <>
-            Signed in as {session.user.email} <br />
-            <button onClick={() => signOut()}>Sign out</button>
+            Signed in as {user.role} <br />
+            <button onClick={signOut}>Sign out</button>
           </>
         ) : (
           <>
             Not signed in <br />
-            <button onClick={() => signIn()}>Sign in</button>
+            <Link href="/login">Sign in</Link>
           </>
         )}
       </div>
