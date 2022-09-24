@@ -11,6 +11,7 @@ import MobileNav from "./MobileNav";
 import ThemeSwitch from "./ThemeSwitch";
 // import { useSession, signIn, signOut } from "next-auth/react";
 import { useAuth } from "@/lib/auth/auth";
+import { lockClosed, logOut } from "@/icons/icons";
 
 function NavItem({ href, text }) {
   const router = useRouter();
@@ -53,13 +54,13 @@ function Header({ changeLanguage, locale, locales, t }) {
 
         <MobileNav />
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center gap-4">
         <select
           onChange={changeLanguage}
           defaultValue={locale}
           style={{ textAlignLast: "center" }}
           // dark:  hover:ring-2 ring-gray-300  transition-all
-          className="text-shadow-sm mr-4 h-9 rounded-lg border-0 bg-gray-200 text-sm tracking-wide text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-600 dark:text-gray-100"
+          className="text-shadow-sm h-9 rounded-lg border-0 bg-gray-200 text-sm tracking-wide text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-600 dark:text-gray-100"
         >
           {locales.map((e) => (
             <option value={e} key={e}>
@@ -70,13 +71,26 @@ function Header({ changeLanguage, locale, locales, t }) {
         <ThemeSwitch />
         {user ? (
           <>
-            Signed in as {user.role} <br />
-            <button onClick={signOut}>Sign out</button>
+            <button
+              aria-label="Logout Button"
+              onClick={signOut}
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300  transition-all hover:ring-2  dark:bg-gray-600"
+            >
+              {logOut()}
+            </button>
           </>
         ) : (
           <>
-            Not signed in <br />
-            <Link href="/login">Sign in</Link>
+            <Link href="/login">
+              {
+                <a
+                  aria-label="Login Button"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 ring-gray-300  transition-all hover:ring-2  dark:bg-gray-600"
+                >
+                  {lockClosed()}
+                </a>
+              }
+            </Link>
           </>
         )}
       </div>
