@@ -9,13 +9,31 @@ export const AuthProvider = ({ supabase, ...props }) => {
 
   useEffect(() => {
     const activeSession = supabase.auth.session();
-    setSession(activeSession);
-    setUser(activeSession?.user ?? null);
+    const getUserProfile = async () => {
+      const sessionUser = supabase.auth.user();
+      if (sessionUser) {
+        const { data: profile } = await supabase
+          .from("profile")
+          .select("*")
+          .eq("id", sessionUser.id)
+          .single();
 
+        setUser({
+          ...sessionUser,
+          ...profile,
+        });
+      } else {
+        setUser(null);
+      }
+    };
+
+    setSession(activeSession);
+    // setUser(activeSession?.user ?? null);
+    getUserProfile();
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, currentSession) => {
         setSession(currentSession);
-        setUser(currentSession?.user ?? null);
+        getUserProfile();
         switch (event) {
           case EVENTS.PASSWORD_RECOVERY:
             setView(VIEWS.UPDATE_PASSWORD);

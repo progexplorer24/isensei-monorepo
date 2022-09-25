@@ -10,34 +10,18 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-if (!process.env.NEXTAUTH_URL) {
-  console.warn(
-    "\x1b[33mwarn",
-    "\x1b[0m",
-    "NEXTAUTH_URL environment variable is not set."
-  );
-  if (process.env.URL) {
-    process.env.NEXTAUTH_URL = process.env.URL;
-    console.warn(
-      "\x1b[33mwarn",
-      "\x1b[0m",
-      `NEXTAUTH_URL environment variable is not set. Using Vercel URL ${process.env.URL}.`
-    );
-  }
-}
-
 const isDevelopment = process.env.NODE_ENV === "development";
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app https://www.youtube.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
   font-src 'self';
-  frame-src *.codesandbox.io giscus.app;
+  frame-src *.codesandbox.io giscus.app https://www.youtube.com;
 `;
 
 const securityHeaders = [
