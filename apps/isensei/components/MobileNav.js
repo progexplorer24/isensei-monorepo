@@ -51,9 +51,11 @@ function CrossIcon(props) {
   );
 }
 
-const MobileNav = () => {
+const MobileNav = ({ user }) => {
   const { t } = useTranslation();
   const [navShow, setNavShow] = useState(false);
+
+  const linkKeys = Object.keys(links);
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -66,8 +68,6 @@ const MobileNav = () => {
       return !status;
     });
   };
-
-  const textArr = ["home", "blog", "tags", "projects"];
 
   return (
     <div className="md:hidden">
@@ -91,57 +91,29 @@ const MobileNav = () => {
           onClick={onToggleNav}
         ></button>
         <nav className="fixed mt-0 flex h-full w-full flex-col">
-          {[links.home, links.blog, links.tags, links.projects].map(
-            (item, i) => (
-              <div
-                key={i}
-                className="w-full border-b border-gray-200 text-sm font-bold text-gray-900 dark:border-gray-700 dark:text-gray-100 "
+          {linkKeys.map((item, i) => (
+            <div
+              key={i}
+              className="w-full border-b border-gray-200 text-sm font-bold text-gray-900 dark:border-gray-700 dark:text-gray-100 "
+            >
+              <Link
+                href={links[item].path}
+                className="block py-4 text-center"
+                onClick={onToggleNav}
               >
-                <Link
-                  href={item}
-                  className="block py-4 text-center"
-                  onClick={onToggleNav}
-                >
-                  {t(`headerNavLinks:${textArr[i]}`)}
-                </Link>
-              </div>
-            )
+                {t(`headerNavLinks:${links[item].label}`)}
+              </Link>
+            </div>
+          ))}
+          {user !== null && (
+            <Link
+              href={"/dashboard"}
+              onClick={onToggleNav}
+              className="block py-4 text-center"
+            >
+              {t(`headerNavLinks:dashboard`)}
+            </Link>
           )}
-          {/* <Link
-              href={links.home}
-              className="block text-center py-4"
-              onClick={onToggleNav}
-            >
-              {t("headerNavLinks:home")}
-            </Link>
-          </div>
-          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
-            <Link
-              href={links.blog}
-              className="block text-center py-4"
-              onClick={onToggleNav}
-            >
-              {t("headerNavLinks:blog")}
-            </Link>
-          </div>
-          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
-            <Link
-              href={links.tags}
-              className="block text-center py-4"
-              onClick={onToggleNav}
-            >
-              {t("headerNavLinks:tags")}
-            </Link>
-          </div>
-          <div className="border-b w-full border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-bold ">
-            <Link
-              href={links.projects}
-              className="block text-center py-4"
-              onClick={onToggleNav}
-            >
-              {t("headerNavLinks:projects")}
-            </Link>
-          </div> */}
         </nav>
       </div>
     </div>
