@@ -2,6 +2,7 @@ import { useAuth } from "@/lib/auth/auth";
 import initStripe from "stripe";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import Link from "next/link";
 const Pricing = ({ plans }) => {
   const { user, isLoading } = useAuth();
 
@@ -33,7 +34,9 @@ const Pricing = ({ plans }) => {
               )}
               {showCreateAccountButton && <button>Create Account</button>}
               {showManageSubscriptionButton && (
-                <button>Manage Subscription</button>
+                <Link href="/dashboard">
+                  <a>Manage Subscription</a>
+                </Link>
               )}
             </div>
           )}
