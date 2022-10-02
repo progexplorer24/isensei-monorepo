@@ -15,13 +15,13 @@ const isDevelopment = process.env.NODE_ENV === "development";
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app https://www.youtube.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app https://www.youtube.com js.stripe.com https://checkout.stripe.com;
   style-src 'self' 'unsafe-inline';
-  img-src * blob: data:;
+  img-src * blob: data: https://*.stripe.com;
   media-src 'none';
   connect-src *;
   font-src 'self';
-  frame-src *.codesandbox.io giscus.app https://www.youtube.com;
+  frame-src *.codesandbox.io giscus.app https://www.youtube.com  https://checkout.stripe.com https://js.stripe.com;
 `;
 
 const securityHeaders = [

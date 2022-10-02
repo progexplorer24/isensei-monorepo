@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import axios from "axios";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ supabase, ...props }) => {
   const [view, setView] = useState(VIEWS.SIGN_IN);
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const activeSession = supabase.auth.session();
@@ -22,6 +23,7 @@ export const AuthProvider = ({ supabase, ...props }) => {
           ...sessionUser,
           ...profile,
         });
+        setIsLoading(false);
       } else {
         setUser(null);
       }
@@ -58,12 +60,20 @@ export const AuthProvider = ({ supabase, ...props }) => {
     };
   }, []);
 
+  useEffect(() => {
+    axios.post("/api/set-auth-cookie", {
+      event: user ? "SIGNED_IN" : "SIGNED_OUT",
+      session: supabase.auth.session(),
+    });
+  }, [user]);
+
   return (
     <AuthContext.Provider
       value={{
         session,
         user,
         view,
+        isLoading,
         signOut: () => supabase.auth.signOut(),
       }}
       {...props}

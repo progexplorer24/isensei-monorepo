@@ -1,5 +1,21 @@
+import { useAuth } from "@/lib/auth/auth";
 import initStripe from "stripe";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 const Pricing = ({ plans }) => {
+  const { user, isLoading } = useAuth();
+
+  const processSubscription = (planId) => async () => {
+    const { data } = await axios.get(`/api/subscription/${planId}`);
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+    console.log("Data", { data: data.id });
+    await stripe.redirectToCheckout({ sessionId: data.id });
+  };
+
+  const showSubscribeButton = !!user && !user.is_subscribed;
+  const showCreateAccountButton = !user;
+  const showManageSubscriptionButton = !!user && user.is_subscribed;
+
   return (
     <div className="mx-auto flex w-full max-w-3xl justify-around py-16">
       {plans.map((plan) => (
@@ -8,6 +24,19 @@ const Pricing = ({ plans }) => {
           <p className="text-gray-500">
             {plan.price / 100} / {plan.interval}
           </p>
+          {!isLoading && (
+            <div>
+              {showSubscribeButton && (
+                <button onClick={processSubscription(plan.id)}>
+                  Subscribe
+                </button>
+              )}
+              {showCreateAccountButton && <button>Create Account</button>}
+              {showManageSubscriptionButton && (
+                <button>Manage Subscription</button>
+              )}
+            </div>
+          )}
         </div>
       ))}
     </div>
