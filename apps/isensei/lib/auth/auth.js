@@ -67,6 +67,21 @@ export const AuthProvider = ({ supabase, ...props }) => {
     });
   }, [user]);
 
+  useEffect(() => {
+    if (user) {
+      const subscription = supabase
+        .from(`profile:id=eq.${user.id}`)
+        .on("UPDATE", (payload) => {
+          setUser({ ...user, ...payload.new });
+        })
+        .subscribe();
+
+      return () => {
+        supabase.removeSubscription(subscription);
+      };
+    }
+  }, [user]);
+
   return (
     <AuthContext.Provider
       value={{

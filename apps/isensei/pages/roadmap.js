@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+// Notion API page example
 const Roadmap = ({ roadmap }) => {
   return <pre>{JSON.stringify(roadmap, null, 2)}</pre>;
 };
@@ -11,11 +12,11 @@ export const getStaticProps = async () => {
     block_id: process.env.PAGE_ID,
   });
 
-  console.log(notion);
+  const pages = data.results.filter((result) => result.type === "child_page");
 
   return {
     props: {
-      roadmap: data,
+      roadmap: pages,
     },
   };
 };
