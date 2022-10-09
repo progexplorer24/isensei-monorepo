@@ -3261,6 +3261,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codesandbox/sandpack-client@npm:^1.12.1":
+  version: 1.12.1
+  resolution: "@codesandbox/sandpack-client@npm:1.12.1"
+  dependencies:
+    codesandbox-import-utils: ^1.2.3
+    lodash.isequal: ^4.5.0
+  checksum: bfe607831e2d33b25c07fd30be9fbb6e3982e52cbc197ccbc9d7241dc9844d3f6682520cbd4b2dab0c268b07b86d638be53f5ea5d965f360ef4786b3809e5721
+  languageName: node
+  linkType: hard
+
 "@codesandbox/sandpack-client@npm:^1.2.2":
   version: 1.2.2
   resolution: "@codesandbox/sandpack-client@npm:1.2.2"
@@ -3271,13 +3281,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codesandbox/sandpack-client@npm:^1.5.4":
-  version: 1.5.4
-  resolution: "@codesandbox/sandpack-client@npm:1.5.4"
+"@codesandbox/sandpack-react@npm:^1.14.2":
+  version: 1.14.2
+  resolution: "@codesandbox/sandpack-react@npm:1.14.2"
   dependencies:
-    codesandbox-import-utils: ^1.2.3
+    "@code-hike/classer": ^0.0.0-aa6efee
+    "@codemirror/closebrackets": ^0.19.0
+    "@codemirror/commands": ^0.19.6
+    "@codemirror/comment": ^0.19.0
+    "@codemirror/gutter": ^0.19.9
+    "@codemirror/highlight": ^0.19.6
+    "@codemirror/history": ^0.19.0
+    "@codemirror/lang-css": ^0.19.3
+    "@codemirror/lang-html": ^0.19.4
+    "@codemirror/lang-javascript": ^0.19.3
+    "@codemirror/language": ^0.19.7
+    "@codemirror/matchbrackets": ^0.19.3
+    "@codemirror/state": ^0.19.6
+    "@codemirror/view": ^0.19.32
+    "@codesandbox/sandpack-client": ^1.12.1
+    "@react-hook/intersection-observer": ^3.1.1
+    "@stitches/core": ^1.2.6
+    clean-set: ^1.1.2
+    codesandbox-import-util-types: ^2.2.3
     lodash.isequal: ^4.5.0
-  checksum: d99367308af8d1f2b5fd9609a219a8bc3de09b3c9395b424d2c3bf6229245f85ae8979078a1178cf49b556d962545fb337db4df2d85fa393462906f08ef53a49
+    lz-string: ^1.4.4
+    react-devtools-inline: 4.4.0
+    react-is: ^17.0.2
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+    react-dom: ^16.8.0 || ^17 || ^18
+  checksum: 95493f25333f9d088d516378c95e8da7a12a1e093240b06e0ebaa91e6966e07699732d71fe1e1399ccfc3b042b7a2b8f20db2a6e15382c05a15fcf439391b14e
   languageName: node
   linkType: hard
 
@@ -3312,40 +3346,6 @@ __metadata:
     react: ^16.8.0 || ^17 || ^18
     react-dom: ^16.8.0 || ^17 || ^18
   checksum: aab114773e0e7b5ad26bdae938407d3ca79204fa83fa907e39fbf2841a524fe8f647c27d0ec0363af01f91596168f5cd651fc83d091cfeec861fcb99d698c229
-  languageName: node
-  linkType: hard
-
-"@codesandbox/sandpack-react@npm:^1.5.5":
-  version: 1.5.5
-  resolution: "@codesandbox/sandpack-react@npm:1.5.5"
-  dependencies:
-    "@code-hike/classer": ^0.0.0-aa6efee
-    "@codemirror/closebrackets": ^0.19.0
-    "@codemirror/commands": ^0.19.6
-    "@codemirror/comment": ^0.19.0
-    "@codemirror/gutter": ^0.19.9
-    "@codemirror/highlight": ^0.19.6
-    "@codemirror/history": ^0.19.0
-    "@codemirror/lang-css": ^0.19.3
-    "@codemirror/lang-html": ^0.19.4
-    "@codemirror/lang-javascript": ^0.19.3
-    "@codemirror/lang-markdown": ^0.19.3
-    "@codemirror/language": ^0.19.7
-    "@codemirror/matchbrackets": ^0.19.3
-    "@codemirror/state": ^0.19.6
-    "@codemirror/view": ^0.19.32
-    "@codesandbox/sandpack-client": ^1.5.4
-    "@react-hook/intersection-observer": ^3.1.1
-    "@stitches/core": ^1.2.6
-    codesandbox-import-util-types: ^2.2.3
-    lodash.isequal: ^4.5.0
-    lz-string: ^1.4.4
-    react-devtools-inline: 4.4.0
-    react-is: ^17.0.2
-  peerDependencies:
-    react: ^16.8.0 || ^17 || ^18
-    react-dom: ^16.8.0 || ^17 || ^18
-  checksum: 37b96ebf349f3943731aeae1b1626bce5917cbacdf6c23294e0196ff6527c99f4157b9b654abf75f6441dcd95d518bc04d35574c6891fa92bc42dc9eb23c097b
   languageName: node
   linkType: hard
 
@@ -7047,6 +7047,13 @@ __metadata:
   dependencies:
     source-map: ~0.6.0
   checksum: 29e15ef4678e1eb571546128cb7a922c5301c1bd12ee30a6e8141c72789b8130739a9a5b335435a6ee108400336a561ebd9faabe1a7d8808eb48d39cff390cd7
+  languageName: node
+  linkType: hard
+
+"clean-set@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "clean-set@npm:1.1.2"
+  checksum: 1bd86cc20a1f5834b2e081f96b4336c4619b8eb842392b496b748d63e1ee58aa1959aa13cd392e96988600e105b9067d29082a13ae80f3b92d55c0474c0fda08
   languageName: node
   linkType: hard
 
@@ -11674,7 +11681,7 @@ __metadata:
   resolution: "isensei-blog@workspace:apps/isensei"
   dependencies:
     "@code-hike/mdx": ^0.7.4
-    "@codesandbox/sandpack-react": ^1.5.5
+    "@codesandbox/sandpack-react": ^1.14.2
     "@headlessui/react": ^1.6.6
     "@isensei/tailwind-config": "*"
     "@isensei/tsconfig": "*"
