@@ -3,138 +3,66 @@
 import * as Caml_array from "rescript/lib/es6/caml_array.js";
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.bs.js";
 
-Cypress$IsenseiMonorepo.context("Cookies", function (param) {
-  Cypress$IsenseiMonorepo.beforeEach(function (param) {
-    Cypress.Cookies.debug(true);
-    cy.visit("https://example.cypress.io/commands/cookies", undefined);
-    cy.clearCookies(undefined);
-  });
-  Cypress$IsenseiMonorepo.it(
-    "cy.getCookie() - get a browser cookie",
-    function (param) {
-      cy.get("#getCookie .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHaveProperty(
-        cy.getCookie(
-          "token",
-          Cypress$IsenseiMonorepo.ChildrenOptions.make(
-            undefined,
-            undefined,
-            undefined
-          )
-        ),
-        "value"
-      );
-      return Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(
-        cy.getCookie(
-          "token",
-          Cypress$IsenseiMonorepo.ChildrenOptions.make(
-            undefined,
-            undefined,
-            undefined
-          )
-        ),
-        "value",
-        "123ABC"
-      );
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.getCookies() - get browser cookies",
-    function (param) {
-      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
-      cy.get("#getCookies .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHaveLengthP(
-        cy.getCookies(undefined),
-        1
-      ).should(function (cookies) {
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("name", "token");
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("value", "123ABC");
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("httpOnly", false);
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("secure", false);
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("domain");
-        Cypress$IsenseiMonorepo.expect(
-          Caml_array.get(cookies, 0)
-        ).to.have.property("path");
-      });
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.setCookie() - set a browser cookie",
-    function (param) {
-      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
-      cy.setCookie("foo", "bar", undefined);
-      cy.getCookie("foo", undefined).then(function (cookie) {
-        console.log(cookie);
-      });
-      return Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(
-        cy.getCookie("foo", undefined),
-        "value",
-        "bar"
-      );
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.clearCookie() - clear a browser cookie",
-    function (param) {
-      Cypress$IsenseiMonorepo.shouldBeNull(cy.getCookie("token", undefined));
-      cy.get("#clearCookie .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(
-        cy.getCookie("token", undefined),
-        "value",
-        "123ABC"
-      );
-      cy.clearCookie("token", undefined);
-      Cypress$IsenseiMonorepo.shouldBeNull(cy.getCookie("token", undefined));
-      cy.get("#clearCookie .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(
-        cy.getCookie("token", undefined),
-        "value",
-        "123ABC"
-      );
-      cy.clearCookie(
-        "token",
-        Cypress$IsenseiMonorepo.ChildrenOptions.make(
-          undefined,
-          undefined,
-          undefined
-        )
-      );
-      return Cypress$IsenseiMonorepo.shouldBeNull(
-        cy.getCookie("token", undefined)
-      );
-    }
-  );
-  return Cypress$IsenseiMonorepo.it(
-    "cy.clearCookies() - clear browser cookies",
-    function (param) {
-      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
-      cy.get("#clearCookies .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHaveLength(cy.getCookies(undefined), 1);
-      cy.clearCookies(undefined);
-      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
-      cy.get("#clearCookies .set-a-cookie", undefined).click(undefined);
-      Cypress$IsenseiMonorepo.shouldHaveLength(cy.getCookies(undefined), 1);
-      cy.clearCookies(
-        Cypress$IsenseiMonorepo.ChildrenOptions.make(
-          undefined,
-          undefined,
-          undefined
-        )
-      );
-      return Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
-    }
-  );
-});
+Cypress$IsenseiMonorepo.context("Cookies", (function (param) {
+        Cypress$IsenseiMonorepo.beforeEach(function (param) {
+              Cypress.Cookies.debug(true);
+              cy.visit("https://example.cypress.io/commands/cookies", undefined);
+              cy.clearCookies(undefined);
+              
+            });
+        Cypress$IsenseiMonorepo.it("cy.getCookie() - get a browser cookie", (function (param) {
+                cy.get("#getCookie .set-a-cookie", undefined).click(undefined);
+                Cypress$IsenseiMonorepo.shouldHaveProperty(cy.getCookie("token", Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined)), "value");
+                return Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(cy.getCookie("token", Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined)), "value", "123ABC");
+              }));
+        Cypress$IsenseiMonorepo.it("cy.getCookies() - get browser cookies", (function (param) {
+                Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
+                cy.get("#getCookies .set-a-cookie", undefined).click(undefined);
+                Cypress$IsenseiMonorepo.shouldHaveLengthP(cy.getCookies(undefined), 1).should(function (cookies) {
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("name", "token");
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("value", "123ABC");
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("httpOnly", false);
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("secure", false);
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("domain");
+                      Cypress$IsenseiMonorepo.expect(Caml_array.get(cookies, 0)).to.have.property("path");
+                      
+                    });
+                
+              }));
+        Cypress$IsenseiMonorepo.it("cy.setCookie() - set a browser cookie", (function (param) {
+                Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
+                cy.setCookie("foo", "bar", undefined);
+                cy.getCookie("foo", undefined).then(function (cookie) {
+                      console.log(cookie);
+                      
+                    });
+                return Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(cy.getCookie("foo", undefined), "value", "bar");
+              }));
+        Cypress$IsenseiMonorepo.it("cy.clearCookie() - clear a browser cookie", (function (param) {
+                Cypress$IsenseiMonorepo.shouldBeNull(cy.getCookie("token", undefined));
+                cy.get("#clearCookie .set-a-cookie", undefined).click(undefined);
+                Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(cy.getCookie("token", undefined), "value", "123ABC");
+                cy.clearCookie("token", undefined);
+                Cypress$IsenseiMonorepo.shouldBeNull(cy.getCookie("token", undefined));
+                cy.get("#clearCookie .set-a-cookie", undefined).click(undefined);
+                Cypress$IsenseiMonorepo.shouldHavePropertyWithValue(cy.getCookie("token", undefined), "value", "123ABC");
+                cy.clearCookie("token", Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined));
+                return Cypress$IsenseiMonorepo.shouldBeNull(cy.getCookie("token", undefined));
+              }));
+        return Cypress$IsenseiMonorepo.it("cy.clearCookies() - clear browser cookies", (function (param) {
+                      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
+                      cy.get("#clearCookies .set-a-cookie", undefined).click(undefined);
+                      Cypress$IsenseiMonorepo.shouldHaveLength(cy.getCookies(undefined), 1);
+                      cy.clearCookies(undefined);
+                      Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
+                      cy.get("#clearCookies .set-a-cookie", undefined).click(undefined);
+                      Cypress$IsenseiMonorepo.shouldHaveLength(cy.getCookies(undefined), 1);
+                      cy.clearCookies(Cypress$IsenseiMonorepo.ChildrenOptions.make(undefined, undefined, undefined));
+                      return Cypress$IsenseiMonorepo.shouldBeEmpty(cy.getCookies(undefined));
+                    }));
+      }));
 
-export {};
+export {
+  
+}
 /*  Not a pure module */

@@ -3,121 +3,73 @@
 import * as Curry from "rescript/lib/es6/curry.js";
 import * as Cypress$IsenseiMonorepo from "../../../../packages/bindings/cypress/Cypress.bs.js";
 
-Cypress$IsenseiMonorepo.context("Spies, Stubs, and Clock", function (param) {
-  Cypress$IsenseiMonorepo.it(
-    "cy.spy() - wrap a method in a spy",
-    function (param) {
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      var obj = {
-        foo: function (param) {
-          return "hello";
-        },
-      };
-      var spy = cy.spy(obj, "foo").as("anyArgs");
-      var myStr = Curry._1(obj.foo, undefined);
-      Cypress$IsenseiMonorepo.expect(myStr).equal("hello");
-      Cypress$IsenseiMonorepo.expect(spy).to.be.called;
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.spy() retries until assertions pass",
-    function (param) {
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      var obj = {
-        foo: function (x) {
-          console.log("obj.foo called with", x);
-        },
-      };
-      cy.spy(obj, "foo").as("foo");
-      setTimeout(function (param) {
-        return Curry._1(obj.foo, "first");
-      }, 500);
-      setTimeout(function (param) {
-        return Curry._1(obj.foo, "second");
-      }, 2500);
-      return Cypress$IsenseiMonorepo.shouldHaveBeenCalledTwice(
-        cy.get("@foo", undefined)
-      );
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.stub() - create a stub and/or replace a function with stub",
-    function (param) {
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      var obj = {
-        foo: function (a, b) {
-          console.log("a", a, "b", b);
-        },
-      };
-      var stub = cy.stub(obj, "foo").as("foo");
-      Curry._2(obj.foo, "foo", "bar");
-      Cypress$IsenseiMonorepo.expect(stub).to.be.called;
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.clock() - control time in the browser",
-    function (param) {
-      var now = new Date(Date.UTC(2017, 2, 14)).getTime();
-      cy.clock(now, undefined, undefined);
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      return Cypress$IsenseiMonorepo.shouldHaveText(
-        cy.get("#clock-div", undefined).click(undefined),
-        "1489449600"
-      );
-    }
-  );
-  Cypress$IsenseiMonorepo.it(
-    "cy.clock() - control time in the browser",
-    function (param) {
-      var now = new Date(Date.UTC(2017, 2, 14)).getTime();
-      cy.clock(
-        now,
-        undefined,
-        Cypress$IsenseiMonorepo.LocalStorageOptions.make(undefined, undefined)
-      );
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      return Cypress$IsenseiMonorepo.shouldHaveText(
-        cy.get("#clock-div", undefined).click(undefined),
-        "1489449600"
-      );
-    }
-  );
-  return Cypress$IsenseiMonorepo.it(
-    "cy.tick() - move time in the browser",
-    function (param) {
-      var now = new Date(Date.UTC(2017, 2, 14)).getTime();
-      cy.clock(now, undefined, undefined);
-      cy.visit(
-        "https://example.cypress.io/commands/spies-stubs-clocks",
-        undefined
-      );
-      Cypress$IsenseiMonorepo.shouldHaveText(
-        cy.get("#tick-div", undefined).click(undefined),
-        "1489449600"
-      );
-      cy.tick(10000, undefined);
-      return Cypress$IsenseiMonorepo.shouldHaveText(
-        cy.get("#tick-div", undefined).click(undefined),
-        "1489449610"
-      );
-    }
-  );
-});
+Cypress$IsenseiMonorepo.context("Spies, Stubs, and Clock", (function (param) {
+        Cypress$IsenseiMonorepo.it("cy.spy() - wrap a method in a spy", (function (param) {
+                cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                var obj = {
+                  foo: (function (param) {
+                      return "hello";
+                    })
+                };
+                var spy = cy.spy(obj, "foo").as("anyArgs");
+                var myStr = Curry._1(obj.foo, undefined);
+                Cypress$IsenseiMonorepo.expect(myStr).equal("hello");
+                Cypress$IsenseiMonorepo.expect(spy).to.be.called;
+                
+              }));
+        Cypress$IsenseiMonorepo.it("cy.spy() retries until assertions pass", (function (param) {
+                cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                var obj = {
+                  foo: (function (x) {
+                      console.log("obj.foo called with", x);
+                      
+                    })
+                };
+                cy.spy(obj, "foo").as("foo");
+                setTimeout((function (param) {
+                        return Curry._1(obj.foo, "first");
+                      }), 500);
+                setTimeout((function (param) {
+                        return Curry._1(obj.foo, "second");
+                      }), 2500);
+                return Cypress$IsenseiMonorepo.shouldHaveBeenCalledTwice(cy.get("@foo", undefined));
+              }));
+        Cypress$IsenseiMonorepo.it("cy.stub() - create a stub and/or replace a function with stub", (function (param) {
+                cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                var obj = {
+                  foo: (function (a, b) {
+                      console.log("a", a, "b", b);
+                      
+                    })
+                };
+                var stub = cy.stub(obj, "foo").as("foo");
+                Curry._2(obj.foo, "foo", "bar");
+                Cypress$IsenseiMonorepo.expect(stub).to.be.called;
+                
+              }));
+        Cypress$IsenseiMonorepo.it("cy.clock() - control time in the browser", (function (param) {
+                var now = new Date(Date.UTC(2017, 2, 14)).getTime();
+                cy.clock(now, undefined, undefined);
+                cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                return Cypress$IsenseiMonorepo.shouldHaveText(cy.get("#clock-div", undefined).click(undefined), "1489449600");
+              }));
+        Cypress$IsenseiMonorepo.it("cy.clock() - control time in the browser", (function (param) {
+                var now = new Date(Date.UTC(2017, 2, 14)).getTime();
+                cy.clock(now, undefined, Cypress$IsenseiMonorepo.LocalStorageOptions.make(undefined, undefined));
+                cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                return Cypress$IsenseiMonorepo.shouldHaveText(cy.get("#clock-div", undefined).click(undefined), "1489449600");
+              }));
+        return Cypress$IsenseiMonorepo.it("cy.tick() - move time in the browser", (function (param) {
+                      var now = new Date(Date.UTC(2017, 2, 14)).getTime();
+                      cy.clock(now, undefined, undefined);
+                      cy.visit("https://example.cypress.io/commands/spies-stubs-clocks", undefined);
+                      Cypress$IsenseiMonorepo.shouldHaveText(cy.get("#tick-div", undefined).click(undefined), "1489449600");
+                      cy.tick(10000, undefined);
+                      return Cypress$IsenseiMonorepo.shouldHaveText(cy.get("#tick-div", undefined).click(undefined), "1489449610");
+                    }));
+      }));
 
-export {};
+export {
+  
+}
 /*  Not a pure module */

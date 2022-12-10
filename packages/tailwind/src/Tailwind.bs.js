@@ -58,7 +58,7 @@ function ltr(styles) {
 }
 
 function sm(param) {
-  return minWBreakpoint(640, param);
+            return minWBreakpoint(640, param);
 }
 
 function md(param) {
