@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "@/components/Link";
 import Hero from "@/components/Hero";
 import { PageSEO } from "@/components/SEO";
