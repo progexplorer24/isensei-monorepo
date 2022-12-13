@@ -35,7 +35,7 @@ const Pricing = ({ plans }) => {
               {showCreateAccountButton && <button>Create Account</button>}
               {showManageSubscriptionButton && (
                 <Link href="/dashboard">
-                  <a>Manage Subscription</a>
+                  Manage Subscription
                 </Link>
               )}
             </div>
