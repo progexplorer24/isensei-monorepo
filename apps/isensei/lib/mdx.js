@@ -12,7 +12,7 @@ import remarkFootnotes from "remark-footnotes";
 import remarkMath from "remark-math";
 import remarkExtractFrontmatter from "./remark-extract-frontmatter";
 import remarkCodeTitles from "./remark-code-title";
-import remarkTocHeadings from "./remark-toc-headings";
+// import remarkTocHeadings from "./remark-toc-headings";
 import remarkImgToJsx from "./remark-img-to-jsx";
 import { remarkCodeHike } from "@code-hike/mdx";
 // Rehype packages
@@ -102,7 +102,7 @@ export async function getFileBySlug(type, slug, otherLocale = "") {
       options.remarkPlugins = [
         ...(options.remarkPlugins ?? []),
         remarkExtractFrontmatter,
-        [remarkTocHeadings, { exportRef: toc }],
+        // [remarkTocHeadings, { exportRef: toc }],
         remarkGfm,
         remarkCodeTitles,
         [remarkFootnotes, { inlineNotes: true }],
