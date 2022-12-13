@@ -26,19 +26,10 @@
     "@changesets/cli": "^2.24.2",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
-    "@rescript/react": "^0.10.3",
     "eslint": "^8.21.0",
     "husky": "^8.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "rescript": "^9.1.4",
     "turbo": "^1.4.3"
-  },
-  "dependencies": {
-    "@ryyppy/rescript-promise": "^2.1.0",
-    "bs-css-emotion": "^4.3.0",
-    "bs-webapi": "^0.19.1",
-    "rescript-logger": "^2.2.0",
-    "rescript-nodejs": "^14.3.0"
   }
 }

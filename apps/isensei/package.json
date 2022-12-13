@@ -22,7 +22,6 @@
     "@code-hike/mdx": "^0.7.4",
     "@codesandbox/sandpack-react": "^1.18.0",
     "@headlessui/react": "^1.7.5",
-    "@isensei/ui": "*",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@notionhq/client": "^2.2.2",
     "@prisma/client": "^4.7.1",

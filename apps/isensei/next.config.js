@@ -2,9 +2,10 @@ const bsconfig = require("../../bsconfig.json");
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 const withNextTranslate = require("next-translate");
-const transpileModules = ["rescript", "@isensei/ui"].concat(
-  bsconfig["bs-dependencies"]
-);
+const transpileModules = [];
+// ["rescript", "@isensei/ui"].concat(
+//   bsconfig["bs-dependencies"]
+// );
 const withTM = require("next-transpile-modules")(transpileModules);
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
