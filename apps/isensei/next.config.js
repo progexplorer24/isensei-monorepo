@@ -1,5 +1,3 @@
-const withPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
 const withNextTranslate = require("next-translate");
 const transpileModules = [];
 // const bsconfig = require("../../bsconfig.json");
