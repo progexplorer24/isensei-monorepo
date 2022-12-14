@@ -7,9 +7,7 @@
   "scripts": {
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
-  "keywords": [
-    "rescript"
-  ],
+  "keywords": [],
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
