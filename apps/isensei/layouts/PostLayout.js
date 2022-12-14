@@ -5,7 +5,6 @@ import { BlogSEO } from "@/components/SEO";
 import Image from "@/components/Image";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
-import Comments from "@/components/comments";
 import useTranslation from "next-translate/useTranslation";
 import formatDate from "@/lib/utils/formatDate";
 import { useRouter } from "next/router";
@@ -123,7 +122,6 @@ export default function PostLayout({
                 {` • `}
                 <Link href={editUrl(fileName)}>{t("common:github")}</Link>
               </div>
-              <Comments frontMatter={frontMatter} />
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">

@@ -3042,34 +3042,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:^4.7.1":
-  version: 4.7.1
-  resolution: "@prisma/client@npm:4.7.1"
-  dependencies:
-    "@prisma/engines-version": 4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c
-  peerDependencies:
-    prisma: "*"
-  peerDependenciesMeta:
-    prisma:
-      optional: true
-  checksum: 01ce4c7382d80a1cca256e532a773d982ada9b7f64acd6bb590415634d04305413cee700048287dbf94f09ccf31e19db03a4a6501bfd0a01509f80498ee58121
-  languageName: node
-  linkType: hard
-
-"@prisma/engines-version@npm:4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c":
-  version: 4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c
-  resolution: "@prisma/engines-version@npm:4.7.1-1.272861e07ab64f234d3ffc4094e32bd61775599c"
-  checksum: 66221f1805ce700a4f9f0b6751a291d7114afff9d8b61fd03beb9bbe8b45b037fc67ee0425f45bbad57b7bf95cf649a490d5caaf75a4f3a7e17b3187ea8a6a15
-  languageName: node
-  linkType: hard
-
-"@prisma/engines@npm:4.7.1":
-  version: 4.7.1
-  resolution: "@prisma/engines@npm:4.7.1"
-  checksum: 1660f1d5a6188a9cb9aa5186111910f37b1bc02f09be10336a41e0ec61a18a4193e0ff424077dafb1bf1392a435fc89cec47526a58784a7bdc6c8278adf147a4
-  languageName: node
-  linkType: hard
-
 "@reach/skip-nav@npm:^0.17.0":
   version: 0.17.0
   resolution: "@reach/skip-nav@npm:0.17.0"
@@ -3627,10 +3599,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.14, @types/node@npm:>=10.0.0, @types/node@npm:>=8.1.0":
+"@types/node@npm:*, @types/node@npm:18.11.14, @types/node@npm:>=10.0.0":
   version: 18.11.14
   resolution: "@types/node@npm:18.11.14"
   checksum: 1effaf6d55bbcccde9bca763e6454ebf92047726450256ccc0673bf44e4661fbddcd788b0779bad8a13809b05a7bdcbfba81db0713235478b866d553be864be9
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:>=8.1.0":
+  version: 18.11.15
+  resolution: "@types/node@npm:18.11.15"
+  checksum: cae8692a5cee0316f93ee0342237eb921f70c51afb37c661c711a925a4642654ae7e404c5a80899d481c0cfaff3a6891ef04bacd330a2e72734192bfc91dc2d8
   languageName: node
   linkType: hard
 
@@ -8301,7 +8280,6 @@ __metadata:
     "@isensei/tsconfig": "*"
     "@mailchimp/mailchimp_marketing": ^3.0.80
     "@next/bundle-analyzer": 13.0.6
-    "@prisma/client": ^4.7.1
     "@stripe/stripe-js": ^1.38.1
     "@supabase/auth-helpers-nextjs": ^0.2.8
     "@supabase/auth-helpers-react": ^0.2.4
@@ -8331,7 +8309,6 @@ __metadata:
     next-themes: ^0.2.1
     next-translate: ^1.6.0
     next-transpile-modules: ^10.0.0
-    prisma: 4.7.1
     react: 18.2.0
     react-dom: 18.2.0
     reading-time: 1.5.0
@@ -11047,18 +11024,6 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 4f21a0f1269f76fb36f54e9a8a1ea4c11e27478958bf860661fb4b6d7ac69aac1581f8724fa98ea3585e56d42a2ea317a17ff6e3324f40cb11ff9e20b73785cc
-  languageName: node
-  linkType: hard
-
-"prisma@npm:4.7.1":
-  version: 4.7.1
-  resolution: "prisma@npm:4.7.1"
-  dependencies:
-    "@prisma/engines": 4.7.1
-  bin:
-    prisma: build/index.js
-    prisma2: build/index.js
-  checksum: eb7046a5928f33e484bb2a100f49b613a37bdd83d72aa7e87a4edb38a235b7c44bb9c89bc9116af60950554da06d6ef7c581dd0c637ba2798810485d04da29d4
   languageName: node
   linkType: hard
 

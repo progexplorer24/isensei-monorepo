@@ -61,27 +61,6 @@ const securityHeaders = [
   },
 ];
 
-// NOTE: Pwa config was deleted because it was throwing errors
-// - The root value has an unexpected property, pwa, which is not in the list of allowed properties (amp, analyticsId, assetPrefix, basePath, cleanDistDir,
-//   compiler, compress, crossOrigin, devIndicators, distDir, env, eslint, excludeDefaultMomentLocales, experimental, exportPathMap, future, generateBuildId,
-//   generateEtags, headers, httpAgentOptions, i18n, images, onDemandEntries, optimizeFonts, output, outputFileTracing, pageExtensions, poweredByHeader,
-//   productionBrowserSourceMaps, publicRuntimeConfig, reactStrictMode, redirects, rewrites, sassOptions, serverRuntimeConfig, staticPageGenerationTimeout, swcMinify,
-//   trailingSlash, typescript, useFileSystemPublicRoutes, webpack).
-//   - The root value has an unexpected property, module, which is not in the list of allowed properties (amp, analyticsId, assetPrefix, basePath, cleanDistDir,
-//     compiler, compress, crossOrigin, devIndicators, distDir, env, eslint, excludeDefaultMomentLocales, experimental, exportPathMap, future, generateBuildId,
-//     generateEtags, headers, httpAgentOptions, i18n, images, onDemandEntries, optimizeFonts, output, outputFileTracing, pageExtensions, poweredByHeader,
-//     productionBrowserSourceMaps, publicRuntimeConfig, reactStrictMode, redirects, rewrites, sassOptions, serverRuntimeConfig, staticPageGenerationTimeout,
-//     swcMinify, trailingSlash, typescript, useFileSystemPublicRoutes, webpack).
-// pwa: {
-//   dest: "public",
-//   register: true,
-//   skipWaiting: true,
-//   runtimeCaching,
-//   buildExcludes: [/middleware-manifest\.json$/],
-//   disable: isDevelopment,
-//   mode: "production",
-// },
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -135,8 +114,6 @@ const nextConfig = {
     return config;
   },
 };
-
-// withTM(withNextTranslate(withBundleAnalyzer(nextConfig)));
 
 const plugins = [withTM, withNextTranslate, withBundleAnalyzer];
 module.exports = (_phase, { defaultConfig }) =>

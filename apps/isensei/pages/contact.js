@@ -27,7 +27,7 @@ export default function Projects({ locale, availableLocales }) {
         </div>
         <div className="mt-16 text-gray-200">
           <p className="text-gray-600 dark:text-gray-400">
-            {t("contact:content")}
+            {t("contact:content")} isensei.pl@gmail.com
           </p>
         </div>
       </div>

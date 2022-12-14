@@ -9,7 +9,6 @@ import "@/css/fonts.css";
 import "@/css/katex.min.css";
 import "@code-hike/mdx/dist/index.css";
 import siteMetadata from "@/data/siteMetadata";
-import Analytics from "@/components/analytics";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import RSS from "@/components/Rss";
 import { ClientReload } from "@/components/ClientReload";
@@ -27,7 +26,7 @@ export default function App({ Component, pageProps: { ...pageProps } }) {
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         {isDevelopment && isSocket && <ClientReload />}
-        <Analytics />
+
         <LayoutWrapper>
           <Component {...pageProps} />
         </LayoutWrapper>
